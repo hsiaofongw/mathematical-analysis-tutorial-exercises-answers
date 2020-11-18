@@ -725,14 +725,11 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 
 \noindent 答：
 
-\noindent 一个数列$\{a_n\}$不是基本列，如果：存在$\epsilon_0 > 0$，使得对任意$N \in \mathbb{N}^\star$，对任意$m,n > N, m,n \in \mathbb{N}^\star$，都有
-\begin{equation}
-    |a_n - a_m| \geq \epsilon_0.
-\end{equation}
+\noindent 一个数列$\{ a_n \}$不是基本列，如果存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，存在$n, m > N$，使得$|a_m - a_n| \geq \epsilon_0$．
 
 \noindent 6. 设$a_n \in [a,b]\,(n\in\mathbb{N}^\star)$．证明：如果$\{a_n\}$发散，则$\{a_n\}$必有两个子列收敛于不同的数．
 \begin{proof}
-由于$\{a_n\}$有界，所以$\{a_n\}$的所有子列都有界，假设$\{a_n\}$的所有子列都趋于同一个数，记为$a$，那么，由于$\{a_n\}$自身也可看做是$\{a_n\}$的子列，因此，$\{a_n\}$的极限也是$a$，说明$\{a_n\}$收敛，这与题设矛盾．故如果有界数列$\{a_n\}$发射，那么它必有两个分别收敛到不同极限的子列．
+任取$\{ a_n \}$的两个收敛子列，分别记为$\{ a_{i_n} \}$和$\{ a_{j_n} \}$，由于$\{ a_n \}$发散，所以$\{ a_n \}$不是基本列，那么就存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，都存在$n, m > N$，使得$|a_n - a_m| \geq \epsilon_0$，于是就存在$i_n, j_m > N$，使得$|a_{i_n} - a_{j_m}| \geq \epsilon_0$，这就说明了$\{ a_{i_n} \}$和$\{ a_{j_m} \}$分别收敛到不同的极限．
 \end{proof}
 
 \section*{练习题1.8}
@@ -784,15 +781,32 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 
 \noindent 4. 设在数列$\{ a_n:n\in\mathbb{N}^\star\}$中，既没有最小值，也没有最大值．求证：数列$\{a_n\}$发散．
 \begin{proof}
-采用反证法，假设数列$\{a_n\}$是收敛的，那么由收敛数列的性质知$\{a_n\}$有界，所以集合$\{a_n:n\in\mathbb{N}^\star\}$有界，显然集合$\{a_n:n\in\mathbb{N}^\star\}$是非空的，所以由确界原理可知$\{a_n:n\in\mathbb{N}^\star\}$有上、下确界，设$l$是$\{a_n\}$的下确界，设$u$是$\{a_n\}$的上确界，如果存在某个$n_0 \in \mathbb{N}^\star$，使得$a_{n_0}=u$（或者$a_{n_0}=l$），那么数列$\{a_n\}$的最大值（或者最小值）就是$u$（或者$l$），那么由于这与不存在最大值也不存在最小值的题设矛盾，证明过程将可以到此结束．
+如果数列$\{ a_n \}$是无界的，譬如说，不存在上界，那么我们可以从中找出一个趋于正无穷的子列，于是$\{a_n \}$发散．
 
-\noindent 而假如对任意$n\in\mathbb{N}^\star$，都有$a_n \neq u$，那么$u$一定是数列$\{a_n\}$的极限，记$\{a_n\}$的极限为$a$，否则假如$u \neq a$，那么根据极限的定义，存在$\epsilon_0 > 0$，使得对任意$N \in \mathbb{N}^\star$，对任意$n > N$都有$|a_n - u| > \epsilon_0$，于是对任意$x \in \{a_n:n\in\mathbb{N}^\star\}$都有$|x-u|>\epsilon_0$，这显然与上确界的定义违背，同理，如果对任意$n\in\mathbb{N}^\star$，都有$a_n \neq l$，那么$l$是$\{a_n\}$的极限，由于$\{a_n\}$的极限唯一，所以有$a=l=u$，由于对任意$x,y \in \{a_n:n\in\mathbb{N}^\star\}$都有$x \leq u = l \leq y$，所以$x \leq y$，又由于$x \geq l = u \geq y$，所以$x \geq y$，由此得$x=y$，由此推出$\{a_n\}$是常数列，它的每一个元素都可以作为最大值或最小值，矛盾．
+\noindent 根据确界原理，$\{a_n\}$有上确界和下确界，分别记为$u$和$l$，由于$u$是$\{ a_n \}$的上确界，所以对任意$\epsilon > 0$，存在$i_1 \in \nat$，使得$u - a_{i_1} < \epsilon$，又因为$\{ a_n \}$是不存在最大值的，于是就存在$i_2 \in \nat$，使得$a_{i_1} < a_{i_2} < u$，类似地，我们可以找出一系列的下标$i_1, i_2, i_3, i_4, \cdots \in \nat$，它们满足
+\begin{equation}
+    a_{i_1} < a_{i_2} < a_{i_3} < a_{i_4} < \cdots < u
+\end{equation}
+并且对以上这两个不等式做放缩可得
+\begin{equation}
+    0 < \cdots < u - a_{i_4} < u - a_{i_3} < u - a_{i_2} < u - a_{i_1} < \epsilon
+\end{equation}
+这样一来，我们就找到了一个趋于$u$的子列，它就是$\{ a_{i_n} \}$．
 
-\noindent 在题目给定的条件下假设$\{a_n\}$收敛总会推出矛盾，根据反证法的原理，数列$\{a_n\}$必然是收敛的．
+\noindent 由于$l$是下确界，所以对任意$\epsilon > 0$，都存在$j_1 \in \nat$，使得$a_{j_1} - l < \epsilon$，由于$\{ a_n \}$不存在最小值，所以一定存在$j_2 \in \nat$使得
+\begin{equation}
+    a_{j_1} > a_{j_2} > l
+\end{equation}
+类似地，总能找出一系列的下标$j_1, j_2, j_3, \cdots$，满足
+\begin{equation}
+    a_{j_1} > a_{j_2} > a_{j_3} > \cdots > l
+\end{equation}
+对以上这两个不等式做放缩，得到
+\begin{equation}
+    \epsilon > a_{j_1} - l > a_{j_2} - l > a_{j_3} - l > \cdots > 0
+\end{equation}
+这样我们就找到了一个趋于$l$的子列，它就是$\{ a_{j_m} \}$．如果$u = m$，也就是$\{ a_n \}$的上确界等于下确界，那么将可以推出$\{ a_n \}$是常数列，这时每一个$a_n$都可以当成最大值（最小值），这与题设矛盾，所以$u \neq l$，所以$\{ a_{i_n} \}$和$\{ a_{j_m} \}$是$\{ a_n \}$的两个趋向不同极限的子列，所以$\{ a_n \}$发散．
 \end{proof}
 
-\noindent 5. 试用定理1.8.1证明中使用的``二分法''，证明定理1.7.1(Bolzano---Weierstrass定理)．
-\begin{proof}
-设数列$\{a_n\}$有界，设$u$是$\{a_n\}$的一个上界，令$q_1 = u$，任取$ x \in \{a_n\}$，令$p_1 = x$，令$I_1 = [p_1, q_1]$，如果闭区间$[\displaystyle\frac{p_1+q_1}{2}, q_1]$中有$\{a_n\}$的元素，那么令$p_2 = \displaystyle \frac{p_1+q_1}{2}$，并且$q_2 = q_1$，否则闭区间$[p_1, \displaystyle\frac{p_1+q_1}{2}]$一定有$\{a_n\}$的元素，于是令$q_2 = \displaystyle \frac{p_1+q_1}{2}$并且令$p_2 = p_1$，然后令$I_2 = [p_2, q_2]$．假设按照上述方法已经构造出了闭区间$I_{n-1}$，记为$I_{n-1} = [p_{n-1}, q_{n-1}]$，接下来这样构造闭区间$I_n$：首先考察闭区间$[\displaystyle\frac{p_{n-1}+q_{n-1}}{2}, q_{n-1}]$中是否有$\{a_n\}$的元素，如果有，那么令$p_n = \displaystyle\frac{p_{n-1}+q_{n-1}}{2}, q_n = q_{n-1}, I_n = [p_n, q_n]$，如果闭区间$[\displaystyle\frac{p_{n-1}+q_{n-1}}{2},q_{n-1}]$中没有$\{a_n\}$的元素，那么闭区间$[p_{n-1},\displaystyle\frac{p_{n-1}+q_{n-1}}{2}]$中一定有$\{a_n\}$的元素，于是令$p_n = p_{n-1}$，$q_n = \displaystyle\frac{p_{n-1}+q_{n-1}}{2}$，以及$I_n = [p_n, q_n]$．显然，对任意$n \in \mathbb{N}^\star$，总有$p_{n-1} \leq p_n$，并且每一个这样的闭区间$I_n, \, n=1,2,3,\cdots$中都包含有$\{a_n\}$的元素，
-\end{proof}
+% \noindent 5. 试用定理1.8.1证明中使用的``二分法''，证明定理1.7.1(Bolzano---Weierstrass定理)．
 \end{document}
