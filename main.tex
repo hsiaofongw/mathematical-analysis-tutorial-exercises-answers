@@ -953,6 +953,22 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &= \frac{1}{\displaystyle\lim_{n \to \infty} \ln \, \left(\left(1+\displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} = \frac{1}{\ln \, \displaystyle\lim \left( \left( 1 + \displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} = \frac{1}{\ln \, \mathrm{e}} = \frac{1}{1} = 1.
 \end{align}
 
+\noindent 2. 计算极限$\displaystyle\lim_{n \to \infty} \left( n! \right)^{1/n^2}$．（提示：取对数）．
 
+\noindent 2. 解：
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \exp \{ \, \ln \, \left( (n!)^{1/n^2}\right) \} = \lim_{n \to \infty} \exp \{ \, \displaystyle\frac{1}{n^2} \displaystyle\sum_{i=1}^{n} \ln \, i \, \}
+\end{align}
+令
+\begin{align}
+    a_n = \sum_{i=1}^n \ln \, i,  \;\; b_n = n^2
+\end{align}
+那么就有
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \exp \, \{ \, \displaystyle\frac{1}{n^2} \displaystyle\sum_{i=1}^{n} \ln \, i \, \} = \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{a_n}{b_n} \,\, \} \\
+    &= \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{a_{n+1}-a_n}{b_{n+1}-b_n} \,\, \} = \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{\ln \, \left(n+1\right) - \ln \, n}{2n + 1} \,\, \} \\
+    &= \exp \, \{ \, \displaystyle\lim_{n \to \infty} \ln \, \left( 1 + \displaystyle\frac{1}{n} \right)^{\frac{1}{2n+1}} \,\, \} = \exp \, \{ \, \ln \, \displaystyle\lim_{n \to \infty} \left( 1 + \displaystyle\frac{1}{n} \right)^{\frac{1}{2n+1}} \,\, \} \\
+    &= \exp \, \{ \, \ln \, 1 \,\, \} = \exp \, 0 = 1.
+\end{align}
 
 \end{document}
