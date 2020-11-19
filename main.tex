@@ -15,7 +15,11 @@
 \usepackage{IEEEtrantools}
 \usepackage{array}
 \usepackage{tabularx}
+\usepackage{mdframed}
+\usepackage{lipsum}
 \pagestyle{plain}
+
+\newmdtheoremenv{theo}{定理}
 
 \theoremstyle{definition}
 \newtheorem{definition}{定义}
@@ -970,5 +974,69 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &= \exp \, \{ \, \displaystyle\lim_{n \to \infty} \ln \, \left( 1 + \displaystyle\frac{1}{n} \right)^{\frac{1}{2n+1}} \,\, \} = \exp \, \{ \, \ln \, \displaystyle\lim_{n \to \infty} \left( 1 + \displaystyle\frac{1}{n} \right)^{\frac{1}{2n+1}} \,\, \} \\
     &= \exp \, \{ \, \ln \, 1 \,\, \} = \exp \, 0 = 1.
 \end{align}
+
+\noindent 3. 计算极限
+\begin{equation}
+    \lim_{n\to\infty} \frac{1^2 + 3^2 + \cdots + (2n-1)^2}{n^3}.
+\end{equation}
+
+\noindent 3. 解：令
+\begin{align}
+    a_n &= 1^2 + 3^2 + \cdots + (2n-1)^2 \\
+    b_n &= n^3
+\end{align}
+那么
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{(2n+1)^2}{3n^2 + 3n + 1} = \lim_{n \to \infty} \frac{4n^2 + 4n + 1}{3n^2 + 3n + 1} \\
+    &= \lim_{n \to \infty} \frac{4 + \displaystyle\frac{4}{n} + \displaystyle\frac{1}{n^2}}{3 + \displaystyle\frac{3}{n} + \frac{1}{n^2}} = \frac{\displaystyle\lim_{n \to \infty} \left(4 + \displaystyle\frac{4}{n} + \displaystyle\frac{1}{n^2}\right)}{\displaystyle\lim_{n \to \infty} \left(3 + \displaystyle\frac{3}{n} + \displaystyle\frac{1}{n^2}\right)} = \frac{4}{3}.
+\end{align}
+
+\noindent 4. 设$\displaystyle\lim_{n \to \infty} a_n = a$．证明：
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_1 + 2a_2 + \cdots + na_n}{n^2} = \frac{a}{2}.
+\end{equation}
+
+\begin{proof}
+令
+\begin{align}
+    b_n &= a_1 + 2a_2 + \cdots + na_n \\
+    c_n &= n^2
+\end{align}
+于是
+\begin{align}
+    \text{左边} &= \lim_{n \to \infty} \frac{b_n}{c_n} = \lim_{n \to \infty} \frac{b_{n} - b_{n-1}}{c_{n} - c_{n-1}} = \lim_{n \to \infty} \frac{n a_n}{2n - 1} = \lim_{n \to \infty} \frac{a_n}{2 - \displaystyle\frac{1}{n}} \\
+    &= \frac{\displaystyle\lim_{n \to \infty} a_n}{\displaystyle\lim_{n \to \infty} \left(2 - \displaystyle\frac{1}{n}\right)} = \frac{a}{2} = \text{右边}.
+\end{align}
+\end{proof}
+
+\begin{theo}[Stolz]
+设$\{b_n \}$是严格递增且趋于$+\infty$的数列，那么
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n}{b_n} = A
+\end{equation}
+的充分不必要条件是
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n - a_{n-1}}{b_{n} - b_{n-1}} = A.
+\end{equation}
+\end{theo}
+
+\noindent 5. 举例说明Stolz定理的逆命题不成立．
+
+\begin{proof}
+取
+\begin{align}
+    a_n &= n^2 + n \cdot (-1)^n \\
+    b_n &= n^2
+\end{align}
+那么$\{ a_n \}, \{ b_n \}$符合Stolz条件，并且
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n}{b_n} = 1
+\end{equation}
+但是
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_{n} - a_{n-1}}{b_{n} - b_{n-1}} = +\infty
+\end{equation}
+这就证明了，在Stolz定理中：$\displaystyle\lim_{n \to \infty} \frac{a_n - a_{n-1}}{b_n - b_{n-1}} = A$不是$\displaystyle\lim_{n \to \infty} \frac{a_n}{b_n} = A$的必要条件．
+\end{proof}
 
 \end{document}
