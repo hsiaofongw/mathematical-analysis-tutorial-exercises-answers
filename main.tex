@@ -47,6 +47,8 @@
 \newcommand{\integer}{\mathbb{Z}}
 \newcommand{\ulimit}{\mathop{\underset{n \to \infty}{\lim \sup}} \,}
 \newcommand{\llimit}{\mathop{\underset{n \to \infty}{\lim \inf}} \,}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\irrational}{\mathbb{R\setminus Q}}
 
 
 \begin{document}
@@ -1038,5 +1040,120 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 这就证明了，在Stolz定理中：$\displaystyle\lim_{n \to \infty} \frac{a_n - a_{n-1}}{b_n - b_{n-1}} = A$不是$\displaystyle\lim_{n \to \infty} \frac{a_n}{b_n} = A$的必要条件．
 \end{proof}
+
+\section*{练习题2.1}
+\noindent 1. 设$A = \{ a, b, c, d \}$．证明有唯一的映射：$f: A \to A$满足下列条件：
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\begin{enumerate}
+    \item $f(a) = b, f(c) = d$;
+    \item $( f \circ f ) (x) = x$对一切$x \in A$成立．
+\end{enumerate}
+
+\begin{proof}
+任取$A$到$A$的两个映射：$f: A \to A, \, g: A \to A$，设$f, g$都满足条件（１）、（２），我们去验证$f$与$g$相等：
+\begin{align}
+    &f(a) = b, \, g(a) = b \, \implies f(a) = g(a) \\
+    &f(b) = f(f(a)) = (f \circ f)(a) = a, \, g(b) = g(g(a)) = (g \circ g)(a) = a \, \implies f(b) = g(b) \\
+    &f(c) = d, \, g(c) = d \, \implies f(c) = g(c) \\
+    &f(d) = f(f(c)) = (f \circ f)(c) = c, \, g(d) = g(g(c)) = (g \circ g)(c) = c \, \implies f(d) = g(d)
+\end{align}
+从而$\forall x \in A, f(x) = g(x)$，从而$f = g$，从而这样的映射是唯一的．
+\end{proof}
+
+\noindent 2. 设映射$f$满足$(f \circ f)(a) = a$，求$f^n (a)$．
+\begin{proof}
+当$n=2$时
+\begin{equation}
+    f^2 (a) = (f \circ f)(a) = a
+\end{equation}
+由此可知当$n=2$时$f^2 (a) = a$成立，现假设对某个$k \in \nat$，当$n = 2(k-1)$时$f^n (a) = a$成立，于是
+\begin{align}
+f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \circ f) \circ f^{2(k-1)})(a) = (f^2 \circ f^{2(k-1)})(a) \\
+&= f^2 (f^{2(k-1)}(a)) = f^2 (a) = a
+\end{align}
+这说明对于$n = 2k$命题也成立，那么根据数学归纳法原理，对任意正偶数$n$，$f^n (a) = a$成立．
+\end{proof}
+
+\noindent 解：对于$n=1$，有$f^1 (a) = f(a)$，对于任意正偶数$n$，有$f^n (a) = a$，对任意大于等于$3$的正奇数$n$，$n$可被表示为$n=2k+1, k \in \nat$，于是有
+\begin{equation}
+    f^{n}(a) = \begin{cases}
+        a, & n\text{为正偶数}; \\
+        f(a), & n\text{为正奇数}.
+    \end{cases}
+\end{equation}
+
+\noindent 3. 定义映射$D: \real \to \{ 0, 1 \}$如下：
+\begin{equation}
+    D(x) = \begin{cases}
+        1, & \text{当}x\text{为有理数时}, \\
+        0, & \text{当}x\text{为无理数时}.
+    \end{cases}
+\end{equation}
+\begin{enumerate}
+    \item 求复合映射$D \circ D$;
+    \item 求$D^{-1}(\{0\}), D^{-1}(\{1\}), D^{-1}(\{0,1\})$.
+\end{enumerate}
+
+\noindent (1) 解：任取$x \in \real$，如果$x$为有理数，那么
+\begin{equation}
+    D(x) = 1, \quad (x\text{为有理数})
+\end{equation}
+那么由于$1$是有理数，所以
+\begin{equation}
+    D(D(x)) = D(1) = 1, \quad (x\text{为有理数})
+\end{equation}
+如果$x$为无理数，那么
+\begin{equation}
+    D(x) = 0, \quad (x\text{为无理数})
+\end{equation}
+那么，由于$0$为有理数，所以
+\begin{equation}
+    D(D(x)) = D(0) = 1, \quad (x\text{为无理数})
+\end{equation}
+所以无论$x$是有理数还是无理数，都有
+\begin{equation}
+    D(D(x)) = (D \circ D)(x) = 1, \quad \forall x \in \real
+\end{equation}
+所以$D \circ D$可写为$D \circ D: \real \to \{ 1 \}$.
+
+\noindent (2) 解：$\real = \mathbb{Q} \bigcup (\real \setminus \mathbb{Q})$并且$\rational \bigcap (\real \setminus \rational) = \emptyset$，$\forall x \in \rational, D(x) = 1$，$\forall x \in \real \setminus \rational, D(x) = 0$，所以$D^{-1}(\{0\}) = \irrational$．同理，$D^{-1}(\{1\}) = \mathbb{Q}$．$D^{-1}(\{0, 1\}) = \real$．
+
+\noindent 4. 设$A$是由$n$个元素组成的集合．若映射$f: A \to A$是单射，则称$f$是$A$的一个排列．
+\begin{enumerate}
+    \item 证明：$f(A) = A$. 
+    \item 证明：$f^{-1}$存在．
+    \item $A$共有多少个排列？
+\end{enumerate}
+
+\noindent (1)
+\begin{proof}
+由于$f: A \to A$是集合$A$到自身的映射，所以$f(A) \subset A$．
+
+\noindent 对任意$x \in A$都应有$x \in f(A)$，否则，假设存在$x_0 \in A$但是$x_0 \not\in f(A)$，那么$| f(A) | < |A| = n$，但是由于$f$是单射并且$|A| = n$，所以$|f(A)| \geq n$，矛盾．所以$A \subset f(A)$．因为$f(A) \subset A$以及$A \subset f(A)$，所以$f(A) = A$．
+\end{proof}
+
+\noindent (2)
+\begin{proof}
+任取$x_0 \in A$，让$x_{1} = f(x_0), x_{m+1} = f(x_m)$，让$m$取遍全体正整数，我们得到一个数列$\{ x_m \}$，它是
+\begin{equation}
+    \{ x_m \} = \{ f(x_0), f(f(x_0)), f(f(f(x_0))), \cdots \}
+\end{equation}
+采用反证法，假设对任意$m \in \nat$，都有$x_m \neq x_0$．那么任取$\{ x_m \}$中的两项$x_i, x_j, i \neq j$，设$ i < j$，事实上，$x_i, x_j$可写成$x_i = f^{i}(x_0), x_j = f^j (x_0)$，如果$x_i = x_j$，那么就有$f^{i}(x_0) = f^{j}(x_0)$，由于$f$是单射，所以就有$f^{i-1}(x_0) = f^{j-1}(x_0)$，反复应用$f$的单射性质，最终会得到$f^{0}(x_0) = f^{j-i}(x_0)$也就是$x_0 = f^{j-i}(x_0)$，但根据假设不可能有$x_0 = f^{j-i}(x_0)$成立，所以也不可能有$x_i = x_j$成立，所以$\{ x_m \}$中任意两项都是两两不等的，从而$\{ x_m \}$有无穷多项，但是，由于$x_{m+1} = f(x_m), x_1 = f(x_0), \forall m \in \nat$，可知$x_m \in f(A) = A, \forall m \in \nat$，也就是说$|A|$有无穷多个元素，矛盾．
+
+\noindent 这就说明，对每一个$x \in A$，都存在$m \in \nat$，使得$f^m (x_0) = x_0$，这就证明了$f^{-1}$是存在的．
+\end{proof}
+
+\noindent 点评：从直觉收到启发，我们发现在$\{ x_n \}$的前$n$项中，应该必然有一项与$x_0$相等，否则经过无数次将$f$反复应用于$x_0$将会``创造''出无穷多个不同的元素，这与$A$是有限集矛盾．
+
+\noindent 或者我们还可以这样理解：想象$A$中的每一个元素是荷塘上的一片荷叶，想象这样一只青蛙，它最开始在编号为$x_0$的荷叶上，青蛙按照$f$的指示从编号为$x_0$的荷叶跳到编号为$f(x_0)$的荷叶，又从编号为$f(x_0)$的荷叶跳到编号为$f(f(x_0))$的荷叶，也就是说第$t$次跳跃就是从编号为$f^{t-1}(x_0)$的荷叶跳到编号为$f^{t}(x_0)$的荷叶，从直觉上理解，我们一定有信心认为，青蛙在经过有限次这样的跳跃后必定会回到最初的编号为$x_0$的荷叶上，否则就说明荷塘中有无穷多片荷叶，这是荒谬的．
+
+\noindent 在群论中，设$S_n$是$n$元置换群，容易证明它是循环群，因此它有生成元，$f$与自身的复合可以看做是$S_n$中任意一个元素自己与自己做加法运算，譬如说，任取$a_0 \in S_n$，我们可以这样定义$f$：
+\begin{align}
+    f: \{1,2,3,\cdots,n\} &\to \{ 1,2,3,\cdots, n\} \\
+    x &\mapsto a_0 x
+\end{align}
+于是$f \circ f$等价于$a \oplus a$，其中$\oplus$是群$S_n$的二元代数运算．这样就将代数结构与排列映射联系了起来．
+
+\noindent (3) 确定了$f$所描述的具体的对应法则，也就知道了$A$有多少个排列．将$A$中的$n$个元素分别记为$x_1, x_2, \cdots, x_n$，为了构造出一种可能的$f$，我们要依次确定$x_1, x_2, \cdots, x_m$的映象，任取其中一个，记做$x_{i_1}$，那么有$n$个元素可作为$x_{i_1}$的映象，从剩下的$n-1$个没有确定映象的元素中再任取一个，记为$x_{i_2}$，有$n-1$个元素可作为$x_{i_2}$的映象，类似地，有$n-2$个元素可作为$x_{i_3}$的映项，这样进行下去，有$2$个元素可作为$x_{i_{n-1}}$的映象，有$1$个元素可作为$x_{i_n}$的映象，按照计数原理，确定$x_{i_1}, x_{i_2}, \cdots, x_{i_n}$这$n$个元素的映象的方式总共有$n \times (n-1) \times \cdots 2 \times 1 = n!$种．因此所有可能的$f$只有$n!$种．因此$A$有$n!$个排列．
 
 \end{document}
