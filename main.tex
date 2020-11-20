@@ -1252,4 +1252,54 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 的系数元组可数，从而$k+1$阶代数数多项式确定的代数数可数，从而依归纳原理，全体代数数可数．
 \end{proof}
 
+\noindent 3. 设$A$是数轴上长度不为零的、互不相交的区间所成的集合（注意：集合$A$的元素是区间）．试证：$A$是至多可数的．
+\begin{proof}
+如果$A$中的唯一元素为整个数轴，或者只用有限多个实数$x_1,x_2,\cdots, x_n \in \real$将整个数轴划分为有限多个区间作为$A$的构成
+\begin{equation}
+    A = \{ (-\infty, x_1), [x_1, x_2), [x_2, x_3), \cdots, [x_{n-1}, x_n), [x_n, +\infty) \}
+\end{equation}
+那么$A$是有限集．如果用可数多个实数$y_1, y_2, y_3, \cdots \in \real$将整个数轴划分为可数多个部分去构成$A$：
+\begin{equation}
+    A = \{ (-\infty, y_1), [y_3, y_4), [y_4, y_5), \cdots, [y_2, +\infty) \}
+\end{equation}
+那么如果我们令
+\begin{equation}
+    f(n) = \begin{cases}
+        (-\infty, y_1), & n = 1, \\
+        (y_2, +\infty), & n = 2, \\
+        [y_{n}, y_{n+1}), & \text{otherwise.}
+    \end{cases}
+\end{equation}
+就得到了$\nat$到$A$的一个双射$f: \nat \longrightarrow A$，从而$A$是至多可数的．
+\end{proof}
+
+\noindent 4. 设$S = \{ (x_1, x_2, \cdots) : x_i = 0 \, \text{或} \, 1, i = 1,2,3,\cdots \}$．求证：$S$与区间$[0,1]$有相等的势．
+
+\begin{proof}
+任取$x \in S$，记$x$为$x = (x_1,x_2,x_3,\cdots)$，令
+\begin{align}
+    (a_1, b_1) &= \begin{cases}
+        (0, 1/2), & x_1 = 0 \\
+        (1/2, 1), & x_1 = 1
+    \end{cases} \\
+    (a_2, b_2) &= \begin{cases}
+        (a_1, \displaystyle\frac{a_1+b_1}{2}), & x_2 = 0 \\
+        (\displaystyle\frac{a_1+b_1}{2}, b_1), & x_2 = 1
+    \end{cases} \\
+    \vdots \\
+    (a_m, b_m) &= \begin{cases}
+        (a_{m-1}, \displaystyle\frac{a_{m-1}+b_{m-1}}{2}), & x_m = 0 \\
+        (\displaystyle\frac{a_{m-1}+b_{m-1}}{2}, b_{m-1}), & x_m = 1 \\
+    \end{cases} \\
+    I_m &= [a_m, b_m] \\
+    m &= 2,3,4,\cdots 
+\end{align}
+我们得一列闭区间套$\{ I_m: m \in \nat \}$满足$I_{m+1} \subset I_m, \forall m \in \nat$，并且$|I_m| \to 0, (m \to \infty)$，依闭区间套定理，存在唯一实数$x^\star \in [0, 1]$，使得$x^\star \in \displaystyle\bigcap_{m=1}^\infty I_m$，这样我们就得到了$S$到$[0,1]$的一个双射：
+\begin{align}
+    f: S &\longrightarrow [0,1] \\
+    x &\longmapsto x^\star
+\end{align}
+从而$S$与$[0,1]$等势．
+\end{proof}
+
 \end{document}
