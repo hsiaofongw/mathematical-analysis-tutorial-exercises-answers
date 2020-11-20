@@ -17,6 +17,7 @@
 \usepackage{tabularx}
 \usepackage{mdframed}
 \usepackage{lipsum}
+\usepackage{tikz-cd}
 \pagestyle{plain}
 
 \newmdtheoremenv{theo}{定理}
@@ -49,6 +50,7 @@
 \newcommand{\llimit}{\mathop{\underset{n \to \infty}{\lim \inf}} \,}
 \newcommand{\rational}{\mathbb{Q}}
 \newcommand{\irrational}{\mathbb{R\setminus Q}}
+\newcommand{\nnat}{\mathbb{N}}
 
 
 \begin{document}
@@ -1183,6 +1185,71 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \end{cases}
 \end{equation}
 因为$f(x_1) = x_2$，所以$f$是非恒等映射，但是对于$x = x_1$或者$x = x_2$，可验证$f \circ f$是恒等映射，对于$x \neq x_1$并且$x \neq x_2$，由于$f(x) = x$，所以$f \circ f(x) = x$，所以$f \circ f$对于任意$x \in A$都是恒等映射．于是对每一个$n \in \nat, n \geq 2$都可构造出这样的非恒等映射$f$使得$f \circ f$为恒等映射．命题得证．
+\end{proof}
+
+\section*{练习题2.2}
+\noindent 1. 在平面直角坐标系中，两坐标均为有理数的点$(x,y)$称为{\bfseries{有理点}}．试证：平面上全体有理点所成的集合是一可数集．
+
+\begin{proof}
+按箭头顺序，可将$\nat \times \nat$中所有元组
+    \begin{equation}
+        \begin{tikzcd}
+            (1,1) & (1,2) & (1,3) & (1,4) & \cdots \\
+            (2,1) \arrow[ur] & (2,2) \arrow[ur] & (2,3) \arrow[ur] & (2,4) & \cdots \\
+            (3,1) \arrow[ur] & (3,2) \arrow[ur] & (3,3) \arrow[ur] & (3,4) & \cdots \\
+            (4,1) \arrow[ur] & (4,2) \arrow[ur] & (4,3) \arrow[ur] & (4,4) & \cdots \\
+            \vdots & \vdots & \vdots & \vdots & \ddots
+        \end{tikzcd}
+    \end{equation}
+写成一行：
+\begin{equation}
+    (1,1), \; (2,1), \; (1,2), \; (3,1), \; (3,2), \; (2,3), \; (1,4), \; (5,1), \; (4,2), \; (3,3), \; (2,4), \; \cdots
+\end{equation}
+这说明$\nat \times \nat$是可数的，那么就存在一个双射$f: \nat \to \nat \times \nat$，不妨记为$f(n) = (x_n, y_n)$，并且$x_n, y_n \in \nat$．由Thm 2.2.3：全体有理数构成的集合$\rational$是可数的，于是就存在一个双射$g: \nat \to \rational$，令
+\begin{align}
+    p: \nat \times \nat &\longrightarrow \rational \times \rational \\
+    (n_1, n_2) &\longmapsto (g(n_1), g(n_2))
+\end{align}
+再令：
+\begin{align}
+    q: \nat &\longrightarrow \rational \times \rational \\
+    n &\longmapsto p(f(n)) = (p \circ f) (n)
+\end{align}
+就得到$\nat$到全体有理数对的一个双射$q$，这说明$\rational \times \rational$是可数的．
+\end{proof}
+
+\noindent 2. 如果复数$x$满足多项式方程
+\begin{equation}
+    a_0 x^n + a_1 x^{n-1} + a_2 x^{n-2} + \cdots + a_{n-1} x + a_{n} = 0,
+\end{equation}
+其中$a_0 \neq 0$，$a_1, \cdots, a_n$都是整数，那么$x$称为{\bfseries{代数数}}．试证：代数数全体是可数集．
+
+\begin{proof}
+每一个一个代数数都可由它的$n+1$个系数所唯一确定，我们只要证明这$n+1$个系数元组可数就行了．采用数学归纳法，对多项式的次数$n$做归纳：当$n=1$时代数数方程为：
+\begin{equation}
+    a_0 x + a_1 = 0
+\end{equation}
+令
+\begin{align}
+    E_1 &= \{ (1,0), (1,1), (1,2), \cdots \} \\
+    E_2 &= \{ (2,0), (2,1), (2,2), \cdots \} \\
+    \vdots \\
+    E_m &= \{ (m,0), (m,1), (m,2), \cdots \} \\
+    m &= 1,2,3,4,5,\cdots
+\end{align}
+则$\nat \times \nnat = \displaystyle\bigcup_{m=1}^{\infty} E_m$，依Thm 2.2.2，$\nat \times \nnat$是可数的，于是全体$n=1$多项式所确定的代数数可数．假设对某个$k \in \nat$，当$n=k$时命题成立，也就是说全体$k$次多项式确定的代数数可数，这就是说，$k$个自然数元组集$\underbrace{\nat \times \nnat \times \cdots \times \nnat}_{k+1\text{个}}$可数，那么，我们令$A = \underbrace{\nat \times \nnat \times \cdots \times \nnat}_{k+1\text{个}}$，再令
+\begin{align}
+    D_1 &= \{ (x_1, x_2, \cdots, x_{k+1}, 0) : (x_1,x_2,\cdots,x_{k+1}) \in A \} \\
+    D_2 &= \{ (x_1, x_2, \cdots, x_{k+1}, 1) : (x_1,x_2,\cdots,x_{k+1}) \in A \} \\
+    \vdots \\
+    D_m &= \{ (x_1, x_2, \cdots, x_{k+1}, m-1) : (x_1,x_2,\cdots,x_{k+1}) \in A \} \\
+    m &= 1,2,3,\cdots
+\end{align}
+由归纳假设$D_m, m=1,2,3,\cdots$都可数，那么，依Thm 2.2.2，$\underbrace{\nat \times \nnat \times \cdots \times \nnat}_{k+2\text{个}}$可数，也就是说，$k+1$阶代数数多项式
+\begin{equation}
+    a_0 x^{k+1} + a_1 x^{k} + \cdots + a_{k} x + a_{k+1} = 0
+\end{equation}
+的系数元组可数，从而$k+1$阶代数数多项式确定的代数数可数，从而依归纳原理，全体代数数可数．
 \end{proof}
 
 \end{document}
