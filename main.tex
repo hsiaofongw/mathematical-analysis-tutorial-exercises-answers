@@ -1332,6 +1332,62 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{align}
 \noindent (4) 解：设定义域为$D$：
 \begin{align}
-    &\mathrel{\phantom{}}
+    &\mathrel{\phantom{\implies}} \forall x \in \real, \exists y \in \real, y = \ln \, \frac{1+\sin \, x}{1+ \cos \, x} \\
+    &\implies \frac{1+\sin \, x}{1+\cos \, x} > 0 \implies (1+\sin \, x)(1+\cos \, x) > 0  \\
+    &\implies 1 + \cos \, x \neq 0 \implies \cos \, x \neq -1 \implies x \not\in \{x : \cos \, x = -1, x \in \real \} \\
+    &\implies x \not\in \{ 2\pi n + \frac{3\pi}{2} : n \in \integer \} \implies D = \real \setminus \{ 2 \pi n + \frac{3 \pi}{2} : n \in \integer \}
 \end{align}
+
+\noindent 2. 给定函数$f: \real \longrightarrow \real$，如果$x \in R$使$f(x)=x$，则称$x$为$f$的一个不动点．若$f \circ  f$有唯一的不动点，求证：$f$也有唯一的不动点．
+
+\begin{proof}
+设$x_0$是$f \circ f$的不动点，依题意，这个$x_0$是唯一的仅此一个．如果$x_0$是$f \circ f$的不动点，那么
+\begin{equation}
+    f(f(f(x_0))) = f(x_0)
+\end{equation}
+这说明$f(x_0)$是$f \circ f$的不动点，而作为$f \circ f$的不动点的$x_0$又是唯一的，所以$f(x_0) = x_0$，所以$f$有唯一的不动点$x_0$．命题得证．
+\end{proof}
+
+\noindent 3. 设$f: \real \longrightarrow \real$．若$f \circ f$有且仅有两个不动点$a, b\,(a \neq b)$，求证只有一下两种情况：
+\begin{enumerate}
+    \item $a, b$都是$f$的不动点；
+    \item $f(a) = b, \, f(b) = a$.
+\end{enumerate}
+
+\begin{proof}
+设$a, b (a \neq b)$是$f \circ f$仅有的为数不多的两个不动点．依题２的证明结论，如果$x$是$f \circ f$的不动点那么$f(x)$必定也是$f \circ f$的不动点，因为$a$是$f \circ f$的不动点，所以$f(a)$是$f \circ f$的不动点，而$f \circ f$的全部不动点构成一个有限集合
+\begin{equation}
+    \{ a, b \}
+\end{equation}
+所以
+\begin{equation}
+    f(a) \in \{a, b \}
+\end{equation}
+如果说$f(a) = a$，那么同理可推出$f(b)=b$，那么$a, b$都是$f$的不动点，否则如果$f(a) = b$那么可同理推出$f(b)=a$．
+\end{proof}
+
+\noindent 4. 设函数$f: \real \longrightarrow \real$，且每一个实数都是$f \circ f$的不动点．试问：
+\begin{enumerate}
+    \item 有几个这样的函数？
+    \item 若$f$在$\real$上递增，有几个这样的函数？
+\end{enumerate}
+
+\noindent (1) 解：４个，分别是：
+\begin{align}
+    f_1(x) &= x \\
+    f_2(x) &= -x \\
+    f_3(x) &= \begin{cases}
+        \displaystyle\frac{1}{x}, & x \neq 0 \\
+        0, & x = 0
+    \end{cases} \\
+    f_4(x) &= \begin{cases}
+        \displaystyle-\frac{1}{x}, & x \neq 0 \\
+        0, & x = 0
+    \end{cases}
+\end{align}
+
+\noindent (2) 解：１个，是
+\begin{equation}
+    f(x) = x.
+\end{equation}
 \end{document}
