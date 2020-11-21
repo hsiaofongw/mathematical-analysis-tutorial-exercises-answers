@@ -1432,4 +1432,35 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     f^{k+1}(x) = f(f^k (x)) = \displaystyle\frac{\displaystyle\frac{x}{1+kbx}}{1+\displaystyle\frac{bx}{1+kbx}} = \displaystyle\frac{x}{1+(k+1)bx}
 \end{equation}
 依数学归纳法原理，对任意$n \in \nnat$命题都成立．
+
+\noindent 6. 设$f: \real \longrightarrow \real$满足方程
+\begin{equation}
+    f(x+y)=f(x)+f(y) \quad (x,y \in \real)
+\end{equation}
+试证：对一切有理数$x$，有$f(x) = xf(1)$.
+
+\begin{proof}
+设$x$是一个非零有理数，那么存在$p, q \in \integer, p, q \neq 0$使得$x = \displaystyle\frac{p}{q}$，于是
+\begin{equation}
+    f(x) = f(\displaystyle\frac{p}{q}) = f(\underbrace{\displaystyle\frac{1}{q}+\cdots+\displaystyle\frac{1}{q}}_{p\text{个}}) = \underbrace{f(\displaystyle\frac{1}{q})+\cdots+f(\displaystyle\frac{1}{q})}_{p\text{个}} = p f(\displaystyle\frac{1}{q})
+    \label{eq:rational1}
+\end{equation}
+让$q$个$f(\displaystyle\frac{1}{q})$相加，得到
+\begin{equation}
+    \underbrace{f(\displaystyle\frac{1}{q})+\cdots+f(\displaystyle\frac{1}{q})}_{q\text{个}} = f(\underbrace{\displaystyle\frac{1}{q}+\cdots+\displaystyle\frac{1}{q}}_{q\text{个}})=f(q \cdot \displaystyle\frac{1}{q}) = f(1)
+\end{equation}
+从而得$\displaystyle\frac{1}{q}=\displaystyle\frac{1}{q}f(1)$，于是代入式(\ref{eq:rational1})得
+\begin{equation}
+    f(x) = p f(\displaystyle\frac{1}{q}) = p \cdot \displaystyle\frac{1}{q}f(1) = \displaystyle\frac{p}{q}f(1)=xf(1)
+\end{equation}
+以上是当$x \neq 0$的情形，如果$x=0$，那么依题意
+\begin{equation}
+    f(0 + 0) = f(0) + f(0)
+\end{equation}
+从而
+\begin{equation}
+    f(0) = 0 = 0 f(1)
+\end{equation}
+于是对一切$x \in \rational$命题成立．
+\end{proof}
 \end{document}
