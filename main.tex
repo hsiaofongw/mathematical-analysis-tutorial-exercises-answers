@@ -1463,4 +1463,88 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 于是对一切$x \in \rational$命题成立．
 \end{proof}
+
+\noindent 7. 设函数$f: \real \longrightarrow \real$，$l$为一正数，如果$f(x+l)=f(x)$对一切$x$成立，则称$f$是周期为$l$的{\bfseries{周期函数}}．如果$f$以任何正数为周期，求证：$f$为常值函数．
+\begin{proof}
+采用反证法，假设$f$不是常值函数，那么就存在$x_1, x_2 \in \real, x_1 < x_2$使得$f(x_1) \neq f(x_2)$，令$d = x_2 - x_1$，那么就有$f(x_1)\neq f(x_2)=f(x_1 + d)$，这与周期函数的定义不符，矛盾．
+\end{proof}
+
+\noindent 8. 试证$\sin \, \left(x^2\right), \sin \, x + \cos \, \sqrt{2}x$均不是周期函数．
+\begin{proof}
+采用反证法，设存在$l > 0$，使得$\sin \, \left(x+l\right)^2=\sin \, \left(x\right)^2$对一切$x \in \real$成立．那么对任意$x \in \real$，有
+\begin{align}
+    \sin \, \left(x+l\right)^2 = \sin \, \left(x\right)^2 &\implies \sin \, \left(x+l\right)^2-\sin \, \left(x\right)^2 = 0 \\
+    &\implies \sin \, \left(x^2 + 2xl + l^2\right) - \sin \, \left(x^2\right) = 0 \\
+    &\implies 2xl+l^2 = 2\pi n, \, n \in \integer \\
+    &\implies x = \frac{\pi n}{l} - \frac{l}{2}
+\end{align}
+可是当$x \not\in \{ \displaystyle\frac{\pi n}{l} - \displaystyle\frac{l}{2} : n \in \integer \}$时，会有$2xl+l^2 \neq 2\pi n$，于是$\sin \, \left(x^2+2xl+l^2\right)^2 \neq \sin \left( x \right)^2$，矛盾．
+\end{proof}
+\begin{proof}
+采用反证法，设存在$l > 0$，使得$\sin \, x + \cos \, \sqrt{2} x$成为一周期为$l$的周期函数．那么，对任意$x \in \real$都有$\sin \, (x + l) + \cos \, (\sqrt{2}(x+l)) = \sin \, x + \cos \, \sqrt{2}x$成立，也就是
+\begin{align}
+    &\mathrel{\phantom{\implies}} \sin \, (x+l) + \cos \, (\sqrt{2}x + \sqrt{2}l) - \sin \, x - \cos \, \sqrt{2} x  = 0 \\
+    &\implies \sin \, x (\cos \, l - 1) + \sin \, l \cos \, x + \cos \, \sqrt{2} x ( \cos \, \sqrt{2} l - 1) - \sin \, \sqrt{2} x \sin \, \sqrt{2} l = 0 \label{eq:irrelavant}
+\end{align}
+考虑函数列$\sin \, x, \cos \, x, \cos \, \sqrt{2}x , \sin \, \sqrt{2} x$的Wronskian行列式：
+\begin{equation}
+    W(x) = \begin{vmatrix}
+        \sin \, x & \cos \, x & \cos \, \sqrt{2} x & \sin \, \sqrt{2} x \\
+        \cos \, x & -\sin \, x & -\sqrt{2} \sin \, \sqrt{2} x & \sqrt{2} \cos \, \sqrt{2} x \\
+        -\sin \, x & -\cos \, x & -2 \cos \sqrt{2} x & -2 \sin \, \sqrt{2} x \\
+        -\cos \, x & \sin \, x & 2\sqrt{2} \sin \, \sqrt{2} x & -2\sqrt{2} \cos \, \sqrt{2} x 
+    \end{vmatrix}
+\end{equation}
+取$x_0 = 0$，去计算$W(x_0)$：
+\begin{align}
+    &W(x_0) = \begin{vmatrix}
+        0 & 1 & 1 & 0  \\
+        1 & 0 & 0 & \sqrt{2} \\
+        0 & -1 & -2 & 0 \\
+        -1 & 0 & 0 & -2\sqrt{2}
+    \end{vmatrix} \xrightarrow{[3] + 2 \times [1]} \begin{vmatrix}
+        0 & 1 & 1 & 0 \\
+        1 & 0 & 0 & \sqrt{2} \\
+        0 & 1 & 0 & 0 \\
+        -1 & 0 & 0 & -2\sqrt{2}
+    \end{vmatrix} \xrightarrow{[4]+[2]} \begin{vmatrix}
+            0 & 1 & 1 & 0 \\
+            1 & 0 & 0 & \sqrt{2} \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} \\
+    &\xrightarrow{[1] + (-1) \times [3]} \begin{vmatrix}
+        0 & 0 & 1 & 0 \\
+        1 & 0 & 0 & \sqrt{2} \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} \xrightarrow{[1] \longleftrightarrow [2]} \begin{vmatrix}
+        1 & 0 & 0 & \sqrt{2} \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} \xrightarrow{[2] \longleftrightarrow [3]} \begin{vmatrix}
+            1 & 0 & 0 & \sqrt{2} \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} \\
+    &\xrightarrow{[1] + [4]} \begin{vmatrix}
+        1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} = -\sqrt{2} \neq 0
+\end{align}
+因此函数列$\sin \, x, \cos \, x, \cos \, \sqrt{2}x , \sin \, \sqrt{2} x$线性无关，因此从式(\ref{eq:irrelavant})右端等于$0$可推出
+\begin{equation}
+    \begin{cases}
+        (\cos \, l) - 1 = 0 \\
+        \sin \, l = 0 \\
+        (\cos \, \sqrt{2} l) - 1 = 0 \\
+        \sin \, \sqrt{2} l = 0
+    \end{cases}
+\end{equation}
+这说明$l = 0$，从而与$l > 0$矛盾，从而不存在这样的$l > 0$使得题设函数成为一周期函数．
+\end{proof}
 \end{document}
