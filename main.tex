@@ -51,6 +51,7 @@
 \newcommand{\rational}{\mathbb{Q}}
 \newcommand{\irrational}{\mathbb{R\setminus Q}}
 \newcommand{\nnat}{\mathbb{N}}
+\newcommand{\expe}{\mathrm{e}}
 
 
 \begin{document}
@@ -1539,12 +1540,152 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 因此函数列$\sin \, x, \cos \, x, \cos \, \sqrt{2}x , \sin \, \sqrt{2} x$线性无关，因此从式(\ref{eq:irrelavant})右端等于$0$可推出
 \begin{equation}
     \begin{cases}
-        (\cos \, l) - 1 = 0 \\
-        \sin \, l = 0 \\
-        (\cos \, \sqrt{2} l) - 1 = 0 \\
-        \sin \, \sqrt{2} l = 0
+        (\cos \, l) - 1 &= 0 \\
+        \sin \, l &= 0 \\
+        (\cos \, \sqrt{2} l) - 1 &= 0 \\
+        \sin \, \sqrt{2} l &= 0
     \end{cases}
 \end{equation}
 这说明$l = 0$，从而与$l > 0$矛盾，从而不存在这样的$l > 0$使得题设函数成为一周期函数．
+\end{proof}
+
+\noindent 9. 设函数$f: (-a, a) \longrightarrow \real$．如果对任何$x \in (-a, a)$，有$f(x) = f(-x)$，则称$f$为偶函数；若$f(x) = -f(-x)$，则称$f$为奇函数．求证：$(-a, a)$上的任何函数均可表示为一个奇函数和一个偶函数之和．
+
+\begin{proof}
+令
+\begin{align}
+    p: (-a, a) \;\; &\longrightarrow \;\; \real \\
+    x \;\; &\longmapsto \;\; \displaystyle\frac{f(x)+f(-x)}{2}
+\end{align}
+再令
+\begin{align}
+    q: (-a, a) \;\; &\longrightarrow \;\; \real \\
+    x \;\; &\longmapsto \;\; \displaystyle\frac{f(x)-f(-x)}{2}
+\end{align}
+则
+\begin{equation}
+    p(-x) = \displaystyle\frac{f(-x)+f(-(-x))}{2} = \displaystyle\frac{f(-x)+f(x)}{2} = \displaystyle\frac{f(x)+f(-x)}{2} = p(x)
+\end{equation}
+这说明$p$在$(-a, a)$上成为一偶函数．又有
+\begin{equation}
+    q(-x) = \displaystyle\frac{f(-x)-f(-(-x))}{2} = \displaystyle\frac{f(-x)-f(x)}{2} = -\displaystyle\frac{f(x)-f(-x)}{2} = -q(x)
+\end{equation}
+这说明$q$在$(-a, a)$上成为一奇函数．并且
+\begin{equation}
+    p(x)+q(x) = \displaystyle\frac{f(x)+f(-x)}{2} + \displaystyle\frac{f(x)-f(-x)}{2} = f(x)
+\end{equation}
+这就将函数$f$表示成了一个偶函数$p$和一个奇函数$q$的和．
+\end{proof}
+
+\noindent 10. 函数
+\begin{equation}
+    \cosh \, x = \frac{\expe^x + \expe^{-x}}{2}, \quad \sinh \, x = \frac{\expe^{x} - \expe^{-x}}{2}
+\end{equation}
+分别称为{\bfseries{双曲正弦}}和{\bfseries{双曲余弦}}．证明：
+\begin{enumerate}
+    \item $\cosh$是偶函数，$\sinh$是奇函数；
+    \item $(\cosh \, x)^2 - (\sinh \, x)^2 = 1 \; (x \in \real)$.
+\end{enumerate}
+
+\begin{proof}
+计算得
+\begin{equation}
+    \cosh \, (-x) = \frac{\expe^{-x} + \expe^{-(-x)}}{2} = \frac{\expe^{-x}+\expe^{x}}{2} = \frac{\expe^x + \expe^{-x}}{2} = \cosh \, x
+\end{equation}
+这说明$\cosh$是偶函数．又有
+\begin{equation}
+    \sinh \, (-x) = \frac{\expe^{-x} - \expe^{-(-x)}}{2} = \frac{\expe^{-x}-\expe^{x}}{2} = - \frac{\expe^{x} - \expe^{-x}}{2} = - \sinh \, x
+\end{equation}
+这说明$\sinh$是奇函数．
+\end{proof}
+
+\begin{proof}
+    \begin{align}
+        \text{左边} &= (\cosh \, x)^2 - (\sinh \, x)^2 = (\cosh \, x + \sinh \, x)(\cosh \, x - \sinh \, x) \\
+        &= \expe^x \cdot \expe^{-x} = \expe^0 = 1 = \text{右边}
+    \end{align}
+\end{proof}
+
+\section*{练习题2.4}
+
+\noindent 1. 用$\epsilon$-$\delta$语言表述$f(x_0 -) = 1$.
+
+\noindent 1. 答：设函数$f$在$x_0 - r, x_0$有定义，$r$为一常数且$r > 0$，设$l$是一个给定的常实数．若对任意$\epsilon > 0$，都存在$\delta \in (0, r)$，使得对所有$x \in (x_0-\delta, x_0)$，都有
+\begin{equation}
+    |f(x) - l| < \epsilon
+\end{equation}
+就说$f$在$x_0$处的左极限存在，写为$f(x_0 -)$．
+
+\noindent 2. 求证：$\displaystyle\lim_{x \to x_0} f(x)$存在当且仅当$f(x_0 -) = f(x_0 +)$为有限数．
+
+\begin{proof}
+必要性．设函数$f$在$x_0$处的极限存在．采用反证法，假设结论不成立，也就是说假设$f(x_0 -)$或者$f(x_0 +)$为非正常数$\infty$，不失一般性，假设$f(x_0 -)$为$+\infty$．
+
+\noindent 那么对任意$M > 0$，都存在$\delta_1 > 0$，使得只要$0 < x_0 - x < \delta_1$，就有
+\begin{equation}
+    f(x) > M + l
+\end{equation}
+取$\epsilon_0 = M$，那么对任意$\delta > 0$，都存在$x$，满足$|x - x_0| < \min \{ \delta_1, \delta \} \leq \delta $并且
+\begin{equation}
+    |f(x) - l| > \epsilon_0 = M
+\end{equation}
+这说明函数$f$在$x_0$处的极限不存在，矛盾．于是必要性得证．
+
+\noindent 充分性．设$f(x_0 -) = f(x_0 +) = c$，$c \in \real$为一非非正常数．由于$f(x_0 -)$存在，所以，对任意$\epsilon > 0$，存在$\delta_1 > 0$，使得只要$0 < x_0 - x < \delta_1$，就有
+\begin{equation}
+    |f(x) - c| < \epsilon
+\end{equation}
+由于$f(x_0 +)$存在，所以对任意$\epsilon > 0$，存在$\delta_2 > 0$，使得只要$0 < x - x_0 < \delta_2$，就有
+\begin{equation}
+    |f(x) - c| < \epsilon
+\end{equation}
+那么只需取$\delta = \min \{ \delta_1, \delta_2 \}$，当$|x - x_0| < \delta$时，必有$0 < x_0 - x < \delta_1$或者$0 < x - x_0 < \delta_2$其中之一是满足的，所以
+\begin{equation}
+    |f(x) - c| < \epsilon
+\end{equation}
+依定义函数$f$在$x_0$处的极限存在并且等于$c = f(x_0 -) = f(x_0 +)$．充分性得证．
+\end{proof}
+
+\noindent 3. 设$\displaystyle\lim_{x \to x_0} f(x) = A$．用$\epsilon$-$\delta$语言证明：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$;
+      \end{tabularx}
+\end{table}
+
+\noindent (1) 
+\begin{proof}
+如果$A > 0$，那么$|A|=A$，并且在$x_0$的一个足够小的邻域内有$f(x) > 0$，也就是$f(x) = |f(x)|$，从而
+\begin{equation}
+    \lim_{x \to x_0} |f(x)| = \lim_{x \to x_0} f(x) = A = |A|
+\end{equation}
+如果$A = 0$，那么依题意有$\displaystyle\lim_{x \to x_0} f(x) = 0$，那么对任意$\epsilon > 0$，存在$\delta > 0$，当$|x - x_0| < \delta$时有
+\begin{equation}
+    |f(x) - 0 | < \epsilon
+\end{equation}
+也就是
+\begin{equation}
+    |f(x)| < \epsilon
+\end{equation}
+也就是
+\begin{equation}
+    |f(x)| - 0 < \epsilon
+\end{equation}
+也就是
+\begin{equation}
+    ||f(x)| - 0| < \epsilon
+\end{equation}
+那么依定义有$\displaystyle\lim_{x \to x_0} |f(x)| = 0$．又因为$A = 0$，所以$|A| = 0$，所以$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$．
+
+\noindent 如果$A < 0$，那么在$x_0$的一个足够小去芯邻域$U_0(x_0, \delta_0), \, \delta_0 > 0$内有$f(x) < 0$，于是有$|f(x)|=-f(x)$，并且$|A|=-a$，从而对任意$\epsilon > 0$，我们有
+\begin{equation}
+    |f(x)| - |A| = -f(x) - (-A) = A - f(x) \leq |A - f(x)| = |f(x) - A| 
+\end{equation}
+而因为$\displaystyle\lim_{x \to x_0} f(x) = A$，所以存在$\delta > 0$，使得只要$|x-x_0|<\min\{\delta_0, \delta \} \leq \delta$就有
+\begin{equation}
+    |f(x)|-|A| \leq |f(x) - A| < \epsilon
+\end{equation}
+从而依定义有$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$．
 \end{proof}
 \end{document}
