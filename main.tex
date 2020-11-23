@@ -1652,7 +1652,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \centering
     \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
        (1)~$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$; & (2)~$\displaystyle\lim_{x \to x_0} f^2(x)=A^2$; \\ [1em]
-       (3)~$\displaystyle\lim_{x \to x_0} \sqrt{f(x)} = \sqrt{A} \, (A > 0)$;
+       (3)~$\displaystyle\lim_{x \to x_0} \sqrt{f(x)} = \sqrt{A} \, (A > 0)$; & (4)~$\displaystyle\lim_{x \to x_0} \sqrt[3]{f(x)} = \sqrt[3]{A}$.
       \end{tabularx}
 \end{table}
 
@@ -1756,4 +1756,77 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 这就说明$\displaystyle\lim_{x \to x_0} \sqrt[3]{f(x)} = \sqrt[3]{A}$．
 \end{proof}
+
+\noindent 4. 用$\epsilon$-$\delta$语言证明：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to 2} x^3 = 8$; & (2)~$\displaystyle\lim_{x \to 3} \frac{x-3}{x^2-9} = \frac{1}{6}$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^4-1}{x-1} = 4$; & (4)~$\displaystyle\lim_{x \to 0} \sqrt{1+2x} = 1$;
+      \end{tabularx}
+\end{table}
+
+\noindent (1)
+\begin{proof}
+因为
+\begin{equation}
+    x^3 - 8 = x^3 - 2^3 = (x-2)(x^2 + 2x + 2^2)
+\end{equation}
+并且因为$\displaystyle\lim_{x \to 2} x = 2$，所以在$2$的足够小的邻域内函数$x \longmapsto x$有界，所以函数$x \longmapsto x^2+2x+2^2$也有界，不妨设函数$x \longmapsto x^2+2x+2^2$在$2$的足够小的邻域内的上界是$M \, (M > 0)$．并且注意到$\displaystyle\lim_{x \to 2} x = 2$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，使得当$|x - 2| < \delta$的时候，有
+\begin{equation}
+    |x - 2| < \frac{\epsilon}{M}
+\end{equation}
+所以
+\begin{equation}
+    |x^3-8|=|(x-2)(x^2+2x+2^2)|=|x-2||x^2+2x+2^2|<\frac{\epsilon}{M}M=\epsilon
+\end{equation}
+所以$\displaystyle\lim_{x \to 2} x^3 = 8$．
+\end{proof} 
+
+\noindent (2)
+由于$x \to 3$不必使得$x = 3$，所以$x-3 \neq 0$，所以
+\begin{equation}
+    \lim_{x \to 3} \frac{x-3}{x^2 - 9} = \lim_{x \to 3} \frac{1}{x+3}
+\end{equation}
+易证$\displaystyle\lim_{x \to 3} 6(x+3)$存在，于是函数$x \longmapsto 6(x+3)$在$3$的足够小的去芯邻域$B(\check{3}, \delta_0)$内有界$(\delta_0 > 0)$，设$B(\check{3}, \delta_0)$内函数$x \longmapsto 6(x+3)$的下界是$M \, (M > 0)$，于是当$0<|x-3|<\delta_0$，有
+\begin{equation}
+    \bigg\lvert \frac{1}{x+3}-\frac{1}{6} \bigg\rvert= \bigg\lvert \frac{3-x}{6(x+3)} \bigg\rvert<\frac{|3-x|}{M}
+\end{equation}
+故对任意$\epsilon > 0$，我们只需取$\delta = \epsilon M$，那么当$0<|x-3|<\min\{\delta, \delta_0 \}$，有
+\begin{equation}
+    \bigg\lvert \frac{x-3}{x^2-9} - \frac{1}{6} \bigg\rvert = \bigg\lvert \frac{1}{x+3} - \frac{1}{6} \bigg\rvert < \frac{|3-x|}{M} < \frac{\epsilon M}{M} = \epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to 3} \displaystyle\frac{x-3}{x^2-9} = \displaystyle\frac{1}{6}$．
+
+\noindent (3)
+\begin{proof}
+当$0 < |x-1|$时，$x-1 \neq 0$，于是
+\begin{equation}
+    \lim_{x \to 1} \frac{x^4 - 1}{x-1} = \lim_{x \to 1} \left( 1 + x + x^2 + x^3 \right)
+\end{equation}
+由于对任意$n \in \nat$，$\displaystyle\lim_{x \to 1} x^n$存在并且等于$1$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，当$0 < |x - 1| < \delta$时
+\begin{align}
+    |x-1|< \frac{1}{3}\epsilon, \quad |x^2-1|<\frac{1}{3}\epsilon, \quad |x^3-1|<\frac{1}{3}\epsilon
+\end{align}
+同时成立．于是
+\begin{align}
+    &|1+x+x^2+x^3-4| = |x - 1 + x^2 - 1 + x^3 - 1| < |x-1| + |x^2-1| + |x^3 - 1| \\
+    &< \frac{1}{3}\epsilon + \frac{1}{3}\epsilon + \frac{1}{3}\epsilon = \epsilon
+\end{align}
+这说明$\displaystyle\lim_{x \to 1} \left(1 + x + x^2 + x^3\right) = 4$也就是$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^4-1}{x-1} = 4$．
+\end{proof}
+
+\noindent (4)
+\begin{proof}
+注意到
+\begin{equation}
+    (\sqrt{1+2x} - 1)(\sqrt{1+2x} + 1) = 2x
+\end{equation}
+所以，只需取$\delta = \min \{ \displaystyle\frac{1}{2}, \frac{\epsilon}{4} \}$，那么当$0 < |x-0| < \delta$时，就有
+\begin{equation}
+    |\sqrt{1+2x} - 1| = |\frac{2x}{\sqrt{1+2x} + 1}| \leq |2x| = 2|x| < 2\delta \leq \frac{\epsilon}{2} < \epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to 0} \sqrt{1+2x} = 1$．
+\end{proof}
+
 \end{document}
