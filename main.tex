@@ -1762,7 +1762,8 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \centering
     \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
        (1)~$\displaystyle\lim_{x \to 2} x^3 = 8$; & (2)~$\displaystyle\lim_{x \to 3} \frac{x-3}{x^2-9} = \frac{1}{6}$; \\ [1em]
-       (3)~$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^4-1}{x-1} = 4$; & (4)~$\displaystyle\lim_{x \to 0} \sqrt{1+2x} = 1$;
+       (3)~$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^4-1}{x-1} = 4$; & (4)~$\displaystyle\lim_{x \to 0} \sqrt{1+2x} = 1$; \\ [1em]
+       (5)~$\displaystyle\lim_{x \to 1^{+}} \displaystyle\frac{x-1}{\sqrt{x^2-1}} = 0$.
       \end{tabularx}
 \end{table}
 
@@ -1828,5 +1829,110 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 这就证明了$\displaystyle\lim_{x \to 0} \sqrt{1+2x} = 1$．
 \end{proof}
+
+\noindent (5)
+\begin{proof}
+变换得
+\begin{equation}
+    \lim_{x \to 1^+} \frac{x-1}{\sqrt{x^2-1}} = \lim_{x \to 1^+} \frac{x-1}{\sqrt{x-1}\sqrt{x+1}} = \lim_{x \to 1^+} \frac{\sqrt{x-1}}{\sqrt{x+1}}
+\end{equation}
+只需取$\delta = \displaystyle\frac{\epsilon^2}{4}$，那么当$0 < x - 1 < \delta$时有
+\begin{equation}
+    \bigg\lvert \frac{\sqrt{x-1}}{\sqrt{x+1}} \bigg\rvert = \frac{|\sqrt{x-1}|}{|\sqrt{x+1}|} < \frac{|\sqrt{x-1}|}{1} = |\sqrt{x-1}| = \sqrt{x-1} < \sqrt{\delta} = \sqrt{\displaystyle\frac{\epsilon^2}{4}} = \frac{\epsilon}{2} < \epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to 1^+} \displaystyle\frac{x-1}{\sqrt{x^2-1}} = 0$.
+\end{proof}
+
+\noindent 5. 设
+\begin{equation}
+    f(x) = \begin{cases}
+        x^2, & x \geq 2, \\
+        -ax, & x < 2
+    \end{cases}
+\end{equation}
+\begin{enumerate}
+    \item 求$f(2+)$与$f(2-)$；
+    \item 若$\displaystyle\lim_{x \to 2} f(x)$存在，$a$应取何值？
+\end{enumerate}
+
+\noindent (1)
+\begin{proof}
+    对任意$\epsilon > 0$，取$\delta = \min \{ 4, \displaystyle\frac{\epsilon}{16} \}$，那么对所有$x \, (0 < x - 2 < \delta)$就都有
+    \begin{align}
+        |x^2 - 4| &= |x-2||x+2| = |x-2||x-2 + 2 +2| \leq |x-2||x-2| + 4|x-2| \\
+        &< 4|x-2| + 4|x-2| = 8|x-2| \leq 8 \delta = 8 \cdot \frac{\epsilon}{16} = \frac{\epsilon}{2} < \epsilon
+    \end{align}
+这就证明了$\displaystyle\lim_{x \to 2+} x^2 = 4$．
+\end{proof}
+
+\begin{proof}
+设$|a| \neq 0$，则对任意$\epsilon > 0$，取$\delta = \displaystyle\frac{\epsilon}{2|a|}$，那么当$0 < 2 - x < \delta$时就有
+\begin{align}
+|-ax - (-2a)| = |-ax + 2a| = |a||2-x| \leq |a|\delta = |a| \cdot \frac{\epsilon}{2 |a|} = \frac{\epsilon}{2} < \epsilon
+\end{align}
+这就证明了$\displaystyle\lim_{x \to 2^-} -ax = -2a$．($|a| \neq 0$)
+\end{proof}
+
+\noindent 当$|a|=0$时，$f(x) = -ax = 0 \, (x < 2)$，对任意$\epsilon > 0$，取$\delta = 1$，那么当$0 < 2 - x < \delta$时有
+\begin{align}
+    |-ax - 0| = |0 - 0| = |0| = 0 < \epsilon
+\end{align}
+这说明如果$|a|=0$，那么$\displaystyle\lim_{x \to 2^-} -ax = 0$．
+
+\noindent (2) 解：应有$\displaystyle \lim_{x \to 2^+} f(x) = \displaystyle\lim_{x \to 2^-} f(x)$．如果$|a| = 0$，那么根据上述论证，将会有$\displaystyle\lim_{x \to 2^+} f(x) = 4 \neq \displaystyle\lim_{x \to 2^-} f(x) = 0$，故$|a|\neq 0$．
+
+\noindent 当$|a| \neq 0$时，由$\displaystyle\lim_{x \to 2^+} f(x) = \displaystyle\lim_{x \to 2^-} f(x)$得
+\begin{equation}
+    4 = -2a
+\end{equation}
+解出$a = -2$．
+
+\noindent 6. 设$\displaystyle\lim_{x \to x_0} f(x) > a$．求证：当$x$足够靠近$x_0$但$x \neq x_0$时，$f(x) > a$．
+
+\begin{proof}
+设$\displaystyle\lim_{x \to x_0} f(x) = A$，取$\epsilon_0 = \displaystyle\frac{A-a}{2}$，此时有$\epsilon_0 > 0$．由于$\displaystyle\lim_{x \to x_0} f(x) = A$，故对于$\epsilon_0 > 0$，存在$\delta > 0$，使得使得对所有$x \, (0 < |x-x_0| \leq \delta)$都有
+\begin{equation}
+    |f(x)-A|<\epsilon_0
+\end{equation}
+将绝对值展开也就是
+\begin{equation}
+    A-\epsilon_0 < f(x) < A+\epsilon
+\end{equation}
+由于$\epsilon_0=\displaystyle\frac{A-a}{2}$，所以$a = A - 2\epsilon_0$，而$A-2\epsilon_0 < A - \epsilon_0 < f(x)$，所以$a < f(x)$．
+
+\noindent 这就证明了当$x$在$x_0$足够小的邻域内取值时恒有$f(x) > a$．
+\end{proof}
+
+\noindent 7. 设$f(x_0 -) < f(x_0 +)$．求证：存在$\delta > 0$，使得当
+\begin{equation}
+    x \in (x_0 - \delta, x_0), \quad y \in (x_0, x_0 + \delta)
+\end{equation}
+时，有$f(x) < f(y)$．
+
+\begin{proof}
+设$A = f(x_0 -) = \displaystyle\lim_{x \to x_0^-} f(x)$，设$B = f(x_0 +) = \displaystyle\lim_{x \to x_0^+} f(x)$．令$d = B - A$，由于$f(x_0 +) > f(x_0 -)$，所以$B > A$，所以$d > 0$．取$\epsilon_0 = \displaystyle\frac{d}{3}$，那么由于$\displaystyle\lim_{x \to x_0^-} f(x) = A$，所以，存在$\delta_1 > 0$，使得当$0 < x_0 - x < \delta_1$时，有
+\begin{align}
+    |f(x) - A|<\epsilon_0
+\end{align}
+也就是
+\begin{align}
+    A - \epsilon_0 < f(x) < A + \epsilon_0
+\end{align}
+又由于$\displaystyle\lim_{x \to x_0^+} f(x) = B$，所以，存在$\delta_2 > 0$，使得对任意的$y \, (0 < y - x_0 < \delta_2)$，有
+\begin{equation}
+    B - \epsilon_0 < f(y) < A + \epsilon_0
+\end{equation}
+由于$\epsilon_0 = \displaystyle\frac{B-A}{3}$，所以
+\begin{align}
+    A + \epsilon = A + \frac{B-A}{3} < B - \frac{B-A}{3} = B-\epsilon_0
+\end{align}
+这说明$f(x) < f(y)$．
+\end{proof}
+
+\noindent 8. 设$f$在$(-\infty, x_0)$上是递增的，并且存在一个数列$\{ x_n \}$满足$x_n < x_0 \, (n = 1,2,\cdots), x_n \to x_0, \, (n \to \infty)$，且使得
+\begin{equation}
+    \lim_{x \to \infty} f(x_n) = A.
+\end{equation}
+求证：$f(x_0 -) = A$．
 
 \end{document}
