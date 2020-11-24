@@ -1,59 +1,4 @@
-\documentclass{ctexart}
-\usepackage[
-    a4paper,
-    top=0.8in,
-    left=0.8in,
-    right=0.8in,
-    bottom=1in
-]{geometry}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{float}
-\usepackage{booktabs}
-\usepackage{amsthm}
-\usepackage{float}
-\usepackage{IEEEtrantools}
-\usepackage{array}
-\usepackage{tabularx}
-\usepackage{mdframed}
-\usepackage{lipsum}
-\usepackage{tikz-cd}
-\pagestyle{plain}
-
-\newmdtheoremenv{theo}{定理}
-
-\theoremstyle{definition}
-\newtheorem{definition}{定义}
-
-\theoremstyle{definition}
-\newtheorem{example}{例}
-
-\theoremstyle{plain}
-\newtheorem{prop}{命题}
-
-\theoremstyle{plain}
-\newtheorem{theorem}{定理}
-
-\theoremstyle{plain}
-\newtheorem{lemma}{引理}
-
-\theoremstyle{definition}
-\newtheorem{property}{性质}
-
-\newcommand{\T}{\mathsf{T}}
-\newcommand{\nat}{\mathbb{N}^\star}
-\newcommand{\pnat}{\mathbb{N}^\star}
-\newcommand{\real}{\mathbb{R}}
-\newcommand{\preal}{\mathbb{R}^{+}}
-\newcommand{\integer}{\mathbb{Z}}
-\newcommand{\ulimit}{\mathop{\underset{n \to \infty}{\lim \sup}} \,}
-\newcommand{\llimit}{\mathop{\underset{n \to \infty}{\lim \inf}} \,}
-\newcommand{\rational}{\mathbb{Q}}
-\newcommand{\irrational}{\mathbb{R\setminus Q}}
-\newcommand{\nnat}{\mathbb{N}}
-\newcommand{\expe}{\mathrm{e}}
-\newcommand{\trans}{\mathsf{T}}
-
+\input{preamble.tex}
 
 \begin{document}
 \section*{练习题1.1}
@@ -1047,7 +992,6 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 
 \section*{练习题2.1}
 \noindent 1. 设$A = \{ a, b, c, d \}$．证明有唯一的映射：$f: A \to A$满足下列条件：
-\renewcommand{\labelenumi}{(\arabic{enumi})}
 \begin{enumerate}
     \item $f(a) = b, f(c) = d$;
     \item $( f \circ f ) (x) = x$对一切$x \in A$成立．
@@ -1934,5 +1878,39 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \lim_{x \to \infty} f(x_n) = A.
 \end{equation}
 求证：$f(x_0 -) = A$．
+
+\begin{proof}
+由于$\displaystyle\lim_{n \to \infty} f(x_n) = A$，所以数列$\{ f(x_n) \}$是一个柯西列，也就是说，对任意给定的$\epsilon > 0$，都存在$N_0(\epsilon) \in \nat$，使得对所有$p \in \nat$，都有
+\begin{equation}
+    |f(x_{N_0+p}) - f(x_{N_0})|<\epsilon
+    \label{eq:ptoinfinity}
+\end{equation}
+让式(\ref{eq:ptoinfinity})中的$p$趋于无穷，我们得到
+\begin{equation}
+    |f(x_{N_0}) - f(x_0)|<\epsilon
+\end{equation}
+因为极限的唯一性，得到$f(x_0)=A$．又因为$x_{N_0}<x_0$以及$f$的单调性，得
+\begin{equation}
+    0 < f(x_0) - f(x_{N_0}) < \epsilon
+\end{equation}
+故只要取$\delta = x_0 - x_{N_0}$，那么当$0 < x_0 - x < \delta$的时候就有$x_{N_0}<x<x_0$，再利用函数$f$的单调性就可推出
+\begin{equation}
+    |f(x)-f(x_0)|<\epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to x_0^-} f(x) = A$．
+\end{proof}
+
+\noindent 9. 用肯定的语气表达``当$x \to x_0$时，$f(x)$不收敛于$l$''．
+
+\noindent 答：存在$\epsilon_0 > 0$，对任意$\delta > 0$，都存在$x$满足$|x-x_0|<\delta$并且$|f(x)-x_0|\geq\epsilon_0$．
+
+\noindent 10. 对任何$n \in \nat$，$A_n \subset [0,1]$是有限集，且$A_i \bigcap A_j = \emptyset \; (i \neq j, \, i,j \in \nat)$．定义函数
+\begin{equation}
+    f(x) = \begin{cases}
+        \displaystyle\frac{1}{n}, & x \in A_n , \\
+        0, & x \in [0,1], \, x \not\in A_n.
+    \end{cases}
+\end{equation}
+对任意的$x_0 \in [0,1]$，求极限$\displaystyle\lim_{x \to x_0} f(x)$．
 
 \end{document}
