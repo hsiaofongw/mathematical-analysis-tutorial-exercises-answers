@@ -2107,6 +2107,7 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     &= 2^{k+1} \sin \, \frac{x}{2^{k+1}} \prod_{i=1}^{k+1} \cos \, \frac{x}{2^{i}}
 \end{align}
 那么依数学归纳法原理，对任意$n \in \nat$命题都成立．
+\end{proof}
 
 \noindent 利用上述结论，得到
 \begin{align}
@@ -2114,5 +2115,4 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     &= \lim_{n \to \infty} \prod_{i=1}^n \cos \, \frac{x}{2^i} = \lim_{n \to \infty} \frac{\sin \, x}{2^{n} \sin \, \displaystyle\frac{x}{2^n}} = \lim_{n \to \infty} \frac{\sin \, x}{x} \cdot \frac{\displaystyle\frac{x}{2^n}}{\sin \, \displaystyle\frac{x}{2^n}} \\
     &= \frac{\sin \, x}{x} \cdot \lim_{n \to \infty} \displaystyle \frac{1}{\displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \frac{\sin \, x}{x} \cdot \frac{\displaystyle\lim_{n \to \infty} 1}{\displaystyle\lim_{n \to \infty} \displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \displaystyle\frac{\sin \, x}{x} \cdot \displaystyle\frac{1}{1} = \frac{\sin \, x}{x}.
 \end{align}
-\end{proof}
 \end{document}
