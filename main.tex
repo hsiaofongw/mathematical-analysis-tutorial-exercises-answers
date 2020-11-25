@@ -2005,8 +2005,52 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
-       (1)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{\sin \, ax}{\sin \, bx} \; (b \neq 0)$;
+       (1)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{\sin \, ax}{\sin \, bx} \; (b \neq 0)$; & (2)~$\displaystyle\lim_{x \to 0}\displaystyle\frac{x^2}{1-\cos \, x}$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to 0} \frac{\sin \, \sin \, x}{x}$; & (4)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{\tan \, x}{x}$; \\ [1em]
+       (5)~$\displaystyle\lim_{h \to 0} \sin \, \left(x+h\right)$; & (6)~$\displaystyle\lim_{h \to 0} \displaystyle\frac{\sin \, \left(x+h\right)-\sin \, x}{h}$; \\ [1em] 
+       (7)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{1-\cos \, x \cdot \cos \, 2x \cdots \cos \, nx}{x^2}$; & (8)~$\displaystyle\lim_{n \to \infty} \cos \, \displaystyle\frac{x}{2} \, \cdot \cos \, \displaystyle\frac{x}{4} \cdots \cos \, \displaystyle\frac{x}{2^n}$.
       \end{tabularx}
 \end{table}
+
+\noindent (1) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{\sin \, ax}{\sin \, bx} = \lim_{x \to 0} \frac{\sin \, ax}{ax} \cdot \frac{\displaystyle\frac{a}{b} \cdot bx}{\sin \, bx} = \lim_{x \to 0}\frac{\sin \, ax}{ax} \cdot \frac{a}{b} \lim_{x \to 0} \frac{bx}{\sin \, bx} \\
+    &= 1 \cdot \frac{a}{b} \cdot 1 = \frac{a}{b}.
+\end{align}
+
+\noindent (2) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{x^2}{\displaystyle\frac{1-(\cos \, x)^2}{1+\cos \, x}} = \lim_{x \to 0} \frac{x^2 (1+\cos \, x)}{(\sin \, x)^2} = \lim_{x \to 0} \left(\frac{x}{\sin \, x}\right)^2 \cdot \lim_{x \to 0} 1 + \cos \, x \\
+    &= \lim_{x \to 0} \frac{x}{\sin \, x} \cdot \lim_{x \to 0} \frac{x}{\sin \, x} \cdot \lim_{x \to 0} 1+\cos \, x= 1 \cdot 1 \cdot 2 = 2.
+\end{align}
+
+\noindent (3) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{\sin \, \sin \, x}{x} = \lim_{x \to 0} \frac{\sin \, \sin \, x}{\sin \, x} \cdot \frac{\sin \, x}{x} = \lim_{x \to 0} \frac{\sin \, \sin \, x}{\sin \, x} \cdot \lim_{x \to 0} \frac{\sin \, x}{x} \\
+    &= 1 \cdot 1 = 1.
+\end{align}
+
+\noindent (4) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{\tan \, x}{x} = \lim_{x \to 0} \frac{\sin \, x}{x \cdot \cos \, x} = \lim_{x \to 0} \frac{\sin \, x}{x} \cdot \lim_{x \to 0} \frac{1}{\cos \, x} = 1 \cdot 1 = 1.
+\end{align}
+
+\noindent (5) 解：
+\begin{align}
+    \text{原式} &= \lim_{h \to 0} \sin \, x \cdot \cos \, h + \sin \, h \cdot \cos \, x \\
+    &= \lim_{h \to 0} \sin \, x \cdot \cos \, h + \lim_{h \to 0} \sin \, h \cdot \cos \, x \\
+    &= \sin \, x \lim_{h \to 0} \cos \, h + \cos \, x \lim_{h \to 0} \sin \, h \\
+    &= \sin \, x + \cos \, x \cdot 0 = \sin \, x.
+\end{align}
+
+\noindent (6) 解：
+\begin{align}
+    \text{原式} &= \lim_{h \to 0} \frac{\sin \, x \left(\cos \, h - 1\right) + \sin \, h \cdot \cos \, x}{h} \\
+    &= \lim_{h \to 0} \frac{\sin \, x \cdot \left(-2 (\sin \, \displaystyle\frac{h}{2} )^2 \right) + \sin \, h \cdot \cos \, x}{h} \\
+    &= \lim_{h \to 0} \sin \, x \cdot \frac{-2 \left(\sin \, \displaystyle\frac{h}{2}\right)^2}{h} + \lim_{h \to 0} \frac{\sin \, h \cdot \cos \, x}{h} \\
+    &= - \sin \, x \lim_{h \to 0} \frac{\sin \, \displaystyle\frac{h}{2}}{\displaystyle\frac{h}{2}} \cdot \left(\sin \, \displaystyle\frac{h}{2}\right) + \cos \, x \lim_{h \to 0} \frac{\sin \, h}{h} \\
+    &= - \sin \, x \cdot \lim_{x \to 0} \displaystyle\frac{\sin \, \displaystyle\frac{h}{2}}{\displaystyle\frac{h}{2}} \cdot \lim_{h \to 0} \sin \, \displaystyle\frac{h}{2} + \cos \, x \cdot \lim_{h \to 0} \displaystyle\frac{\sin \, h}{h} \\
+    &= - \sin \, x \cdot 1 \cdot 0 + \cos \, x \cdot 1 = \cos \, x.
+\end{align}
 
 \end{document}
