@@ -2053,4 +2053,41 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     &= - \sin \, x \cdot 1 \cdot 0 + \cos \, x \cdot 1 = \cos \, x.
 \end{align}
 
+\noindent (7) 解：当$n=1$时，由已知结论，极限为$\displaystyle\frac{1}{2}$．当$n=2$，极限为
+\begin{align}
+\text{原式} &= \lim_{x \to 0} \displaystyle\frac{1-\cos \, x \cos \, 2x}{x^2} = \lim_{x \to 0} \frac{1 - \cos \, x + (1 - \cos \, x \cos \, 2x) - (1 - \cos \, x)}{x^2} \\
+&= \lim_{x \to 0} \frac{1 - \cos \, x + \cos \, x (1 - \cos \, 2x)}{x^2} = \lim_{x \to 0} \frac{1 - \cos \, x}{x^2} + \lim_{x \to 0} \cos \, x \cdot \lim_{x \to 0} \frac{1-\cos \, 2x}{x^2} \\
+&= \frac{1}{2} + 1 \cdot \lim_{x \to 0} \frac{1-\cos \, 2x}{x^2} = \frac{1}{2} + \lim_{x \to 0} \frac{1-\cos \, 2x}{x^2} = \frac{1}{2} + \lim_{x \to 0} \left( 4 \cdot \frac{1-\cos \, 2x}{4x^2} \right) \\
+&= \frac{1}{2} + 4 \cdot \lim_{x \to 0} \cdot \frac{1-\cos \, 2x}{4x^2} = \frac{1}{2} + 4 \cdot \lim_{x \to 0} \cdot \frac{1-\cos \, 2x}{(2x)^2} = \frac{1}{2} + 4 \cdot \frac{1}{2} = \frac{5}{2}
+\end{align}
+
+\noindent 当$n=3$，极限为
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x \cos \, 3x}{x^2} \\
+    &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x + (1-\cos \, x \cos \, 2x \cos \, 3x) - (1-\cos \, x \cos \, 2x)}{x^2} \\
+    &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x + \cos \, x \cos \, 2x(1-\cos \, 3x)}{x^2} \\
+    &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x}{x^2} + \lim_{x \to 0} \cos \, x \cos \, 2x \cdot \lim_{x \to 0} \frac{1-\cos \, 3x}{x^2} \\
+    &= \frac{5}{2} + 1 \cdot \lim_{x \to 0} \left( 9 \cdot \frac{1-\cos \, 3x}{9 x^2} \right) = \frac{5}{2} + 9 \cdot \lim_{x \to 0} \frac{1-\cos \, 3x}{(3x)^2} \\
+    &= \frac{5}{2} + 9 \cdot \frac{1}{2} = 7
+\end{align}
+我们注意到这样的规律，记$L(n) = \displaystyle\lim_{x \to 0} \displaystyle\frac{1-\cos \, x \cos \, 2x \cdots \cos \, nx}{x^2}, \; (n \in \nat)$，则有
+\begin{align}
+L(1) &= \frac{1}{2} \\
+L(2) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} = \frac{5}{2} \\
+L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
+\end{align}
+由此受到启发：猜测对于一般的$n \in \nat$都有$L(n) = \displaystyle\frac{1}{2} + 2^2 \cdot \displaystyle\frac{1}{2} + 3^2 \cdot \displaystyle\frac{1}{2} + \cdots + n^2 \cdot \displaystyle\frac{1}{2}$成立．
+
+\begin{proof}
+采用数学归纳法，假设对于某一个$k \in \nat$，当$n=k$时，$L(n) = \displaystyle\frac{1}{2} \sum_{i=1}^n i^2$成立．那么当$n$取$n=k+1$时
+\begin{align}
+    L(k+1) &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x \cdots \cos \, (k+1)x}{x^2} \\
+    &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x \cdots \cos \, kx + \left(\displaystyle\prod_{t=1}^{k} \cos \, tx \right)\left(1-\cos \, (k+1)x\right)}{x^2} \\
+    &= L(k) + \left(\lim_{x \to 0} \displaystyle\prod_{t=1}^{k} \cos \, tx \right) \cdot \lim_{x \to 0} \frac{1-\cos \, (k+1)x}{x^2} \\
+    &= L(k) + 1 \cdot \lim_{x \to 0} \frac{1-\cos \, (k+1)x}{x^2} \\
+    &= L(k) + (k+1)^2 \lim_{x \to 0} \frac{1-\cos \, (k+1)x}{((k+1)x)^2} = L(k) + (k+1)^2 \cdot \frac{1}{2} = \frac{1}{2} \sum_{i=1}^{k+1} i^2.
+\end{align}
+那么根据数学归纳法原理，$L(n) = \displaystyle\frac{1}{2}\displaystyle\sum_{i=1}^n i^2$对一切$n \in \nat$成立．
+\end{proof}
+
 \end{document}
