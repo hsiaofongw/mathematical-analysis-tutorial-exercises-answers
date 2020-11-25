@@ -2090,4 +2090,29 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 那么根据数学归纳法原理，$L(n) = \displaystyle\frac{1}{2}\displaystyle\sum_{i=1}^n i^2$对一切$n \in \nat$成立．
 \end{proof}
 
+\noindent (8) 解：反复对$\sin \, x$应用正弦二倍角公式，我们发现：
+\begin{align}
+    \sin \, x & = 2 \cos \, \frac{x}{2} \sin \, \frac{x}{2} \\
+    &= 4 \cos \, \frac{x}{2} \cos \, \frac{x}{4} \sin \, \frac{x}{4} \\
+    &= 8 \cos \, \frac{x}{2} \cos \, \frac{x}{4} \cos \, \frac{x}{8} \sin \, \frac{x}{8} \\
+    &\cdots
+\end{align}
+由此受到启发，猜测对一般的$n \in \nat$，有$\sin \, x = 2^n \sin \, \displaystyle\frac{x}{2^n} \displaystyle\prod_{i=1}^n \cos \, \displaystyle\frac{x}{2^i}$成立．
+\begin{proof}
+当$n=1$时，依正弦二倍角公式命题成立．现假设对某个$k \in \nat$，命题成立，那么
+\begin{align}
+    \sin \, x &= 2^{k} \sin \, \displaystyle\frac{x}{2^k} \prod_{i=1}^k \cos \, \frac{x}{2^i} \\
+    &= 2^{k} \cdot 2 \sin \, \left( 2 \cdot \frac{x}{2^{k+1}} \right) \prod_{i=1}^k \cos \, \frac{x}{2^i} \\
+    &= 2^{k+1} \sin \, \frac{x}{2^{k+1}} \cos \, \frac{x}{2^{k+1}} \prod_{i=1}^{k} \cos \, \frac{x}{2^i} \\
+    &= 2^{k+1} \sin \, \frac{x}{2^{k+1}} \prod_{i=1}^{k+1} \cos \, \frac{x}{2^{i}}
+\end{align}
+那么依数学归纳法原理，对任意$n \in \nat$命题都成立．
+
+\noindent 利用上述结论，得到
+\begin{align}
+    &\mathrel{\phantom{=}} \lim_{n \to \infty} \cos \, \frac{x}{2} \cos \, \frac{x}{4} \cdots \cos \, \frac{x}{2^n} \\
+    &= \lim_{n \to \infty} \prod_{i=1}^n \cos \, \frac{x}{2^i} = \lim_{n \to \infty} \frac{\sin \, x}{2^{n} \sin \, \displaystyle\frac{x}{2^n}} = \lim_{n \to \infty} \frac{\sin \, x}{x} \cdot \frac{\displaystyle\frac{x}{2^n}}{\sin \, \displaystyle\frac{x}{2^n}} \\
+    &= \frac{\sin \, x}{x} \cdot \lim_{n \to \infty} \displaystyle \frac{1}{\displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \frac{\sin \, x}{x} \cdot \frac{\displaystyle\lim_{n \to \infty} 1}{\displaystyle\lim_{n \to \infty} \displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \displaystyle\frac{\sin \, x}{x} \cdot \displaystyle\frac{1}{1} = \frac{\sin \, x}{x}.
+\end{align}
+\end{proof}
 \end{document}
