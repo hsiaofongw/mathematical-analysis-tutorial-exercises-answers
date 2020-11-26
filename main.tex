@@ -2115,4 +2115,68 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     &= \lim_{n \to \infty} \prod_{i=1}^n \cos \, \frac{x}{2^i} = \lim_{n \to \infty} \frac{\sin \, x}{2^{n} \sin \, \displaystyle\frac{x}{2^n}} = \lim_{n \to \infty} \frac{\sin \, x}{x} \cdot \frac{\displaystyle\frac{x}{2^n}}{\sin \, \displaystyle\frac{x}{2^n}} \\
     &= \frac{\sin \, x}{x} \cdot \lim_{n \to \infty} \displaystyle \frac{1}{\displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \frac{\sin \, x}{x} \cdot \frac{\displaystyle\lim_{n \to \infty} 1}{\displaystyle\lim_{n \to \infty} \displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \displaystyle\frac{\sin \, x}{x} \cdot \displaystyle\frac{1}{1} = \frac{\sin \, x}{x}.
 \end{align}
+
+\noindent 13. 求下列极限：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to 0} x \bigg\lfloor \displaystyle \frac{1}{x} \bigg\rfloor$; & (2)~$\displaystyle \lim_{x \to 2^+} \displaystyle\frac{\lfloor x \rfloor^2 - 4}{x^2 - 4}$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to 2^-} \displaystyle\frac{\lfloor x \rfloor^2 + 4}{x^2 + 4}$; & (4)~$\displaystyle\lim_{x \to 1^-} \displaystyle\frac{\lfloor 4x \rfloor}{1+x}$.
+    \end{tabularx}
+\end{table}
+
+\noindent (1) 解：当$x > 0$时，令$t = \displaystyle\frac{1}{x}$，则$t > 0$，并且
+\begin{equation}
+    x \bigg \lfloor \frac{1}{x} \bigg\rfloor = \frac{\lfloor t \rfloor}{t}
+\end{equation}
+由于$\lfloor t \rfloor \leq t$，所以$\displaystyle\frac{\lfloor t \rfloor}{t} \leq 1$，所以$x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor \leq 1$．又由于$t < \lfloor t \rfloor + 1$，所以$1 < \displaystyle\frac{\lfloor t \rfloor + 1}{t}$，所以$1 < \displaystyle\frac{\lfloor t \rfloor}{t} + \displaystyle\frac{1}{t}$，所以$1 - \displaystyle\frac{1}{t} < \displaystyle\frac{\lfloor t \rfloor}{t}$，所以$1-x < x \bigg \lfloor \displaystyle\frac{1}{x} \bigg\rfloor$．
+
+\noindent 于是当$x > 0$时
+\begin{equation}
+    1-x < x \bigg\lfloor \frac{1}{x} \bigg\rfloor \leq 1
+\end{equation}
+从而
+\begin{equation}
+    \lim_{x \to 0^+} 1 - x \leq \lim_{x \to 0^+} x \bigg\lfloor \frac{1}{x} \bigg\rfloor \leq \lim_{x \to 0^+} 1
+\end{equation}
+又由于$\displaystyle\lim_{x \to 0^+} 1-x = \displaystyle\lim_{x \to 0^+} 1 = 1$，所以$\displaystyle\lim_{x \to 0^+} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$．
+
+\noindent 当$x < 0$时，令$t = \displaystyle\frac{1}{x}$，则$t < 0$．由于$\lfloor t \rfloor \leq t$，又由于$t<0$，所以$\displaystyle\frac{\lfloor t \rfloor}{t} \geq 1$．由于$t < \lfloor t \rfloor + 1 \leq 0$，所以$1 > \displaystyle\frac{\lfloor t \rfloor + 1}{t}$，所以$1 > \displaystyle\frac{\lfloor t \rfloor}{t} + \displaystyle\frac{1}{t}$，所以$1 > x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor + x$，所以$1-x > x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor$．于是当$x < 0$时
+\begin{equation}
+    1 \leq x \bigg\lfloor \frac{1}{x} \bigg\rfloor < 1-x
+\end{equation}
+依夹逼定理得$\displaystyle\lim_{x \to 0^-} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$．
+
+\noindent 由于$\displaystyle\lim_{x \to 0^+} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1 = \displaystyle\lim_{x \to 0^-} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor$，所以$\displaystyle\lim_{x \to 0} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$.
+
+\noindent (2). 解：将原式等价改写为
+\begin{align}
+    \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - 4}{x^2-4} &= \lim_{x \to 2^+} \frac{x^2-4 + (\lfloor x \rfloor^2 - 4) - (x^2 - 4)}{x^2 - 4} \\
+    &= 1 + \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - x^2}{x^2 - 4} = 1 + \lim_{x \to 2^+} \frac{(\lfloor x \rfloor - x)(\lfloor x \rfloor + x)}{(x-2)(x+2)}
+\end{align}
+对任意$\epsilon > 0$，取$\delta = 1/2$，那么当$0 < x - 2 < \delta$时，会有$2 < x < 2.5$，从而$\lfloor x \rfloor = 2$，从而
+\begin{equation}
+    \lim_{x \to 2^+} \frac{(\lfloor x \rfloor - x)(\lfloor x \rfloor + x)}{(x-2)(x+2)} = \lim_{x \to 2^+} \frac{(2-x)(2+x)}{(x-2)(x+2)} = \lim_{x \to 2^+} -1 = -1
+\end{equation}
+从而
+\begin{equation}
+    \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - 4}{x^2-4} = 1 + \lim_{x \to 2^+} \frac{(\lfloor x \rfloor - x)(\lfloor x \rfloor + x)}{(x-2)(x+2)} = 1 + (-1) = 0.
+\end{equation}
+
+\noindent (3). 解：对任意$\epsilon > 0$，取$\delta_1 = 0.5$，那么当$0 < 2-x < \delta_1 = 0.5$时，有$1.5 < x < 2$，从而$\lfloor x \rfloor = 1$，从而
+\begin{equation}
+    |\lfloor x \rfloor^2 + 4 - 5| = |1 + 4 - 5| = 0 < \epsilon
+\end{equation}
+这说明$\displaystyle\lim_{x \to 2^-} \lfloor x \rfloor^2 + 4 = 5$．
+
+\noindent 对任意$\epsilon > 0$，取$\delta_2 = \min \{ 1, \displaystyle\frac{\epsilon}{8} \}$，那么当$0 < 2 - x < \delta_2 = 1$时，有$1 < x < 2$，从而有$|x+2| < 4$，从而有
+\begin{equation}
+    |x^2 + 4 - 8| = |x^2 - 4| = |x-2||x+2| < 4 |x-2| < 4 \cdot \frac{\epsilon}{8} = \frac{\epsilon}{2} < \epsilon
+\end{equation}
+这说明$\displaystyle\lim_{x \to 2^-} x^2 + 4 = 8$．
+
+\noindent 综上有
+\begin{align}
+    \lim_{x \to 2^-} \frac{\lfloor x \rfloor^2 + 4}{x^2 + 4} = \frac{\displaystyle\lim_{x \to 2^-} \lfloor x \rfloor^2 + 4}{\displaystyle\lim_{x \to 2^-} x^2 + 4} = \frac{5}{8}.
+\end{align}
 \end{document}
