@@ -2179,4 +2179,82 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \begin{align}
     \lim_{x \to 2^-} \frac{\lfloor x \rfloor^2 + 4}{x^2 + 4} = \frac{\displaystyle\lim_{x \to 2^-} \lfloor x \rfloor^2 + 4}{\displaystyle\lim_{x \to 2^-} x^2 + 4} = \frac{5}{8}.
 \end{align}
+
+\noindent (4) 解：做代换$t = 4x$，那么
+\begin{equation}
+    \lim_{x \to 1^-} \frac{\lfloor 4x \rfloor}{1+x} = \lim_{t \to 4^-} \frac{\lfloor t \rfloor}{1+\displaystyle\frac{t}{4}}
+\end{equation}
+对任意$\epsilon > 0$，取$\delta_1 = \displaystyle\frac{1}{2}$，那么当$0 < 4 - t < \delta_1$时，有$4 - \delta_1 = 3.5 < t < 4$，从而$\lfloor t \rfloor = 3$，从而
+\begin{equation}
+    |\lfloor t \rfloor - 3| = |3 - 3| = 0 < \epsilon
+\end{equation}
+从而$\displaystyle\lim_{t \to 4^-} \lfloor t \rfloor = 3$．
+
+\noindent 让$\delta_2$取适当的值，当$0 < 4-t < \delta_2$时就有
+\begin{align}
+    |1 + \frac{t}{4} - 2| = |\frac{t-4}{4}| = \frac{1}{4}|t-4| < \frac{1}{4}\delta_2 < \epsilon
+\end{align}
+从而$\displaystyle\lim_{t \to 4^-} 1 + \displaystyle\frac{t}{4} = 2$．
+
+\noindent 从而
+\begin{equation}
+    \lim_{t \to 4^-} \frac{\lfloor t \rfloor}{1+\displaystyle\frac{t}{4}} = \frac{\displaystyle\lim_{t \to 4^-} \lfloor t \rfloor}{\displaystyle\lim_{t \to 4^-} 1 + \displaystyle\frac{t}{4}} = \frac{3}{2}
+\end{equation}
+从而
+\begin{equation}
+    \lim_{x \to 1^-} \frac{\lfloor 4x \rfloor}{1+x} = \frac{3}{2}.
+\end{equation}
+
+\noindent 14. 求极限$\displaystyle\lim_{n \to \infty} n \sin \, (2 \pi n! \, \expe)$的值．
+
+\noindent 解：令$S: \nat \to \rational$，定义
+\begin{equation}
+    S(n) = 1 + \frac{1}{1} + \frac{1}{2!} + \frac{1}{3!} + \cdots + \frac{1}{n!}
+\end{equation}
+周知$\displaystyle\lim_{n \to \infty} S(n) = \expe$，并且
+\begin{equation}
+0 < \expe - S(n) < \frac{1}{n! n}, \quad \forall n \in \nat
+\end{equation}
+于是我们有
+\begin{equation}
+2 \pi n! \expe < 2 \pi n! S(n) + 2\pi \cdot \frac{1}{n}
+\end{equation}
+对于足够大的$n$，总有$0 < 2 \pi \cdot\displaystyle\frac{1}{n} < \displaystyle\frac{\pi}{2}$成立，于是
+\begin{equation}
+    \sin \, \left(2 \pi \, n! \, \expe \right) = 0 < \sin \, \left(2 \pi \, n! \, S(n) + 2 \pi \cdot \displaystyle\frac{1}{n} \right) = \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n} \right)
+\end{equation}
+也就是
+\begin{equation}
+    n \sin \left(2 \pi \, n! \, \expe \right) < n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n} \right)
+\end{equation}
+利用性质$S(n) < \expe, \forall n \in \nat$，我们有
+\begin{equation}
+    2 \pi \, n! \, S(n+1) < 2 \pi \, n! \, \expe
+\end{equation}
+也就是
+\begin{equation}
+    2\pi \, n! \, S(n) + 2 \pi \cdot \displaystyle\frac{1}{n+1} < 2 \pi \, n! \, \expe
+\end{equation}
+同样地，对于足够大的$n$，会有$0 < 2\pi \cdot \displaystyle\frac{1}{n+1} < \displaystyle\frac{\pi}{2}$成立，于是
+\begin{equation}
+    \sin \, \left(2 \pi \, n! S(n) + 2 \pi \cdot \displaystyle\frac{1}{n+1} \right) = \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right) < \sin \, \left(2 \pi \, n! \, \expe \right)
+\end{equation}
+也就是
+\begin{equation}
+    n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1} \right) < n \sin \, \left(2 \pi \, n! \, \expe \right) < n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n}\right)
+\end{equation}
+由于
+\begin{align}
+    \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1} \right) &= \lim_{n \to \infty} \displaystyle\frac{n}{n+1} \cdot (n+1) \cdot \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right) \\
+    &= \lim_{n \to \infty} \displaystyle\frac{n}{n+1} \cdot \lim_{n \to \infty} 2 \pi \cdot \displaystyle\frac{\sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right)}{2 \pi \cdot \displaystyle\frac{1}{n+1}} \\
+    &= 1 \cdot 2 \pi = 2 \pi
+\end{align}
+又由于
+\begin{align}
+    \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n}\right) &= \lim_{n \to \infty} 2 \pi \cdot \displaystyle\frac{\sin \, \left(2\pi \cdot \displaystyle\frac{1}{n}\right)}{2 \pi \cdot \displaystyle\frac{1}{n}} = 2 \pi \cdot 1 = 2 \pi
+\end{align}
+所以
+\begin{equation}
+    \lim_{n \to \infty} n \sin \, \left(2 \pi \, n! \, \expe \right) = \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right) = \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n}\right) = 2 \pi .
+\end{equation}
 \end{document}
