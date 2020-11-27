@@ -2368,4 +2368,48 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \displaystyle\frac{3}{4}\Bigg\lvert\displaystyle\frac{1}{\sqrt{t^2+t+1}+t}+t+\displaystyle\frac{1}{2}\Bigg\rvert<\frac{1}{t+\displaystyle\frac{1}{2}}<\frac{1}{A+\displaystyle\frac{1}{2}} \leq \epsilon
 \end{equation}
 这就证明了当$a=-1,b=\displaystyle\frac{1}{2}$时$\displaystyle\lim_{t\to +\infty}\sqrt{t^2+t+1}+at-b=\displaystyle\lim_{x\to -\infty}\sqrt{x^2-x+1}-ax-b=0$．\qed
+
+\noindent 3. 证明：
+\begin{equation}
+    \lim_{x \to +\infty} \left(\sin \, \sqrt{x+1} - \sin \, \sqrt{x-1}\right) = 0.
+\end{equation}
+
+\noindent 证明：利用三角和差化积公式，我们有
+\begin{align}
+    \lim_{x \to +\infty} \left( \sin \, \sqrt{x+1} - \sin \, \sqrt{x-1} \right) &= 2 \lim_{x \to +\infty} \cos \, \displaystyle \frac{\sqrt{x+1}+\sqrt{x-1}}{2} \sin \, \displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2}
+\end{align}
+利用函数$\cos $的有界性，得到
+\begin{align}
+    \Bigg\lvert \cos \, \displaystyle\frac{\sqrt{x+1}+\sqrt{x-1}}{2} \sin \, \displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2} \Bigg\rvert &< \Bigg\lvert \sin \, \displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2} \Bigg\rvert \\ 
+    &= \Bigg\lvert \sin \, \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}} \Bigg\rvert
+\end{align}
+由于
+\begin{equation}
+    \lim_{x \to +\infty} \displaystyle\frac{\sin \, \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}}}{\displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}}} = 1
+\end{equation}
+而
+\begin{equation}
+    \lim_{x \to +\infty} \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}} = 0
+\end{equation}
+所以
+\begin{equation}
+    \lim_{x \to +\infty} \sin \, \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}} = 0
+\end{equation}
+所以对任意$\epsilon > 0$，都存在$A > 0$，使得当$x > A$时，有
+\begin{equation}
+    \Bigg\lvert\sin \, \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}}\Bigg\rvert<\epsilon
+\end{equation}
+再考虑已经推出的不等式关系，得
+\begin{equation}
+    \Bigg\lvert\cos\,\displaystyle\frac{\sqrt{x+1}+\sqrt{x-1}}{2}\sin\,\displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2} \Bigg\rvert<\epsilon
+\end{equation}
+从而
+\begin{equation}
+    \lim_{x \to +\infty} \cos \, \displaystyle\frac{\sqrt{x+1}+\sqrt{x-1}}{2}\sin\,\displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2}=0
+\end{equation}
+从而
+\begin{eqnarray}
+    \lim_{x \to +\infty} \left(\sin \, \sqrt{x+1}-\sin \, \sqrt{x-1}\right) = 2 \cdot 0 = 0.
+\end{eqnarray}
+\qed
 \end{document}
