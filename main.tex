@@ -2453,4 +2453,47 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     &= \sum_{i=2}^n \sum_{j=i}^n a_j \cdot 0 = 0.
 \end{align}
 待证得证．\qed
+
+\noindent 5. 求极限$\displaystyle\lim_{n \to \infty} \sin \, \left(\pi \, \sqrt{n^2+1}\right)$.
+
+\noindent 解：先将$\pi \sqrt{n^2+1}$拆开写，再利用和角正弦公式，得
+\begin{align}
+    \lim_{n \to \infty} \sin \, \left(\pi \, \sqrt{n^2+1}\right) &= \lim_{n \to \infty} \sin \, \left( n \pi + \sqrt{n^2+1} \, \pi  - n \pi \right) \\
+    &= \lim_{n \to \infty} \cos \, n \pi \sin \, \left(\sqrt{n^2+1} \, \pi - n \pi\right)
+\end{align}
+下证$\displaystyle\lim_{n \to \infty} \cos \, n \pi \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) = 0$．
+
+\noindent 证明：令
+\begin{equation}
+    a_n = \sqrt{n^2+1} \pi - n \pi
+\end{equation}
+先证数列$\{ a_n \}$的极限是$0$：对任意$\epsilon > 0$，取$N = \bigg\lceil \displaystyle\frac{\pi}{\epsilon} \bigg\rceil$，那么对每一个$n \geq N$就都有
+\begin{align}
+    |a_n-0|=\pi|\sqrt{n^2+1}-n|=\pi\bigg\lvert\displaystyle\frac{1}{\sqrt{n^2+1}+n}\bigg\rvert < \frac{\pi}{n} < \frac{\pi}{N} \leq \epsilon
+\end{align}
+这里证明了$\displaystyle\lim_{n \to \infty} a_n = \displaystyle\lim_{n \to \infty} \pi \sqrt{n^2+1} - \pi n = 0$，后面会用到．
+
+\noindent 又由于函数$x \mapsto \sin \, x$在$x=0$处的极限$\displaystyle\lim_{x \to 0} \sin \, x = 0$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，使得对一切$x \in B(\check{0}, \delta)$，都有
+\begin{equation}
+    |\sin \, x - 0| < \epsilon
+\end{equation}
+
+\noindent 由于数列$\{ \sqrt{n^2+1} \, \pi - \pi n \}$收敛，故，存在$N_1 \in \nat$，使得对每一个$n > N_1$，都有
+\begin{equation}
+    \big\lvert \pi \sqrt{n^2+1} - \pi n - 0 \big\rvert < \delta
+\end{equation}
+由此可知，数列$\{ \pi \sqrt{n^2+1}\}$第$N_1$项之后的点全部落入$B(\check{0}, \delta)$内，也就是说
+\begin{equation}
+\{ \pi \sqrt{n^2+1} - \pi n : n \geq N_1 \} \subset B(\check{0}, \delta)
+\end{equation}
+由此可知，对每一个$n > N_1$，都有
+\begin{equation}
+    \bigg\lvert \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) - 0 \bigg\rvert < \epsilon
+\end{equation}
+从而数列$\{ \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) \}$的极限是$0$，从而对任意$\epsilon > 0$，存在$N_2 \in \nat$，使得对每一个$n > N_2$，都有
+\begin{align}
+    \bigg\lvert \cos \, n \pi \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) \bigg\rvert &= |\cos \, n \pi| \bigg\lvert \sin \, \left(\pi \sqrt{n^2+1} - \pi n\right) \bigg\rvert \\
+    &< \bigg\lvert \sin \, \left(\pi \sqrt{n^2+1} - \pi n \right) \bigg\rvert < \epsilon
+\end{align}
+从而$\displaystyle\lim_{n \to \infty} \cos \, n \pi \sin \, \left(\pi \sqrt{n^2+1} - \pi n \right) = 0$．从而$\displaystyle\lim_{n \to \infty} \sin \, \left(\pi \sqrt{n^2+1}\right) = 0$．\qed
 \end{document}
