@@ -1,0 +1,999 @@
+
+
+\section{实数和数列极限}
+\exercise
+
+1. 设$a$为有理数，$b$为无理数．求证：$a+b$与$a-b$都是无理数；当$a\neq 0$时，$ab$与$b/a$也是无理数．
+\begin{proof}
+采用反证法．设$a+b$是有理数，那么就存在互质的整数$p,q$，使得
+\begin{equation}
+    a+b = \frac{p}{q}
+\end{equation}
+由于$a$都是有理数，所以存在$p_1,q_1 \in \mathbb{Z}$使得$a = \displaystyle \frac{p_1}{q_1}$，其中$p_1,q_1$互质．于是
+\begin{equation}
+    b = a+b - a = \frac{p}{q} - \frac{p_1}{q_1} = \frac{p q_1 - q p_1}{q q_1}
+\end{equation}
+这说明$b$是有理数，矛盾．于是$a+b$是无理数．
+
+再证$a-b$是无理数，采用反证法，先假设$a-b$是有理数，即，存在互质的整数$p_2,q_2$使得$\displaystyle a-b=\frac{p_2}{q_2}$，那么
+\begin{equation}
+    b = a - (a-b) = \frac{p_1}{q_1} - \frac{p_2}{q_2} = \frac{p_1 q_2 - q_1 p_2}{q_1 q_2}
+\end{equation}
+这说明$b$是有理数，矛盾．于是$a-b$是无理数．
+\end{proof}
+
+2. 证明：两个不同的有理数之间有无限多个有理数，也有无限多个无理数．
+\begin{proof}
+设$\displaystyle a_1 = \frac{p_1}{q_1}, b_1 = \frac{p_2}{q_2}$是有理数，且$a_1 \neq b_1$，令
+\begin{equation}
+    c_1 = \frac{a_1+b_1}{2} = \frac{1}{2} \left( \frac{p_1}{q_1} + \frac{p_2}{q_2} \right) = \frac{p_1 q_2 + p_2 q_1}{2 q_1 q_2}
+\end{equation}
+则显然$c_1$是无理数，且$a_1 < c_1 < b_1$，对任意的$n\geq 2, n \in \mathbb{N}$，我们令
+\begin{equation}
+    c_{n-1} = \frac{a_{n-1}+b_{n-1}}{2}, \; a_n = c_{n-1}, \; b_n = b_{n-1}
+\end{equation}
+由于有理数集关于加法运算封闭，所以按此方法可计算出无穷多个有理数$c_n$满足$a_1 < c_1 < c_2 < \cdots < b$，这就证明了两个不同的有理数之间有无穷多个有理数．
+
+设$t_1$是一个无理数，那么我们可以找到两个整数$n_1, m_1$，满足$n_1 < m_1$，并且使得
+\begin{equation}
+    n_1 < t_1 < m_1
+    \label{ieq:n1t1m1}
+\end{equation}
+在$0$到$b_1 - a_1$之间必定存在$N_1 \in \mathbb{N}^\star$，使得
+\begin{equation}
+    0 < \frac{m_1}{N_1} - \frac{n_1}{N_1} = \frac{m_1-n_1}{N_1} < b_1 - a_1
+\end{equation}
+再结合不等式(\ref{ieq:n1t1m1})也就是
+\begin{equation}
+    a_1 < \frac{t_1}{N_1} - \frac{n_1}{N_1} + a_1 < b_1
+\end{equation}
+令
+\begin{equation}
+    s_1 = \frac{t_1}{N_1} - \frac{n_1}{N_1} + a_1
+\end{equation}
+显然，由于$a_1$是有理数，而$\displaystyle \frac{t_1}{N_1} - \frac{n_1}{N_1}$是无理数，所以$s_1$是无理数并且介于$a_1$到$b_1$之间．对任意$n \in \mathbb{N}^\star$，令
+\begin{equation}
+    s_{n+1} = \frac{s_n+b_1}{2}, 
+\end{equation}
+则可构造出无穷多个无理数$s_{n}$，并且满足$a_1 < s_1 < s_2 < \cdots < b_1$，这就证明了任意两个有理数之间有无限多个无理数．
+\end{proof}
+
+16. 设$n=2,3,\cdots, \, x > -1$且$x\neq 0$．求证：$(1+x)^n > 1+nx$．
+\begin{proof}
+当$n=2$时，
+\begin{equation}
+    (1+x)^2 = 1 + 2x + x^2 > 1 + 2x + 0 = 1 + 2x
+\end{equation}
+于是对于$n=2$命题成立．假设对某个$k \in \mathbb{N}^\star, \, k \geq 2$，当$n=k$时命题成立，则
+\begin{align}
+    (1+x)^{k+1} &= (1+x)^k (1+x) > (1+kx)(1+x) \\
+    &= 1 + (k+1)x + kx^2 > 1+(k+1)x
+\end{align}
+这说明如果对$n=k$命题成立，那么对$n=k+1$命题也成立．根据数学归纳法原理，命题对一切$n\in\mathbb{N}^\star$都成立．
+\end{proof}
+
+\exercise
+
+5. 用精确语言表达``数列$\{a_n\}$不以$a$为极限''这一陈述．
+
+答：存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，都存在$n > N$并且$|a_n - a| \geq \epsilon_0$．
+
+顺便一提函数极限的否定定义：存在$\epsilon_0 > 0$，使得对任意$\delta > 0$，都存在$|x - x_0| < \delta$并且$|f(x_0) - y_0| \geq \epsilon_0$．
+
+7. 设$a,b,c$是三个给定的实数，令$a_0 = a, b_0 = b, c_0 = c$，并归纳地定义
+\begin{equation}
+    \begin{cases}
+        a_n = \displaystyle\frac{b_{n-1}+c_{n-1}}{2} \\
+        b_n = \displaystyle\frac{a_{n-1}+c_{n-1}}{2} \\
+        c_n = \displaystyle\frac{a_{n-1}+b_{n-1}}{2}
+    \end{cases}, \quad n = 1,2,3,\cdots
+\end{equation}
+求证：
+\begin{equation}
+    \lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n = \lim_{n\to\infty} c_n = \frac{1}{3} \left( a_0+b_0+c_0 \right).
+\end{equation}
+
+\begin{proof}
+    对每一个$n \in \nat$，将$r_n,s_n,t_n$分别定义为$a_n,b_n,c_n$中最小的、次小的和最大的数．$a_n,b_n,c_n$收敛到同一个数等价于它们之中的最小数和最大数都收敛到同一个数，也就是说，我们要去证明$r_n,t_n$都收敛到同一个数．
+
+由
+\begin{align}
+    &\mathrel{\phantom{\implies}} s_n \leq t_n \\
+    &\implies r_n + s_n \leq r_n + t_n \\
+    &\implies \frac{r_n+s_n}{2} \leq \frac{r_n+t_n}{2} 
+\end{align}
+以及
+\begin{align}
+    &\mathrel{\phantom{\implies}} r_n \leq s_n \\
+    &\implies r_n + t_n \leq s_n + t_n \\
+    &\implies \frac{r_n+t_n}{2} \leq \frac{s_n+t_n}{2}
+\end{align}
+得到
+\begin{equation}
+    \frac{r_n+s_n}{2} \leq \frac{r_n+t_n}{2} \leq \frac{s_n+t_n}{2}
+\end{equation}
+因此
+\begin{equation}
+    r_{n+1} = \frac{r_n+s_n}{2}, \; s_{n+1} = \frac{r_n+t_n}{2}, \; t_{n+1}=\frac{s_n+t_n}{2}
+\end{equation}
+于是
+\begin{equation}
+    t_{n+1} - r_{n+1} = \frac{s_n+t_n}{2} - \frac{r_n+s_n}{2} = \frac{t_n - r_n}{2}
+\end{equation}
+并且由此得
+\begin{equation}
+t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \frac{1}{2^{n}}\left(t_0 - s_0\right)
+\end{equation}
+于是对任意$\epsilon > 0$，我们可以取$N = \lceil \log_2 \left(t_0-s_0\right) - \log_2 \epsilon \rceil$，于是当$n > N$的时候就有
+\begin{equation}
+    |t_n-r_n|=\frac{1}{2^n}(t_0-s_0) < \frac{1}{2^N}(t_0-s_0) \leq \epsilon
+\end{equation}
+为了把$r_n$也就是$t_n$的共同极限找出来，我们要寻找一个始终位于$r_n$和$t_n$中间的常数，为此，我们要去证明$\displaystyle\frac{r_0+s_0+t_0}{3}$就是这个数．首先，根据
+\begin{equation}
+    r_{n+1} = \frac{r_n+s_n}{2}, \; s_{n+1} = \frac{r_n+t_n}{2}, \; t_{n+1}=\frac{s_n+t_n}{2} \; (\forall n \in \integer)
+\end{equation}
+我们得
+\begin{equation}
+    r_{n+1}+s_{n+1}+t_{n+1} = \frac{2r_n+2s_n+2t_n}{2} = r_n + s_n + t_n \; (\forall n \in \integer)
+\end{equation}
+这说明
+\begin{equation}
+    r_0+s_0+t_0=r_n+s_n+t_n, \; (\forall n \in \integer)
+\end{equation}
+于是放缩得
+\begin{equation}
+    r_n \leq \frac{r_0+s_0+t_0}{3} \leq t_n, \; (\forall n \in \integer)
+\end{equation}
+这说明，在数轴上，不管$n$取哪一个整数，$\displaystyle\frac{r_0+s_0+t_0}{3}$这个数，总是插在$r_n$与$t_n$之间，又根据$r_n,s_n,t_n$的定义，有$r_n \leq \min \{a_n,b_n,c_n\}$以及$t_n \geq \max \{a_n, b_n, c_n \}$，于是，依几何事实，有
+\begin{align}
+    |a_n - \frac{r_0+s_0+t_0}{3}| < |r_n - t_n| < \epsilon, \\
+    |b_n - \frac{r_0+s_0+t_0}{3}| < |r_n - t_n| < \epsilon, \\
+    |c_n - \frac{r_0+s_0+t_0}{3}| < |r_n - t_n| < \epsilon
+\end{align}
+又由于$\displaystyle\frac{r_0+s_0+t_0}{3}=\frac{a_0+b_0+c_0}{3}$，所以
+\begin{equation}
+    \lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n = \lim_{n\to\infty} c_n = \frac{a_0+b_0+c_0}{3}
+\end{equation}
+于是命题得证．
+\end{proof}
+
+\exercise
+\exercise
+\exercise
+
+5. 令$\displaystyle a_n = (n!)^\frac{1}{n}$，求证：$\{ a_n \}$是一个递增数列．
+\begin{proof}
+猜测$\{ a_n \}$是递增的，为此，我们尝试去证$\displaystyle \frac{a_{n+1}}{a_n} > 1$，由题设：
+\begin{equation}
+    \frac{a_{n+1}}{a_n} = \frac{(1 \times 2 \times \cdots \times n+1)^\frac{1}{n+1}}{(1 \times 2 \times \cdots \times n)^\frac{1}{n}}
+    \label{eq:a1}
+\end{equation}
+对式(\ref{eq:a1})左右两端同时自乘$n+1$次，得：
+\begin{equation}
+    \left( \frac{a_{n+1}}{a_n} \right)^{n+1} = \frac{1 \times 2 \times \cdots \times n+1}{1 \times 2 \times \cdots \times n \times (1 \times 2 \times \cdots \times n)^\frac{1}{n}} = \frac{n+1}{(1 \times 2 \times \cdots \times n)^\frac{1}{n}}
+    \label{eq:a2}
+\end{equation}
+对式(\ref{eq:a2})左右两端同时自乘$n$次，得：
+\begin{equation}
+    \left(\left(\frac{a_{n+1}}{a_n} \right)^{n+1}\right)^{n} = \frac{(n+1)^n}{1 \times 2 \times \cdots \times n} = \frac{\prod_{i=1}^{n} \left( n+1 \right) }{\prod_{i=1}^{n} i} = \prod_{i=1}^n \frac{n+1}{i} > \prod_{i=1}^{n} 1 = 1
+\end{equation}
+也就是
+\begin{equation}
+   \left( \frac{a_{n+1}}{a_n} \right)^{n (n+1)} > 1
+\end{equation}
+从而$\displaystyle \frac{a_{n+a}}{a_n} >1$，又根据$a_n > 0$，于是数列$\{ a_n \}$是递增的．
+\end{proof}
+
+\exercise
+
+1. 求下列极限
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)$\displaystyle \lim_{n\to\infty} \left(1+\frac{1}{n-2}\right)^n$; &  (2)$\displaystyle \lim_{n \to \infty} \left(1-\frac{1}{n+3}\right)^n$; \\ [1.5em]
+       (3)$\displaystyle \lim_{n \to \infty} \left(\frac{1+n}{2+n}\right)^n$; & (4) $\displaystyle \lim_{n \to \infty} \left(1+\frac{3}{n}\right)^n$; \\ [1.5em]
+       (5)$\displaystyle \lim_{n \to \infty} \left(1+\frac{1}{2n^2}\right)^{4n^2}$.
+      \end{tabularx}
+\end{table}
+(1). 解：令$m = n-2$，则
+\begin{align}
+    \lim_{n \to \infty} \left(1+\frac{1}{n-2}\right)^n &= \lim_{m \to \infty} \left(1+ \frac{1}{m}\right)^{m+2} \\
+    &= \lim_{m \to \infty} \left(1+\frac{1}{m}\right)^m \left(1+\frac{1}{m}\right)^2 \\
+    &= \lim_{m \to \infty} \left(1+\frac{1}{m}\right)^m \lim_{m \to \infty} \left(1+\frac{1}{m}\right)^2 \\
+    &= \mathrm{e} \cdot 1 \\
+    &= \mathrm{e}
+\end{align}
+(2). 解：令$m=n+3$，则
+\begin{align}
+    \lim_{n \to \infty} \left(1-\frac{1}{n+3}\right)^n &= \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^{m+2} \\
+    &= \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^m \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^2 \\
+    &= \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^m \\
+    &= \mathrm{e}^{-1}
+\end{align}
+(3). 解：
+\begin{align}
+    \lim_{n \to \infty} \left(\frac{1+n}{2+n}\right)^n &= \lim_{n \to \infty} \left(1 - \frac{1}{2+n}\right)^n
+\end{align}
+令$m = 2+n$，那么
+\begin{align}
+    \text{原式} &= \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^{m-2} \\
+    &= \lim_{m\to\infty} \frac{\left(1-\frac{1}{m}\right)^m}{\left(1-\frac{1}{m}\right)^2} \\
+    &= \frac{\displaystyle\lim_{n \to \infty}\left(1-\frac{1}{m}\right)^m}{\displaystyle\lim_{m\to\infty} \left(1-\frac{1}{m}\right)^2} \\
+    &= \frac{\mathrm{e}^{-1}}{1} \\
+    &= \mathrm{e}^{-1}
+\end{align}
+(4). 解：令$m=3n$，则
+\begin{align}
+    \lim_{n\to\infty}\left(1+\frac{3}{n}\right)^n &= \lim_{m\to\infty}\left(1+\frac{3}{3m}\right)^{3m} \\
+    &= \lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{3m} \\
+    &= \lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{m}\left(1+\frac{1}{m}\right)^{m}\left(1+\frac{1}{m}\right)^{m} \\
+    &= \lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{m} \lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{m}\lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{m} \\
+    &= \mathrm{e}\cdot\mathrm{e}\cdot\mathrm{e}\\
+    &=\mathrm{e}^3
+\end{align}
+(5). 解：令$m=2n^2$，则
+\begin{align}
+    \lim_{n\to\infty} \left(1+\frac{1}{2n^2}\right)^{4n^2} &= \lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{2m} \\
+    &= \lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{m} \left(1+\frac{1}{m}\right)^{m} \\
+    &= \lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{m} \lim_{m\to\infty}\left(1+\frac{1}{m}\right)^{m} \\
+    &=\mathrm{e} \cdot \mathrm{e} \\
+    &=\mathrm{e}^2
+\end{align}
+
+2. 设$k \in \mathbb{N}^\star$，求证：$\displaystyle \lim_{n \to \infty} (1+\frac{k}{n})^n = e^k$.
+\begin{proof}
+采用数学归纳法．当$k=1$时：
+\begin{equation}
+    \lim_{n\to \infty}(1+\frac{k}{n})^n = \lim_{n \to \infty}(1+\frac{1}{n})^n = e = e^1 = e^k
+\end{equation}
+因此当$k=1$时命题成立．现在假设当$k = m-1, \, (m-1\in \mathbb{N}^\star)$时命题成立．那么有
+\begin{align}
+    &\phantom{=} \lim_{n \to \infty} (1+\frac{m}{n})^n \\
+    (\text{令} \; n = m t) \quad & = \lim_{m \to \infty} (1 + \frac{1}{t})^{m t} \\
+    &= \lim_{t \to \infty} (1+\frac{1}{t})^{(m-1) t} (1+\frac{1}{t})^t \\
+    &= \left( \lim_{t \to \infty} (1+\frac{1}{t})^{(m-1) t} \right) \cdot \left( \lim_{t \to \infty} (1+\frac{1}{t})^t \right)\\ 
+    (\text{令} \; t = \frac{s}{m-1}) \quad &= \left( \lim_{s \to \infty} (1 + \frac{m-1}{s})^s \right) \cdot e \\
+    (\text{由归纳假设} ) \quad &= \mathrm{e}^{m-1} \cdot \mathrm{e} \\
+    &= \mathrm{e}^m
+\end{align}
+这里证明了对于$k = m$命题成立．从而根据数学归纳法原理，对任意$k \in \mathbb{N}^\star$命题都成立．
+\end{proof}
+
+3. 求证：$\displaystyle \{ (1+\frac{1}{n})^n \}$是严格递增数列．
+\begin{proof}
+由算式---几何平均不等式：
+\begin{equation}
+(1+\frac{1}{n})^n = (\frac{n+1}{n})^n = 1 \cdot \prod_{i=1}^{n} \frac{n+1}{n} < \left( \frac{1 + n(\frac{n+1}{n})}{n+1} \right)^{n+1} = \left( 1 + \frac{1}{n+1} \right)^{n+1}
+\end{equation}
+从而$\displaystyle \{ (1+\frac{1}{n})^n\}$严格递增．
+\end{proof}
+4. 求证：$\displaystyle \{ (1+\frac{1}{n})^{n+1}\}$是严格递减数列．
+\begin{proof}
+令$\displaystyle q_n = (1 + \frac{1}{n})^{n+1}$，原命题等价于$\{ \displaystyle \frac{1}{q_n}\}$是严格递增数列．由算式---几何平均不等式
+\begin{equation}
+    \frac{1}{q_n} = \left( \frac{n}{n+1} \right)^{n+1} = 1 \cdot \prod_{i = 1}^{n+1} \frac{n}{n+1} < \left( \frac{1 + (n+1) \frac{n}{n+1}}{n+2} \right)^{n+2} = \left( \frac{1+n}{n+2}\right)^{n+2} = \frac{1}{q_{n+1}}
+\end{equation}
+从而数列$\{ \displaystyle \frac{1}{q_n} \}$严格单调递增，因此数列$\{ q_n \}$也就是$\{ \displaystyle (1 + \frac{1}{n})^{n+1}\}$严格单调递减．
+\end{proof}
+5. 证明不等式：
+\begin{equation}
+    \left( 1+\frac{1}{n} \right)^n < \mathrm{e} < \left( 1 + \frac{1}{n} \right)^{n+1}.
+\end{equation}
+\begin{proof}
+令$\displaystyle p_n = \left( 1+\frac{1}{n} \right)^n, \, q_n = \left( 1+\frac{1}{n} \right)^{n+1}$．先证明不等式的左半部分．
+
+采用数学归纳法，当$n=1$时：
+\begin{equation}
+    p_1 = (1+\frac{1}{1})^1 = 2 < e
+\end{equation}
+显然成立．假设当$n=m-1, \, (m-1 \in \mathbb{N}^\star)$时命题成立，我们去证明当$p_{m-1} < \mathrm{e}$时有$p_m < \mathrm{e}$，为此，采用反证法，假设对某个$m$，当$p_{m-1} < \mathrm{e}$时有$p_m > \mathrm{e}$，记$\epsilon_0 = \min \{ |p_{m-1} - \mathrm{e}|, |p_m - \mathrm{e}| \}$，显然$\epsilon_0 > 0$，由数列$\{ p_n \}$的严格单调性，对任意$n \in \mathbb{N}^\star$都有$|p_n - \mathrm{e}| \geq \epsilon_0 > 0$，但是由于数列$\{ p_n \}$的极限是$\mathrm{e}$，所以由极限的定义，对任意$\epsilon > 0$，存在$N_0 \in \mathbb{N}^\star$，使得当$n > N_0$时有$|p_n - e| < \epsilon$，由此推出矛盾，故对于$p_m > e$的假设是错误的．又根据数列$\{ p_n \}$的严格单调性，$p_m \neq e$，因此只能是$p_m < e$. 从而当$p_{m-1} < e$成立时$p_m < e$也成立，根据数学归纳法原理，对任意$n \in \mathbb{N}^\star$，$p_n < e$都成立．
+
+利用数列$\{ q_n \}$的严格单调性质以及$\{ q_n \}$的极限也是$\mathrm{e}$的事实可类似地证明$e < q_n, \, (n \in \mathbb{N}^\star)$.
+\end{proof}
+6.利用对数函数$\ln \, x$的严格递增性质，证明：
+\begin{equation}
+    \frac{1}{n+1} < \ln \, \left( 1+\frac{1}{n} \right) < \frac{1}{n}
+\end{equation}
+对一切$n \in \mathbb{N}^\star$成立．
+\begin{proof}
+先证不等式的左半部分．要证$\displaystyle \frac{1}{n+1} < \ln \, \left( 1+\frac{1}{n} \right)$等价于去证$\displaystyle 1 < (n+1) \ln \, \left( 1+\frac{1}{n} \right)$，利用对数函数$\ln \, x$的严格单调递增性质，也就是等价于$\ln \, \mathrm{e} < \ln \, \left(\left( 1 + \frac{1}{n} \right)^{n+1} \right)$，由题5得到的结论：$\displaystyle \mathrm{e} < \left( 1+\frac{1}{n} \right)^{n+1}$（对任意$n \in \mathbb{N}^\star$），以及对数函数$\ln \, x$的严格单调性质，可知$\ln \, \mathrm{e} < \ln \, \left( \left( 1 + \frac{1}{n} \right)^{n+1} \right)$成立，因此$\displaystyle 1 < (n+1) \ln \, \left( 1+\frac{1}{n} \right)$成立，因此$\displaystyle \frac{1}{n+1} < \ln \, \left( 1 + \frac{1}{n} \right)$成立，即，要证的不等式的左半部分成立．
+
+再用类似的方法来证明不等式的右半部分．由题5得到的结论：$\displaystyle \left( 1 + \frac{1}{n} \right)^n < \mathrm{e}$（对任意$n \in \mathbb{N}^\star$），对这个不等式两端取对数并且利用对数函数$\ln \, x$的单调递增性质，得到$\displaystyle n \ln \, \left( 1 + \frac{1}{n} \right) < \ln \, \mathrm{e} = 1$，再对这个不等式两端除以$n$即得$\displaystyle \ln \, \left( 1 + \frac{1}{n}\right) < \frac{1}{n}$．于是命题得证．
+\end{proof}
+7. 设$n \in \mathbb{N}^\star$且$k = 1,2,\cdots$. 证明不等式：
+\begin{equation}
+    \frac{k}{n+k} < \ln \, \left( 1+\frac{k}{n} \right) < \frac{k}{n}
+\end{equation}
+思路：回顾题４、题５以及题６的证明过程，我们受到启发：要证$\displaystyle \frac{k}{n+k} < \ln \, \left( 1 + \frac{k}{n}\right)$成立就要去证$\displaystyle \ln \, \left( \mathrm{e}^k \right) < (n+k) \ln \, \left( 1 + \frac{k}{n}\right)$成立，相应地就要去证$\displaystyle \mathrm{e}^k < \left(1+\frac{k}{n}\right)^{n+k}$并且要证数列$\displaystyle \{ \left(1+\frac{k}{n}\right)^{n+k} \}$严格单调递减，而对于数列$\displaystyle \{ \left( 1 + \frac{k}{n} \right)^{n+k}\}$的单调递减性的证明可以参考和借鉴题４的方法．
+\begin{proof}
+先证明数列$\displaystyle \{ \left(1+\frac{k}{n}\right)^{n+k}\}$是严格单调递减的．令$\displaystyle p_n =  \left(1+\frac{k}{n}\right)^{n+k}$，这等价于证明数列$\displaystyle \{ \frac{1}{p_n} \}$是严格单调递减的．利用算式---几何均值不等式，我们有：
+\begin{equation}
+    \frac{1}{p_n} =  \left(\frac{n}{n+k}\right)^{n+k} = 1 \cdot \prod_{i=1}^{n+k} \left(\frac{n}{n+k}\right) <(\frac{1+(n+k) \frac{n}{n+k}}{n+k+1})^{n+k+1} = \frac{1}{p_{n+1}}
+\end{equation}
+这就证明了数列$\displaystyle \{ \frac{1}{p_n}\}$是严格单调递减的，从而数列$\{p_n \}$也就是$\{ \displaystyle \left(1+\frac{k}{n}\right)^{n+k}\}$是严格单调递增的．又根据
+\begin{equation}
+    \lim_{n \to \infty} \left(1+\frac{k}{n}\right)^{n+k} = \mathrm{e}^k
+\end{equation}
+以及数列$\{ \displaystyle \left( 1 + \frac{k}{n} \right)^{n+k}\}$的严格单调递减性，以及$\mathrm{e}^k < p_1 = \displaystyle \left(1+\frac{k}{n}\right)^{n+k}$的事实，可证明
+\begin{equation}
+    \mathrm{e}^k < \left( 1 + \frac{k}{n}\right)^{n+k}
+    \label{eq:ek}
+\end{equation}
+对每一个$k, n\in \mathrm{N}^{\star}$都成立．对式(\ref{eq:ek})两边取对数，再根据对数函数$\ln \, x$的严格单调递增性，得到
+\begin{equation}
+    k < (n+k) \ln \, \left(1+\frac{k}{n}\right)
+\end{equation}
+也就是
+\begin{equation}
+    \frac{k}{n+k} < \ln \, \left(1+\frac{k}{n}\right)
+\end{equation}
+从而要证明的不等式的左半部分成立．采用类似的方法可类似地证明不等式的右半部分成立．
+\end{proof}
+8. 对$n \in \mathbb{N}^\star$，求证：
+\begin{equation}
+    \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} < \ln \, \left( n+1 \right) < 1 + \frac{1}{2} + \cdots + \frac{1}{n}.
+\end{equation}
+\begin{proof}
+利用题６的结论：$\displaystyle \frac{1}{n+1} < \ln \, \left( 1 + \frac{1}{n} \right) = \ln \, (n+1) - \ln \, n$，我们有
+\begin{equation}
+\sum_{i = 1}^{n} \frac{1}{i + 1} < \sum_{i=1}^n \ln \, \left( i+1 \right) - \ln \, i = \sum_{i=1}^n \ln \, \left( i + 1\right) - \sum_{i=1}^n \ln \, i = \sum_{i=1}^{n+1} \ln \, i - \sum_{i=1}^{n} \ln \, i = \ln \, \left( n+1 \right)
+\end{equation}
+于是左半部分得证．再利用题６的结论：$\displaystyle \ln \, \left( n+1 \right) - \ln \, n = \ln \, \left( 1 + \frac{1}{n} \right) < \frac{1}{n}$，可以得到
+\begin{equation}
+\sum_{i=1}^n \ln \, \left( i+1 \right) - \ln \, i = \sum_{i=1}^n \ln \, \left( i+1 \right) - \sum_{i=1}^n \ln \, i = \sum_{i=1}^{n+1} \ln \, i - \sum_{i=1}^n \ln \, i = \ln \, \left(n+1 \right) < \sum_{i=1}^n \frac{1}{i}
+\end{equation}
+于是右半部分得证．
+\end{proof}
+9. 令
+\begin{equation}
+    x_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln \, \left( n+1 \right) \quad (n \in \mathbb{N}^\star).
+\end{equation}
+证明：$\displaystyle \lim_{n \to \infty} x_n $存在，此极限记为$\gamma$，叫做Euler（欧拉，1707\textasciitilde 1783）常数．
+\begin{proof}
+先证单调性．
+\begin{align}
+    x_{n+1} &= 1 + \frac{1}{2} + \cdots + \frac{1}{n} + \frac{1}{n+1} - \ln \, \left(n+2\right) \\
+    &< 1 + \frac{1}{2} + \cdots + \frac{1}{n} + \ln \, \left( 1 + \frac{1}{n} \right) - \ln \, \left( n+2\right) \\
+    &= 1 + \frac{1}{2} + \cdots + \frac{1}{n} + \ln \, \left( n+1 \right) - \ln \, n - \ln \, \left( n+2 \right) \\
+    &< 1 + \frac{1}{2} + \cdots + \frac{1}{n} + \ln \, \left( n+1 \right) \\
+    &= x_n \quad (n \in \mathbb{N}^\star)
+\end{align}
+再证有界性．利用题８的结论，有
+\begin{equation}
+    0 < 1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln \left( n + 1\right) 
+\end{equation}
+从而数列$\{ x_n \}$既单调又有界，所以数列$\{ x_n \}$的极限存在．
+\end{proof}
+10. 利用第９题，证明：
+\begin{equation}
+    1+\frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} = \ln \, n + \gamma + \epsilon_n,
+\end{equation}
+其中$\displaystyle \lim_{n \to \infty} \epsilon_n = 0$.
+\begin{proof}
+令$\displaystyle p_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln \, n$，我们先来证明数列$\{ p_n \}$的极限存在．先证单调性：
+\begin{align}
+    p_{n+1} &= 1 + \frac{1}{2} + \cdots + \frac{1}{n} + \frac{1}{n+1} - \ln \, \left( n + 1 \right) \\
+    &< 1 + \frac{1}{2} + \cdots + \frac{1}{n} + \ln \, \left( 1 + \frac{1}{n} \right) - \ln \, \left(n+1\right) \\
+    &= 1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln \, n \\
+    &= p_n \quad (n \in \mathbb{N}^\star)
+\end{align}
+再证有界性．利用题８的结论：$\displaystyle \ln \, n < \ln \, \left( n+1 \right) < 1 + \frac{1}{2} + \cdots +\frac{1}{n}$，于是
+\begin{equation}
+    p_n = 1 + \frac{1}{2} +\cdots + \frac{1}{n} - \ln \, n > 0
+\end{equation}
+从而数列$\{ p_n \}$有界，因此数列$\{ p_n \}$的极限存在，即$ \displaystyle \lim_{n \to \infty} p_n$存在．令$\displaystyle x_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln \, \left( n + 1\right)$，我们来证$\displaystyle \lim_{n \to \infty} p_n$的确等于$\displaystyle \lim_{n \to \infty} x_n$：
+\begin{align}
+    \lim_{n \to \infty} p_n &= \lim_{n \to \infty} \left( x_n + \ln \, \left( n+1 \right) - \ln \, n \right) \\
+    &= \lim_{n \to \infty} x_n + \lim_{n \to \infty} \left( \ln \, \left(n+1\right) - \ln \, n \right) \\
+    &= \lim_{n \to \infty} x_n + 0 \\
+    &= \lim_{n \to \infty} x_n
+\end{align}
+其中$\displaystyle \lim_{n \to \infty} \left( \ln \, \left(n+1\right) - \ln \, n\right) = 0$的条件是从题６的结论：
+\begin{equation}
+\frac{1}{n+1} < \ln \, \left(1 + \frac{1}{n}\right) = \ln \, \left(n+1\right) - \ln \, n < \frac{1}{n}
+\end{equation}
+得到的．令$\displaystyle \epsilon_n = 1 + \frac{1}{2} +\cdots + \frac{1}{n} - \ln \, n - \gamma$，令$\displaystyle \gamma = \lim_{n \to \infty} x_n$，我们要证$\displaystyle \lim_{n \to \infty} \epsilon_n = 0$：
+\begin{align}
+    \lim_{n \to \infty} \epsilon_n &= \lim_{n \to \infty} \left(1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln \, n - \gamma \right) \\
+    &= \lim_{n \to \infty} \left( p_n - \gamma \right) \\
+    &= \lim_{n\to \infty} p_n - \lim_{n\to \infty} \gamma \\
+    &= \left( \lim_{n\to \infty} p_n \right) - \gamma \\
+    &= \lim_{n\to \infty} p_n - \lim_{n \to \infty} x_n \\ 
+    &= 0
+\end{align}
+命题得证．
+\end{proof}
+11. 证明不等式：
+\begin{equation}
+    \left(\frac{n+1}{\mathrm{e}}\right)^n < n! < \mathrm{e} \left(\frac{n+1}{\mathrm{e}}\right)^{n+1}
+\end{equation}
+\begin{proof}
+先证不等式左半部分．先将要证的不等式改写成便于证明的等价形式：
+\begin{align}
+    \left( \frac{n+1}{\mathrm{e}}\right)^n < n! &\iff n \left(\ln \, \left(n+1\right) - 1\right) < \sum_{i=1}^n \ln \, i \\
+    &\iff \sum_{i=1}^n \left(\ln \, \left(n+1\right) - \ln \, i\right) < n \label{ieq:1}
+\end{align}
+我们现采用数学归纳法证明不等式(\ref{ieq:1})成立，显然当$n=1$时不等式(\ref{ieq:1})成立，假设当$n = m-1$时($m-1 \in \mathbb{N}^\star$)不等式(\ref{ieq:1})成立．那么当$n=m$时：
+\begin{align}
+    \sum_{i=1}^m \left(\ln\,\left(m+1\right) - \ln \, i\right) &= \sum_{i=1}^{m-1} \left(\ln \, m - \ln \, i\right) + \sum_{i=1}^m \left(\ln\,\left(m+1\right) - \ln \, i\right) - \sum_{i=1}^{m-1} \left(\ln \, m - \ln \, i\right) \\
+    &= \left(\sum_{i=1}^{m-1} \ln \, m - \ln \, i \right) + m \left( \ln \, \left(m+1\right) - \ln \, m \right) \\
+    &< m-1 + m \cdot \frac{1}{m} \\
+    &= 1
+\end{align}
+由此可见当$n=m$时不等式(\ref{ieq:1})也成立，根据数学归纳法原理，不等式(\ref{ieq:1})对每一个$n\in\mathbb{N}^\star$都成立，从而不等式(\ref{ieq:1})的等价形式
+\begin{equation}
+\left(\frac{n+1}{\mathrm{e}}\right)^n < n!
+\end{equation}
+对每一个$n\in\mathbb{N}^\star$都成立．
+
+现在再去证明不等式右半部分，先将它改写成便于证明的等价形式：
+\begin{align}
+    n! < \mathrm{e}\left(\frac{n+1}{\mathrm{e}}\right)^{n+1} &\iff \sum_{i=1}^n \ln \, i < (n+1)\ln \, \left(n+1\right) - n \\
+    &\iff n < \left( \sum_{i=1}^n \ln \, \left(n+1\right) - \ln \, i \right) + \ln \, \left(n+1\right)
+\end{align}
+令
+\begin{equation}
+    p_n = \left( \sum_{i=1}^n \ln \, \left(n+1\right) - \ln \, i \right) + \ln \, \left(n+1\right)
+\end{equation}
+我们现在采用数学归纳法证明$n < p_n$对每一个$n\in\mathbb{N}^\star$成立．当$n=1$时：
+\begin{align}
+    p_n = p_1 = 2 \ln \, 2 = 2 \left( \ln \, 2 - \ln \, 1\right) = 2 \ln \, \left( 1 + \frac{1}{1} \right) > 2 \cdot \frac{1}{1+1} = 1 = n
+\end{align}
+从而当$n=1$时$n < p_n$成立，现在假设：当$n=m-1, \, (m-1 \in \mathbb{N}^\star)$时，$n < p_n$成立．于是
+\begin{align}
+    p_m &= p_{m-1} + p_{m} - p_{m-1} \\
+    &= p_{m-1} + (m+1) \left( \ln \, \left(m+1\right) - \ln \, m \right) \\
+    &= p_{m-1} + (m+1) \ln \, \left(1 + \frac{1}{m}\right) \\
+    &> m-1 + (m+1) \frac{1}{m+1} \\
+    &= m
+\end{align}
+从而对于$n=m$，$n < p_n$也成立，根据数学归纳法原理，$n < p_n$对每一个$n \in \mathbb{N}^\star$都成立，也就是
+\begin{equation}
+    n < \left( \sum_{i=1}^n \ln \, \left(n+1\right) - \ln \, i \right) + \ln \, \left(n+1\right)
+\end{equation}
+以及它的等价形式
+\begin{equation}
+    n! < \mathrm{e}\left(\frac{n+1}{\mathrm{e}}\right)^{n+1}
+\end{equation}
+对每一个$n \in \mathbb{N}^\star$都成立．
+\end{proof}
+12. 证明：利用题１１的结论：
+\begin{align}
+    &\phantom{\implies} \left(\frac{n+1}{\mathrm{e}}\right)^n < n! < \left(\frac{n+1}{\mathrm{e}}\right)^{n+1} \\
+    &\implies \frac{1}{\mathrm{e}^n} < \frac{n!}{(n+1)^n} < \frac{n+1}{\mathrm{e}^n} \\
+    &\implies \frac{1}{\mathrm{e}} < \frac{(n!)^\frac{1}{n}}{n+1} < \frac{(n+1)^\frac{1}{n}}{\mathrm{e}} \\
+    &\implies \lim_{n\to\infty} \frac{1}{\mathrm{e}} < \lim_{n \to \infty} \frac{(n!)^\frac{1}{n}}{n+1} < \lim_{n\to\infty} \frac{(n+1)^\frac{1}{n}}{\mathrm{e}} \\
+    &\implies \lim_{n\to\infty} \frac{(n!)^\frac{1}{n}}{n+1} = \frac{1}{\mathrm{e}}
+\end{align}
+再次利用题１１的结论：
+\begin{align}
+    &\phantom{\implies} \left(\frac{n+1}{\mathrm{e}}\right)^n < n! < \left(\frac{n+1}{\mathrm{e}}\right)^{n+1} \\
+    &\implies \frac{1}{\mathrm{e}^n} < \frac{n!}{(n+1)^n} < \frac{n+1}{\mathrm{e}^n} \\
+    &\implies \frac{1}{\mathrm{e}} < \frac{(n!)^\frac{1}{n}}{n+1} < \frac{(n+1)^\frac{1}{n}}{\mathrm{e}} \\
+    &\implies \frac{1}{n \mathrm{e}} < \frac{(n!)^\frac{1}{n}}{n(n+1)} < \frac{(n+1)^\frac{1}{n}}{\mathrm{e}} \\
+    &\implies \lim_{n\to\infty} \frac{1}{n \mathrm{e}} = \lim_{n\to\infty} \frac{(n!)^\frac{1}{n}}{n(n+1)} = \lim_{n\to\infty} \frac{(n+1)^\frac{1}{n}}{\mathrm{e}} = 0 \\
+    &\implies \lim_{n\to\infty} \left(\frac{(n!)^\frac{1}{n}}{n} - \frac{(n!)^\frac{1}{n}}{n+1}\right) = 0 \\
+    &\implies \lim_{n\to\infty} \frac{(n!)^\frac{1}{n}}{n} = \lim_{n\to\infty} \frac{(n!)^\frac{1}{n}}{n+1} + \lim_{n\to\infty} \left(\frac{(n!)^\frac{1}{n}}{n} - \frac{(n!)^\frac{1}{n}}{n+1}\right) = \frac{1}{\mathrm{e}} + 0 = \frac{1}{\mathrm{e}}
+\end{align}
+这就证明了数列$\displaystyle \{\frac{(n!)^\frac{1}{n}}{n}\}$的极限是$\displaystyle \frac{1}{\mathrm{e}}$.
+
+\exercise
+1. 对任意给定的$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，当$n > N$时，有
+\begin{equation}
+    |a_n - a_N|<\epsilon
+\end{equation}
+问$\{a_n\}$是不是基本列？
+
+思路：在实数轴上，所有$a_N$附件的项都落在以它为中心的半径不超过$\epsilon$的一个范围内，那么，假设$a_n, a_m$也是在这个范围内，$a_n$与$a_m$的距离只会更加近，因为这个$\epsilon$可以任意小，从而这个以$a_N$为中心的范围可以是任意地``拥挤''．由此我们猜测$\{a_n\}$是基本列，去证$|a_m - a_n|<\epsilon$.
+
+\begin{proof}
+设$m, n>N$，那么由题设，
+\begin{equation}
+    |a_m - a_N|<\epsilon, \; |a_n - a_N| <\epsilon
+\end{equation}
+也就是
+\begin{align}
+    a_N - \epsilon < a_m < a_N + \epsilon \\
+    a_N - \epsilon < a_n < a_N + \epsilon 
+\end{align}
+从而
+\begin{equation}
+    |a_m - a_n| < 2\epsilon
+\end{equation}
+由于$2\epsilon$可以是任意的正数，所以按定义，$\{a_n\}$是基本列．
+\end{proof}
+
+2. (1)数列$\{a_n\}$满足
+\begin{equation}
+    |a_{n+p}-a_n|\leq\frac{p}{n}
+\end{equation}
+且对一切$n,p\in\mathbb{N}^\star$成立，问$\{ a_n\}$是不是基本列？
+
+(2) 当$|a_{n+p} - a_n| \leq p/n^2$时，上述结论又如何？
+
+思路：对于题（１），当$n\to\infty$时$\displaystyle\frac{p}{n}$显然趋于$0$，但我们从直觉上能够感觉到这个趋于$0$的速度还不够快，由此猜想$\{a_n\}$应该不是基本列，可以去举反例．
+\begin{proof}
+(1) 考虑
+\begin{equation}
+    a_n = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} 
+\end{equation}
+于是
+\begin{align}
+    a_{n+p} - a_n &= \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{n+p}\\
+    &\leq \frac{1}{n+1} + \frac{1}{n+1} + \cdots + \frac{1}{n+1} \\
+    &= \frac{p}{n+1} < \frac{p}{n}
+\end{align}
+数列$\{a_n\}$满足$|a_{n+p}-a_n|\leq \displaystyle\frac{p}{n}, \, (n,p\in\mathbb{N}^\star)$，但是$\{a_n\}$显然不是基本列．
+
+(2) 由题设，有
+\begin{align}
+    |a_{n+p} - a_n| &\leq |a_{n+1} - a_n| + |a_{n+2} - a_{n+1}| + \cdots + |a_{n+p} - a_{n+p-1}| \\
+    &\leq \frac{1}{n^2} + \frac{1}{(n+1)^2} + \cdots + \frac{1}{(n+p-1)^2}
+\end{align}
+令
+\begin{equation}
+    b_n = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots + \frac{1}{n^2} = \sum_{i=1}^n \frac{1}{i^2}
+\end{equation}
+于是
+\begin{equation}
+    |a_{n+p} - a_n| \leq b_{n+p-1} - b_n = |b_{n+p-1} - b_n| < |b_{n+p} - b_n|
+\end{equation}
+显然，数列$\{b_n\}$是收敛的，因此数列$\{ b_n \}$是基本列，因此，对任意$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，
+\begin{equation}
+    |a_{n+p} - a_n| < |b_{n+p} - b_n| < \epsilon
+\end{equation}
+对任意$n, p \in \mathbb{N}^\star$成立．所以，由定义，$\{ a_n \}$是基本列．
+\end{proof}
+
+3. 证明下列数列收敛：
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} { >{\raggedright\arraybackslash}X }
+    (1) $\displaystyle a_n = 1-\frac{1}{2^2}+\frac{1}{3^2}-\cdots+(-1)^{n-1}\frac{1}{n^2}\, (n\in\mathbb{N}^\star)$; \\ [0.7em]
+    (2) $\displaystyle b_n = a_0 + a_1 q + \cdots + a_n q^n \, (n \in \mathbb{N}^\star)$，其中$\{a_0,a_1,\cdots\}$为一有界数列，$|q|<1$; \\ [0.7em]
+    (3) $a_n = \displaystyle \sin x + \frac{\sin 2x}{2^2} + \cdots + \frac{\sin nx}{n^2}\, (n \in \mathbb{N}^\star, x \in \mathbb{R})$; \\ [0.7em]
+    (4) $a_n = \displaystyle \frac{\sin 2x}{2(2+\sin 2x)} + \frac{\sin 3x}{3(3+\sin 3x)} + \cdots + \frac{\sin nx}{n(n+\sin nx)} \, (n\in\mathbb{N}^\star, x \in \mathbb{R})$.
+    \end{tabularx}
+\end{table}
+
+\begin{proof}
+(1). 将$a_n$写成
+\begin{equation}
+    a_n = \sum_{i=1}^n (-1)^{i-1} \frac{1}{i^2}
+\end{equation}
+于是
+\begin{align}
+    |a_{n+p}-a_n| = \Bigg\lvert\sum_{i=n+1}^{n+p} (-1)^{i-1}\frac{1}{i^2} \Bigg\rvert < \Bigg\lvert \sum_{i=n+1}^{n+p} \frac{1}{i^2} \Bigg\rvert
+\end{align}
+令
+\begin{equation}
+    b_n = \sum_{i=1}^n \frac{1}{i^2}
+\end{equation}
+于是
+\begin{equation}
+    |a_{n+p}-a_n|<b_{n+p} - b_n =|b_{n+p}-b_n|
+\end{equation}
+并且数列$\{ b_n \}$是基本列，从而对任意$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，
+\begin{equation}
+    |a_{n+p}-a_n|<|b_{n+p}-b_n|<\epsilon
+\end{equation}
+对任意$n,p \in \mathbb{N}^\star$都成立．于是，按定义，数列$\{a_n\}$是基本列，从而数列$\{a_n\}$收敛．
+\end{proof}
+
+\begin{proof}
+(2). 设$l$是$\{a_n\}$的下界，$u$是$\{a_n\}$的上界，令$a = \max\{ |l|, |u| \}$:
+\begin{align}
+    |b_{n+p} - b_n| &= \Bigg\lvert \sum_{i=0}^{n+p} a_i q^i - \sum_{i=0}^{n} a_i q^i \Bigg\rvert \\
+    &= \Bigg\lvert \sum_{i=n+1}^{n+p} a_i q^i \Bigg\rvert < a |q|^{n+1} \sum_{i=0}^{p-1} |q|^i = |q|^{n+1} \frac{a(1-|q|^p)}{1-|q|} \\
+    &< |q|^{n+1} \frac{a}{1-|q|}
+\end{align}
+那么，对任意$\epsilon > 0$，我们可以取
+\begin{equation}
+    N = \lceil \log_{|q|} \left(\frac{\epsilon(1-|q|)}{a}\right) - 1\rceil
+\end{equation}
+则当$n > N$时
+\begin{align}
+    |b_{n+p}-b_n| &< |q|^{n+1}\frac{a}{1-|q|} < |q|^{N+1} \frac{a}{1-|q|} \\
+    &< \frac{\epsilon(1-|q|)}{a} \frac{a}{1-|q|} = \epsilon
+\end{align}
+对任意$n, p\in\mathbb{N}^\star$都成立，于是由定义，$\{b_n\}$是一个基本列，于是$\{b_n\}$收敛．
+\end{proof}
+\begin{proof}
+(3). 设$n,p\in\mathbb{N}^\star$:
+\begin{align}
+    |a_{n+p}-a_n| &= \Bigg\lvert \sum_{i=1}^{n+p} \frac{\sin ix}{i^2} - \sum_{i=1}^n \frac{\sin ix}{i^2} \Bigg\rvert \\
+    &= \Bigg\lvert \sum_{i=n+1}^{n+p} \frac{\sin ix}{i^2} \Bigg\rvert \\
+    &< \sum_{i=n+1}^{n+p} \frac{1}{i^2}
+\end{align}
+令
+\begin{equation}
+    b_n = \sum_{i=1}^n \frac{1}{i^2}
+\end{equation}
+易知数列$\{b_n\}$是收敛数量，故$\{b_n\}$是基本列，于是，对任意正数$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，当$n>N$时，
+\begin{equation}
+    |b_{n+p}-b_{n}|<\epsilon
+\end{equation}
+对任意$n,p\in\mathbb{N}^\star$成立，又由于
+\begin{equation}
+    |a_{n+p}-a_n|<\sum_{i=n+1}^{n+p} \frac{1}{i^2}= |b_{n+p}-b_n|
+\end{equation}
+所以同样也有
+\begin{equation}
+    |a_{n+p}-a_n|<|b_{n+p}-b_n|<\epsilon
+\end{equation}
+对任意$n,p\in\mathbb{N}^\star$成立．所以由定义$\{a_n\}$是基本列，所以$\{a_n\}$收敛．
+\end{proof}
+\begin{proof}
+(4). 将$a_n$写作
+\begin{equation}
+    a_n = \sum_{i=2}^n \frac{\sin ix}{i(i+\sin ix)}
+\end{equation}
+于是，对于$n,p\in\mathbb{N}^\star, n \geq 2$，有
+\begin{align}
+    |a_{n+p}-a_n| &= \Bigg\lvert \sum_{i=2}^{n+p}\frac{\sin ix}{i(i+\sin ix)} - \sum_{i=2}^n \frac{\sin ix}{i(i+\sin ix)} \Bigg\rvert \\
+    &= \Bigg\lvert \sum_{i=n+1}^{n+p} \frac{\sin ix}{i(i+\sin ix)} \Bigg\rvert = \Bigg\lvert \sum_{i=n+1}^{n+p} \frac{\sin ix}{i^2 + i \sin ix} \Bigg\rvert \\
+    &< \sum_{i=n+1}^{n+p} \bigg\lvert \frac{\sin ix}{i^2 + i \sin ix} \bigg\rvert < \sum_{i=n+1}^{n+p}\frac{1}{i^2-i}  = \sum_{i=n+1}^{n+p} \frac{1}{i(i-1)} \\
+    &< \sum_{i=n+1}^{n+p}\frac{1}{(i-1)^2}
+\end{align}
+令
+\begin{equation}
+    b_n = 1+\frac{1}{2^2}+\cdots+\frac{1}{n^2}=\sum_{i=1}^n\frac{1}{i^2}
+\end{equation}
+则
+\begin{equation}
+    |a_{n+p}-a_n|<\sum_{i=n+1}^{n+p} = |b_{n+p-1}-b_{n}|
+\end{equation}
+由于数列$\{b_n\}$收敛，所以$\{b_n\}$是基本列，所以，对任意$\epsilon>0$，存在$N\in\mathbb{N}^\star$，使得当$n>N$时，
+\begin{equation}
+    |a_{n+p}-a_n|<|b_{n+p-1}-b_n|<\epsilon
+\end{equation}
+对任意$p\in\mathbb{N}^\star$都成立，从而按照定义，$\{a_n\}$是基本列，于是$\{a_n\}$收敛．
+\end{proof}
+
+4. 设数列
+\begin{equation}
+    \{|a_2-a_1|+|a_3-a_2|+\cdots+|a_n-a_{n-1}|\}
+\end{equation}
+有界，求证$\{a_n\}$收敛．
+\begin{proof}
+令
+\begin{equation}
+    b_n = |a_2-a_1|+|a_3-a_2|+\cdots+|a_n-a_{n-1}| =\sum_{i=2}^n |a_{i}-a_{i-1}|
+\end{equation}
+于是
+\begin{align}
+    b_{n+1}-b_n &= \sum_{i=2}^{n+1} |a_i - a_{i-1}| -\sum_{i=2}^{n} |a_i-a_{i-1}| \\
+    &= |a_{n+1}-a_{n}| > 0
+\end{align}
+从而，数列$\{b_n\}$，也就是数列$\{|a_2-a_1|+\cdots+|a_{n}-a_{n-1}|\}$是单调递增的，又由题设知数列$\{b_n\}$有界，所以数列$\{b_n\}$收敛．
+
+现在我们来证明数列$\{a_n\}$是一个基本列：
+\begin{align}
+    |a_{n+p}-a_n| &\leq |a_{n+1}-a_n|+|a_{n+2}-a_{n+1}|+\cdots+|a_{n+p}-a_{n+p-1}| \\
+    &= b_{n+p} - b_{n-1} = b_{n+p} - b_n + b_{n} - b_{n-1} = |b_{n+p}-b_n|+|b_n-b_{n-1}|
+\end{align}
+由于数列$\{b_n\}$收敛，所以$\{b_n\}$是基本列，所以，对任意$\epsilon > 0$，存在$N\in\mathbb{N}^\star$，使得当$n > N$时
+\begin{equation}
+    |b_{n+p}-b_n|<\epsilon, \; |b_n-b_{n-1}|<\epsilon
+\end{equation}
+对任意$p \in \mathbb{N}^\star$都成立，而又因为$|a_{n+p}-a_n|<|b_{n+p} - b_n|+|b_{n}-b_{n-1}|$，所以
+\begin{equation}
+    |a_{n+p}-a_n|<|b_{n+p}-b_n|+|b_n-b_{n-1}|<\epsilon+\epsilon=2\epsilon
+\end{equation}
+对任意$p\in\mathbb{N}^\star$都成立，所以，由定义知$\{a_n\}$是基本列，所以$\{a_n\}$收敛．
+\end{proof}
+5. 用精确语言表述``数列$\{a_n\}$不是基本列''．
+
+答：
+
+一个数列$\{ a_n \}$不是基本列，如果存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，存在$n, m > N$，使得$|a_m - a_n| \geq \epsilon_0$．
+
+6. 设$a_n \in [a,b]\,(n\in\mathbb{N}^\star)$．证明：如果$\{a_n\}$发散，则$\{a_n\}$必有两个子列收敛于不同的数．
+\begin{proof}
+任取$\{ a_n \}$的两个收敛子列，分别记为$\{ a_{i_n} \}$和$\{ a_{j_n} \}$，由于$\{ a_n \}$发散，所以$\{ a_n \}$不是基本列，那么就存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，都存在$n, m > N$，使得$|a_n - a_m| \geq \epsilon_0$，于是就存在$i_n, j_m > N$，使得$|a_{i_n} - a_{j_m}| \geq \epsilon_0$，这就说明了$\{ a_{i_n} \}$和$\{ a_{j_m} \}$分别收敛到不同的极限．
+\end{proof}
+
+\exercise
+2. 求数列$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$和$\{(1+1/n)^{n+1}:n\in\mathbb{N}^\star\}$的下确界和上确界．
+
+思路：注意到$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$是严格单调递增数列并且极限是$\mathrm{e}$，所以我们去证它的上确界是$\mathrm{e}$，而数列$\{(1+1/n)^{n+1}:n\in\mathbb{N}^\star\}$的极限也是$\mathrm{e}$并且是严格单调递减数列，我们去证它的下确界是$\mathrm{e}$．
+\begin{proof}
+令$a_n = (1+1/n)^n$，易证，数列$\{ a_n \}$是严格单调递增的，并且极限是$\mathrm{e}$，从而$\mathrm{e} < a_n$对所有$n \in \mathbb{N}^\star$成立，也就是对任意$x \in \{a_n:n\in\mathbb{N}^\star\}$都有$\mathrm{e}<x$；由于$\{a_n\}$的极限是$\mathrm{e}$，所以，对任意$\epsilon >0$，都存在$N \in \mathbb{N}^\star$，使得当$n>N$时，有
+\begin{equation}
+    |a_n - \mathrm{e}| = \mathrm{e}-a_n < \epsilon
+\end{equation}
+令$x_\epsilon = a_n$，该不等式可以写成$x_\epsilon > e - \epsilon$，并且$x_\epsilon = a_n \in \{a_n : n \in \mathbb{N}^\star \}$，因此$\mathrm{e}$是集合$\{ a_n : n \in \mathbb{N}^\star \}$也就是集合$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$的上确界．易知$\{(1+1/n)^n:n\in\mathbb{N}\}$的下确界是$a_1$也就是$3/2$.
+
+再来证$\mathrm{e}$是集合$\{(1+1/n)^{n+1}:n\in\mathbb{N}\}$的下确界．令$b_n=(1+1/n)^{n+1}$，易证数列$\{b_n\}$是严格单调递减的并且极限是$\mathrm{e}$，从而对任意$n \in \mathbb{N}^\star$都有$b_n > \displaystyle\lim_{n\to\infty} b_n = \mathrm{e}$，也就是对任意$ x \in \{ b_n : n \in \mathbb{N}^\star \}$都有$x > \mathrm{e}$．
+
+由$\displaystyle\lim_{n\to\infty}b_n = e$知，对任意$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，有
+\begin{equation}
+    |b_n - \mathrm{e}| = b_n - \mathrm{e} < \epsilon 
+\end{equation}
+令$y_\epsilon = b_n$，该不等式可以写成$y_\epsilon = b_n < \mathrm{e} + \epsilon$（对任意$n\in\mathbb{N}^\star$），从而$\mathrm{e}$正是集合$\{b_n:n\in\mathbb{N}^\star\}$的下确界．
+
+显然$\{b_n:n\in\mathbb{N}^\star\}$的上确界是$b_1$，也就是$\displaystyle \left(\frac{3}{2}\right)^2$.
+\end{proof}
+
+3. 求数列$\{n^{1/n}:n\in\mathbb{N}^\star\}$的下确界和上确界．
+
+解：先求上确界．通过计算可知$1^{1/1} < 2^{1/2} <3^{1/3}$，令$a_n = n^{1/n}$，则$a_n$的增减性等价于$\ln \, a_n$的增减性，为了判断$\ln \, a_n$的增减性，我们对数列$\{ \ln \, a_n \}$的任意相邻两项做差：
+\begin{align}
+    \ln \, a_{n+1} - \ln \, a_n &= \frac{1}{n+1} \ln \, \left(n+1\right) - \frac{1}{n} \ln \, n\\
+    &= \frac{1}{n(n+1)} \left( n \ln \, \left(n+1\right) - (n+1) \ln \, n\right)
+\end{align}
+并且当$n \geq 3$时，有
+\begin{align}
+    n \ln \, \left(n+1\right) - (n+1) \ln \, n &= n \left(\ln \, \left(n+1\right) - \ln \, n \right) - \ln \, n \\
+    &< n \cdot \frac{1}{n} - \ln \, n = 1 - \ln \, n \leq 1 - \ln 3 < 0
+\end{align}
+即$\ln \, a_{n+1} - \ln \, a_n < 0$，由此可知，当$n \geq 3$时，有$a_{n+1} < a_n$．因此，对任意$n \in \mathbb{N}^\star$，都有$a_3 \geq a_n$，并且，对任意$\epsilon > 0$，可以取$x_\epsilon = a_3$，这时有
+\begin{equation}
+    a_3 - x_\epsilon = a_3 - a_3 = 0 < \epsilon
+\end{equation}
+也就是$x_\epsilon > a_3 - \epsilon$
+所以$a_3$也就是$\displaystyle 3^\frac{1}{3}$，是$\{a_n:n\in\mathbb{N}^\star\}$的上确界．
+
+再来证$1$是$\{n^\frac{1}{n}\}$的下确界，由于$\displaystyle\lim_{n\to\infty}n^\frac{1}{n}=1$，所以，对任意$\epsilon>0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，有
+\begin{equation}
+    |n^\frac{1}{n} - 1| = n^\frac{1}{n} - 1 < \epsilon
+\end{equation}
+令$y_\epsilon = n^\frac{1}{n}$，则对所有$n > N$，都有$y_\epsilon = n^\frac{1}{n} < 1 + \epsilon$成立，并且显然$y_\epsilon \in \{ n^\frac{1}{n}:n \in \mathbb{N}^\star \}$，因此，由定义，$1$是$\{\displaystyle n^\frac{1}{n}:n\in\mathbb{N}^\star\}$的下确界．
+
+4. 设在数列$\{ a_n:n\in\mathbb{N}^\star\}$中，既没有最小值，也没有最大值．求证：数列$\{a_n\}$发散．
+\begin{proof}
+如果数列$\{ a_n \}$是无界的，譬如说，不存在上界，那么我们可以从中找出一个趋于正无穷的子列，于是$\{a_n \}$发散．
+
+否则根据确界原理，$\{a_n\}$有上确界和下确界，分别记为$u$和$l$，由于$u$是$\{ a_n \}$的上确界，所以对任意$\epsilon > 0$，存在$i_1 \in \nat$，使得$u - a_{i_1} < \epsilon$，又因为$\{ a_n \}$是不存在最大值的，于是就存在$i_2 \in \nat$，使得$a_{i_1} < a_{i_2} < u$，类似地，我们可以找出一系列的下标$i_1, i_2, i_3, i_4, \cdots \in \nat$，它们满足
+\begin{equation}
+    a_{i_1} < a_{i_2} < a_{i_3} < a_{i_4} < \cdots < u
+\end{equation}
+并且对以上这两个不等式做放缩可得
+\begin{equation}
+    0 < \cdots < u - a_{i_4} < u - a_{i_3} < u - a_{i_2} < u - a_{i_1} < \epsilon
+\end{equation}
+这样一来，我们就找到了一个趋于$u$的子列，它就是$\{ a_{i_n} \}$．
+
+由于$l$是下确界，所以对任意$\epsilon > 0$，都存在$j_1 \in \nat$，使得$a_{j_1} - l < \epsilon$，由于$\{ a_n \}$不存在最小值，所以一定存在$j_2 \in \nat$使得
+\begin{equation}
+    a_{j_1} > a_{j_2} > l
+\end{equation}
+类似地，总能找出一系列的下标$j_1, j_2, j_3, \cdots$，满足
+\begin{equation}
+    a_{j_1} > a_{j_2} > a_{j_3} > \cdots > l
+\end{equation}
+对以上这两个不等式做放缩，得到
+\begin{equation}
+    \epsilon > a_{j_1} - l > a_{j_2} - l > a_{j_3} - l > \cdots > 0
+\end{equation}
+这样我们就找到了一个趋于$l$的子列，它就是$\{ a_{j_m} \}$．如果$u = l$，也就是$\{ a_n \}$的上确界等于下确界，那么将可以推出$\{ a_n \}$是常数列，这时每一个$a_n$都可以当成最大值（最小值），这与题设矛盾，所以$u \neq l$，所以$\{ a_{i_n} \}$和$\{ a_{j_m} \}$是$\{ a_n \}$的两个趋向不同极限的子列，所以$\{ a_n \}$发散．
+\end{proof}
+
+% 5. 试用定理1.8.1证明中使用的``二分法''，证明定理1.7.1(Bolzano---Weierstrass定理)．
+
+\exercise
+\exercise
+
+1. 求$\displaystyle\lim_{n\to \infty} \inf a_n$和$\displaystyle\lim_{n \to \infty} \sup a_n$，设：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1) ~ $a_n = \displaystyle \frac{(-1)^n}{n} + \frac{1+(-1)^n}{2}$; & (2)~$a_n=\displaystyle n^{(-1)^n}$; \\ [1em]
+       (3) ~ $a_n = \arctan \, \left( n^{(-1)^n} \right)$;
+      \end{tabularx}
+\end{table}
+
+(1) 解：利用上、下极限的等价定义：
+\begin{align}
+    a^\star = \lim_{n \to \infty} \sup_{k \geq n} \, \{ a_k \}, \; a_\star = \lim_{n \to \infty} \inf_{k \geq n} \, \{a_k\}
+\end{align}
+我们首先求$\displaystyle\sup_{k \geq n} \, \{a_k\}$，它自身可以看成是一个数列：
+\begin{equation}
+    \sup_{k \geq n} \, a_k = \begin{cases}
+        a_n, & n\text{为偶数} \\
+        a_{n+1}, & n\text{为奇数} 
+    \end{cases}
+\end{equation}
+这样我们就得到
+\begin{equation}
+    \{ \sup_{k \geq n} \, a_k \} = \{ a_2, a_2, a_4, a_4, a_6, a_6, \cdots \}
+\end{equation}
+它可以看成是$\{ a_n \}$所有偶数项组成的子列，再求$\displaystyle \inf_{k \geq n} \, \{ a_k \}$，它等于
+\begin{equation}
+    \inf_{k \geq n} \, a_k = \begin{cases}
+        a_n, & n\text{为奇数} \\
+        a_{n+1}, & n\text{为偶数} 
+    \end{cases}
+\end{equation}
+这样我们就得到
+\begin{equation}
+    \{ \inf_{k \geq n} \, a_k \} = \{ a_1, a_1, a_3, a_3, a_5, a_5, \cdots \}
+\end{equation}
+它可以看成是$\{ a_n \}$所有奇数项组成的子列．于是$\displaystyle \lim_{n \to \infty} \sup_{k \geq n} \, \{ a_k \}$就等于$\{ a_{2n} \}$的极限，就等于
+\begin{equation}
+    \lim_{n \to \infty} a_{2n} = \lim_{n \to \infty} \left( \frac{1}{n} + 1 \right) = \left(\lim_{n\to\infty} \frac{1}{n}\right) + 1= 0 + 1 = 1
+\end{equation}
+而$\displaystyle \lim_{n \to \infty} \inf_{k \geq n} \, \{ a_k \}$等于$\{ a_{2n-1} \}$的极限，就等于
+\begin{equation}
+    \lim_{n \to \infty} a_{2n - 1} = \lim_{n \to \infty} -\frac{1}{n} = - \left(\lim_{n\to\infty} \frac{1}{n}\right) = -\left( 0 \right) = -0 = 0.
+\end{equation}
+
+(2)解：首先对$a_n$的幂次进行计算，也就是，对$(-1)^n$进行计算，我们发现：
+\begin{equation}
+    (-1)^n = \begin{cases}
+        -1, & n\text{为奇数} \\
+        1, & n\text{为偶数}
+    \end{cases}
+\end{equation}
+这样一来就得到
+\begin{equation}
+    a_n = \begin{cases}
+        n^{-1}, & n\text{为奇数} \\
+        n, & n\text{为偶数}
+    \end{cases}
+\end{equation}
+进而有
+\begin{equation}
+    \sup_{k \geq n} \, \{ a_k \} = n, \; \inf_{k \geq n} \, \{ a_k \} = n^{-1}
+\end{equation}
+从而得
+\begin{align}
+    &a^\star = \lim_{n\to\infty} \sup_{k \geq n} \, \{ a_k \} = \lim_{n \to \infty} n = +\infty \\
+    &a_\star = \lim_{n\to\infty} \inf_{k \geq n} \, \{ a_k \} = \lim_{n \to \infty} n^{-1} = \lim_{n \to \infty} \frac{1}{n} = 0.
+\end{align}
+
+(3) 解：$\arctan$是定义在$(-\infty, +\infty)$上的严格单调递增函数，利用这个性质可以得到
+\begin{align}
+    &\ulimit \{ \arctan \, \left(n^{(-1)^n}\right) \} = \arctan \, \left( \ulimit \{ n^{(-1)^n}\}\right) = \arctan \, +\infty = \frac{\pi}{2} \\
+    &\llimit \{ \arctan \, \left(n^{(-1)^n}\right) \} = \arctan \, \left( \llimit \{ n^{(-1)^n}\}\right) = \arctan \, 0 = 0
+\end{align}
+
+2. 试证下面诸式当两边有意义时成立：
+
+(1) 若$\displaystyle\lim_{n\to\infty}b_n=b$，则
+\begin{align}
+    &\llimit \left( a_n + b_n \right) = \llimit a_n + b, \\
+    &\ulimit \left( a_n + b_n \right) = \ulimit a_n + b;
+\end{align}
+
+(1)
+\begin{proof}
+由例３的结论：
+\begin{align}
+    &\llimit \left( a_n + b_n \right) \leq \llimit a_n + \ulimit b_n = \llimit a_n + b \\
+    &\llimit \left( a_n + b_n \right) \geq \llimit a_n + \llimit b_n = \llimit a_n + b 
+\end{align}
+所以这只能是
+\begin{equation}
+    \llimit \left( a_n + b_n \right) = \llimit a_n + b.
+\end{equation}
+再次利用例３的结论：
+\begin{align}
+    &\ulimit \left( b_n + a_n \right) \leq \ulimit b_n + \ulimit a_n = b + \ulimit a_n \\
+    &\ulimit \left( b_n + a_n \right) \geq \llimit b_n + \ulimit a_n = b + \ulimit a_n
+\end{align}
+所以这只能是
+\begin{equation}
+    \ulimit \left( a_n + b_n \right) = \ulimit a_n + b.
+\end{equation}
+\end{proof}
+
+\exercise
+
+1. 计算下列极限：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{n\to\infty}\displaystyle\frac{1+\displaystyle\frac{1}{2}+\cdots+\displaystyle\frac{1}{n}}{\ln \, n}$; & (2)~$\displaystyle\lim_{n\to\infty}\displaystyle\frac{1+\displaystyle\frac{1}{3}+\cdots+\displaystyle\frac{1}{2n-1}}{\ln \, 2\sqrt{n}}$; 
+    \end{tabularx}
+\end{table}
+
+(1) 解：
+令
+\begin{align}
+    a_n &= 1+\frac{1}{2}+\cdots+\frac{1}{n} \\
+    b_n &= \ln \, n
+\end{align}
+则
+\begin{align}
+    \text{原式} &= \lim_{n\to\infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{\displaystyle\frac{1}{n+1}}{\ln \, \left( n+1 \right) - \ln \, n} \\
+    &= \lim_{n \to \infty} \frac{1}{(n+1) \ln \, \left( 1 + \displaystyle\frac{1}{n}\right)} = \lim_{n \to \infty} \frac{1}{\ln \, \left( \left(1+\displaystyle\frac{1}{n}\right)^{n+1}\right)} \\
+    &= \frac{1}{\ln \, \left( \displaystyle\lim_{n \to \infty} \left( \left(1 + \displaystyle\frac{1}{n}\right)^{n+1}\right)\right)} = \frac{1}{\ln \, \mathrm{e}} = \frac{1}{1} = 1.
+\end{align}
+
+(2) 解：
+令
+\begin{align}
+    a_n &= 1 + \frac{1}{3} + \frac{1}{5} + \cdots + \frac{1}{2n-1} \\
+    b_n &= \ln \, 2\sqrt{n}
+\end{align}
+则
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{a_{n+1} - a_n}{b_{n+1} - b_n} = \lim_{n \to \infty} \frac{\displaystyle \frac{1}{2n+1}}{\ln \, 2\sqrt{n+1} - \ln \, 2 \sqrt{n}} \\
+    &= \lim_{n \to \infty} \frac{\displaystyle\frac{1}{2n+1}}{\ln \, \displaystyle\frac{2\sqrt{n+1}}{2\sqrt{n}}} = \lim_{n \to \infty} \frac{\displaystyle\frac{1}{2n+1}}{\ln \sqrt{\displaystyle\frac{n+1}{n}}} = \lim_{n \to \infty} \frac{1}{(2n+1) \ln \, \left(\left(1 + \displaystyle\frac{1}{n}\right)^{\frac{1}{2}} \right)} \\
+    &= \lim_{n \to \infty} \frac{1}{\ln \, \left( \left(1+\displaystyle\frac{1}{n}\right)^{\frac{2n+1}{2}}\right)} = \lim_{n \to \infty} \frac{1}{\ln \, \left(\left(1+\displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} \\
+    &= \frac{1}{\displaystyle\lim_{n \to \infty} \ln \, \left(\left(1+\displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} = \frac{1}{\ln \, \displaystyle\lim \left( \left( 1 + \displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} = \frac{1}{\ln \, \mathrm{e}} = \frac{1}{1} = 1.
+\end{align}
+
+2. 计算极限$\displaystyle\lim_{n \to \infty} \left( n! \right)^{1/n^2}$．（提示：取对数）．
+
+2. 解：
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \exp \{ \, \ln \, \left( (n!)^{1/n^2}\right) \} = \lim_{n \to \infty} \exp \{ \, \displaystyle\frac{1}{n^2} \displaystyle\sum_{i=1}^{n} \ln \, i \, \}
+\end{align}
+令
+\begin{align}
+    a_n = \sum_{i=1}^n \ln \, i,  \;\; b_n = n^2
+\end{align}
+那么就有
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \exp \, \{ \, \displaystyle\frac{1}{n^2} \displaystyle\sum_{i=1}^{n} \ln \, i \, \} = \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{a_n}{b_n} \,\, \} \\
+    &= \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{a_{n+1}-a_n}{b_{n+1}-b_n} \,\, \} = \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{\ln \, \left(n+1\right) - \ln \, n}{2n + 1} \,\, \} \\
+    &= \exp \, \{ \, \displaystyle\lim_{n \to \infty} \ln \, \left( 1 + \displaystyle\frac{1}{n} \right)^{\frac{1}{2n+1}} \,\, \} = \exp \, \{ \, \ln \, \displaystyle\lim_{n \to \infty} \left( 1 + \displaystyle\frac{1}{n} \right)^{\frac{1}{2n+1}} \,\, \} \\
+    &= \exp \, \{ \, \ln \, 1 \,\, \} = \exp \, 0 = 1.
+\end{align}
+
+3. 计算极限
+\begin{equation}
+    \lim_{n\to\infty} \frac{1^2 + 3^2 + \cdots + (2n-1)^2}{n^3}.
+\end{equation}
+
+3. 解：令
+\begin{align}
+    a_n &= 1^2 + 3^2 + \cdots + (2n-1)^2 \\
+    b_n &= n^3
+\end{align}
+那么
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{(2n+1)^2}{3n^2 + 3n + 1} = \lim_{n \to \infty} \frac{4n^2 + 4n + 1}{3n^2 + 3n + 1} \\
+    &= \lim_{n \to \infty} \frac{4 + \displaystyle\frac{4}{n} + \displaystyle\frac{1}{n^2}}{3 + \displaystyle\frac{3}{n} + \frac{1}{n^2}} = \frac{\displaystyle\lim_{n \to \infty} \left(4 + \displaystyle\frac{4}{n} + \displaystyle\frac{1}{n^2}\right)}{\displaystyle\lim_{n \to \infty} \left(3 + \displaystyle\frac{3}{n} + \displaystyle\frac{1}{n^2}\right)} = \frac{4}{3}.
+\end{align}
+
+4. 设$\displaystyle\lim_{n \to \infty} a_n = a$．证明：
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_1 + 2a_2 + \cdots + na_n}{n^2} = \frac{a}{2}.
+\end{equation}
+
+\begin{proof}
+令
+\begin{align}
+    b_n &= a_1 + 2a_2 + \cdots + na_n \\
+    c_n &= n^2
+\end{align}
+于是
+\begin{align}
+    \text{左边} &= \lim_{n \to \infty} \frac{b_n}{c_n} = \lim_{n \to \infty} \frac{b_{n} - b_{n-1}}{c_{n} - c_{n-1}} = \lim_{n \to \infty} \frac{n a_n}{2n - 1} = \lim_{n \to \infty} \frac{a_n}{2 - \displaystyle\frac{1}{n}} \\
+    &= \frac{\displaystyle\lim_{n \to \infty} a_n}{\displaystyle\lim_{n \to \infty} \left(2 - \displaystyle\frac{1}{n}\right)} = \frac{a}{2} = \text{右边}.
+\end{align}
+\end{proof}
+
+\begin{theo}[Stolz]
+设$\{b_n \}$是严格递增且趋于$+\infty$的数列，那么
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n}{b_n} = A
+\end{equation}
+的充分不必要条件是
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n - a_{n-1}}{b_{n} - b_{n-1}} = A.
+\end{equation}
+\end{theo}
+
+5. 举例说明Stolz定理的逆命题不成立．
+
+\begin{proof}
+取
+\begin{align}
+    a_n &= n^2 + n \cdot (-1)^n \\
+    b_n &= n^2
+\end{align}
+那么$\{ a_n \}, \{ b_n \}$符合Stolz条件，并且
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n}{b_n} = 1
+\end{equation}
+但是
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_{n} - a_{n-1}}{b_{n} - b_{n-1}} = +\infty
+\end{equation}
+这就证明了，在Stolz定理中：$\displaystyle\lim_{n \to \infty} \frac{a_n - a_{n-1}}{b_n - b_{n-1}} = A$不是$\displaystyle\lim_{n \to \infty} \frac{a_n}{b_n} = A$的必要条件．
+\end{proof}
