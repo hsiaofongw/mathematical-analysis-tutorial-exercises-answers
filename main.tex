@@ -2518,7 +2518,8 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
-       (1)~$\displaystyle\lim_{x \to \infty} \left(\displaystyle\frac{1+x}{3+x}\right)^x$; 
+       (1)~$\displaystyle\lim_{x \to \infty} \left(\displaystyle\frac{1+x}{3+x}\right)^x$; & (2)~$\displaystyle\lim_{x\to\infty}\left(\displaystyle\frac{x+a}{x-a}\right)^x$; \\[1em]
+       (3)~$\displaystyle\lim_{x\to 0}\left(1-2x\right)^{1/x}$; & (4)~$\displaystyle\lim_{n \to \infty}\left(\displaystyle\frac{n+x}{n-2}\right)^n$.
     \end{tabularx}
 \end{table}
 
@@ -2531,4 +2532,160 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \lim_{x \to \infty} \left(1 - \displaystyle\frac{2}{3+x} \right)^x &= \lim_{t \to \infty} \left(1 - \displaystyle\frac{2}{t}\right)^{t-3} = \displaystyle\lim_{t \to \infty} \left(1-\displaystyle\frac{2}{t}\right)^t \cdot \lim_{t \to \infty} \left(1-\displaystyle\frac{2}{t}\right)^{-3} \\
     &= \displaystyle\frac{1}{\expe^2} \cdot 1 = \frac{1}{\expe^2}.
 \end{align}
+
+(2) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to \infty} \left(\displaystyle\frac{x+a}{x-a}\right)^x \\
+    &= \lim_{x \to \infty} \left(1 + \displaystyle\frac{x+a}{x-a} - 1\right)^x \\
+    &= \lim_{x \to \infty} \left(1+\displaystyle\frac{2a}{x-a}\right)^x \\
+    &= \expe^{2a}.
+\end{align}
+
+(3) 解：令$2x=\displaystyle\frac{1}{t}$，那么当$x\to 0$时应有$t \to \infty$，那么
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \left(1-2x\right)^{1/x} \\
+    &= \lim_{t \to \infty}\left(1-\displaystyle\frac{1}{t}\right)^{2t} = \expe^{-2}.
+\end{align}
+
+(4) 解：
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \left(1 + \displaystyle\frac{n+x}{n-2} - 1\right)^n \\
+    &= \lim_{n \to \infty} \left(1 + \displaystyle\frac{x+2}{n-2}\right)^n = \expe^{x+2}.
+\end{align}
+
+7. 用极限定义函数
+\begin{equation}
+    f(x) = \lim_{n \to \infty} n^x \left(\left(1+\frac{1}{n}\right)^{n+1}-\left(1+\frac{1}{n}\right)^n\right).
+\end{equation}
+求$f$的定义域，并写出$f$的表达式．
+
+解：
+\begin{align}
+   \text{原式} &= \lim_{n \to \infty} \frac{\left(1+\displaystyle\frac{1}{n}\right)^{n}\left(\displaystyle\frac{1}{n}\right)}{n^{-x}} \\
+   &= \lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \cdot n^{x-1}
+\end{align}
+式中，$\left(1+\displaystyle\frac{1}{n}\right)^n$有界，而当$x-1>0$时$\{ n^{x-1} \}$发散，故
+\begin{equation}
+    x-1 \leq 0
+\end{equation}
+也就是$x \leq 1$．定义域为$\{x : x \leq 1, x \in \real \}$．
+
+当$x=1$，原式变为
+\begin{equation}
+    \lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n n^0 = \lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n=\expe
+\end{equation}
+当$x<1$时，有$x-1<0$，故
+\begin{equation}
+    \lim_{n \to \infty} n^{x-1} = 0
+\end{equation}
+故
+\begin{equation}
+    \lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n n^{x-1}= \expe \cdot 0 = 0
+\end{equation}
+故函数$f$可写为
+\begin{equation}
+    f(x)=\begin{cases}
+        \expe, & x = 1, \\
+        0, & x < 1.
+    \end{cases}
+\end{equation}
+
+8. 如果对$x \in (-1,1)$，有$\bigg\lvert \displaystyle\sum_{k=1}^n a_k \sin \, kx \bigg\rvert \leq \lvert \sin \, x \rvert$，求证：
+\begin{equation}
+    \bigg\lvert \sum_{k=1}^n k a_k \bigg\rvert \leq 1..
+\end{equation}
+
+\begin{proof}
+    由题意得
+    \begin{align}
+        &\mathrel{\phantom{\implies}} \bigg\lvert \sum_{k=1}^n a_k \sin \, kx \bigg\rvert \leq \lvert \sin \, x \rvert \\
+        &\implies \displaystyle\frac{\bigg\lvert\displaystyle\sum_{k=1}^n a_k \sin \, kx \bigg\rvert}{\lvert \sin \, x \rvert} \leq 1 \\
+        &\implies \Bigg\lvert \displaystyle\frac{\displaystyle\sum_{k=1}^n a_k \sin \, kx}{\sin \, x} \Bigg\rvert \leq 1 \\
+        &\implies \Bigg\lvert \sum_{k=1}^n \displaystyle\frac{a_k \sin \, kx}{\sin \, x} \Bigg\rvert \leq 1
+    \end{align}
+
+    只需令$x \to 0$，我们得到
+    \begin{equation}
+        \lim_{x \to 0} \frac{\sin \, kx}{x} = k
+    \end{equation}
+    并且得到
+    \begin{equation}
+        \Bigg\lvert \sum_{k=1}^n k a_k \Bigg\rvert \leq 1.
+    \end{equation}
+    待证得证．
+\end{proof}
+
+9. 证明：$\displaystyle\lim_{x \to +\infty} f(x)$存在的充分必要条件是，对任意的$\epsilon > 0$，存在一个正数$A$，只要$x_1, x_2$满足$x_1 > A, x_2 > A$，便有$\lvert f(x_1) - f(x_2) \rvert < \epsilon$.
+
+\begin{proof}
+    必要性．
+
+    设$\displaystyle\lim_{x \to +\infty} f(x) = A > 0$．且这个$A$为一有限数．
+
+    那么由于$\displaystyle\lim_{x \to +\infty} f(x) = A$，所以，对任意$\epsilon > 0$，存在$A_1 > 0$，使得只要$x_1 > A_1$，就有
+    \begin{equation}
+        \lvert f(x_1) - A \rvert < \frac{1}{2} \epsilon
+    \end{equation}
+    并且存在$A_2 > 0$，使得只要$x_2 > A_2$，就有
+    \begin{equation}
+        \lvert f(x_2) - A \rvert < \frac{1}{2} \epsilon 
+    \end{equation}
+    那么只要$x_1, x_2$都大于$\max \{ A_1, A_2 \}$，就有
+    \begin{equation}
+        \lvert f(x_1) - A \rvert < \frac{1}{2} \epsilon , \quad \lvert f(x_2) - A \rvert < \frac{1}{2} \epsilon 
+    \end{equation}
+    同时成立，根据数轴上的几何事实，立刻有
+    \begin{equation}
+        \lvert f(x_1) - f(x_2) \rvert \leq \lvert f(x_1) - A \rvert + \lvert f(x_2) - A \rvert = \frac{1}{2}\epsilon+\frac{1}{2}\epsilon=\epsilon.
+    \end{equation}
+    这就证得了必要性．
+
+    充分性．
+
+    任取一趋于正无穷的数列$\{ x_n \}$，我们要证$\{ f(x_n) \}$的极限存在且都相等．由题设，对任意$\epsilon$，存在$A>0$，使得对任意$x_1,x_2>A$，都有
+    \begin{equation}
+        \lvert f(x_1) - f(x_2) \rvert < \epsilon
+    \end{equation}
+    又由于$\{ x_n \}$是趋于正无穷的，所以，存在$M\in\nat$，使得对一切$n_1, n_2 \geq M$，都有$x_{n_1}, x_{n_2} > A$，也就是
+    \begin{equation}
+        \lvert f(x_{n_1}) - f(x_{n_2}) \rvert < \epsilon
+    \end{equation}
+    由此可知数列$\{ f(x_n) \}$是一柯西列，由此可知数列$\{ f(x_n) \}$收敛．由此可知，对于任意一个趋于无穷的数列$\{ x_n \}$，数列$\{ f(x_n) \}$都收敛．
+
+    假设有两个趋于正无穷的数列$\{ x_{n} \}$，$\{ y_{n} \}$，使得$\displaystyle\lim_{n \to +\infty} f(x_n) \neq \displaystyle\lim_{n \to +\infty} f(y_n)$，不妨设$\displaystyle\lim_{n\to +\infty}f(x_n)>\displaystyle\lim_{n \to +\infty}f(y_n)$，那么
+    \begin{equation}
+        \lim_{n \to +\infty} f(x_n) - f(y_n) > 0
+    \end{equation}
+    设$\displaystyle\lim_{n\to +\infty} f(x_n) - f(y_n) = c > 0$，那么任取$d \in (0, c)$，都存在$N \in \nat$，使得对一切$n \geq N$，都有
+    \begin{equation}
+        f(x_n) - f(y_n) > d
+    \end{equation}
+    可是，由题设，存在$A_2 > 0$，使得对一切$x_n, y_n > A_2$，都有
+    \begin{equation}
+        f(x_n) - f(y_n) < d
+    \end{equation}
+    随着$n$的增长，$x_n, y_n$迟早都会大过$A_2$，也就是说迟早都会有$f(x_n)-f(y_n) < d$，矛盾．
+
+    由此可知，对任意趋于无穷的数列$\{ x_n \}$，数列$\{ f(x_n) \}$的极限都存在并且相等．由归结原则，函数极限
+    \begin{equation}
+        \lim_{x \to +\infty} f(x)
+    \end{equation}
+    存在．
+
+    这证得了充分性．
+\end{proof}
+
+10. 设$f$是$(-\infty,+\infty)$上的周期函数，且$\displaystyle\lim_{x \to +\infty} f(x) = 0$．求证：$f=0$．
+
+\begin{proof}
+采用反证法．假设存在某一点$x_0 \in \real$使得$f(x_0) \neq 0$，不失一般性，假设$f(x_0) > 0$．
+
+由于$f$为一周期函数，故存在$c \in \real$且$c \neq 0$，使得对一切$x \in \real$，都有$f(x+c)=f(x)$．构造数列
+\begin{equation}
+    \{ x_0, x_0+c, x_0+2c, \cdots, x_0+nc, x_0+(n+1)c, \cdots \}
+\end{equation}
+记做$\{ x_n \}$，由于对每一项$x_n$都有$f(x_n)=c$，所以随着$n \to +\infty$，$f(x_n) \to c$．可是，由归结原则，$\displaystyle\lim_{x \to +\infty} f(x) = 0$等价于说对任意趋于$+\infty$的数列$\{ x_n \}$，数列$\{ f(x_n) \}$都趋于同一个极限也就是都趋于$\displaystyle\lim_{x \to +\infty}f(x)=0$．可如今$\{ f(x_n) \}$的极限是$c$不等于$0$．
+
+你看这矛盾了吧？
+\end{proof}
 \end{document}
