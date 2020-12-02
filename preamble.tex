@@ -57,3 +57,20 @@
 \renewcommand{\labelenumi}{(\arabic{enumi})}
 
 % \hspace*{\fill} $\square$
+
+\ctexset{
+    abstractname = {\zihao{-4} \bfseries 摘~要},
+    section/format ={\pagebreak\Large\bfseries\centering},
+    section/name = {第,章},
+    appendix/name = {附录,}
+}
+
+\newcounter{exercise}[section]
+
+\renewcommand{\theexercise}{\arabic{section}.\arabic{exercise}}
+\newcommand{\exercise}{\refstepcounter{exercise}{\par\medskip\centering{\bfseries\large 练习题~\theexercise}\par\medskip}\addcontentsline{toc}{subsection}{{\bfseries\zihao{-5}练习题~\theexercise}}}
+
+\setlength{\parindent}{0ex}
+
+\counterwithin*{equation}{exercise}
+\renewcommand{\theequation}{\arabic{section}.\arabic{exercise}.\arabic{equation}}

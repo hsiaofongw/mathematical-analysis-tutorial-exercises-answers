@@ -1,8 +1,12 @@
 \input{preamble.tex}
 
 \begin{document}
-\section*{练习题1.1}
-\noindent 1. 设$a$为有理数，$b$为无理数．求证：$a+b$与$a-b$都是无理数；当$a\neq 0$时，$ab$与$b/a$也是无理数．
+\tableofcontents
+
+\section{实数和数列极限}
+\exercise
+
+1. 设$a$为有理数，$b$为无理数．求证：$a+b$与$a-b$都是无理数；当$a\neq 0$时，$ab$与$b/a$也是无理数．
 \begin{proof}
 采用反证法．设$a+b$是有理数，那么就存在互质的整数$p,q$，使得
 \begin{equation}
@@ -14,14 +18,14 @@
 \end{equation}
 这说明$b$是有理数，矛盾．于是$a+b$是无理数．
 
-\noindent 再证$a-b$是无理数，采用反证法，先假设$a-b$是有理数，即，存在互质的整数$p_2,q_2$使得$\displaystyle a-b=\frac{p_2}{q_2}$，那么
+再证$a-b$是无理数，采用反证法，先假设$a-b$是有理数，即，存在互质的整数$p_2,q_2$使得$\displaystyle a-b=\frac{p_2}{q_2}$，那么
 \begin{equation}
     b = a - (a-b) = \frac{p_1}{q_1} - \frac{p_2}{q_2} = \frac{p_1 q_2 - q_1 p_2}{q_1 q_2}
 \end{equation}
 这说明$b$是有理数，矛盾．于是$a-b$是无理数．
 \end{proof}
 
-\noindent 2. 证明：两个不同的有理数之间有无限多个有理数，也有无限多个无理数．
+2. 证明：两个不同的有理数之间有无限多个有理数，也有无限多个无理数．
 \begin{proof}
 设$\displaystyle a_1 = \frac{p_1}{q_1}, b_1 = \frac{p_2}{q_2}$是有理数，且$a_1 \neq b_1$，令
 \begin{equation}
@@ -33,7 +37,7 @@
 \end{equation}
 由于有理数集关于加法运算封闭，所以按此方法可计算出无穷多个有理数$c_n$满足$a_1 < c_1 < c_2 < \cdots < b$，这就证明了两个不同的有理数之间有无穷多个有理数．
 
-\noindent 设$t_1$是一个无理数，那么我们可以找到两个整数$n_1, m_1$，满足$n_1 < m_1$，并且使得
+设$t_1$是一个无理数，那么我们可以找到两个整数$n_1, m_1$，满足$n_1 < m_1$，并且使得
 \begin{equation}
     n_1 < t_1 < m_1
     \label{ieq:n1t1m1}
@@ -57,7 +61,7 @@
 则可构造出无穷多个无理数$s_{n}$，并且满足$a_1 < s_1 < s_2 < \cdots < b_1$，这就证明了任意两个有理数之间有无限多个无理数．
 \end{proof}
 
-\noindent 16. 设$n=2,3,\cdots, \, x > -1$且$x\neq 0$．求证：$(1+x)^n > 1+nx$．
+16. 设$n=2,3,\cdots, \, x > -1$且$x\neq 0$．求证：$(1+x)^n > 1+nx$．
 \begin{proof}
 当$n=2$时，
 \begin{equation}
@@ -71,14 +75,15 @@
 这说明如果对$n=k$命题成立，那么对$n=k+1$命题也成立．根据数学归纳法原理，命题对一切$n\in\mathbb{N}^\star$都成立．
 \end{proof}
 
-\section*{练习题1.2}
-\noindent 5. 用精确语言表达``数列$\{a_n\}$不以$a$为极限''这一陈述．
+\exercise
 
-\noindent 答：存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，都存在$n > N$并且$|a_n - a| \geq \epsilon_0$．
+5. 用精确语言表达``数列$\{a_n\}$不以$a$为极限''这一陈述．
 
-\noindent 顺便一提函数极限的否定定义：存在$\epsilon_0 > 0$，使得对任意$\delta > 0$，都存在$|x - x_0| < \delta$并且$|f(x_0) - y_0| \geq \epsilon_0$．
+答：存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，都存在$n > N$并且$|a_n - a| \geq \epsilon_0$．
 
-\noindent 7. 设$a,b,c$是三个给定的实数，令$a_0 = a, b_0 = b, c_0 = c$，并归纳地定义
+顺便一提函数极限的否定定义：存在$\epsilon_0 > 0$，使得对任意$\delta > 0$，都存在$|x - x_0| < \delta$并且$|f(x_0) - y_0| \geq \epsilon_0$．
+
+7. 设$a,b,c$是三个给定的实数，令$a_0 = a, b_0 = b, c_0 = c$，并归纳地定义
 \begin{equation}
     \begin{cases}
         a_n = \displaystyle\frac{b_{n-1}+c_{n-1}}{2} \\
@@ -94,7 +99,7 @@
 \begin{proof}
     对每一个$n \in \nat$，将$r_n,s_n,t_n$分别定义为$a_n,b_n,c_n$中最小的、次小的和最大的数．$a_n,b_n,c_n$收敛到同一个数等价于它们之中的最小数和最大数都收敛到同一个数，也就是说，我们要去证明$r_n,t_n$都收敛到同一个数．
 
-\noindent 由
+由
 \begin{align}
     &\mathrel{\phantom{\implies}} s_n \leq t_n \\
     &\implies r_n + s_n \leq r_n + t_n \\
@@ -118,7 +123,7 @@
 \begin{equation}
     t_{n+1} - r_{n+1} = \frac{s_n+t_n}{2} - \frac{r_n+s_n}{2} = \frac{t_n - r_n}{2}
 \end{equation}
-\noindent 并且由此得
+并且由此得
 \begin{equation}
 t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \frac{1}{2^{n}}\left(t_0 - s_0\right)
 \end{equation}
@@ -155,9 +160,11 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 于是命题得证．
 \end{proof}
 
+\exercise
+\exercise
+\exercise
 
-\section*{练习题1.5}
-\noindent 5. 令$\displaystyle a_n = (n!)^\frac{1}{n}$，求证：$\{ a_n \}$是一个递增数列．
+5. 令$\displaystyle a_n = (n!)^\frac{1}{n}$，求证：$\{ a_n \}$是一个递增数列．
 \begin{proof}
 猜测$\{ a_n \}$是递增的，为此，我们尝试去证$\displaystyle \frac{a_{n+1}}{a_n} > 1$，由题设：
 \begin{equation}
@@ -180,8 +187,9 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 从而$\displaystyle \frac{a_{n+a}}{a_n} >1$，又根据$a_n > 0$，于是数列$\{ a_n \}$是递增的．
 \end{proof}
 
-\section*{练习题1.6}
-\noindent 1. 求下列极限
+\exercise
+
+1. 求下列极限
 \begin{table}[H]
     \centering
     \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -190,7 +198,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
        (5)$\displaystyle \lim_{n \to \infty} \left(1+\frac{1}{2n^2}\right)^{4n^2}$.
       \end{tabularx}
 \end{table}
-\noindent (1). 解：令$m = n-2$，则
+(1). 解：令$m = n-2$，则
 \begin{align}
     \lim_{n \to \infty} \left(1+\frac{1}{n-2}\right)^n &= \lim_{m \to \infty} \left(1+ \frac{1}{m}\right)^{m+2} \\
     &= \lim_{m \to \infty} \left(1+\frac{1}{m}\right)^m \left(1+\frac{1}{m}\right)^2 \\
@@ -198,14 +206,14 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &= \mathrm{e} \cdot 1 \\
     &= \mathrm{e}
 \end{align}
-\noindent (2). 解：令$m=n+3$，则
+(2). 解：令$m=n+3$，则
 \begin{align}
     \lim_{n \to \infty} \left(1-\frac{1}{n+3}\right)^n &= \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^{m+2} \\
     &= \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^m \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^2 \\
     &= \lim_{m \to \infty} \left(1-\frac{1}{m}\right)^m \\
     &= \mathrm{e}^{-1}
 \end{align}
-\noindent (3). 解：
+(3). 解：
 \begin{align}
     \lim_{n \to \infty} \left(\frac{1+n}{2+n}\right)^n &= \lim_{n \to \infty} \left(1 - \frac{1}{2+n}\right)^n
 \end{align}
@@ -235,7 +243,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &=\mathrm{e}^2
 \end{align}
 
-\noindent 2. 设$k \in \mathbb{N}^\star$，求证：$\displaystyle \lim_{n \to \infty} (1+\frac{k}{n})^n = e^k$.
+2. 设$k \in \mathbb{N}^\star$，求证：$\displaystyle \lim_{n \to \infty} (1+\frac{k}{n})^n = e^k$.
 \begin{proof}
 采用数学归纳法．当$k=1$时：
 \begin{equation}
@@ -254,7 +262,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 这里证明了对于$k = m$命题成立．从而根据数学归纳法原理，对任意$k \in \mathbb{N}^\star$命题都成立．
 \end{proof}
 
-\noindent 3. 求证：$\displaystyle \{ (1+\frac{1}{n})^n \}$是严格递增数列．
+3. 求证：$\displaystyle \{ (1+\frac{1}{n})^n \}$是严格递增数列．
 \begin{proof}
 由算式---几何平均不等式：
 \begin{equation}
@@ -262,7 +270,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 从而$\displaystyle \{ (1+\frac{1}{n})^n\}$严格递增．
 \end{proof}
-\noindent 4. 求证：$\displaystyle \{ (1+\frac{1}{n})^{n+1}\}$是严格递减数列．
+4. 求证：$\displaystyle \{ (1+\frac{1}{n})^{n+1}\}$是严格递减数列．
 \begin{proof}
 令$\displaystyle q_n = (1 + \frac{1}{n})^{n+1}$，原命题等价于$\{ \displaystyle \frac{1}{q_n}\}$是严格递增数列．由算式---几何平均不等式
 \begin{equation}
@@ -270,22 +278,22 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 从而数列$\{ \displaystyle \frac{1}{q_n} \}$严格单调递增，因此数列$\{ q_n \}$也就是$\{ \displaystyle (1 + \frac{1}{n})^{n+1}\}$严格单调递减．
 \end{proof}
-\noindent 5. 证明不等式：
+5. 证明不等式：
 \begin{equation}
     \left( 1+\frac{1}{n} \right)^n < \mathrm{e} < \left( 1 + \frac{1}{n} \right)^{n+1}.
 \end{equation}
 \begin{proof}
 令$\displaystyle p_n = \left( 1+\frac{1}{n} \right)^n, \, q_n = \left( 1+\frac{1}{n} \right)^{n+1}$．先证明不等式的左半部分．
 
-\noindent 采用数学归纳法，当$n=1$时：
+采用数学归纳法，当$n=1$时：
 \begin{equation}
     p_1 = (1+\frac{1}{1})^1 = 2 < e
 \end{equation}
 显然成立．假设当$n=m-1, \, (m-1 \in \mathbb{N}^\star)$时命题成立，我们去证明当$p_{m-1} < \mathrm{e}$时有$p_m < \mathrm{e}$，为此，采用反证法，假设对某个$m$，当$p_{m-1} < \mathrm{e}$时有$p_m > \mathrm{e}$，记$\epsilon_0 = \min \{ |p_{m-1} - \mathrm{e}|, |p_m - \mathrm{e}| \}$，显然$\epsilon_0 > 0$，由数列$\{ p_n \}$的严格单调性，对任意$n \in \mathbb{N}^\star$都有$|p_n - \mathrm{e}| \geq \epsilon_0 > 0$，但是由于数列$\{ p_n \}$的极限是$\mathrm{e}$，所以由极限的定义，对任意$\epsilon > 0$，存在$N_0 \in \mathbb{N}^\star$，使得当$n > N_0$时有$|p_n - e| < \epsilon$，由此推出矛盾，故对于$p_m > e$的假设是错误的．又根据数列$\{ p_n \}$的严格单调性，$p_m \neq e$，因此只能是$p_m < e$. 从而当$p_{m-1} < e$成立时$p_m < e$也成立，根据数学归纳法原理，对任意$n \in \mathbb{N}^\star$，$p_n < e$都成立．
 
-\noindent 利用数列$\{ q_n \}$的严格单调性质以及$\{ q_n \}$的极限也是$\mathrm{e}$的事实可类似地证明$e < q_n, \, (n \in \mathbb{N}^\star)$.
+利用数列$\{ q_n \}$的严格单调性质以及$\{ q_n \}$的极限也是$\mathrm{e}$的事实可类似地证明$e < q_n, \, (n \in \mathbb{N}^\star)$.
 \end{proof}
-\noindent 6.利用对数函数$\ln \, x$的严格递增性质，证明：
+6.利用对数函数$\ln \, x$的严格递增性质，证明：
 \begin{equation}
     \frac{1}{n+1} < \ln \, \left( 1+\frac{1}{n} \right) < \frac{1}{n}
 \end{equation}
@@ -293,13 +301,13 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \begin{proof}
 先证不等式的左半部分．要证$\displaystyle \frac{1}{n+1} < \ln \, \left( 1+\frac{1}{n} \right)$等价于去证$\displaystyle 1 < (n+1) \ln \, \left( 1+\frac{1}{n} \right)$，利用对数函数$\ln \, x$的严格单调递增性质，也就是等价于$\ln \, \mathrm{e} < \ln \, \left(\left( 1 + \frac{1}{n} \right)^{n+1} \right)$，由题5得到的结论：$\displaystyle \mathrm{e} < \left( 1+\frac{1}{n} \right)^{n+1}$（对任意$n \in \mathbb{N}^\star$），以及对数函数$\ln \, x$的严格单调性质，可知$\ln \, \mathrm{e} < \ln \, \left( \left( 1 + \frac{1}{n} \right)^{n+1} \right)$成立，因此$\displaystyle 1 < (n+1) \ln \, \left( 1+\frac{1}{n} \right)$成立，因此$\displaystyle \frac{1}{n+1} < \ln \, \left( 1 + \frac{1}{n} \right)$成立，即，要证的不等式的左半部分成立．
 
-\noindent 再用类似的方法来证明不等式的右半部分．由题5得到的结论：$\displaystyle \left( 1 + \frac{1}{n} \right)^n < \mathrm{e}$（对任意$n \in \mathbb{N}^\star$），对这个不等式两端取对数并且利用对数函数$\ln \, x$的单调递增性质，得到$\displaystyle n \ln \, \left( 1 + \frac{1}{n} \right) < \ln \, \mathrm{e} = 1$，再对这个不等式两端除以$n$即得$\displaystyle \ln \, \left( 1 + \frac{1}{n}\right) < \frac{1}{n}$．于是命题得证．
+再用类似的方法来证明不等式的右半部分．由题5得到的结论：$\displaystyle \left( 1 + \frac{1}{n} \right)^n < \mathrm{e}$（对任意$n \in \mathbb{N}^\star$），对这个不等式两端取对数并且利用对数函数$\ln \, x$的单调递增性质，得到$\displaystyle n \ln \, \left( 1 + \frac{1}{n} \right) < \ln \, \mathrm{e} = 1$，再对这个不等式两端除以$n$即得$\displaystyle \ln \, \left( 1 + \frac{1}{n}\right) < \frac{1}{n}$．于是命题得证．
 \end{proof}
-\noindent 7. 设$n \in \mathbb{N}^\star$且$k = 1,2,\cdots$. 证明不等式：
+7. 设$n \in \mathbb{N}^\star$且$k = 1,2,\cdots$. 证明不等式：
 \begin{equation}
     \frac{k}{n+k} < \ln \, \left( 1+\frac{k}{n} \right) < \frac{k}{n}
 \end{equation}
-\noindent 思路：回顾题４、题５以及题６的证明过程，我们受到启发：要证$\displaystyle \frac{k}{n+k} < \ln \, \left( 1 + \frac{k}{n}\right)$成立就要去证$\displaystyle \ln \, \left( \mathrm{e}^k \right) < (n+k) \ln \, \left( 1 + \frac{k}{n}\right)$成立，相应地就要去证$\displaystyle \mathrm{e}^k < \left(1+\frac{k}{n}\right)^{n+k}$并且要证数列$\displaystyle \{ \left(1+\frac{k}{n}\right)^{n+k} \}$严格单调递减，而对于数列$\displaystyle \{ \left( 1 + \frac{k}{n} \right)^{n+k}\}$的单调递减性的证明可以参考和借鉴题４的方法．
+思路：回顾题４、题５以及题６的证明过程，我们受到启发：要证$\displaystyle \frac{k}{n+k} < \ln \, \left( 1 + \frac{k}{n}\right)$成立就要去证$\displaystyle \ln \, \left( \mathrm{e}^k \right) < (n+k) \ln \, \left( 1 + \frac{k}{n}\right)$成立，相应地就要去证$\displaystyle \mathrm{e}^k < \left(1+\frac{k}{n}\right)^{n+k}$并且要证数列$\displaystyle \{ \left(1+\frac{k}{n}\right)^{n+k} \}$严格单调递减，而对于数列$\displaystyle \{ \left( 1 + \frac{k}{n} \right)^{n+k}\}$的单调递减性的证明可以参考和借鉴题４的方法．
 \begin{proof}
 先证明数列$\displaystyle \{ \left(1+\frac{k}{n}\right)^{n+k}\}$是严格单调递减的．令$\displaystyle p_n =  \left(1+\frac{k}{n}\right)^{n+k}$，这等价于证明数列$\displaystyle \{ \frac{1}{p_n} \}$是严格单调递减的．利用算式---几何均值不等式，我们有：
 \begin{equation}
@@ -324,7 +332,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 从而要证明的不等式的左半部分成立．采用类似的方法可类似地证明不等式的右半部分成立．
 \end{proof}
-\noindent 8. 对$n \in \mathbb{N}^\star$，求证：
+8. 对$n \in \mathbb{N}^\star$，求证：
 \begin{equation}
     \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} < \ln \, \left( n+1 \right) < 1 + \frac{1}{2} + \cdots + \frac{1}{n}.
 \end{equation}
@@ -339,7 +347,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 于是右半部分得证．
 \end{proof}
-\noindent 9. 令
+9. 令
 \begin{equation}
     x_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln \, \left( n+1 \right) \quad (n \in \mathbb{N}^\star).
 \end{equation}
@@ -359,7 +367,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 从而数列$\{ x_n \}$既单调又有界，所以数列$\{ x_n \}$的极限存在．
 \end{proof}
-\noindent 10. 利用第９题，证明：
+10. 利用第９题，证明：
 \begin{equation}
     1+\frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} = \ln \, n + \gamma + \epsilon_n,
 \end{equation}
@@ -398,7 +406,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{align}
 命题得证．
 \end{proof}
-\noindent 11. 证明不等式：
+11. 证明不等式：
 \begin{equation}
     \left(\frac{n+1}{\mathrm{e}}\right)^n < n! < \mathrm{e} \left(\frac{n+1}{\mathrm{e}}\right)^{n+1}
 \end{equation}
@@ -421,7 +429,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 对每一个$n\in\mathbb{N}^\star$都成立．
 
-\noindent 现在再去证明不等式右半部分，先将它改写成便于证明的等价形式：
+现在再去证明不等式右半部分，先将它改写成便于证明的等价形式：
 \begin{align}
     n! < \mathrm{e}\left(\frac{n+1}{\mathrm{e}}\right)^{n+1} &\iff \sum_{i=1}^n \ln \, i < (n+1)\ln \, \left(n+1\right) - n \\
     &\iff n < \left( \sum_{i=1}^n \ln \, \left(n+1\right) - \ln \, i \right) + \ln \, \left(n+1\right)
@@ -452,7 +460,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 对每一个$n \in \mathbb{N}^\star$都成立．
 \end{proof}
-\noindent 12. 证明：利用题１１的结论：
+12. 证明：利用题１１的结论：
 \begin{align}
     &\phantom{\implies} \left(\frac{n+1}{\mathrm{e}}\right)^n < n! < \left(\frac{n+1}{\mathrm{e}}\right)^{n+1} \\
     &\implies \frac{1}{\mathrm{e}^n} < \frac{n!}{(n+1)^n} < \frac{n+1}{\mathrm{e}^n} \\
@@ -472,14 +480,14 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{align}
 这就证明了数列$\displaystyle \{\frac{(n!)^\frac{1}{n}}{n}\}$的极限是$\displaystyle \frac{1}{\mathrm{e}}$.
 
-\section*{练习题1.7}
-\noindent 1. 对任意给定的$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，当$n > N$时，有
+\exercise
+1. 对任意给定的$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，当$n > N$时，有
 \begin{equation}
     |a_n - a_N|<\epsilon
 \end{equation}
 问$\{a_n\}$是不是基本列？
 
-\noindent 思路：在实数轴上，所有$a_N$附件的项都落在以它为中心的半径不超过$\epsilon$的一个范围内，那么，假设$a_n, a_m$也是在这个范围内，$a_n$与$a_m$的距离只会更加近，因为这个$\epsilon$可以任意小，从而这个以$a_N$为中心的范围可以是任意地``拥挤''．由此我们猜测$\{a_n\}$是基本列，去证$|a_m - a_n|<\epsilon$.
+思路：在实数轴上，所有$a_N$附件的项都落在以它为中心的半径不超过$\epsilon$的一个范围内，那么，假设$a_n, a_m$也是在这个范围内，$a_n$与$a_m$的距离只会更加近，因为这个$\epsilon$可以任意小，从而这个以$a_N$为中心的范围可以是任意地``拥挤''．由此我们猜测$\{a_n\}$是基本列，去证$|a_m - a_n|<\epsilon$.
 
 \begin{proof}
 设$m, n>N$，那么由题设，
@@ -498,15 +506,15 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 由于$2\epsilon$可以是任意的正数，所以按定义，$\{a_n\}$是基本列．
 \end{proof}
 
-\noindent 2. (1)数列$\{a_n\}$满足
+2. (1)数列$\{a_n\}$满足
 \begin{equation}
     |a_{n+p}-a_n|\leq\frac{p}{n}
 \end{equation}
 且对一切$n,p\in\mathbb{N}^\star$成立，问$\{ a_n\}$是不是基本列？
 
-\noindent (2) 当$|a_{n+p} - a_n| \leq p/n^2$时，上述结论又如何？
+(2) 当$|a_{n+p} - a_n| \leq p/n^2$时，上述结论又如何？
 
-\noindent 思路：对于题（１），当$n\to\infty$时$\displaystyle\frac{p}{n}$显然趋于$0$，但我们从直觉上能够感觉到这个趋于$0$的速度还不够快，由此猜想$\{a_n\}$应该不是基本列，可以去举反例．
+思路：对于题（１），当$n\to\infty$时$\displaystyle\frac{p}{n}$显然趋于$0$，但我们从直觉上能够感觉到这个趋于$0$的速度还不够快，由此猜想$\{a_n\}$应该不是基本列，可以去举反例．
 \begin{proof}
 (1) 考虑
 \begin{equation}
@@ -520,7 +528,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{align}
 数列$\{a_n\}$满足$|a_{n+p}-a_n|\leq \displaystyle\frac{p}{n}, \, (n,p\in\mathbb{N}^\star)$，但是$\{a_n\}$显然不是基本列．
 
-\noindent (2) 由题设，有
+(2) 由题设，有
 \begin{align}
     |a_{n+p} - a_n| &\leq |a_{n+1} - a_n| + |a_{n+2} - a_{n+1}| + \cdots + |a_{n+p} - a_{n+p-1}| \\
     &\leq \frac{1}{n^2} + \frac{1}{(n+1)^2} + \cdots + \frac{1}{(n+p-1)^2}
@@ -540,7 +548,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 对任意$n, p \in \mathbb{N}^\star$成立．所以，由定义，$\{ a_n \}$是基本列．
 \end{proof}
 
-\noindent 3. 证明下列数列收敛：
+3. 证明下列数列收敛：
 
 \begin{table}[H]
     \centering
@@ -646,7 +654,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 对任意$p\in\mathbb{N}^\star$都成立，从而按照定义，$\{a_n\}$是基本列，于是$\{a_n\}$收敛．
 \end{proof}
 
-\noindent 4. 设数列
+4. 设数列
 \begin{equation}
     \{|a_2-a_1|+|a_3-a_2|+\cdots+|a_n-a_{n-1}|\}
 \end{equation}
@@ -663,7 +671,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{align}
 从而，数列$\{b_n\}$，也就是数列$\{|a_2-a_1|+\cdots+|a_{n}-a_{n-1}|\}$是单调递增的，又由题设知数列$\{b_n\}$有界，所以数列$\{b_n\}$收敛．
 
-\noindent 现在我们来证明数列$\{a_n\}$是一个基本列：
+现在我们来证明数列$\{a_n\}$是一个基本列：
 \begin{align}
     |a_{n+p}-a_n| &\leq |a_{n+1}-a_n|+|a_{n+2}-a_{n+1}|+\cdots+|a_{n+p}-a_{n+p-1}| \\
     &= b_{n+p} - b_{n-1} = b_{n+p} - b_n + b_{n} - b_{n-1} = |b_{n+p}-b_n|+|b_n-b_{n-1}|
@@ -678,21 +686,21 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 对任意$p\in\mathbb{N}^\star$都成立，所以，由定义知$\{a_n\}$是基本列，所以$\{a_n\}$收敛．
 \end{proof}
-\noindent 5. 用精确语言表述``数列$\{a_n\}$不是基本列''．
+5. 用精确语言表述``数列$\{a_n\}$不是基本列''．
 
-\noindent 答：
+答：
 
-\noindent 一个数列$\{ a_n \}$不是基本列，如果存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，存在$n, m > N$，使得$|a_m - a_n| \geq \epsilon_0$．
+一个数列$\{ a_n \}$不是基本列，如果存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，存在$n, m > N$，使得$|a_m - a_n| \geq \epsilon_0$．
 
-\noindent 6. 设$a_n \in [a,b]\,(n\in\mathbb{N}^\star)$．证明：如果$\{a_n\}$发散，则$\{a_n\}$必有两个子列收敛于不同的数．
+6. 设$a_n \in [a,b]\,(n\in\mathbb{N}^\star)$．证明：如果$\{a_n\}$发散，则$\{a_n\}$必有两个子列收敛于不同的数．
 \begin{proof}
 任取$\{ a_n \}$的两个收敛子列，分别记为$\{ a_{i_n} \}$和$\{ a_{j_n} \}$，由于$\{ a_n \}$发散，所以$\{ a_n \}$不是基本列，那么就存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，都存在$n, m > N$，使得$|a_n - a_m| \geq \epsilon_0$，于是就存在$i_n, j_m > N$，使得$|a_{i_n} - a_{j_m}| \geq \epsilon_0$，这就说明了$\{ a_{i_n} \}$和$\{ a_{j_m} \}$分别收敛到不同的极限．
 \end{proof}
 
-\section*{练习题1.8}
-\noindent 2. 求数列$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$和$\{(1+1/n)^{n+1}:n\in\mathbb{N}^\star\}$的下确界和上确界．
+\exercise
+2. 求数列$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$和$\{(1+1/n)^{n+1}:n\in\mathbb{N}^\star\}$的下确界和上确界．
 
-\noindent 思路：注意到$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$是严格单调递增数列并且极限是$\mathrm{e}$，所以我们去证它的上确界是$\mathrm{e}$，而数列$\{(1+1/n)^{n+1}:n\in\mathbb{N}^\star\}$的极限也是$\mathrm{e}$并且是严格单调递减数列，我们去证它的下确界是$\mathrm{e}$．
+思路：注意到$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$是严格单调递增数列并且极限是$\mathrm{e}$，所以我们去证它的上确界是$\mathrm{e}$，而数列$\{(1+1/n)^{n+1}:n\in\mathbb{N}^\star\}$的极限也是$\mathrm{e}$并且是严格单调递减数列，我们去证它的下确界是$\mathrm{e}$．
 \begin{proof}
 令$a_n = (1+1/n)^n$，易证，数列$\{ a_n \}$是严格单调递增的，并且极限是$\mathrm{e}$，从而$\mathrm{e} < a_n$对所有$n \in \mathbb{N}^\star$成立，也就是对任意$x \in \{a_n:n\in\mathbb{N}^\star\}$都有$\mathrm{e}<x$；由于$\{a_n\}$的极限是$\mathrm{e}$，所以，对任意$\epsilon >0$，都存在$N \in \mathbb{N}^\star$，使得当$n>N$时，有
 \begin{equation}
@@ -700,20 +708,20 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 令$x_\epsilon = a_n$，该不等式可以写成$x_\epsilon > e - \epsilon$，并且$x_\epsilon = a_n \in \{a_n : n \in \mathbb{N}^\star \}$，因此$\mathrm{e}$是集合$\{ a_n : n \in \mathbb{N}^\star \}$也就是集合$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$的上确界．易知$\{(1+1/n)^n:n\in\mathbb{N}\}$的下确界是$a_1$也就是$3/2$.
 
-\noindent 再来证$\mathrm{e}$是集合$\{(1+1/n)^{n+1}:n\in\mathbb{N}\}$的下确界．令$b_n=(1+1/n)^{n+1}$，易证数列$\{b_n\}$是严格单调递减的并且极限是$\mathrm{e}$，从而对任意$n \in \mathbb{N}^\star$都有$b_n > \displaystyle\lim_{n\to\infty} b_n = \mathrm{e}$，也就是对任意$ x \in \{ b_n : n \in \mathbb{N}^\star \}$都有$x > \mathrm{e}$．
+再来证$\mathrm{e}$是集合$\{(1+1/n)^{n+1}:n\in\mathbb{N}\}$的下确界．令$b_n=(1+1/n)^{n+1}$，易证数列$\{b_n\}$是严格单调递减的并且极限是$\mathrm{e}$，从而对任意$n \in \mathbb{N}^\star$都有$b_n > \displaystyle\lim_{n\to\infty} b_n = \mathrm{e}$，也就是对任意$ x \in \{ b_n : n \in \mathbb{N}^\star \}$都有$x > \mathrm{e}$．
 
-\noindent 由$\displaystyle\lim_{n\to\infty}b_n = e$知，对任意$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，有
+由$\displaystyle\lim_{n\to\infty}b_n = e$知，对任意$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，有
 \begin{equation}
     |b_n - \mathrm{e}| = b_n - \mathrm{e} < \epsilon 
 \end{equation}
 令$y_\epsilon = b_n$，该不等式可以写成$y_\epsilon = b_n < \mathrm{e} + \epsilon$（对任意$n\in\mathbb{N}^\star$），从而$\mathrm{e}$正是集合$\{b_n:n\in\mathbb{N}^\star\}$的下确界．
 
-\noindent 显然$\{b_n:n\in\mathbb{N}^\star\}$的上确界是$b_1$，也就是$\displaystyle \left(\frac{3}{2}\right)^2$.
+显然$\{b_n:n\in\mathbb{N}^\star\}$的上确界是$b_1$，也就是$\displaystyle \left(\frac{3}{2}\right)^2$.
 \end{proof}
 
-\noindent 3. 求数列$\{n^{1/n}:n\in\mathbb{N}^\star\}$的下确界和上确界．
+3. 求数列$\{n^{1/n}:n\in\mathbb{N}^\star\}$的下确界和上确界．
 
-\noindent 解：先求上确界．通过计算可知$1^{1/1} < 2^{1/2} <3^{1/3}$，令$a_n = n^{1/n}$，则$a_n$的增减性等价于$\ln \, a_n$的增减性，为了判断$\ln \, a_n$的增减性，我们对数列$\{ \ln \, a_n \}$的任意相邻两项做差：
+解：先求上确界．通过计算可知$1^{1/1} < 2^{1/2} <3^{1/3}$，令$a_n = n^{1/n}$，则$a_n$的增减性等价于$\ln \, a_n$的增减性，为了判断$\ln \, a_n$的增减性，我们对数列$\{ \ln \, a_n \}$的任意相邻两项做差：
 \begin{align}
     \ln \, a_{n+1} - \ln \, a_n &= \frac{1}{n+1} \ln \, \left(n+1\right) - \frac{1}{n} \ln \, n\\
     &= \frac{1}{n(n+1)} \left( n \ln \, \left(n+1\right) - (n+1) \ln \, n\right)
@@ -730,17 +738,17 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 也就是$x_\epsilon > a_3 - \epsilon$
 所以$a_3$也就是$\displaystyle 3^\frac{1}{3}$，是$\{a_n:n\in\mathbb{N}^\star\}$的上确界．
 
-\noindent 再来证$1$是$\{n^\frac{1}{n}\}$的下确界，由于$\displaystyle\lim_{n\to\infty}n^\frac{1}{n}=1$，所以，对任意$\epsilon>0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，有
+再来证$1$是$\{n^\frac{1}{n}\}$的下确界，由于$\displaystyle\lim_{n\to\infty}n^\frac{1}{n}=1$，所以，对任意$\epsilon>0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，有
 \begin{equation}
     |n^\frac{1}{n} - 1| = n^\frac{1}{n} - 1 < \epsilon
 \end{equation}
 令$y_\epsilon = n^\frac{1}{n}$，则对所有$n > N$，都有$y_\epsilon = n^\frac{1}{n} < 1 + \epsilon$成立，并且显然$y_\epsilon \in \{ n^\frac{1}{n}:n \in \mathbb{N}^\star \}$，因此，由定义，$1$是$\{\displaystyle n^\frac{1}{n}:n\in\mathbb{N}^\star\}$的下确界．
 
-\noindent 4. 设在数列$\{ a_n:n\in\mathbb{N}^\star\}$中，既没有最小值，也没有最大值．求证：数列$\{a_n\}$发散．
+4. 设在数列$\{ a_n:n\in\mathbb{N}^\star\}$中，既没有最小值，也没有最大值．求证：数列$\{a_n\}$发散．
 \begin{proof}
 如果数列$\{ a_n \}$是无界的，譬如说，不存在上界，那么我们可以从中找出一个趋于正无穷的子列，于是$\{a_n \}$发散．
 
-\noindent 否则根据确界原理，$\{a_n\}$有上确界和下确界，分别记为$u$和$l$，由于$u$是$\{ a_n \}$的上确界，所以对任意$\epsilon > 0$，存在$i_1 \in \nat$，使得$u - a_{i_1} < \epsilon$，又因为$\{ a_n \}$是不存在最大值的，于是就存在$i_2 \in \nat$，使得$a_{i_1} < a_{i_2} < u$，类似地，我们可以找出一系列的下标$i_1, i_2, i_3, i_4, \cdots \in \nat$，它们满足
+否则根据确界原理，$\{a_n\}$有上确界和下确界，分别记为$u$和$l$，由于$u$是$\{ a_n \}$的上确界，所以对任意$\epsilon > 0$，存在$i_1 \in \nat$，使得$u - a_{i_1} < \epsilon$，又因为$\{ a_n \}$是不存在最大值的，于是就存在$i_2 \in \nat$，使得$a_{i_1} < a_{i_2} < u$，类似地，我们可以找出一系列的下标$i_1, i_2, i_3, i_4, \cdots \in \nat$，它们满足
 \begin{equation}
     a_{i_1} < a_{i_2} < a_{i_3} < a_{i_4} < \cdots < u
 \end{equation}
@@ -750,7 +758,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 这样一来，我们就找到了一个趋于$u$的子列，它就是$\{ a_{i_n} \}$．
 
-\noindent 由于$l$是下确界，所以对任意$\epsilon > 0$，都存在$j_1 \in \nat$，使得$a_{j_1} - l < \epsilon$，由于$\{ a_n \}$不存在最小值，所以一定存在$j_2 \in \nat$使得
+由于$l$是下确界，所以对任意$\epsilon > 0$，都存在$j_1 \in \nat$，使得$a_{j_1} - l < \epsilon$，由于$\{ a_n \}$不存在最小值，所以一定存在$j_2 \in \nat$使得
 \begin{equation}
     a_{j_1} > a_{j_2} > l
 \end{equation}
@@ -765,10 +773,12 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 这样我们就找到了一个趋于$l$的子列，它就是$\{ a_{j_m} \}$．如果$u = l$，也就是$\{ a_n \}$的上确界等于下确界，那么将可以推出$\{ a_n \}$是常数列，这时每一个$a_n$都可以当成最大值（最小值），这与题设矛盾，所以$u \neq l$，所以$\{ a_{i_n} \}$和$\{ a_{j_m} \}$是$\{ a_n \}$的两个趋向不同极限的子列，所以$\{ a_n \}$发散．
 \end{proof}
 
-% \noindent 5. 试用定理1.8.1证明中使用的``二分法''，证明定理1.7.1(Bolzano---Weierstrass定理)．
+% 5. 试用定理1.8.1证明中使用的``二分法''，证明定理1.7.1(Bolzano---Weierstrass定理)．
 
-\section*{练习题1.10}
-\noindent 1. 求$\displaystyle\lim_{n\to \infty} \inf a_n$和$\displaystyle\lim_{n \to \infty} \sup a_n$，设：
+\exercise
+\exercise
+
+1. 求$\displaystyle\lim_{n\to \infty} \inf a_n$和$\displaystyle\lim_{n \to \infty} \sup a_n$，设：
 \begin{table}[H]
     \centering
     \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -777,7 +787,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
       \end{tabularx}
 \end{table}
 
-\noindent (1) 解：利用上、下极限的等价定义：
+(1) 解：利用上、下极限的等价定义：
 \begin{align}
     a^\star = \lim_{n \to \infty} \sup_{k \geq n} \, \{ a_k \}, \; a_\star = \lim_{n \to \infty} \inf_{k \geq n} \, \{a_k\}
 \end{align}
@@ -812,7 +822,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     \lim_{n \to \infty} a_{2n - 1} = \lim_{n \to \infty} -\frac{1}{n} = - \left(\lim_{n\to\infty} \frac{1}{n}\right) = -\left( 0 \right) = -0 = 0.
 \end{equation}
 
-\noindent (2)解：首先对$a_n$的幂次进行计算，也就是，对$(-1)^n$进行计算，我们发现：
+(2)解：首先对$a_n$的幂次进行计算，也就是，对$(-1)^n$进行计算，我们发现：
 \begin{equation}
     (-1)^n = \begin{cases}
         -1, & n\text{为奇数} \\
@@ -836,21 +846,21 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &a_\star = \lim_{n\to\infty} \inf_{k \geq n} \, \{ a_k \} = \lim_{n \to \infty} n^{-1} = \lim_{n \to \infty} \frac{1}{n} = 0.
 \end{align}
 
-\noindent (3) 解：$\arctan$是定义在$(-\infty, +\infty)$上的严格单调递增函数，利用这个性质可以得到
+(3) 解：$\arctan$是定义在$(-\infty, +\infty)$上的严格单调递增函数，利用这个性质可以得到
 \begin{align}
     &\ulimit \{ \arctan \, \left(n^{(-1)^n}\right) \} = \arctan \, \left( \ulimit \{ n^{(-1)^n}\}\right) = \arctan \, +\infty = \frac{\pi}{2} \\
     &\llimit \{ \arctan \, \left(n^{(-1)^n}\right) \} = \arctan \, \left( \llimit \{ n^{(-1)^n}\}\right) = \arctan \, 0 = 0
 \end{align}
 
-\noindent 2. 试证下面诸式当两边有意义时成立：
+2. 试证下面诸式当两边有意义时成立：
 
-\noindent (1) 若$\displaystyle\lim_{n\to\infty}b_n=b$，则
+(1) 若$\displaystyle\lim_{n\to\infty}b_n=b$，则
 \begin{align}
     &\llimit \left( a_n + b_n \right) = \llimit a_n + b, \\
     &\ulimit \left( a_n + b_n \right) = \ulimit a_n + b;
 \end{align}
 
-\noindent (1)
+(1)
 \begin{proof}
 由例３的结论：
 \begin{align}
@@ -872,8 +882,9 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 \end{proof}
 
-\section*{练习题1.11}
-\noindent 1. 计算下列极限：
+\exercise
+
+1. 计算下列极限：
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -881,7 +892,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     \end{tabularx}
 \end{table}
 
-\noindent (1) 解：
+(1) 解：
 令
 \begin{align}
     a_n &= 1+\frac{1}{2}+\cdots+\frac{1}{n} \\
@@ -894,7 +905,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &= \frac{1}{\ln \, \left( \displaystyle\lim_{n \to \infty} \left( \left(1 + \displaystyle\frac{1}{n}\right)^{n+1}\right)\right)} = \frac{1}{\ln \, \mathrm{e}} = \frac{1}{1} = 1.
 \end{align}
 
-\noindent (2) 解：
+(2) 解：
 令
 \begin{align}
     a_n &= 1 + \frac{1}{3} + \frac{1}{5} + \cdots + \frac{1}{2n-1} \\
@@ -908,9 +919,9 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &= \frac{1}{\displaystyle\lim_{n \to \infty} \ln \, \left(\left(1+\displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} = \frac{1}{\ln \, \displaystyle\lim \left( \left( 1 + \displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} = \frac{1}{\ln \, \mathrm{e}} = \frac{1}{1} = 1.
 \end{align}
 
-\noindent 2. 计算极限$\displaystyle\lim_{n \to \infty} \left( n! \right)^{1/n^2}$．（提示：取对数）．
+2. 计算极限$\displaystyle\lim_{n \to \infty} \left( n! \right)^{1/n^2}$．（提示：取对数）．
 
-\noindent 2. 解：
+2. 解：
 \begin{align}
     \text{原式} &= \lim_{n \to \infty} \exp \{ \, \ln \, \left( (n!)^{1/n^2}\right) \} = \lim_{n \to \infty} \exp \{ \, \displaystyle\frac{1}{n^2} \displaystyle\sum_{i=1}^{n} \ln \, i \, \}
 \end{align}
@@ -926,12 +937,12 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &= \exp \, \{ \, \ln \, 1 \,\, \} = \exp \, 0 = 1.
 \end{align}
 
-\noindent 3. 计算极限
+3. 计算极限
 \begin{equation}
     \lim_{n\to\infty} \frac{1^2 + 3^2 + \cdots + (2n-1)^2}{n^3}.
 \end{equation}
 
-\noindent 3. 解：令
+3. 解：令
 \begin{align}
     a_n &= 1^2 + 3^2 + \cdots + (2n-1)^2 \\
     b_n &= n^3
@@ -942,7 +953,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
     &= \lim_{n \to \infty} \frac{4 + \displaystyle\frac{4}{n} + \displaystyle\frac{1}{n^2}}{3 + \displaystyle\frac{3}{n} + \frac{1}{n^2}} = \frac{\displaystyle\lim_{n \to \infty} \left(4 + \displaystyle\frac{4}{n} + \displaystyle\frac{1}{n^2}\right)}{\displaystyle\lim_{n \to \infty} \left(3 + \displaystyle\frac{3}{n} + \displaystyle\frac{1}{n^2}\right)} = \frac{4}{3}.
 \end{align}
 
-\noindent 4. 设$\displaystyle\lim_{n \to \infty} a_n = a$．证明：
+4. 设$\displaystyle\lim_{n \to \infty} a_n = a$．证明：
 \begin{equation}
     \lim_{n \to \infty} \frac{a_1 + 2a_2 + \cdots + na_n}{n^2} = \frac{a}{2}.
 \end{equation}
@@ -971,7 +982,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 \end{equation}
 \end{theo}
 
-\noindent 5. 举例说明Stolz定理的逆命题不成立．
+5. 举例说明Stolz定理的逆命题不成立．
 
 \begin{proof}
 取
@@ -990,8 +1001,11 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 这就证明了，在Stolz定理中：$\displaystyle\lim_{n \to \infty} \frac{a_n - a_{n-1}}{b_n - b_{n-1}} = A$不是$\displaystyle\lim_{n \to \infty} \frac{a_n}{b_n} = A$的必要条件．
 \end{proof}
 
-\section*{练习题2.1}
-\noindent 1. 设$A = \{ a, b, c, d \}$．证明有唯一的映射：$f: A \to A$满足下列条件：
+\section{函数的连续性}
+
+\exercise
+
+1. 设$A = \{ a, b, c, d \}$．证明有唯一的映射：$f: A \to A$满足下列条件：
 \begin{enumerate}
     \item $f(a) = b, f(c) = d$;
     \item $( f \circ f ) (x) = x$对一切$x \in A$成立．
@@ -1008,7 +1022,7 @@ t_n - r_n = \frac{t_{n-1}-r_{n-1}}{2} = \frac{t_{n-2}-r_{n-2}}{4} = \cdots = \fr
 从而$\forall x \in A, f(x) = g(x)$，从而$f = g$，从而这样的映射是唯一的．
 \end{proof}
 
-\noindent 2. 设映射$f$满足$(f \circ f)(a) = a$，求$f^n (a)$．
+2. 设映射$f$满足$(f \circ f)(a) = a$，求$f^n (a)$．
 \begin{proof}
 当$n=2$时
 \begin{equation}
@@ -1022,7 +1036,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这说明对于$n = 2k$命题也成立，那么根据数学归纳法原理，对任意正偶数$n$，$f^n (a) = a$成立．
 \end{proof}
 
-\noindent 解：对于$n=1$，有$f^1 (a) = f(a)$，对于任意正偶数$n$，有$f^n (a) = a$，对任意大于等于$3$的正奇数$n$，$n$可被表示为$n=2k+1, k \in \nat$，于是有
+解：对于$n=1$，有$f^1 (a) = f(a)$，对于任意正偶数$n$，有$f^n (a) = a$，对任意大于等于$3$的正奇数$n$，$n$可被表示为$n=2k+1, k \in \nat$，于是有
 \begin{equation}
     f^{n}(a) = \begin{cases}
         a, & n\text{为正偶数}; \\
@@ -1030,7 +1044,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \end{cases}
 \end{equation}
 
-\noindent 3. 定义映射$D: \real \to \{ 0, 1 \}$如下：
+3. 定义映射$D: \real \to \{ 0, 1 \}$如下：
 \begin{equation}
     D(x) = \begin{cases}
         1, & \text{当}x\text{为有理数时}, \\
@@ -1042,7 +1056,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \item 求$D^{-1}(\{0\}), D^{-1}(\{1\}), D^{-1}(\{0,1\})$.
 \end{enumerate}
 
-\noindent (1) 解：任取$x \in \real$，如果$x$为有理数，那么
+(1) 解：任取$x \in \real$，如果$x$为有理数，那么
 \begin{equation}
     D(x) = 1, \quad (x\text{为有理数})
 \end{equation}
@@ -1064,23 +1078,23 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 所以$D \circ D$可写为$D \circ D: \real \to \{ 1 \}$.
 
-\noindent (2) 解：$\real = \mathbb{Q} \bigcup (\real \setminus \mathbb{Q})$并且$\rational \bigcap (\real \setminus \rational) = \emptyset$，$\forall x \in \rational, D(x) = 1$，$\forall x \in \real \setminus \rational, D(x) = 0$，所以$D^{-1}(\{0\}) = \irrational$．同理，$D^{-1}(\{1\}) = \mathbb{Q}$．$D^{-1}(\{0, 1\}) = \real$．
+(2) 解：$\real = \mathbb{Q} \bigcup (\real \setminus \mathbb{Q})$并且$\rational \bigcap (\real \setminus \rational) = \emptyset$，$\forall x \in \rational, D(x) = 1$，$\forall x \in \real \setminus \rational, D(x) = 0$，所以$D^{-1}(\{0\}) = \irrational$．同理，$D^{-1}(\{1\}) = \mathbb{Q}$．$D^{-1}(\{0, 1\}) = \real$．
 
-\noindent 4. 设$A$是由$n$个元素组成的集合．若映射$f: A \to A$是单射，则称$f$是$A$的一个排列．
+4. 设$A$是由$n$个元素组成的集合．若映射$f: A \to A$是单射，则称$f$是$A$的一个排列．
 \begin{enumerate}
     \item 证明：$f(A) = A$. 
     \item 证明：$f^{-1}$存在．
     \item $A$共有多少个排列？
 \end{enumerate}
 
-\noindent (1)
+(1)
 \begin{proof}
 由于$f: A \to A$是集合$A$到自身的映射，所以$f(A) \subset A$．
 
-\noindent 对任意$x \in A$都应有$x \in f(A)$，否则，假设存在$x_0 \in A$但是$x_0 \not\in f(A)$，那么$| f(A) | < |A| = n$，但是由于$f$是单射并且$|A| = n$，所以$|f(A)| \geq n$，矛盾．所以$A \subset f(A)$．因为$f(A) \subset A$以及$A \subset f(A)$，所以$f(A) = A$．
+对任意$x \in A$都应有$x \in f(A)$，否则，假设存在$x_0 \in A$但是$x_0 \not\in f(A)$，那么$| f(A) | < |A| = n$，但是由于$f$是单射并且$|A| = n$，所以$|f(A)| \geq n$，矛盾．所以$A \subset f(A)$．因为$f(A) \subset A$以及$A \subset f(A)$，所以$f(A) = A$．
 \end{proof}
 
-\noindent (2)
+(2)
 \begin{proof}
 任取$x_0 \in A$，让$x_{1} = f(x_0), x_{m+1} = f(x_m)$，让$m$取遍全体正整数，我们得到一个数列$\{ x_m \}$，它是
 \begin{equation}
@@ -1088,23 +1102,23 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 采用反证法，假设对任意$m \in \nat$，都有$x_m \neq x_0$．那么任取$\{ x_m \}$中的两项$x_i, x_j, i \neq j$，设$ i < j$，事实上，$x_i, x_j$可写成$x_i = f^{i}(x_0), x_j = f^j (x_0)$，如果$x_i = x_j$，那么就有$f^{i}(x_0) = f^{j}(x_0)$，由于$f$是单射，所以就有$f^{i-1}(x_0) = f^{j-1}(x_0)$，反复应用$f$的单射性质，最终会得到$f^{0}(x_0) = f^{j-i}(x_0)$也就是$x_0 = f^{j-i}(x_0)$，但根据假设不可能有$x_0 = f^{j-i}(x_0)$成立，所以也不可能有$x_i = x_j$成立，所以$\{ x_m \}$中任意两项都是两两不等的，从而$\{ x_m \}$有无穷多项，但是，由于$x_{m+1} = f(x_m), x_1 = f(x_0), \forall m \in \nat$，可知$x_m \in f(A) = A, \forall m \in \nat$，也就是说$|A|$有无穷多个元素，矛盾．
 
-\noindent 这就说明，对每一个$x \in A$，都存在$m \in \nat$，使得$f^m (x_0) = x_0$，这就证明了$f^{-1}$是存在的．
+这就说明，对每一个$x \in A$，都存在$m \in \nat$，使得$f^m (x_0) = x_0$，这就证明了$f^{-1}$是存在的．
 \end{proof}
 
-\noindent 点评：从直觉收到启发，我们发现在$\{ x_n \}$的前$n$项中，应该必然有一项与$x_0$相等，否则经过无数次将$f$反复应用于$x_0$将会``创造''出无穷多个不同的元素，这与$A$是有限集矛盾．
+点评：从直觉收到启发，我们发现在$\{ x_n \}$的前$n$项中，应该必然有一项与$x_0$相等，否则经过无数次将$f$反复应用于$x_0$将会``创造''出无穷多个不同的元素，这与$A$是有限集矛盾．
 
-\noindent 或者我们还可以这样理解：想象$A$中的每一个元素是荷塘上的一片荷叶，想象这样一只青蛙，它最开始在编号为$x_0$的荷叶上，青蛙按照$f$的指示从编号为$x_0$的荷叶跳到编号为$f(x_0)$的荷叶，又从编号为$f(x_0)$的荷叶跳到编号为$f(f(x_0))$的荷叶，也就是说第$t$次跳跃就是从编号为$f^{t-1}(x_0)$的荷叶跳到编号为$f^{t}(x_0)$的荷叶，从直觉上理解，我们一定有信心认为，青蛙在经过有限次这样的跳跃后必定会回到最初的编号为$x_0$的荷叶上，否则就说明荷塘中有无穷多片荷叶，这是荒谬的．
+或者我们还可以这样理解：想象$A$中的每一个元素是荷塘上的一片荷叶，想象这样一只青蛙，它最开始在编号为$x_0$的荷叶上，青蛙按照$f$的指示从编号为$x_0$的荷叶跳到编号为$f(x_0)$的荷叶，又从编号为$f(x_0)$的荷叶跳到编号为$f(f(x_0))$的荷叶，也就是说第$t$次跳跃就是从编号为$f^{t-1}(x_0)$的荷叶跳到编号为$f^{t}(x_0)$的荷叶，从直觉上理解，我们一定有信心认为，青蛙在经过有限次这样的跳跃后必定会回到最初的编号为$x_0$的荷叶上，否则就说明荷塘中有无穷多片荷叶，这是荒谬的．
 
-\noindent 在群论中，设$S_n$是$n$元置换群，容易证明它是循环群，因此它有生成元，$f$与自身的复合可以看做是$S_n$中任意一个元素自己与自己做加法运算，譬如说，任取$a_0 \in S_n$，我们可以这样定义$f$：
+在群论中，设$S_n$是$n$元置换群，容易证明它是循环群，因此它有生成元，$f$与自身的复合可以看做是$S_n$中任意一个元素自己与自己做加法运算，譬如说，任取$a_0 \in S_n$，我们可以这样定义$f$：
 \begin{align}
     f: \{1,2,3,\cdots,n\} &\to \{ 1,2,3,\cdots, n\} \\
     x &\mapsto a_0 x
 \end{align}
 于是$f \circ f$等价于$a \oplus a$，其中$\oplus$是群$S_n$的二元代数运算．这样就将代数结构与排列映射联系了起来．
 
-\noindent (3) 确定了$f$所描述的具体的对应法则，也就知道了$A$有多少个排列．将$A$中的$n$个元素分别记为$x_1, x_2, \cdots, x_n$，为了构造出一种可能的$f$，我们要依次确定$x_1, x_2, \cdots, x_m$的映象，任取其中一个，记做$x_{i_1}$，那么有$n$个元素可作为$x_{i_1}$的映象，从剩下的$n-1$个没有确定映象的元素中再任取一个，记为$x_{i_2}$，有$n-1$个元素可作为$x_{i_2}$的映象，类似地，有$n-2$个元素可作为$x_{i_3}$的映项，这样进行下去，有$2$个元素可作为$x_{i_{n-1}}$的映象，有$1$个元素可作为$x_{i_n}$的映象，按照计数原理，确定$x_{i_1}, x_{i_2}, \cdots, x_{i_n}$这$n$个元素的映象的方式总共有$n \times (n-1) \times \cdots 2 \times 1 = n!$种．因此所有可能的$f$只有$n!$种．因此$A$有$n!$个排列．
+(3) 确定了$f$所描述的具体的对应法则，也就知道了$A$有多少个排列．将$A$中的$n$个元素分别记为$x_1, x_2, \cdots, x_n$，为了构造出一种可能的$f$，我们要依次确定$x_1, x_2, \cdots, x_m$的映象，任取其中一个，记做$x_{i_1}$，那么有$n$个元素可作为$x_{i_1}$的映象，从剩下的$n-1$个没有确定映象的元素中再任取一个，记为$x_{i_2}$，有$n-1$个元素可作为$x_{i_2}$的映象，类似地，有$n-2$个元素可作为$x_{i_3}$的映项，这样进行下去，有$2$个元素可作为$x_{i_{n-1}}$的映象，有$1$个元素可作为$x_{i_n}$的映象，按照计数原理，确定$x_{i_1}, x_{i_2}, \cdots, x_{i_n}$这$n$个元素的映象的方式总共有$n \times (n-1) \times \cdots 2 \times 1 = n!$种．因此所有可能的$f$只有$n!$种．因此$A$有$n!$个排列．
 
-\noindent 5. 设$A$是由$n$个元素组成的集合．若映射$f$满足$f(a) = a$对一切$a \in G$成立，则称$f$为$A$的恒等排列．求证：当$n \geq 2$时，存在非恒等排列$f$，使得$f \circ f$为恒等排列．
+5. 设$A$是由$n$个元素组成的集合．若映射$f$满足$f(a) = a$对一切$a \in G$成立，则称$f$为$A$的恒等排列．求证：当$n \geq 2$时，存在非恒等排列$f$，使得$f \circ f$为恒等排列．
 
 \begin{proof}
 当$n=2$时，设
@@ -1133,8 +1147,9 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 因为$f(x_1) = x_2$，所以$f$是非恒等映射，但是对于$x = x_1$或者$x = x_2$，可验证$f \circ f$是恒等映射，对于$x \neq x_1$并且$x \neq x_2$，由于$f(x) = x$，所以$f \circ f(x) = x$，所以$f \circ f$对于任意$x \in A$都是恒等映射．于是对每一个$n \in \nat, n \geq 2$都可构造出这样的非恒等映射$f$使得$f \circ f$为恒等映射．命题得证．
 \end{proof}
 
-\section*{练习题2.2}
-\noindent 1. 在平面直角坐标系中，两坐标均为有理数的点$(x,y)$称为{\bfseries{有理点}}．试证：平面上全体有理点所成的集合是一可数集．
+\exercise
+
+1. 在平面直角坐标系中，两坐标均为有理数的点$(x,y)$称为{\bfseries{有理点}}．试证：平面上全体有理点所成的集合是一可数集．
 
 \begin{proof}
 按箭头顺序，可将$\nat \times \nat$中所有元组
@@ -1164,7 +1179,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 就得到$\nat$到全体有理数对的一个双射$q$，这说明$\rational \times \rational$是可数的．
 \end{proof}
 
-\noindent 2. 如果复数$x$满足多项式方程
+2. 如果复数$x$满足多项式方程
 \begin{equation}
     a_0 x^n + a_1 x^{n-1} + a_2 x^{n-2} + \cdots + a_{n-1} x + a_{n} = 0,
 \end{equation}
@@ -1198,7 +1213,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 的系数元组可数，从而$k+1$阶代数数多项式确定的代数数可数，从而依归纳原理，全体代数数可数．
 \end{proof}
 
-\noindent 3. 设$A$是数轴上长度不为零的、互不相交的区间所成的集合（注意：集合$A$的元素是区间）．试证：$A$是至多可数的．
+3. 设$A$是数轴上长度不为零的、互不相交的区间所成的集合（注意：集合$A$的元素是区间）．试证：$A$是至多可数的．
 \begin{proof}
 如果$A$中的唯一元素为整个数轴，或者只用有限多个实数$x_1,x_2,\cdots, x_n \in \real$将整个数轴划分为有限多个区间作为$A$的构成
 \begin{equation}
@@ -1219,7 +1234,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 就得到了$\nat$到$A$的一个双射$f: \nat \longrightarrow A$，从而$A$是至多可数的．
 \end{proof}
 
-\noindent 4. 设$S = \{ (x_1, x_2, \cdots) : x_i = 0 \, \text{或} \, 1, i = 1,2,3,\cdots \}$．求证：$S$与区间$[0,1]$有相等的势．
+4. 设$S = \{ (x_1, x_2, \cdots) : x_i = 0 \, \text{或} \, 1, i = 1,2,3,\cdots \}$．求证：$S$与区间$[0,1]$有相等的势．
 
 \begin{proof}
 任取$x \in S$，记$x$为$x = (x_1,x_2,x_3,\cdots)$，令
@@ -1248,8 +1263,9 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 从而$S$与$[0,1]$等势．
 \end{proof}
 
-\section*{练习题2.3}
-\noindent 1. 求下列函数的定义域：
+\exercise
+
+1. 求下列函数的定义域：
 
 \begin{table}[H]
     \centering
@@ -1258,25 +1274,25 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
         (3)~$f(x)=\displaystyle\frac{x+1}{x^2 + x -2}$; & (4)~$f(x) = \ln \, \displaystyle\frac{1+\sin \, x}{1-\cos \, x}$.
       \end{tabularx}
 \end{table}
-\noindent (1) 解：设定义域为$D$：
+(1) 解：设定义域为$D$：
 \begin{align}
     &\mathrel{\phantom{\implies}} \forall x \in D, \exists y \in \real, y = \displaystyle\sqrt{1-x^2} \\
     &\implies 1 - x^2 \geq 0 \\
     &\implies 0 \leq x^2 \leq 1 \implies -1 \leq x \leq 1 \\
     &\implies D = [-1, 1].
 \end{align}
-\noindent (2) 解：设定义域为$D$：
+(2) 解：设定义域为$D$：
 \begin{align}
     &\mathrel{\phantom{\implies}} \forall x \in D, \exists y \in \real, y = \displaystyle\sqrt[3]{\displaystyle\frac{1+x}{1-x}} \\
     &\implies 1 - x \neq 0 \implies x \neq 1 \implies D = \real \setminus \{ 1 \}.
 \end{align}
-\noindent (3) 解：设定义域为$D$：
+(3) 解：设定义域为$D$：
 \begin{align}
     &\mathrel{\phantom{\implies}} \forall x \in D, \exists y \in \real, y = \displaystyle\frac{x+1}{x^2 +x - 2} \\
     &\implies x^2 + x - 2 \neq 0 \implies (x+2)(x-1) \neq 0 \implies x \neq 1 \; \land \; x \neq -2 \\
     &\implies D = \real \setminus \{ 1, 2 \}.
 \end{align}
-\noindent (4) 解：设定义域为$D$：
+(4) 解：设定义域为$D$：
 \begin{align}
     &\mathrel{\phantom{\implies}} \forall x \in \real, \exists y \in \real, y = \ln \, \frac{1+\sin \, x}{1+ \cos \, x} \\
     &\implies \frac{1+\sin \, x}{1+\cos \, x} > 0 \implies (1+\sin \, x)(1+\cos \, x) > 0  \\
@@ -1284,7 +1300,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     &\implies x \not\in \{ 2\pi n + \frac{3\pi}{2} : n \in \integer \} \implies D = \real \setminus \{ 2 \pi n + \frac{3 \pi}{2} : n \in \integer \}
 \end{align}
 
-\noindent 2. 给定函数$f: \real \longrightarrow \real$，如果$x \in R$使$f(x)=x$，则称$x$为$f$的一个不动点．若$f \circ  f$有唯一的不动点，求证：$f$也有唯一的不动点．
+2. 给定函数$f: \real \longrightarrow \real$，如果$x \in R$使$f(x)=x$，则称$x$为$f$的一个不动点．若$f \circ  f$有唯一的不动点，求证：$f$也有唯一的不动点．
 
 \begin{proof}
 设$x_0$是$f \circ f$的不动点，依题意，这个$x_0$是唯一的仅此一个．如果$x_0$是$f \circ f$的不动点，那么
@@ -1294,7 +1310,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这说明$f(x_0)$是$f \circ f$的不动点，而作为$f \circ f$的不动点的$x_0$又是唯一的，所以$f(x_0) = x_0$，所以$f$有唯一的不动点$x_0$．命题得证．
 \end{proof}
 
-\noindent 3. 设$f: \real \longrightarrow \real$．若$f \circ f$有且仅有两个不动点$a, b\,(a \neq b)$，求证只有一下两种情况：
+3. 设$f: \real \longrightarrow \real$．若$f \circ f$有且仅有两个不动点$a, b\,(a \neq b)$，求证只有一下两种情况：
 \begin{enumerate}
     \item $a, b$都是$f$的不动点；
     \item $f(a) = b, \, f(b) = a$.
@@ -1312,13 +1328,13 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 如果说$f(a) = a$，那么同理可推出$f(b)=b$，那么$a, b$都是$f$的不动点，否则如果$f(a) = b$那么可同理推出$f(b)=a$．
 \end{proof}
 
-\noindent 4. 设函数$f: \real \longrightarrow \real$，且每一个实数都是$f \circ f$的不动点．试问：
+4. 设函数$f: \real \longrightarrow \real$，且每一个实数都是$f \circ f$的不动点．试问：
 \begin{enumerate}
     \item 有几个这样的函数？
     \item 若$f$在$\real$上递增，有几个这样的函数？
 \end{enumerate}
 
-\noindent (1) 解：４个，分别是：
+(1) 解：４个，分别是：
 \begin{align}
     f_1(x) &= x \\
     f_2(x) &= -x \\
@@ -1332,26 +1348,26 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \end{cases}
 \end{align}
 
-\noindent (2) 解：１个，是
+(2) 解：１个，是
 \begin{equation}
     f(x) = x.
 \end{equation}
 
-\noindent 5. 求下列函数$f$的$n$次复合$f^n$:
+5. 求下列函数$f$的$n$次复合$f^n$:
 
 \begin{enumerate}
     \item $f(x) = \displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}$;
     \item $f(x) = \displaystyle\frac{x}{1+bx}$.
 \end{enumerate}
 
-\noindent (1) 解：
+(1) 解：
 当$n = 0$时，$f^0 (x) = I (x) = x = \displaystyle\frac{x}{\displaystyle\sqrt{1+0 x^2}}$；
 
-\noindent 当$n=1$时，$f^1 (x) = f(x) = \displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}=\displaystyle\frac{x}{\displaystyle\sqrt{1+1 x^2}}$;
+当$n=1$时，$f^1 (x) = f(x) = \displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}=\displaystyle\frac{x}{\displaystyle\sqrt{1+1 x^2}}$;
 
-\noindent 当$n=2$时，$f^2 (x) = f(f(x)) = \displaystyle\frac{\displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}}{\displaystyle\sqrt{1+\left(\displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}\right)^2}} = \displaystyle\frac{x}{\displaystyle\sqrt{1+2x^2}}$;
+当$n=2$时，$f^2 (x) = f(f(x)) = \displaystyle\frac{\displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}}{\displaystyle\sqrt{1+\left(\displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}\right)^2}} = \displaystyle\frac{x}{\displaystyle\sqrt{1+2x^2}}$;
 
-\noindent 采用数学归纳法来证明：假设对于某个非负整数$k$有：
+采用数学归纳法来证明：假设对于某个非负整数$k$有：
 \begin{equation}
     f^k (x) = \frac{x}{\sqrt{1+kx^2}}
 \end{equation}
@@ -1361,7 +1377,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 依数学归纳法原理，对任意非负整数$n$，都有$f^n (x) = \displaystyle\frac{x}{\displaystyle\sqrt{1+nx^2}}$成立．
 
-\noindent (2) 解：当$n=0$时：
+(2) 解：当$n=0$时：
 \begin{equation}
     f^0 (x) = I(x) = x = \frac{x}{1 + 0bx}
 \end{equation}
@@ -1379,7 +1395,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 依数学归纳法原理，对任意$n \in \nnat$命题都成立．
 
-\noindent 6. 设$f: \real \longrightarrow \real$满足方程
+6. 设$f: \real \longrightarrow \real$满足方程
 \begin{equation}
     f(x+y)=f(x)+f(y) \quad (x,y \in \real)
 \end{equation}
@@ -1410,12 +1426,12 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 于是对一切$x \in \rational$命题成立．
 \end{proof}
 
-\noindent 7. 设函数$f: \real \longrightarrow \real$，$l$为一正数，如果$f(x+l)=f(x)$对一切$x$成立，则称$f$是周期为$l$的{\bfseries{周期函数}}．如果$f$以任何正数为周期，求证：$f$为常值函数．
+7. 设函数$f: \real \longrightarrow \real$，$l$为一正数，如果$f(x+l)=f(x)$对一切$x$成立，则称$f$是周期为$l$的{\bfseries{周期函数}}．如果$f$以任何正数为周期，求证：$f$为常值函数．
 \begin{proof}
 采用反证法，假设$f$不是常值函数，那么就存在$x_1, x_2 \in \real, x_1 < x_2$使得$f(x_1) \neq f(x_2)$，令$d = x_2 - x_1$，那么就有$f(x_1)\neq f(x_2)=f(x_1 + d)$，这与周期函数的定义不符，矛盾．
 \end{proof}
 
-\noindent 8. 试证$\sin \, \left(x^2\right), \sin \, x + \cos \, \sqrt{2}x$均不是周期函数．
+8. 试证$\sin \, \left(x^2\right), \sin \, x + \cos \, \sqrt{2}x$均不是周期函数．
 \begin{proof}
 采用反证法，设存在$l > 0$，使得$\sin \, \left(x+l\right)^2=\sin \, \left(x\right)^2$对一切$x \in \real$成立．那么对任意$x \in \real$，有
 \begin{align}
@@ -1494,7 +1510,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这说明$l = 0$，从而与$l > 0$矛盾，从而不存在这样的$l > 0$使得题设函数成为一周期函数．
 \end{proof}
 
-\noindent 9. 设函数$f: (-a, a) \longrightarrow \real$．如果对任何$x \in (-a, a)$，有$f(x) = f(-x)$，则称$f$为偶函数；若$f(x) = -f(-x)$，则称$f$为奇函数．求证：$(-a, a)$上的任何函数均可表示为一个奇函数和一个偶函数之和．
+9. 设函数$f: (-a, a) \longrightarrow \real$．如果对任何$x \in (-a, a)$，有$f(x) = f(-x)$，则称$f$为偶函数；若$f(x) = -f(-x)$，则称$f$为奇函数．求证：$(-a, a)$上的任何函数均可表示为一个奇函数和一个偶函数之和．
 
 \begin{proof}
 令
@@ -1522,7 +1538,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这就将函数$f$表示成了一个偶函数$p$和一个奇函数$q$的和．
 \end{proof}
 
-\noindent 10. 函数
+10. 函数
 \begin{equation}
     \cosh \, x = \frac{\expe^x + \expe^{-x}}{2}, \quad \sinh \, x = \frac{\expe^{x} - \expe^{-x}}{2}
 \end{equation}
@@ -1551,22 +1567,22 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \end{align}
 \end{proof}
 
-\section*{练习题2.4}
+\exercise
 
-\noindent 1. 用$\epsilon$-$\delta$语言表述$f(x_0 -) = 1$.
+1. 用$\epsilon$-$\delta$语言表述$f(x_0 -) = 1$.
 
-\noindent 1. 答：设函数$f$在$x_0 - r, x_0$有定义，$r$为一常数且$r > 0$，设$l$是一个给定的常实数．若对任意$\epsilon > 0$，都存在$\delta \in (0, r)$，使得对所有$x \in (x_0-\delta, x_0)$，都有
+1. 答：设函数$f$在$x_0 - r, x_0$有定义，$r$为一常数且$r > 0$，设$l$是一个给定的常实数．若对任意$\epsilon > 0$，都存在$\delta \in (0, r)$，使得对所有$x \in (x_0-\delta, x_0)$，都有
 \begin{equation}
     |f(x) - l| < \epsilon
 \end{equation}
 就说$f$在$x_0$处的左极限存在，写为$f(x_0 -)$．
 
-\noindent 2. 求证：$\displaystyle\lim_{x \to x_0} f(x)$存在当且仅当$f(x_0 -) = f(x_0 +)$为有限数．
+2. 求证：$\displaystyle\lim_{x \to x_0} f(x)$存在当且仅当$f(x_0 -) = f(x_0 +)$为有限数．
 
 \begin{proof}
 必要性．设函数$f$在$x_0$处的极限存在．采用反证法，假设结论不成立，也就是说假设$f(x_0 -)$或者$f(x_0 +)$为非正常数$\infty$，不失一般性，假设$f(x_0 -)$为$+\infty$．
 
-\noindent 那么对任意$M > 0$，都存在$\delta_1 > 0$，使得只要$0 < x_0 - x < \delta_1$，就有
+那么对任意$M > 0$，都存在$\delta_1 > 0$，使得只要$0 < x_0 - x < \delta_1$，就有
 \begin{equation}
     f(x) > M + l
 \end{equation}
@@ -1576,7 +1592,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 这说明函数$f$在$x_0$处的极限不存在，矛盾．于是必要性得证．
 
-\noindent 充分性．设$f(x_0 -) = f(x_0 +) = c$，$c \in \real$为一非非正常数．由于$f(x_0 -)$存在，所以，对任意$\epsilon > 0$，存在$\delta_1 > 0$，使得只要$0 < x_0 - x < \delta_1$，就有
+充分性．设$f(x_0 -) = f(x_0 +) = c$，$c \in \real$为一非非正常数．由于$f(x_0 -)$存在，所以，对任意$\epsilon > 0$，存在$\delta_1 > 0$，使得只要$0 < x_0 - x < \delta_1$，就有
 \begin{equation}
     |f(x) - c| < \epsilon
 \end{equation}
@@ -1591,7 +1607,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 依定义函数$f$在$x_0$处的极限存在并且等于$c = f(x_0 -) = f(x_0 +)$．充分性得证．
 \end{proof}
 
-\noindent 3. 设$\displaystyle\lim_{x \to x_0} f(x) = A$．用$\epsilon$-$\delta$语言证明：
+3. 设$\displaystyle\lim_{x \to x_0} f(x) = A$．用$\epsilon$-$\delta$语言证明：
 \begin{table}[H]
     \centering
     \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -1600,7 +1616,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
       \end{tabularx}
 \end{table}
 
-\noindent (1) 
+(1) 
 \begin{proof}
 如果$A > 0$，那么$|A|=A$，并且在$x_0$的一个足够小的邻域内有$f(x) > 0$，也就是$f(x) = |f(x)|$，从而
 \begin{equation}
@@ -1624,7 +1640,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 那么依定义有$\displaystyle\lim_{x \to x_0} |f(x)| = 0$．又因为$A = 0$，所以$|A| = 0$，所以$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$．
 
-\noindent 如果$A < 0$，那么在$x_0$的一个足够小去芯邻域$U_0(x_0, \delta_0), \, \delta_0 > 0$内有$f(x) < 0$，于是有$|f(x)|=-f(x)$，并且$|A|=-a$，从而对任意$\epsilon > 0$，我们有
+如果$A < 0$，那么在$x_0$的一个足够小去芯邻域$U_0(x_0, \delta_0), \, \delta_0 > 0$内有$f(x) < 0$，于是有$|f(x)|=-f(x)$，并且$|A|=-a$，从而对任意$\epsilon > 0$，我们有
 \begin{equation}
     |f(x)| - |A| = -f(x) - (-A) = A - f(x) \leq |A - f(x)| = |f(x) - A| 
 \end{equation}
@@ -1635,7 +1651,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 从而依定义有$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$．
 \end{proof}
 
-\noindent (2)
+(2)
 \begin{proof}
 设$M>0$为一有限数，并且$M>|A|$，那么对于足够小的$\epsilon$将会有
 \begin{equation}
@@ -1659,7 +1675,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这就证明了$\displaystyle\lim_{x \to x_0} |f(x)|^2 = |A|^2$也就是$\displaystyle\lim_{x \to x_0} (f(x))^2 = A^2$．
 \end{proof}
 
-\noindent (3)
+(3)
 \begin{proof}
 利用公式
 \begin{equation}
@@ -1680,7 +1696,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这就证明了$\displaystyle\lim_{x \to x_0} \sqrt{f(x)} = \sqrt{A}$．
 \end{proof}
 
-\noindent(4)
+(4)
 \begin{proof}
 利用公式
 \begin{equation}
@@ -1701,7 +1717,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这就说明$\displaystyle\lim_{x \to x_0} \sqrt[3]{f(x)} = \sqrt[3]{A}$．
 \end{proof}
 
-\noindent 4. 用$\epsilon$-$\delta$语言证明：
+4. 用$\epsilon$-$\delta$语言证明：
 \begin{table}[H]
     \centering
     \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -1711,7 +1727,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
       \end{tabularx}
 \end{table}
 
-\noindent (1)
+(1)
 \begin{proof}
 因为
 \begin{equation}
@@ -1728,7 +1744,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 所以$\displaystyle\lim_{x \to 2} x^3 = 8$．
 \end{proof} 
 
-\noindent (2)
+(2)
 由于$x \to 3$不必使得$x = 3$，所以$x-3 \neq 0$，所以
 \begin{equation}
     \lim_{x \to 3} \frac{x-3}{x^2 - 9} = \lim_{x \to 3} \frac{1}{x+3}
@@ -1743,7 +1759,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 这就证明了$\displaystyle\lim_{x \to 3} \displaystyle\frac{x-3}{x^2-9} = \displaystyle\frac{1}{6}$．
 
-\noindent (3)
+(3)
 \begin{proof}
 当$0 < |x-1|$时，$x-1 \neq 0$，于是
 \begin{equation}
@@ -1761,7 +1777,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这说明$\displaystyle\lim_{x \to 1} \left(1 + x + x^2 + x^3\right) = 4$也就是$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^4-1}{x-1} = 4$．
 \end{proof}
 
-\noindent (4)
+(4)
 \begin{proof}
 注意到
 \begin{equation}
@@ -1774,7 +1790,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这就证明了$\displaystyle\lim_{x \to 0} \sqrt{1+2x} = 1$．
 \end{proof}
 
-\noindent (5)
+(5)
 \begin{proof}
 变换得
 \begin{equation}
@@ -1787,7 +1803,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这就证明了$\displaystyle\lim_{x \to 1^+} \displaystyle\frac{x-1}{\sqrt{x^2-1}} = 0$.
 \end{proof}
 
-\noindent 5. 设
+5. 设
 \begin{equation}
     f(x) = \begin{cases}
         x^2, & x \geq 2, \\
@@ -1799,7 +1815,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \item 若$\displaystyle\lim_{x \to 2} f(x)$存在，$a$应取何值？
 \end{enumerate}
 
-\noindent (1)
+(1)
 \begin{proof}
     对任意$\epsilon > 0$，取$\delta = \min \{ 4, \displaystyle\frac{\epsilon}{16} \}$，那么对所有$x \, (0 < x - 2 < \delta)$就都有
     \begin{align}
@@ -1817,21 +1833,21 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这就证明了$\displaystyle\lim_{x \to 2^-} -ax = -2a$．($|a| \neq 0$)
 \end{proof}
 
-\noindent 当$|a|=0$时，$f(x) = -ax = 0 \, (x < 2)$，对任意$\epsilon > 0$，取$\delta = 1$，那么当$0 < 2 - x < \delta$时有
+当$|a|=0$时，$f(x) = -ax = 0 \, (x < 2)$，对任意$\epsilon > 0$，取$\delta = 1$，那么当$0 < 2 - x < \delta$时有
 \begin{align}
     |-ax - 0| = |0 - 0| = |0| = 0 < \epsilon
 \end{align}
 这说明如果$|a|=0$，那么$\displaystyle\lim_{x \to 2^-} -ax = 0$．
 
-\noindent (2) 解：应有$\displaystyle \lim_{x \to 2^+} f(x) = \displaystyle\lim_{x \to 2^-} f(x)$．如果$|a| = 0$，那么根据上述论证，将会有$\displaystyle\lim_{x \to 2^+} f(x) = 4 \neq \displaystyle\lim_{x \to 2^-} f(x) = 0$，故$|a|\neq 0$．
+(2) 解：应有$\displaystyle \lim_{x \to 2^+} f(x) = \displaystyle\lim_{x \to 2^-} f(x)$．如果$|a| = 0$，那么根据上述论证，将会有$\displaystyle\lim_{x \to 2^+} f(x) = 4 \neq \displaystyle\lim_{x \to 2^-} f(x) = 0$，故$|a|\neq 0$．
 
-\noindent 当$|a| \neq 0$时，由$\displaystyle\lim_{x \to 2^+} f(x) = \displaystyle\lim_{x \to 2^-} f(x)$得
+当$|a| \neq 0$时，由$\displaystyle\lim_{x \to 2^+} f(x) = \displaystyle\lim_{x \to 2^-} f(x)$得
 \begin{equation}
     4 = -2a
 \end{equation}
 解出$a = -2$．
 
-\noindent 6. 设$\displaystyle\lim_{x \to x_0} f(x) > a$．求证：当$x$足够靠近$x_0$但$x \neq x_0$时，$f(x) > a$．
+6. 设$\displaystyle\lim_{x \to x_0} f(x) > a$．求证：当$x$足够靠近$x_0$但$x \neq x_0$时，$f(x) > a$．
 
 \begin{proof}
 设$\displaystyle\lim_{x \to x_0} f(x) = A$，取$\epsilon_0 = \displaystyle\frac{A-a}{2}$，此时有$\epsilon_0 > 0$．由于$\displaystyle\lim_{x \to x_0} f(x) = A$，故对于$\epsilon_0 > 0$，存在$\delta > 0$，使得使得对所有$x \, (0 < |x-x_0| \leq \delta)$都有
@@ -1844,10 +1860,10 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 \end{equation}
 由于$\epsilon_0=\displaystyle\frac{A-a}{2}$，所以$a = A - 2\epsilon_0$，而$A-2\epsilon_0 < A - \epsilon_0 < f(x)$，所以$a < f(x)$．
 
-\noindent 这就证明了当$x$在$x_0$足够小的邻域内取值时恒有$f(x) > a$．
+这就证明了当$x$在$x_0$足够小的邻域内取值时恒有$f(x) > a$．
 \end{proof}
 
-\noindent 7. 设$f(x_0 -) < f(x_0 +)$．求证：存在$\delta > 0$，使得当
+7. 设$f(x_0 -) < f(x_0 +)$．求证：存在$\delta > 0$，使得当
 \begin{equation}
     x \in (x_0 - \delta, x_0), \quad y \in (x_0, x_0 + \delta)
 \end{equation}
@@ -1873,7 +1889,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这说明$f(x) < f(y)$．
 \end{proof}
 
-\noindent 8. 设$f$在$(-\infty, x_0)$上是递增的，并且存在一个数列$\{ x_n \}$满足$x_n < x_0 \, (n = 1,2,\cdots), x_n \to x_0, \, (n \to \infty)$，且使得
+8. 设$f$在$(-\infty, x_0)$上是递增的，并且存在一个数列$\{ x_n \}$满足$x_n < x_0 \, (n = 1,2,\cdots), x_n \to x_0, \, (n \to \infty)$，且使得
 \begin{equation}
     \lim_{x \to \infty} f(x_n) = A.
 \end{equation}
@@ -1900,11 +1916,11 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 这就证明了$\displaystyle\lim_{x \to x_0^-} f(x) = A$．
 \end{proof}
 
-\noindent 9. 用肯定的语气表达``当$x \to x_0$时，$f(x)$不收敛于$l$''．
+9. 用肯定的语气表达``当$x \to x_0$时，$f(x)$不收敛于$l$''．
 
-\noindent 答：存在$\epsilon_0 > 0$，对任意$\delta > 0$，都存在$x$满足$|x-x_0|<\delta$并且$|f(x)-x_0|\geq\epsilon_0$．
+答：存在$\epsilon_0 > 0$，对任意$\delta > 0$，都存在$x$满足$|x-x_0|<\delta$并且$|f(x)-x_0|\geq\epsilon_0$．
 
-\noindent 10. 对任何$n \in \nat$，$A_n \subset [0,1]$是有限集，且$A_i \bigcap A_j = \emptyset \; (i \neq j, \, i,j \in \nat)$．定义函数
+10. 对任何$n \in \nat$，$A_n \subset [0,1]$是有限集，且$A_i \bigcap A_j = \emptyset \; (i \neq j, \, i,j \in \nat)$．定义函数
 \begin{equation}
     f(x) = \begin{cases}
         \displaystyle\frac{1}{n}, & x \in A_n , \\
@@ -1917,7 +1933,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 对任意$\epsilon > 0$和$n \in \nat$，存在足够大的正整数$q_0$使得$\displaystyle\frac{1}{q_0}$，由于只有当$x \in \displaystyle\bigcap_{n=1}^{q_0} A_n$时才有$f(x) \geq \displaystyle\frac{1}{q_0}$，所以这意味着，只有有限多个$x$的取值能够使得$f(x) \geq \displaystyle\frac{1}{q_0}$，于是又存在足够大的正整数$q_1$，满足$q_1 > q_0$，并且对任意$x \in B(\check{x_0}, \displaystyle\frac{1}{q_1})$且$x \in A_n$都有$f(x) < \displaystyle\frac{1}{q_0}$，而对于$x \in B(\check{x_0}, \displaystyle\frac{1}{q_1})$依定义有$f(x) = 0$，从而，取$\delta = \displaystyle\frac{1}{q_1}$，则对于任何实数$x \in B(\check{x_0}, \delta)$，都有$0 \leq |f(x) - 0| < \epsilon$．于是这就证明了$\displaystyle\lim_{x \to x_0} f(x) = 0 \, (\forall x \in [0,1])$．
 \end{proof}
 
-\noindent 11. 计算下列极限
+11. 计算下列极限
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -1928,47 +1944,47 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
       \end{tabularx}
 \end{table}
 
-\noindent (1) 解：
+(1) 解：
 \begin{align}
     \text{原式} &= \displaystyle\frac{\displaystyle\lim_{x \to 2} 1+x-x^3}{\displaystyle\lim_{x \to 2} 1+x^2} = \displaystyle\frac{-5}{5} = -1.
 \end{align}
 
-\noindent (2) 解：
+(2) 解：
 \begin{align}
     \text{原式} &= \lim_{x \to 1} \displaystyle\frac{(x-1)^2}{x(x-1)} = \lim_{x \to 1} \displaystyle\frac{x-1}{x} = \displaystyle\frac{\displaystyle\lim_{x \to 1} x-1}{\displaystyle\lim_{x \to 1} x} = \frac{0}{1} = 0.
 \end{align}
 
-\noindent (3) 解：当$m=0$时
+(3) 解：当$m=0$时
 \begin{equation}
     \frac{x^m-1}{x-1} = \frac{1-1}{x-1} = 0 \quad (x \neq 1)
 \end{equation}
 此时$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^m-1}{x-1}=0$．
 
-\noindent 当$m$取正整数时
+当$m$取正整数时
 \begin{align}
     \lim_{x \to 1}\displaystyle\frac{x^m-1}{x-1} = \displaystyle\lim_{x \to 1} 1+x+\cdots+x^{m-1} = \sum_{i=0}^{m-1} \lim_{x \to 1} x^i = \sum_{i=0}^{m-1} 1 = m.
 \end{align}
 
-\noindent 当$m$取负整数时
+当$m$取负整数时
 \begin{align}
     \lim_{x \to 1}\displaystyle\frac{x^m-1}{x-1} &= \lim_{x \to 1} \displaystyle\frac{\displaystyle\frac{1}{x^{-m}}-1}{x-1} = - \lim_{x \to 1} \displaystyle\frac{x^{-m}-1}{x^{-m}(x-1)} \\
     &=- \lim_{x \to 1} \displaystyle\frac{1}{x^{-m}} \frac{x^{-m}-1}{x-1} = -\left( \lim_{x \to 1} \displaystyle\frac{1}{x^{-m}} \right) \left( \lim_{x \to 1} \displaystyle \frac{x^{-m}-1}{x-1} \right) \\
     &= - 1 \cdot (-m)  = m .
 \end{align}
 
-\noindent (4) 解：当$n=0$时，$x^n-1 = 1 - 1 = 0$，表达式$\displaystyle\frac{x^m-1}{x^n-1}$无意义．假设$n , m \in \integer, n \neq 0$．
+(4) 解：当$n=0$时，$x^n-1 = 1 - 1 = 0$，表达式$\displaystyle\frac{x^m-1}{x^n-1}$无意义．假设$n , m \in \integer, n \neq 0$．
 \begin{align}
     \lim_{x \to 1} \frac{x^m-1}{x^n-1} = \frac{\displaystyle\lim_{x \to 1} x^m-1}{\displaystyle\lim_{x \to 1} x^n-1} = \frac{m}{n}.
 \end{align}
 
-\noindent (5) 解：
+(5) 解：
 
 \begin{align}
     \lim_{x \to 0} \frac{\sqrt{1+x}-1}{x} &= \lim_{x \to 0} \frac{\sqrt{1+x} - 1}{(\sqrt{1+x} - 1)(\sqrt{1+x}+1)} = \lim_{x \to 0} \frac{1}{\sqrt{1+x}+1} \\
     &= \frac{\displaystyle\lim_{x \to 0} 1}{\displaystyle\lim_{x \to 0} \sqrt{1+x} + 1} = \frac{1}{2}.
 \end{align}
 
-\noindent (6) 解：
+(6) 解：
 
 \begin{align}
     \lim_{x \to 0} \frac{\sqrt{1+x}-\sqrt{1-x}}{x} &= \lim_{x \to 0} \frac{\sqrt{1+x}-1}{x} - \lim_{x \to 0} \frac{\sqrt{1-x}-1}{x} \\
@@ -1976,7 +1992,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     &= \frac{1}{2} - (-\frac{1}{2}) = 1.
 \end{align}
 
-\noindent (7) 解：当$m$取正整数时
+(7) 解：当$m$取正整数时
 
 \begin{align}
     \lim_{x \to 0} \frac{(1+x)^{1/m}-1}{x} = \lim_{x \to 0} \frac{(1+x)^{1/m}-1}{1+x-1} = \lim_{x \to 0} \frac{(1+x)^{1/m}-1}{(1+x)^{m/m}-1}
@@ -1986,14 +2002,14 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     \text{原式} &= \lim_{q \to 1} \frac{q-1}{q^m-1} = \lim_{q \to 1} \frac{q-1}{(q-1)(q^{m-1}+\cdots+1)} = \lim_{q \to 1} \frac{1}{q^{m-1}+\cdots+1} = \frac{1}{m}
 \end{align}
 
-\noindent 当$m$取负整数时
+当$m$取负整数时
 
 \begin{align}
     \text{原式} &= \lim_{x \to 0} \frac{(1+x)^{-\displaystyle\frac{1}{-m}}-1}{1+x-1} = \lim_{x \to 0} \frac{1 - (1+x)^{\displaystyle\frac{1}{-m}}}{(1+x)^{\displaystyle\frac{1}{-m}} (1+x-1)} \\
     &= - \lim_{x \to 0} \frac{(1+x)^{\displaystyle\frac{1}{-m}}-1}{(1+x)-1} \lim_{x \to 0} \frac{1}{(1+x)^{\displaystyle\frac{1}{-m}}} = - \left( - \frac{1}{m} \right) \cdot 1 = \frac{1}{m}.
 \end{align}
 
-\noindent (8) 解：设$m$为正整数
+(8) 解：设$m$为正整数
 
 \begin{align}
     \text{原式} &= \lim_{x \to 1} \frac{x-1 + x^2-1 + \cdots + x^m - 1}{x-1} \\
@@ -2001,7 +2017,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     &= 1 + 2 + \cdots + m = \frac{m(m+1)}{2}.
 \end{align}
 
-\noindent 12. 求下列极限：
+12. 求下列极限：
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -2012,30 +2028,30 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
       \end{tabularx}
 \end{table}
 
-\noindent (1) 解：
+(1) 解：
 \begin{align}
     \text{原式} &= \lim_{x \to 0} \frac{\sin \, ax}{\sin \, bx} = \lim_{x \to 0} \frac{\sin \, ax}{ax} \cdot \frac{\displaystyle\frac{a}{b} \cdot bx}{\sin \, bx} = \lim_{x \to 0}\frac{\sin \, ax}{ax} \cdot \frac{a}{b} \lim_{x \to 0} \frac{bx}{\sin \, bx} \\
     &= 1 \cdot \frac{a}{b} \cdot 1 = \frac{a}{b}.
 \end{align}
 
-\noindent (2) 解：
+(2) 解：
 \begin{align}
     \text{原式} &= \lim_{x \to 0} \frac{x^2}{\displaystyle\frac{1-(\cos \, x)^2}{1+\cos \, x}} = \lim_{x \to 0} \frac{x^2 (1+\cos \, x)}{(\sin \, x)^2} = \lim_{x \to 0} \left(\frac{x}{\sin \, x}\right)^2 \cdot \lim_{x \to 0} 1 + \cos \, x \\
     &= \lim_{x \to 0} \frac{x}{\sin \, x} \cdot \lim_{x \to 0} \frac{x}{\sin \, x} \cdot \lim_{x \to 0} 1+\cos \, x= 1 \cdot 1 \cdot 2 = 2.
 \end{align}
 
-\noindent (3) 解：
+(3) 解：
 \begin{align}
     \text{原式} &= \lim_{x \to 0} \frac{\sin \, \sin \, x}{x} = \lim_{x \to 0} \frac{\sin \, \sin \, x}{\sin \, x} \cdot \frac{\sin \, x}{x} = \lim_{x \to 0} \frac{\sin \, \sin \, x}{\sin \, x} \cdot \lim_{x \to 0} \frac{\sin \, x}{x} \\
     &= 1 \cdot 1 = 1.
 \end{align}
 
-\noindent (4) 解：
+(4) 解：
 \begin{align}
     \text{原式} &= \lim_{x \to 0} \frac{\tan \, x}{x} = \lim_{x \to 0} \frac{\sin \, x}{x \cdot \cos \, x} = \lim_{x \to 0} \frac{\sin \, x}{x} \cdot \lim_{x \to 0} \frac{1}{\cos \, x} = 1 \cdot 1 = 1.
 \end{align}
 
-\noindent (5) 解：
+(5) 解：
 \begin{align}
     \text{原式} &= \lim_{h \to 0} \sin \, x \cdot \cos \, h + \sin \, h \cdot \cos \, x \\
     &= \lim_{h \to 0} \sin \, x \cdot \cos \, h + \lim_{h \to 0} \sin \, h \cdot \cos \, x \\
@@ -2043,7 +2059,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     &= \sin \, x + \cos \, x \cdot 0 = \sin \, x.
 \end{align}
 
-\noindent (6) 解：
+(6) 解：
 \begin{align}
     \text{原式} &= \lim_{h \to 0} \frac{\sin \, x \left(\cos \, h - 1\right) + \sin \, h \cdot \cos \, x}{h} \\
     &= \lim_{h \to 0} \frac{\sin \, x \cdot \left(-2 (\sin \, \displaystyle\frac{h}{2} )^2 \right) + \sin \, h \cdot \cos \, x}{h} \\
@@ -2053,7 +2069,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
     &= - \sin \, x \cdot 1 \cdot 0 + \cos \, x \cdot 1 = \cos \, x.
 \end{align}
 
-\noindent (7) 解：当$n=1$时，由已知结论，极限为$\displaystyle\frac{1}{2}$．当$n=2$，极限为
+(7) 解：当$n=1$时，由已知结论，极限为$\displaystyle\frac{1}{2}$．当$n=2$，极限为
 \begin{align}
 \text{原式} &= \lim_{x \to 0} \displaystyle\frac{1-\cos \, x \cos \, 2x}{x^2} = \lim_{x \to 0} \frac{1 - \cos \, x + (1 - \cos \, x \cos \, 2x) - (1 - \cos \, x)}{x^2} \\
 &= \lim_{x \to 0} \frac{1 - \cos \, x + \cos \, x (1 - \cos \, 2x)}{x^2} = \lim_{x \to 0} \frac{1 - \cos \, x}{x^2} + \lim_{x \to 0} \cos \, x \cdot \lim_{x \to 0} \frac{1-\cos \, 2x}{x^2} \\
@@ -2061,7 +2077,7 @@ f^{2k} (a) &= (f \circ f^{2k-1}) (a) = (f \circ (f \circ f^{2(k-1)}))(a) = ((f \
 &= \frac{1}{2} + 4 \cdot \lim_{x \to 0} \cdot \frac{1-\cos \, 2x}{4x^2} = \frac{1}{2} + 4 \cdot \lim_{x \to 0} \cdot \frac{1-\cos \, 2x}{(2x)^2} = \frac{1}{2} + 4 \cdot \frac{1}{2} = \frac{5}{2}
 \end{align}
 
-\noindent 当$n=3$，极限为
+当$n=3$，极限为
 \begin{align}
     \text{原式} &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x \cos \, 3x}{x^2} \\
     &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x + (1-\cos \, x \cos \, 2x \cos \, 3x) - (1-\cos \, x \cos \, 2x)}{x^2} \\
@@ -2090,7 +2106,7 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 那么根据数学归纳法原理，$L(n) = \displaystyle\frac{1}{2}\displaystyle\sum_{i=1}^n i^2$对一切$n \in \nat$成立．
 \end{proof}
 
-\noindent (8) 解：反复对$\sin \, x$应用正弦二倍角公式，我们发现：
+(8) 解：反复对$\sin \, x$应用正弦二倍角公式，我们发现：
 \begin{align}
     \sin \, x & = 2 \cos \, \frac{x}{2} \sin \, \frac{x}{2} \\
     &= 4 \cos \, \frac{x}{2} \cos \, \frac{x}{4} \sin \, \frac{x}{4} \\
@@ -2109,14 +2125,14 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 那么依数学归纳法原理，对任意$n \in \nat$命题都成立．
 \end{proof}
 
-\noindent 利用上述结论，得到
+利用上述结论，得到
 \begin{align}
     &\mathrel{\phantom{=}} \lim_{n \to \infty} \cos \, \frac{x}{2} \cos \, \frac{x}{4} \cdots \cos \, \frac{x}{2^n} \\
     &= \lim_{n \to \infty} \prod_{i=1}^n \cos \, \frac{x}{2^i} = \lim_{n \to \infty} \frac{\sin \, x}{2^{n} \sin \, \displaystyle\frac{x}{2^n}} = \lim_{n \to \infty} \frac{\sin \, x}{x} \cdot \frac{\displaystyle\frac{x}{2^n}}{\sin \, \displaystyle\frac{x}{2^n}} \\
     &= \frac{\sin \, x}{x} \cdot \lim_{n \to \infty} \displaystyle \frac{1}{\displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \frac{\sin \, x}{x} \cdot \frac{\displaystyle\lim_{n \to \infty} 1}{\displaystyle\lim_{n \to \infty} \displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \displaystyle\frac{\sin \, x}{x} \cdot \displaystyle\frac{1}{1} = \frac{\sin \, x}{x}.
 \end{align}
 
-\noindent 13. 求下列极限：
+13. 求下列极限：
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -2125,13 +2141,13 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \end{tabularx}
 \end{table}
 
-\noindent (1) 解：当$x > 0$时，令$t = \displaystyle\frac{1}{x}$，则$t > 0$，并且
+(1) 解：当$x > 0$时，令$t = \displaystyle\frac{1}{x}$，则$t > 0$，并且
 \begin{equation}
     x \bigg \lfloor \frac{1}{x} \bigg\rfloor = \frac{\lfloor t \rfloor}{t}
 \end{equation}
 由于$\lfloor t \rfloor \leq t$，所以$\displaystyle\frac{\lfloor t \rfloor}{t} \leq 1$，所以$x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor \leq 1$．又由于$t < \lfloor t \rfloor + 1$，所以$1 < \displaystyle\frac{\lfloor t \rfloor + 1}{t}$，所以$1 < \displaystyle\frac{\lfloor t \rfloor}{t} + \displaystyle\frac{1}{t}$，所以$1 - \displaystyle\frac{1}{t} < \displaystyle\frac{\lfloor t \rfloor}{t}$，所以$1-x < x \bigg \lfloor \displaystyle\frac{1}{x} \bigg\rfloor$．
 
-\noindent 于是当$x > 0$时
+于是当$x > 0$时
 \begin{equation}
     1-x < x \bigg\lfloor \frac{1}{x} \bigg\rfloor \leq 1
 \end{equation}
@@ -2141,15 +2157,15 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{equation}
 又由于$\displaystyle\lim_{x \to 0^+} 1-x = \displaystyle\lim_{x \to 0^+} 1 = 1$，所以$\displaystyle\lim_{x \to 0^+} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$．
 
-\noindent 当$x < 0$时，令$t = \displaystyle\frac{1}{x}$，则$t < 0$．由于$\lfloor t \rfloor \leq t$，又由于$t<0$，所以$\displaystyle\frac{\lfloor t \rfloor}{t} \geq 1$．由于$t < \lfloor t \rfloor + 1 \leq 0$，所以$1 > \displaystyle\frac{\lfloor t \rfloor + 1}{t}$，所以$1 > \displaystyle\frac{\lfloor t \rfloor}{t} + \displaystyle\frac{1}{t}$，所以$1 > x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor + x$，所以$1-x > x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor$．于是当$x < 0$时
+当$x < 0$时，令$t = \displaystyle\frac{1}{x}$，则$t < 0$．由于$\lfloor t \rfloor \leq t$，又由于$t<0$，所以$\displaystyle\frac{\lfloor t \rfloor}{t} \geq 1$．由于$t < \lfloor t \rfloor + 1 \leq 0$，所以$1 > \displaystyle\frac{\lfloor t \rfloor + 1}{t}$，所以$1 > \displaystyle\frac{\lfloor t \rfloor}{t} + \displaystyle\frac{1}{t}$，所以$1 > x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor + x$，所以$1-x > x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor$．于是当$x < 0$时
 \begin{equation}
     1 \leq x \bigg\lfloor \frac{1}{x} \bigg\rfloor < 1-x
 \end{equation}
 依夹逼定理得$\displaystyle\lim_{x \to 0^-} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$．
 
-\noindent 由于$\displaystyle\lim_{x \to 0^+} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1 = \displaystyle\lim_{x \to 0^-} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor$，所以$\displaystyle\lim_{x \to 0} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$.
+由于$\displaystyle\lim_{x \to 0^+} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1 = \displaystyle\lim_{x \to 0^-} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor$，所以$\displaystyle\lim_{x \to 0} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$.
 
-\noindent (2). 解：将原式等价改写为
+(2). 解：将原式等价改写为
 \begin{align}
     \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - 4}{x^2-4} &= \lim_{x \to 2^+} \frac{x^2-4 + (\lfloor x \rfloor^2 - 4) - (x^2 - 4)}{x^2 - 4} \\
     &= 1 + \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - x^2}{x^2 - 4} = 1 + \lim_{x \to 2^+} \frac{(\lfloor x \rfloor - x)(\lfloor x \rfloor + x)}{(x-2)(x+2)}
@@ -2163,24 +2179,24 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - 4}{x^2-4} = 1 + \lim_{x \to 2^+} \frac{(\lfloor x \rfloor - x)(\lfloor x \rfloor + x)}{(x-2)(x+2)} = 1 + (-1) = 0.
 \end{equation}
 
-\noindent (3). 解：对任意$\epsilon > 0$，取$\delta_1 = 0.5$，那么当$0 < 2-x < \delta_1 = 0.5$时，有$1.5 < x < 2$，从而$\lfloor x \rfloor = 1$，从而
+(3). 解：对任意$\epsilon > 0$，取$\delta_1 = 0.5$，那么当$0 < 2-x < \delta_1 = 0.5$时，有$1.5 < x < 2$，从而$\lfloor x \rfloor = 1$，从而
 \begin{equation}
     |\lfloor x \rfloor^2 + 4 - 5| = |1 + 4 - 5| = 0 < \epsilon
 \end{equation}
 这说明$\displaystyle\lim_{x \to 2^-} \lfloor x \rfloor^2 + 4 = 5$．
 
-\noindent 对任意$\epsilon > 0$，取$\delta_2 = \min \{ 1, \displaystyle\frac{\epsilon}{8} \}$，那么当$0 < 2 - x < \delta_2 = 1$时，有$1 < x < 2$，从而有$|x+2| < 4$，从而有
+对任意$\epsilon > 0$，取$\delta_2 = \min \{ 1, \displaystyle\frac{\epsilon}{8} \}$，那么当$0 < 2 - x < \delta_2 = 1$时，有$1 < x < 2$，从而有$|x+2| < 4$，从而有
 \begin{equation}
     |x^2 + 4 - 8| = |x^2 - 4| = |x-2||x+2| < 4 |x-2| < 4 \cdot \frac{\epsilon}{8} = \frac{\epsilon}{2} < \epsilon
 \end{equation}
 这说明$\displaystyle\lim_{x \to 2^-} x^2 + 4 = 8$．
 
-\noindent 综上有
+综上有
 \begin{align}
     \lim_{x \to 2^-} \frac{\lfloor x \rfloor^2 + 4}{x^2 + 4} = \frac{\displaystyle\lim_{x \to 2^-} \lfloor x \rfloor^2 + 4}{\displaystyle\lim_{x \to 2^-} x^2 + 4} = \frac{5}{8}.
 \end{align}
 
-\noindent (4) 解：做代换$t = 4x$，那么
+(4) 解：做代换$t = 4x$，那么
 \begin{equation}
     \lim_{x \to 1^-} \frac{\lfloor 4x \rfloor}{1+x} = \lim_{t \to 4^-} \frac{\lfloor t \rfloor}{1+\displaystyle\frac{t}{4}}
 \end{equation}
@@ -2190,13 +2206,13 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{equation}
 从而$\displaystyle\lim_{t \to 4^-} \lfloor t \rfloor = 3$．
 
-\noindent 让$\delta_2$取适当的值，当$0 < 4-t < \delta_2$时就有
+让$\delta_2$取适当的值，当$0 < 4-t < \delta_2$时就有
 \begin{align}
     |1 + \frac{t}{4} - 2| = |\frac{t-4}{4}| = \frac{1}{4}|t-4| < \frac{1}{4}\delta_2 < \epsilon
 \end{align}
 从而$\displaystyle\lim_{t \to 4^-} 1 + \displaystyle\frac{t}{4} = 2$．
 
-\noindent 从而
+从而
 \begin{equation}
     \lim_{t \to 4^-} \frac{\lfloor t \rfloor}{1+\displaystyle\frac{t}{4}} = \frac{\displaystyle\lim_{t \to 4^-} \lfloor t \rfloor}{\displaystyle\lim_{t \to 4^-} 1 + \displaystyle\frac{t}{4}} = \frac{3}{2}
 \end{equation}
@@ -2205,9 +2221,9 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \lim_{x \to 1^-} \frac{\lfloor 4x \rfloor}{1+x} = \frac{3}{2}.
 \end{equation}
 
-\noindent 14. 求极限$\displaystyle\lim_{n \to \infty} n \sin \, (2 \pi n! \, \expe)$的值．
+14. 求极限$\displaystyle\lim_{n \to \infty} n \sin \, (2 \pi n! \, \expe)$的值．
 
-\noindent 解：令$S: \nat \to \rational$，定义
+解：令$S: \nat \to \rational$，定义
 \begin{equation}
     S(n) = 1 + \frac{1}{1} + \frac{1}{2!} + \frac{1}{3!} + \cdots + \frac{1}{n!}
 \end{equation}
@@ -2258,7 +2274,7 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \lim_{n \to \infty} n \sin \, \left(2 \pi \, n! \, \expe \right) = \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right) = \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n}\right) = 2 \pi .
 \end{equation}
 
-\noindent 15. 设
+15. 设
 \begin{equation}
     f(x) = \begin{cases}
         1, & x \neq 0 \\
@@ -2270,11 +2286,11 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{equation}
 易知$\displaystyle\lim_{x \to 0} f(x) = 1, \; \displaystyle\lim_{t \to 0} g(t) = 0$．根据定理2.4.8，应有$\displaystyle\lim_{t \to 0} f(g(t)) = 1$．但事实上，$f(g(t)) = D(t)$是Dirichlet函数．根据例５，它处处没有极限，问发生这个矛盾的原因是什么？
 
-\noindent 解：这是因为，在$0$的某个邻域$B(\check{0}, \delta_0), \; (\delta_0 > 0)$内，$g(t) = 0 \; (\text{当} \, t \in B(\check{0}, \delta_0) \, \text{并且} \, t \, \text{为无理数})$，没有完全满足定理2.4.8的条件．
+解：这是因为，在$0$的某个邻域$B(\check{0}, \delta_0), \; (\delta_0 > 0)$内，$g(t) = 0 \; (\text{当} \, t \in B(\check{0}, \delta_0) \, \text{并且} \, t \, \text{为无理数})$，没有完全满足定理2.4.8的条件．
 
-\section*{练习题2.5}
+\exercise
 
-\noindent 1. 用$\epsilon$-$\delta$语言证明：
+1. 用$\epsilon$-$\delta$语言证明：
 \begin{table}[H]
     \centering
     \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
@@ -2283,38 +2299,38 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \end{tabularx}
 \end{table}
 
-\noindent (1) 证明：对任意$\epsilon > 0$，取$A = \max \{ 5, \displaystyle\frac{2}{\epsilon} \}$，那么对一切$x < -A$，都有$x^2+2x<3x^2-x+1$，并且有
+(1) 证明：对任意$\epsilon > 0$，取$A = \max \{ 5, \displaystyle\frac{2}{\epsilon} \}$，那么对一切$x < -A$，都有$x^2+2x<3x^2-x+1$，并且有
 \begin{align} 
     \bigg\lvert \displaystyle\frac{x^2+1}{3x^2-x+1} - \displaystyle\frac{1}{3} \bigg\rvert &= \bigg\lvert \displaystyle\frac{x+2}{3x^2-x+1} \bigg\rvert = \displaystyle\frac{-(x+2)}{3x^2-x+1} < \displaystyle\frac{-(x+2)}{x^2+2x} = -\displaystyle\frac{1}{x} < \frac{1}{A} < \epsilon
 \end{align}
 这就证明了$\displaystyle\lim_{x \to -\infty} \displaystyle\frac{x^2+1}{3x^2-x+1}=\displaystyle\frac{1}{3}$. \qed
 
-\noindent (2) 证明：对任意$\epsilon > 0$，取$A = \max \{10, \displaystyle\frac{10}{\epsilon} \}$，那么当$|x| > |A|$时有$|2x+5|>|x|$，并且有
+(2) 证明：对任意$\epsilon > 0$，取$A = \max \{10, \displaystyle\frac{10}{\epsilon} \}$，那么当$|x| > |A|$时有$|2x+5|>|x|$，并且有
 \begin{align}
     \bigg\lvert \displaystyle\frac{3x+2}{2x+3} - \displaystyle\frac{3}{2} \bigg\rvert = \bigg\lvert \displaystyle \frac{-5}{2x+3} \bigg\rvert = 5 \cdot \displaystyle\frac{1}{|2x+3|} < 5 \cdot \displaystyle\frac{1}{|x|} < 5 \cdot \displaystyle\frac{1}{|A|} \leq \displaystyle\frac{\epsilon}{2} < \epsilon
 \end{align}
 这就证明了$\displaystyle\lim_{x \to \infty} \displaystyle\frac{3x+2}{2x+3} = \displaystyle\frac{3}{2}$. \qed
 
-\noindent (3) 证明：对任意$\epsilon > 0$，取$A = \displaystyle\frac{2|a|}{\epsilon}$，那么当$x > A$时
+(3) 证明：对任意$\epsilon > 0$，取$A = \displaystyle\frac{2|a|}{\epsilon}$，那么当$x > A$时
 \begin{align}
     |x-\sqrt{x^2-a}|=\bigg\lvert \displaystyle\frac{a}{x+\sqrt{x^2-a}} \bigg\rvert < \displaystyle\frac{|a|}{x} < \displaystyle\frac{\epsilon}{2} < \epsilon
 \end{align}
 这就证明了$\displaystyle\lim_{x \to +\infty}(x-\sqrt{x^2-a})=0$. \qed
 
-\noindent (4) 证明：对任意$\epsilon > 0$，取$A=\displaystyle\frac{4}{\epsilon^2}$，那么当$x > A$时
+(4) 证明：对任意$\epsilon > 0$，取$A=\displaystyle\frac{4}{\epsilon^2}$，那么当$x > A$时
 \begin{align}
     | \sqrt{x+1}-\sqrt{x-1} | = \bigg\lvert \displaystyle\frac{2}{\sqrt{x+1}+\sqrt{x-1}} \bigg\rvert < 2 \cdot \displaystyle\frac{1}{\sqrt{x}} < 2 \cdot \displaystyle\frac{1}{\sqrt{A}} = \epsilon
 \end{align}
 这就证明了$\displaystyle\lim_{x \to +\infty} (\sqrt{x+1}-\sqrt{x-1})=0$. \qed
 
-\noindent 2. 定出常数$a$和$b$，使得下列等式成立：
+2. 定出常数$a$和$b$，使得下列等式成立：
 \begin{enumerate}
     \item $\displaystyle\lim_{x\to\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$; 
     \item $\displaystyle\lim_{x\to +\infty}\left(\sqrt{x^2-x+1}-ax-b\right)=0$;
     \item $\displaystyle\lim_{x\to -\infty}\left(\sqrt{x^2-x+1}-ax-b\right)=0$.
 \end{enumerate}
 
-\noindent (1) 证明：因为
+(1) 证明：因为
 \begin{align}
     \bigg\lvert\displaystyle\frac{x^2+1}{x+1}-a x - b\bigg\rvert=\bigg\lvert \displaystyle\frac{(1-a)x^2 - (a+b)x +(1-b)}{x+1} \bigg\rvert
 \end{align}
@@ -2335,17 +2351,17 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{equation}
 这说明$\displaystyle\lim_{x\to +\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$．
 
-\noindent 又对任意$\epsilon>0$，取$A=\displaystyle\frac{1}{\epsilon}+1$，那么当$x<-A$时
+又对任意$\epsilon>0$，取$A=\displaystyle\frac{1}{\epsilon}+1$，那么当$x<-A$时
 \begin{equation}
     \bigg\lvert\displaystyle\frac{2}{x+1}\bigg\rvert=\frac{2}{-x-1}<\frac{1}{A-1}=\frac{1}{\displaystyle\frac{1}{\epsilon}}=\epsilon
 \end{equation}
 这说明$\displaystyle\lim_{x\to -\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$．
 
-\noindent 这就证明了$\displaystyle\lim_{x \to \infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$. \qed
+这就证明了$\displaystyle\lim_{x \to \infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$. \qed
 
-\noindent 从而$\displaystyle\lim_{x\to\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$．\qed
+从而$\displaystyle\lim_{x\to\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$．\qed
 
-\noindent (2) 证明：当$a=1,b=-\displaystyle\frac{1}{2}$时
+(2) 证明：当$a=1,b=-\displaystyle\frac{1}{2}$时
 \begin{equation}
     |\sqrt{x^2-x+1}-ax-b|=\bigg\lvert\sqrt{x^2-x+1}-(x-\displaystyle\frac{1}{2})\bigg\rvert=\displaystyle\frac{\displaystyle\frac{3}{4}}{\sqrt{x^2-x+1}+x-\displaystyle\frac{1}{2}}
 \end{equation}
@@ -2355,7 +2371,7 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{align}
 从而当$a=1,b=-\displaystyle\frac{1}{2}$时$\displaystyle\lim_{x\to +\infty}\sqrt{x^2-x+1}-ax-b=0$. \qed
 
-\noindent (3) 证明：做换元$t=-x$，那么当$x \to -\infty$时$t \to +\infty$，等价于寻找$a,b$使得
+(3) 证明：做换元$t=-x$，那么当$x \to -\infty$时$t \to +\infty$，等价于寻找$a,b$使得
 \begin{equation}
     \displaystyle\lim_{x \to +\infty}\sqrt{t^2+t+1}+at-b=0
 \end{equation}
@@ -2369,12 +2385,12 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{equation}
 这就证明了当$a=-1,b=\displaystyle\frac{1}{2}$时$\displaystyle\lim_{t\to +\infty}\sqrt{t^2+t+1}+at-b=\displaystyle\lim_{x\to -\infty}\sqrt{x^2-x+1}-ax-b=0$．\qed
 
-\noindent 3. 证明：
+3. 证明：
 \begin{equation}
     \lim_{x \to +\infty} \left(\sin \, \sqrt{x+1} - \sin \, \sqrt{x-1}\right) = 0.
 \end{equation}
 
-\noindent 证明：利用三角和差化积公式，我们有
+证明：利用三角和差化积公式，我们有
 \begin{align}
     \lim_{x \to +\infty} \left( \sin \, \sqrt{x+1} - \sin \, \sqrt{x-1} \right) &= 2 \lim_{x \to +\infty} \cos \, \displaystyle \frac{\sqrt{x+1}+\sqrt{x-1}}{2} \sin \, \displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2}
 \end{align}
@@ -2413,25 +2429,25 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{eqnarray}
 \qed
 
-\noindent 4. 设常数$a_1,a_2,\cdots,a_n$满足$a_1+a_2+\cdots+a_n=0$．求证：
+4. 设常数$a_1,a_2,\cdots,a_n$满足$a_1+a_2+\cdots+a_n=0$．求证：
 \begin{equation}
     \lim_{x \to +\infty}\sum_{k=1}^{n}a_k\sin \, \sqrt{x+k}=0.
 \end{equation}
 
-\noindent 证明：若$n=1$，那么$a_1=0$，那么
+证明：若$n=1$，那么$a_1=0$，那么
 \begin{eqnarray}
     \lim_{x \to +\infty} \sum_{k=1}^n a_k \sin \, \sqrt{x+k} = \lim_{x \to +\infty} 0 = 0
 \end{eqnarray}
 从而当$n=1$时结论是成立的．现考虑$n \geq 2$的情形．
 
-\noindent 当$n=2$时
+当$n=2$时
 \begin{align}
     &\mathrel{\phantom{=}} a_1 \sin \, \sqrt{x+1} + a_2 \sin \, \sqrt{x+2} \\
     &= a_1 \sin \, \sqrt{x+1} + a_2 \sin \, \sqrt{x+1} + a_2 \sin \, \sqrt{x+2} - a_2 \sin \, \sqrt{x+1} \\
     &= (a_1 + a_2) \sin \, \sqrt{x+1} + a_2 \left(\sin \, \sqrt{x+2} - \sin \, \sqrt{x+1} \right)
 \end{align}
 
-\noindent 当$n=3$时
+当$n=3$时
 \begin{align}
     &\mathrel{\phantom{=}} a_1 \sin \, \sqrt{x+1} + a_2 \sin \, \sqrt{x+2} + a_3 \sin \, \sqrt{x+3} \\
     &= a_1 \sin \, \sqrt{x+1} + \left( a_2 + a_3 \right) \sin \, \sqrt{x+2} + a_3 \left( \sin \, \sqrt{x+3} - \sin \, \sqrt{x+2} \right) \\
@@ -2444,7 +2460,7 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{equation}
 证明从略．
 
-\noindent 于是
+于是
 \begin{align}
     &\mathrel{\phantom{=}} \lim_{x \to +\infty} \sum_{k=1}^{n} a_k \sin \, \sqrt{x+k} \\
     &= \lim_{x \to +\infty} \left( \left( \sum_{k = 1}^{n} a_k \sin \, \sqrt{x+1} \right) + \sum_{i=2}^n \left(\sum_{j=i}^n a_j \left( \sin \, \sqrt{x+j} - \sin \sqrt{x+j-1} \right) \right) \right) \\
@@ -2454,16 +2470,16 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{align}
 待证得证．\qed
 
-\noindent 5. 求极限$\displaystyle\lim_{n \to \infty} \sin \, \left(\pi \, \sqrt{n^2+1}\right)$.
+5. 求极限$\displaystyle\lim_{n \to \infty} \sin \, \left(\pi \, \sqrt{n^2+1}\right)$.
 
-\noindent 解：先将$\pi \sqrt{n^2+1}$拆开写，再利用和角正弦公式，得
+解：先将$\pi \sqrt{n^2+1}$拆开写，再利用和角正弦公式，得
 \begin{align}
     \lim_{n \to \infty} \sin \, \left(\pi \, \sqrt{n^2+1}\right) &= \lim_{n \to \infty} \sin \, \left( n \pi + \sqrt{n^2+1} \, \pi  - n \pi \right) \\
     &= \lim_{n \to \infty} \cos \, n \pi \sin \, \left(\sqrt{n^2+1} \, \pi - n \pi\right)
 \end{align}
 下证$\displaystyle\lim_{n \to \infty} \cos \, n \pi \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) = 0$．
 
-\noindent 证明：令
+证明：令
 \begin{equation}
     a_n = \sqrt{n^2+1} \pi - n \pi
 \end{equation}
@@ -2473,12 +2489,12 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{align}
 这里证明了$\displaystyle\lim_{n \to \infty} a_n = \displaystyle\lim_{n \to \infty} \pi \sqrt{n^2+1} - \pi n = 0$，后面会用到．
 
-\noindent 又由于函数$x \mapsto \sin \, x$在$x=0$处的极限$\displaystyle\lim_{x \to 0} \sin \, x = 0$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，使得对一切$x \in B(\check{0}, \delta)$，都有
+又由于函数$x \mapsto \sin \, x$在$x=0$处的极限$\displaystyle\lim_{x \to 0} \sin \, x = 0$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，使得对一切$x \in B(\check{0}, \delta)$，都有
 \begin{equation}
     |\sin \, x - 0| < \epsilon
 \end{equation}
 
-\noindent 由于数列$\{ \sqrt{n^2+1} \, \pi - \pi n \}$收敛，故，存在$N_1 \in \nat$，使得对每一个$n > N_1$，都有
+由于数列$\{ \sqrt{n^2+1} \, \pi - \pi n \}$收敛，故，存在$N_1 \in \nat$，使得对每一个$n > N_1$，都有
 \begin{equation}
     \big\lvert \pi \sqrt{n^2+1} - \pi n - 0 \big\rvert < \delta
 \end{equation}
@@ -2496,4 +2512,23 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     &< \bigg\lvert \sin \, \left(\pi \sqrt{n^2+1} - \pi n \right) \bigg\rvert < \epsilon
 \end{align}
 从而$\displaystyle\lim_{n \to \infty} \cos \, n \pi \sin \, \left(\pi \sqrt{n^2+1} - \pi n \right) = 0$．从而$\displaystyle\lim_{n \to \infty} \sin \, \left(\pi \sqrt{n^2+1}\right) = 0$．\qed
+
+6. 求下列极限：
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to \infty} \left(\displaystyle\frac{1+x}{3+x}\right)^x$; 
+    \end{tabularx}
+\end{table}
+
+(1) 解：观察到分式$\displaystyle\frac{1+x}{3+x}$应有极限$1$，这提醒我们将它拆成$1$与一个分式的和：
+\begin{align}
+    \lim_{x \to \infty} \left(\displaystyle\frac{1+x}{3+x}\right)^x &= \lim_{x \to \infty} \left(1 - \displaystyle\frac{2}{3+x} \right)^x
+\end{align}
+再令$t = 3+x$，那么原式变为
+\begin{align}
+    \lim_{x \to \infty} \left(1 - \displaystyle\frac{2}{3+x} \right)^x &= \lim_{t \to \infty} \left(1 - \displaystyle\frac{2}{t}\right)^{t-3} = \displaystyle\lim_{t \to \infty} \left(1-\displaystyle\frac{2}{t}\right)^t \cdot \lim_{t \to \infty} \left(1-\displaystyle\frac{2}{t}\right)^{-3} \\
+    &= \displaystyle\frac{1}{\expe^2} \cdot 1 = \frac{1}{\expe^2}.
+\end{align}
 \end{document}
