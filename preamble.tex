@@ -69,8 +69,8 @@
 \newcounter{exercise}[section]
 
 \renewcommand{\theexercise}{\arabic{section}.\arabic{exercise}}
-\newcommand{\exercise}{\refstepcounter{exercise}{\par\medskip\centering{\bfseries\large 练习题~\theexercise}\par\medskip}\addcontentsline{toc}{subsection}{{\bfseries\zihao{-5}练习题~\theexercise}}}
-\newcommand{\question}{{\par\medskip\centering{\bfseries\large 问题~\theexercise}\par\medskip}\addcontentsline{toc}{subsection}{{\bfseries\zihao{-5}问题~\theexercise}}}
+\newcommand{\exercise}{\refstepcounter{exercise}{\par\bigskip\centering{\bfseries\large 练习题~\theexercise}\par\bigskip}\addcontentsline{toc}{subsection}{{\bfseries\zihao{-5}练习题~\theexercise}}}
+\newcommand{\question}{{\par\bigskip\centering{\bfseries\large 问题~\theexercise}\par\bigskip}\addcontentsline{toc}{subsection}{{\bfseries\zihao{-5}问题~\theexercise}}}
 
 \setlength{\parindent}{0ex}
 
@@ -81,3 +81,5 @@
     \centerline{\zihao{4}\textbf{摘要}\medskip}
     \begin{center}\begin{minipage}[c]{38em}
 }{\end{minipage}\end{center}}
+
+\renewenvironment{proof}{\smallskip\textbf{证明．}}{\hfill\qedsymbol\smallskip}
