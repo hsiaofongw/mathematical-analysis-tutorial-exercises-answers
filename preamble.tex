@@ -18,6 +18,7 @@
 \usepackage{mdframed}
 \usepackage{lipsum}
 \usepackage{tikz-cd}
+\usepackage{lipsum}
 \pagestyle{plain}
 
 \newmdtheoremenv{theo}{定理}
@@ -75,3 +76,8 @@
 
 \counterwithin*{equation}{exercise}
 \renewcommand{\theequation}{\arabic{section}.\arabic{exercise}.\arabic{equation}}
+
+\renewenvironment{abstract}{
+    \centerline{\zihao{4}\textbf{摘要}\medskip}
+    \begin{center}\begin{minipage}[c]{38em}
+}{\end{minipage}\end{center}}
