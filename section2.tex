@@ -1704,3 +1704,47 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{align}
 而这与$f(2^n x_1) \neq f(2^n x_2)$矛盾．
 \end{proof}
+
+2. 设$a$和$b$是两个大于$1$的常数，函数$f: \real \to \real$在$x=0$的邻域内有界，并且对一切$x \in \real$，有$f(ax) = bf(x)$．求证：
+\begin{equation}
+    \lim_{x \to 0} f(x) = f(0).
+\end{equation}
+
+\begin{proof}
+依题意得
+\begin{align}
+    &\mathrel{\phantom{\implies}} \forall x \in \real, f(ax) = bf(x) \\
+    &\implies f(a \cdot 0) = bf(0) \\
+    &\implies f(0) = bf(0) \\
+    &\implies 0 = (b-1)f(0) \\
+    &\implies 0 = f(0)
+\end{align}
+采用反证法．假设结论不成立，也就是说，假设$\displaystyle\lim_{x \to 0} f(x)$不存在或者$\displaystyle\lim_{x \to 0} \neq f(0) = 0$．依题意，$f$在$x=0$的邻域有界，也就是说，存在$\delta_0, M > 0$，使得对一切$x \in B(\check{0}, \delta_0)$都有
+\begin{equation}
+    \lvert f(x) \rvert \leq M
+\end{equation}
+由函数极限定义的否定形式，存在$\epsilon_0 > 0$，使得对任意$\delta > 0$，都存在$x \in B(\check{0}, \delta)$，使得
+\begin{equation}
+    \lvert f(x) - 0 \rvert \geq \epsilon_0 \implies \lvert f(x) \rvert \geq \epsilon_0
+\end{equation}
+事实上，由于$b > 1$，故存在足够大的正整数$N$，使得
+\begin{equation}
+    b^N \epsilon_0 > M
+\end{equation}
+与此同时，存在足够小的$\delta_1 > 0$，满足$\delta_1 a^N < \delta$，由函数极限定义的否定形式，存在$x_0 \in B(\check{0},\delta_1)$，使得
+\begin{equation}
+    \lvert f(x_0) \rvert \geq \epsilon_0
+\end{equation}
+依题意有
+\begin{equation}
+    \lvert f(a^N x_0) \rvert = \lvert b^N f(x_0) \rvert \geq b^N \epsilon_0 > M
+\end{equation}
+由于$0 < x_0 < \delta_1$，所以$0 < a^N x_0 < a^N \delta_1$，又由于$\delta_1 a^N < \delta$，所以$0< a^N x_0 < \delta$，也就是说$a^N x_0 \in B(\check{0}, \delta)$，但是却有$\lvert f(a^N x_0) \rvert > M$，这与$f$在$B(\check{0}, \delta)$有界的题设矛盾．
+
+3. 设$f$和$g$是两个周期函数，且满足：
+\begin{equation}
+    \lim_{x \to +\infty} \left(f(x) - g(x)\right) = 0.
+\end{equation}
+证明：$f=g$.
+
+\end{proof}
