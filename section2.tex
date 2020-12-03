@@ -1740,6 +1740,7 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \lvert f(a^N x_0) \rvert = \lvert b^N f(x_0) \rvert \geq b^N \epsilon_0 > M
 \end{equation}
 由于$0 < x_0 < \delta_1$，所以$0 < a^N x_0 < a^N \delta_1$，又由于$\delta_1 a^N < \delta$，所以$0< a^N x_0 < \delta$，也就是说$a^N x_0 \in B(\check{0}, \delta)$，但是却有$\lvert f(a^N x_0) \rvert > M$，这与$f$在$B(\check{0}, \delta)$有界的题设矛盾．
+\end{proof}
 
 3. 设$f$和$g$是两个周期函数，且满足：
 \begin{equation}
@@ -1747,4 +1748,53 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{equation}
 证明：$f=g$.
 
+\begin{proof}
+设$l_1>0$是$f$的一个周期，设$l_2>0$是$g$的一个周期．设$f$与$g$的公共定义域是$D$，任取$a \in D \, (a > 0)$，并且令
+\begin{align}
+    x_n = a + n l_1, \quad y_n = a + n l_2
+\end{align}
+由周期性，对任意$n \in \nat$，恒有$f(x_n) = f(a)$，以及$g(y_n) = g(a)$．由于$l_1, l_2 > 0$，所以$\{ x_n \}$与$\{ y_n \}$都是趋于正无穷的数列．由归结原则
+\begin{align}
+    &\mathrel{\phantom{\implies}} \lim_{n \to +\infty} \left(f(x_n) - g(x_n)\right) = 0 \\
+    &\implies \lim_{n \to +\infty} \left(f(a) - g(x_n)\right) = 0 \\
+    &\implies \lim_{n \to +\infty} g(x_n) = f(a) \label{eq:gxnconverge}
+\end{align}
+同理有
+\begin{equation}
+    \lim_{n \to +\infty} f(y_n) = g(a) \label{eq:fxnconverge}
+\end{equation}
+由于$\displaystyle\lim_{x \to +\infty} \left(f(x) - g(x)\right) = 0$，所以，对任意$\epsilon > 0$，存在$A > 0$，使得只要$x > A$，就有
+\begin{equation}
+    \lvert f(x) - g(x) \rvert < \epsilon
+\end{equation}
+由于当$n \to +\infty$时$x_n, y_n \to +\infty$，所以，存在$N \in \nat$，使得对一切$n > N$，都满足
+\begin{equation}
+    x_n, y_n \geq \min \{ x_n, y_n \} > A
+\end{equation}
+所以有
+\begin{equation}
+\lvert f(x_n) - g(x_n) \rvert < \epsilon, \quad \lvert f(y_n) - g(y_n) \rvert < \epsilon
+\end{equation}
+这说明
+\begin{align}
+    \lim_{n \to +\infty} \left( f(x_n) - g(x_n) \right) &= 0 \label{eq:fxnequalgxn} \\
+    \lim_{n \to +\infty} \left(f(y_n) - g(y_n)\right) &= 0 \label{eq:fynequalgyn}
+\end{align}
+让式(\ref{eq:gxnconverge})与式(\ref{eq:fxnequalgxn})两端相加，由极限的线性性质我们得到
+\begin{equation}
+    \lim_{n \to +\infty} g(x_n) + \lim_{n \to +\infty} \left(f(x_n) - g(x_n)\right) = f(a) + 0
+\end{equation}
+化简得
+\begin{equation}
+    \lim_{n \to +\infty} f(x_n) = f(a)
+\end{equation}
+再利用式(\ref{eq:gxnconverge})就有
+\begin{equation}
+    \lim_{n \to +\infty} g(x_n) = \lim_{n \to +\infty} f(x_n)
+\end{equation}
+于是根据式(\ref{eq:gxnconverge})与式(\ref{eq:fxnconverge})，我们得
+\begin{equation}
+    f(a) = g(a)
+\end{equation}
+又由于$a$的任意性，我们知道对任意$a \in D$，都有$f(a) = g(a)$，从而这就证得了$f = g$．
 \end{proof}
