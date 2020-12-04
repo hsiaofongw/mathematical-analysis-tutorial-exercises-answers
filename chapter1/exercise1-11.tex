@@ -1,0 +1,119 @@
+% 练习题1.11
+\exercise
+
+1. 计算下列极限：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{n\to\infty}\displaystyle\frac{1+\displaystyle\frac{1}{2}+\cdots+\displaystyle\frac{1}{n}}{\ln \, n}$; & (2)~$\displaystyle\lim_{n\to\infty}\displaystyle\frac{1+\displaystyle\frac{1}{3}+\cdots+\displaystyle\frac{1}{2n-1}}{\ln \, 2\sqrt{n}}$; 
+    \end{tabularx}
+\end{table}
+
+(1) 解：
+令
+\begin{align}
+    a_n &= 1+\frac{1}{2}+\cdots+\frac{1}{n} \\
+    b_n &= \ln \, n
+\end{align}
+则
+\begin{align}
+    \text{原式} &= \lim_{n\to\infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{\displaystyle\frac{1}{n+1}}{\ln \, \left( n+1 \right) - \ln \, n} \\
+    &= \lim_{n \to \infty} \frac{1}{(n+1) \ln \, \left( 1 + \displaystyle\frac{1}{n}\right)} = \lim_{n \to \infty} \frac{1}{\ln \, \left( \left(1+\displaystyle\frac{1}{n}\right)^{n+1}\right)} \\
+    &= \frac{1}{\ln \, \left( \displaystyle\lim_{n \to \infty} \left( \left(1 + \displaystyle\frac{1}{n}\right)^{n+1}\right)\right)} = \frac{1}{\ln \, \mathrm{e}} = \frac{1}{1} = 1.
+\end{align}
+
+(2) 解：
+令
+\begin{align}
+    a_n &= 1 + \frac{1}{3} + \frac{1}{5} + \cdots + \frac{1}{2n-1} \\
+    b_n &= \ln \, 2\sqrt{n}
+\end{align}
+则
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{a_{n+1} - a_n}{b_{n+1} - b_n} = \lim_{n \to \infty} \frac{\displaystyle \frac{1}{2n+1}}{\ln \, 2\sqrt{n+1} - \ln \, 2 \sqrt{n}} \\
+    &= \lim_{n \to \infty} \frac{\displaystyle\frac{1}{2n+1}}{\ln \, \displaystyle\frac{2\sqrt{n+1}}{2\sqrt{n}}} = \lim_{n \to \infty} \frac{\displaystyle\frac{1}{2n+1}}{\ln \sqrt{\displaystyle\frac{n+1}{n}}} = \lim_{n \to \infty} \frac{1}{(2n+1) \ln \, \left(\left(1 + \displaystyle\frac{1}{n}\right)^{\frac{1}{2}} \right)} \\
+    &= \lim_{n \to \infty} \frac{1}{\ln \, \left( \left(1+\displaystyle\frac{1}{n}\right)^{\frac{2n+1}{2}}\right)} = \lim_{n \to \infty} \frac{1}{\ln \, \left(\left(1+\displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} \\
+    &= \frac{1}{\displaystyle\lim_{n \to \infty} \ln \, \left(\left(1+\displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} = \frac{1}{\ln \, \displaystyle\lim \left( \left( 1 + \displaystyle\frac{1}{n}\right)^{n+\frac{1}{2}}\right)} = \frac{1}{\ln \, \mathrm{e}} = \frac{1}{1} = 1.
+\end{align}
+
+2. 计算极限$\displaystyle\lim_{n \to \infty} \left( n! \right)^{1/n^2}$．（提示：取对数）．
+
+2. 解：
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \exp \{ \, \ln \, \left( (n!)^{1/n^2}\right) \} = \lim_{n \to \infty} \exp \{ \, \displaystyle\frac{1}{n^2} \displaystyle\sum_{i=1}^{n} \ln \, i \, \}
+\end{align}
+令
+\begin{align}
+    a_n = \sum_{i=1}^n \ln \, i,  \;\; b_n = n^2
+\end{align}
+那么就有
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \exp \, \{ \, \displaystyle\frac{1}{n^2} \displaystyle\sum_{i=1}^{n} \ln \, i \, \} = \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{a_n}{b_n} \,\, \} \\
+    &= \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{a_{n+1}-a_n}{b_{n+1}-b_n} \,\, \} = \exp \, \{ \, \displaystyle\lim_{n \to \infty} \displaystyle\frac{\ln \, \left(n+1\right) - \ln \, n}{2n + 1} \,\, \} \\
+    &= \exp \, \{ \, \displaystyle\lim_{n \to \infty} \ln \, \left( 1 + \displaystyle\frac{1}{n} \right)^{\frac{1}{2n+1}} \,\, \} = \exp \, \{ \, \ln \, \displaystyle\lim_{n \to \infty} \left( 1 + \displaystyle\frac{1}{n} \right)^{\frac{1}{2n+1}} \,\, \} \\
+    &= \exp \, \{ \, \ln \, 1 \,\, \} = \exp \, 0 = 1.
+\end{align}
+
+3. 计算极限
+\begin{equation}
+    \lim_{n\to\infty} \frac{1^2 + 3^2 + \cdots + (2n-1)^2}{n^3}.
+\end{equation}
+
+3. 解：令
+\begin{align}
+    a_n &= 1^2 + 3^2 + \cdots + (2n-1)^2 \\
+    b_n &= n^3
+\end{align}
+那么
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \frac{a_{n+1}-a_n}{b_{n+1}-b_n} = \lim_{n \to \infty} \frac{(2n+1)^2}{3n^2 + 3n + 1} = \lim_{n \to \infty} \frac{4n^2 + 4n + 1}{3n^2 + 3n + 1} \\
+    &= \lim_{n \to \infty} \frac{4 + \displaystyle\frac{4}{n} + \displaystyle\frac{1}{n^2}}{3 + \displaystyle\frac{3}{n} + \frac{1}{n^2}} = \frac{\displaystyle\lim_{n \to \infty} \left(4 + \displaystyle\frac{4}{n} + \displaystyle\frac{1}{n^2}\right)}{\displaystyle\lim_{n \to \infty} \left(3 + \displaystyle\frac{3}{n} + \displaystyle\frac{1}{n^2}\right)} = \frac{4}{3}.
+\end{align}
+
+4. 设$\displaystyle\lim_{n \to \infty} a_n = a$．证明：
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_1 + 2a_2 + \cdots + na_n}{n^2} = \frac{a}{2}.
+\end{equation}
+
+\begin{proof}
+令
+\begin{align}
+    b_n &= a_1 + 2a_2 + \cdots + na_n \\
+    c_n &= n^2
+\end{align}
+于是
+\begin{align}
+    \text{左边} &= \lim_{n \to \infty} \frac{b_n}{c_n} = \lim_{n \to \infty} \frac{b_{n} - b_{n-1}}{c_{n} - c_{n-1}} = \lim_{n \to \infty} \frac{n a_n}{2n - 1} = \lim_{n \to \infty} \frac{a_n}{2 - \displaystyle\frac{1}{n}} \\
+    &= \frac{\displaystyle\lim_{n \to \infty} a_n}{\displaystyle\lim_{n \to \infty} \left(2 - \displaystyle\frac{1}{n}\right)} = \frac{a}{2} = \text{右边}.
+\end{align}
+\end{proof}
+
+\begin{theo}[Stolz]
+设$\{b_n \}$是严格递增且趋于$+\infty$的数列，那么
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n}{b_n} = A
+\end{equation}
+的充分不必要条件是
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n - a_{n-1}}{b_{n} - b_{n-1}} = A.
+\end{equation}
+\end{theo}
+
+5. 举例说明Stolz定理的逆命题不成立．
+
+\begin{proof}
+取
+\begin{align}
+    a_n &= n^2 + n \cdot (-1)^n \\
+    b_n &= n^2
+\end{align}
+那么$\{ a_n \}, \{ b_n \}$符合Stolz条件，并且
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_n}{b_n} = 1
+\end{equation}
+但是
+\begin{equation}
+    \lim_{n \to \infty} \frac{a_{n} - a_{n-1}}{b_{n} - b_{n-1}} = +\infty
+\end{equation}
+这就证明了，在Stolz定理中：$\displaystyle\lim_{n \to \infty} \frac{a_n - a_{n-1}}{b_n - b_{n-1}} = A$不是$\displaystyle\lim_{n \to \infty} \frac{a_n}{b_n} = A$的必要条件．
+\end{proof}

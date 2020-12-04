@@ -1,0 +1,76 @@
+% 练习题1.8
+\exercise
+2. 求数列$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$和$\{(1+1/n)^{n+1}:n\in\mathbb{N}^\star\}$的下确界和上确界．
+
+思路：注意到$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$是严格单调递增数列并且极限是$\mathrm{e}$，所以我们去证它的上确界是$\mathrm{e}$，而数列$\{(1+1/n)^{n+1}:n\in\mathbb{N}^\star\}$的极限也是$\mathrm{e}$并且是严格单调递减数列，我们去证它的下确界是$\mathrm{e}$．
+\begin{proof}
+令$a_n = (1+1/n)^n$，易证，数列$\{ a_n \}$是严格单调递增的，并且极限是$\mathrm{e}$，从而$\mathrm{e} < a_n$对所有$n \in \mathbb{N}^\star$成立，也就是对任意$x \in \{a_n:n\in\mathbb{N}^\star\}$都有$\mathrm{e}<x$；由于$\{a_n\}$的极限是$\mathrm{e}$，所以，对任意$\epsilon >0$，都存在$N \in \mathbb{N}^\star$，使得当$n>N$时，有
+\begin{equation}
+    |a_n - \mathrm{e}| = \mathrm{e}-a_n < \epsilon
+\end{equation}
+令$x_\epsilon = a_n$，该不等式可以写成$x_\epsilon > e - \epsilon$，并且$x_\epsilon = a_n \in \{a_n : n \in \mathbb{N}^\star \}$，因此$\mathrm{e}$是集合$\{ a_n : n \in \mathbb{N}^\star \}$也就是集合$\{ (1+1/n)^n : n \in \mathbb{N}^\star \}$的上确界．易知$\{(1+1/n)^n:n\in\mathbb{N}\}$的下确界是$a_1$也就是$3/2$.
+
+再来证$\mathrm{e}$是集合$\{(1+1/n)^{n+1}:n\in\mathbb{N}\}$的下确界．令$b_n=(1+1/n)^{n+1}$，易证数列$\{b_n\}$是严格单调递减的并且极限是$\mathrm{e}$，从而对任意$n \in \mathbb{N}^\star$都有$b_n > \displaystyle\lim_{n\to\infty} b_n = \mathrm{e}$，也就是对任意$ x \in \{ b_n : n \in \mathbb{N}^\star \}$都有$x > \mathrm{e}$．
+
+由$\displaystyle\lim_{n\to\infty}b_n = e$知，对任意$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，有
+\begin{equation}
+    |b_n - \mathrm{e}| = b_n - \mathrm{e} < \epsilon 
+\end{equation}
+令$y_\epsilon = b_n$，该不等式可以写成$y_\epsilon = b_n < \mathrm{e} + \epsilon$（对任意$n\in\mathbb{N}^\star$），从而$\mathrm{e}$正是集合$\{b_n:n\in\mathbb{N}^\star\}$的下确界．
+
+显然$\{b_n:n\in\mathbb{N}^\star\}$的上确界是$b_1$，也就是$\displaystyle \left(\frac{3}{2}\right)^2$.
+\end{proof}
+
+3. 求数列$\{n^{1/n}:n\in\mathbb{N}^\star\}$的下确界和上确界．
+
+解：先求上确界．通过计算可知$1^{1/1} < 2^{1/2} <3^{1/3}$，令$a_n = n^{1/n}$，则$a_n$的增减性等价于$\ln \, a_n$的增减性，为了判断$\ln \, a_n$的增减性，我们对数列$\{ \ln \, a_n \}$的任意相邻两项做差：
+\begin{align}
+    \ln \, a_{n+1} - \ln \, a_n &= \frac{1}{n+1} \ln \, \left(n+1\right) - \frac{1}{n} \ln \, n\\
+    &= \frac{1}{n(n+1)} \left( n \ln \, \left(n+1\right) - (n+1) \ln \, n\right)
+\end{align}
+并且当$n \geq 3$时，有
+\begin{align}
+    n \ln \, \left(n+1\right) - (n+1) \ln \, n &= n \left(\ln \, \left(n+1\right) - \ln \, n \right) - \ln \, n \\
+    &< n \cdot \frac{1}{n} - \ln \, n = 1 - \ln \, n \leq 1 - \ln 3 < 0
+\end{align}
+即$\ln \, a_{n+1} - \ln \, a_n < 0$，由此可知，当$n \geq 3$时，有$a_{n+1} < a_n$．因此，对任意$n \in \mathbb{N}^\star$，都有$a_3 \geq a_n$，并且，对任意$\epsilon > 0$，可以取$x_\epsilon = a_3$，这时有
+\begin{equation}
+    a_3 - x_\epsilon = a_3 - a_3 = 0 < \epsilon
+\end{equation}
+也就是$x_\epsilon > a_3 - \epsilon$
+所以$a_3$也就是$\displaystyle 3^\frac{1}{3}$，是$\{a_n:n\in\mathbb{N}^\star\}$的上确界．
+
+再来证$1$是$\{n^\frac{1}{n}\}$的下确界，由于$\displaystyle\lim_{n\to\infty}n^\frac{1}{n}=1$，所以，对任意$\epsilon>0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，有
+\begin{equation}
+    |n^\frac{1}{n} - 1| = n^\frac{1}{n} - 1 < \epsilon
+\end{equation}
+令$y_\epsilon = n^\frac{1}{n}$，则对所有$n > N$，都有$y_\epsilon = n^\frac{1}{n} < 1 + \epsilon$成立，并且显然$y_\epsilon \in \{ n^\frac{1}{n}:n \in \mathbb{N}^\star \}$，因此，由定义，$1$是$\{\displaystyle n^\frac{1}{n}:n\in\mathbb{N}^\star\}$的下确界．
+
+4. 设在数列$\{ a_n:n\in\mathbb{N}^\star\}$中，既没有最小值，也没有最大值．求证：数列$\{a_n\}$发散．
+\begin{proof}
+如果数列$\{ a_n \}$是无界的，譬如说，不存在上界，那么我们可以从中找出一个趋于正无穷的子列，于是$\{a_n \}$发散．
+
+否则根据确界原理，$\{a_n\}$有上确界和下确界，分别记为$u$和$l$，由于$u$是$\{ a_n \}$的上确界，所以对任意$\epsilon > 0$，存在$i_1 \in \nat$，使得$u - a_{i_1} < \epsilon$，又因为$\{ a_n \}$是不存在最大值的，于是就存在$i_2 \in \nat$，使得$a_{i_1} < a_{i_2} < u$，类似地，我们可以找出一系列的下标$i_1, i_2, i_3, i_4, \cdots \in \nat$，它们满足
+\begin{equation}
+    a_{i_1} < a_{i_2} < a_{i_3} < a_{i_4} < \cdots < u
+\end{equation}
+并且对以上这两个不等式做放缩可得
+\begin{equation}
+    0 < \cdots < u - a_{i_4} < u - a_{i_3} < u - a_{i_2} < u - a_{i_1} < \epsilon
+\end{equation}
+这样一来，我们就找到了一个趋于$u$的子列，它就是$\{ a_{i_n} \}$．
+
+由于$l$是下确界，所以对任意$\epsilon > 0$，都存在$j_1 \in \nat$，使得$a_{j_1} - l < \epsilon$，由于$\{ a_n \}$不存在最小值，所以一定存在$j_2 \in \nat$使得
+\begin{equation}
+    a_{j_1} > a_{j_2} > l
+\end{equation}
+类似地，总能找出一系列的下标$j_1, j_2, j_3, \cdots$，满足
+\begin{equation}
+    a_{j_1} > a_{j_2} > a_{j_3} > \cdots > l
+\end{equation}
+对以上这两个不等式做放缩，得到
+\begin{equation}
+    \epsilon > a_{j_1} - l > a_{j_2} - l > a_{j_3} - l > \cdots > 0
+\end{equation}
+这样我们就找到了一个趋于$l$的子列，它就是$\{ a_{j_m} \}$．如果$u = l$，也就是$\{ a_n \}$的上确界等于下确界，那么将可以推出$\{ a_n \}$是常数列，这时每一个$a_n$都可以当成最大值（最小值），这与题设矛盾，所以$u \neq l$，所以$\{ a_{i_n} \}$和$\{ a_{j_m} \}$是$\{ a_n \}$的两个趋向不同极限的子列，所以$\{ a_n \}$发散．
+\end{proof}

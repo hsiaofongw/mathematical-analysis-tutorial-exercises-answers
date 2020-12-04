@@ -1,0 +1,26 @@
+% 练习题1.5
+\exercise
+
+5. 求证：$a_n = (n!)^{1/n}$是递增数列．
+
+\begin{proof}
+猜测$\{ a_n \}$是递增的，为此，我们尝试去证$\displaystyle \frac{a_{n+1}}{a_n} > 1$，由题设：
+\begin{equation}
+    \frac{a_{n+1}}{a_n} = \frac{(1 \times 2 \times \cdots \times n+1)^\frac{1}{n+1}}{(1 \times 2 \times \cdots \times n)^\frac{1}{n}}
+    \label{eq:a1}
+\end{equation}
+对式(\ref{eq:a1})左右两端同时自乘$n+1$次，得：
+\begin{equation}
+    \left( \frac{a_{n+1}}{a_n} \right)^{n+1} = \frac{1 \times 2 \times \cdots \times n+1}{1 \times 2 \times \cdots \times n \times (1 \times 2 \times \cdots \times n)^\frac{1}{n}} = \frac{n+1}{(1 \times 2 \times \cdots \times n)^\frac{1}{n}}
+    \label{eq:a2}
+\end{equation}
+对式(\ref{eq:a2})左右两端同时自乘$n$次，得：
+\begin{equation}
+    \left(\left(\frac{a_{n+1}}{a_n} \right)^{n+1}\right)^{n} = \frac{(n+1)^n}{1 \times 2 \times \cdots \times n} = \frac{\prod_{i=1}^{n} \left( n+1 \right) }{\prod_{i=1}^{n} i} = \prod_{i=1}^n \frac{n+1}{i} > \prod_{i=1}^{n} 1 = 1
+\end{equation}
+也就是
+\begin{equation}
+   \left( \frac{a_{n+1}}{a_n} \right)^{n (n+1)} > 1
+\end{equation}
+从而$\displaystyle \frac{a_{n+a}}{a_n} >1$，又根据$a_n > 0$，于是数列$\{ a_n \}$是递增的．
+\end{proof}

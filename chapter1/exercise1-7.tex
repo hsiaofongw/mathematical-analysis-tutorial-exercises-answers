@@ -1,0 +1,217 @@
+% 练习题1.7
+\exercise
+1. 对任意给定的$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，当$n > N$时，有
+\begin{equation}
+    |a_n - a_N|<\epsilon
+\end{equation}
+问$\{a_n\}$是不是基本列？
+
+思路：在实数轴上，所有$a_N$附件的项都落在以它为中心的半径不超过$\epsilon$的一个范围内，那么，假设$a_n, a_m$也是在这个范围内，$a_n$与$a_m$的距离只会更加近，因为这个$\epsilon$可以任意小，从而这个以$a_N$为中心的范围可以是任意地``拥挤''．由此我们猜测$\{a_n\}$是基本列，去证$|a_m - a_n|<\epsilon$.
+
+\begin{proof}
+设$m, n>N$，那么由题设，
+\begin{equation}
+    |a_m - a_N|<\epsilon, \; |a_n - a_N| <\epsilon
+\end{equation}
+也就是
+\begin{align}
+    a_N - \epsilon < a_m < a_N + \epsilon \\
+    a_N - \epsilon < a_n < a_N + \epsilon 
+\end{align}
+从而
+\begin{equation}
+    |a_m - a_n| < 2\epsilon
+\end{equation}
+由于$2\epsilon$可以是任意的正数，所以按定义，$\{a_n\}$是基本列．
+\end{proof}
+
+2. (1)数列$\{a_n\}$满足
+\begin{equation}
+    |a_{n+p}-a_n|\leq\frac{p}{n}
+\end{equation}
+且对一切$n,p\in\mathbb{N}^\star$成立，问$\{ a_n\}$是不是基本列？
+
+(2) 当$|a_{n+p} - a_n| \leq p/n^2$时，上述结论又如何？
+
+思路：对于题（１），当$n\to\infty$时$\displaystyle\frac{p}{n}$显然趋于$0$，但我们从直觉上能够感觉到这个趋于$0$的速度还不够快，由此猜想$\{a_n\}$应该不是基本列，可以去举反例．
+\begin{proof}
+(1) 考虑
+\begin{equation}
+    a_n = 1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n} 
+\end{equation}
+于是
+\begin{align}
+    a_{n+p} - a_n &= \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{n+p}\\
+    &\leq \frac{1}{n+1} + \frac{1}{n+1} + \cdots + \frac{1}{n+1} \\
+    &= \frac{p}{n+1} < \frac{p}{n}
+\end{align}
+数列$\{a_n\}$满足$|a_{n+p}-a_n|\leq \displaystyle\frac{p}{n}, \, (n,p\in\mathbb{N}^\star)$，但是$\{a_n\}$显然不是基本列．
+
+(2) 由题设，有
+\begin{align}
+    |a_{n+p} - a_n| &\leq |a_{n+1} - a_n| + |a_{n+2} - a_{n+1}| + \cdots + |a_{n+p} - a_{n+p-1}| \\
+    &\leq \frac{1}{n^2} + \frac{1}{(n+1)^2} + \cdots + \frac{1}{(n+p-1)^2}
+\end{align}
+令
+\begin{equation}
+    b_n = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots + \frac{1}{n^2} = \sum_{i=1}^n \frac{1}{i^2}
+\end{equation}
+于是
+\begin{equation}
+    |a_{n+p} - a_n| \leq b_{n+p-1} - b_n = |b_{n+p-1} - b_n| < |b_{n+p} - b_n|
+\end{equation}
+显然，数列$\{b_n\}$是收敛的，因此数列$\{ b_n \}$是基本列，因此，对任意$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，
+\begin{equation}
+    |a_{n+p} - a_n| < |b_{n+p} - b_n| < \epsilon
+\end{equation}
+对任意$n, p \in \mathbb{N}^\star$成立．所以，由定义，$\{ a_n \}$是基本列．
+\end{proof}
+
+3. 证明下列数列收敛：
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} { >{\raggedright\arraybackslash}X }
+    (1) $\displaystyle a_n = 1-\frac{1}{2^2}+\frac{1}{3^2}-\cdots+(-1)^{n-1}\frac{1}{n^2}\, (n\in\mathbb{N}^\star)$; \\ [0.7em]
+    (2) $\displaystyle b_n = a_0 + a_1 q + \cdots + a_n q^n \, (n \in \mathbb{N}^\star)$，其中$\{a_0,a_1,\cdots\}$为一有界数列，$|q|<1$; \\ [0.7em]
+    (3) $a_n = \displaystyle \sin x + \frac{\sin 2x}{2^2} + \cdots + \frac{\sin nx}{n^2}\, (n \in \mathbb{N}^\star, x \in \mathbb{R})$; \\ [0.7em]
+    (4) $a_n = \displaystyle \frac{\sin 2x}{2(2+\sin 2x)} + \frac{\sin 3x}{3(3+\sin 3x)} + \cdots + \frac{\sin nx}{n(n+\sin nx)} \, (n\in\mathbb{N}^\star, x \in \mathbb{R})$.
+    \end{tabularx}
+\end{table}
+
+\begin{proof}
+(1). 将$a_n$写成
+\begin{equation}
+    a_n = \sum_{i=1}^n (-1)^{i-1} \frac{1}{i^2}
+\end{equation}
+于是
+\begin{align}
+    |a_{n+p}-a_n| = \Bigg\lvert\sum_{i=n+1}^{n+p} (-1)^{i-1}\frac{1}{i^2} \Bigg\rvert < \Bigg\lvert \sum_{i=n+1}^{n+p} \frac{1}{i^2} \Bigg\rvert
+\end{align}
+令
+\begin{equation}
+    b_n = \sum_{i=1}^n \frac{1}{i^2}
+\end{equation}
+于是
+\begin{equation}
+    |a_{n+p}-a_n|<b_{n+p} - b_n =|b_{n+p}-b_n|
+\end{equation}
+并且数列$\{ b_n \}$是基本列，从而对任意$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，使得当$n > N$时，
+\begin{equation}
+    |a_{n+p}-a_n|<|b_{n+p}-b_n|<\epsilon
+\end{equation}
+对任意$n,p \in \mathbb{N}^\star$都成立．于是，按定义，数列$\{a_n\}$是基本列，从而数列$\{a_n\}$收敛．
+\end{proof}
+
+\begin{proof}
+(2). 设$l$是$\{a_n\}$的下界，$u$是$\{a_n\}$的上界，令$a = \max\{ |l|, |u| \}$:
+\begin{align}
+    |b_{n+p} - b_n| &= \Bigg\lvert \sum_{i=0}^{n+p} a_i q^i - \sum_{i=0}^{n} a_i q^i \Bigg\rvert \\
+    &= \Bigg\lvert \sum_{i=n+1}^{n+p} a_i q^i \Bigg\rvert < a |q|^{n+1} \sum_{i=0}^{p-1} |q|^i = |q|^{n+1} \frac{a(1-|q|^p)}{1-|q|} \\
+    &< |q|^{n+1} \frac{a}{1-|q|}
+\end{align}
+那么，对任意$\epsilon > 0$，我们可以取
+\begin{equation}
+    N = \lceil \log_{|q|} \left(\frac{\epsilon(1-|q|)}{a}\right) - 1\rceil
+\end{equation}
+则当$n > N$时
+\begin{align}
+    |b_{n+p}-b_n| &< |q|^{n+1}\frac{a}{1-|q|} < |q|^{N+1} \frac{a}{1-|q|} \\
+    &< \frac{\epsilon(1-|q|)}{a} \frac{a}{1-|q|} = \epsilon
+\end{align}
+对任意$n, p\in\mathbb{N}^\star$都成立，于是由定义，$\{b_n\}$是一个基本列，于是$\{b_n\}$收敛．
+\end{proof}
+\begin{proof}
+(3). 设$n,p\in\mathbb{N}^\star$:
+\begin{align}
+    |a_{n+p}-a_n| &= \Bigg\lvert \sum_{i=1}^{n+p} \frac{\sin ix}{i^2} - \sum_{i=1}^n \frac{\sin ix}{i^2} \Bigg\rvert \\
+    &= \Bigg\lvert \sum_{i=n+1}^{n+p} \frac{\sin ix}{i^2} \Bigg\rvert \\
+    &< \sum_{i=n+1}^{n+p} \frac{1}{i^2}
+\end{align}
+令
+\begin{equation}
+    b_n = \sum_{i=1}^n \frac{1}{i^2}
+\end{equation}
+易知数列$\{b_n\}$是收敛数量，故$\{b_n\}$是基本列，于是，对任意正数$\epsilon > 0$，存在$N \in \mathbb{N}^\star$，当$n>N$时，
+\begin{equation}
+    |b_{n+p}-b_{n}|<\epsilon
+\end{equation}
+对任意$n,p\in\mathbb{N}^\star$成立，又由于
+\begin{equation}
+    |a_{n+p}-a_n|<\sum_{i=n+1}^{n+p} \frac{1}{i^2}= |b_{n+p}-b_n|
+\end{equation}
+所以同样也有
+\begin{equation}
+    |a_{n+p}-a_n|<|b_{n+p}-b_n|<\epsilon
+\end{equation}
+对任意$n,p\in\mathbb{N}^\star$成立．所以由定义$\{a_n\}$是基本列，所以$\{a_n\}$收敛．
+\end{proof}
+\begin{proof}
+(4). 将$a_n$写作
+\begin{equation}
+    a_n = \sum_{i=2}^n \frac{\sin ix}{i(i+\sin ix)}
+\end{equation}
+于是，对于$n,p\in\mathbb{N}^\star, n \geq 2$，有
+\begin{align}
+    |a_{n+p}-a_n| &= \Bigg\lvert \sum_{i=2}^{n+p}\frac{\sin ix}{i(i+\sin ix)} - \sum_{i=2}^n \frac{\sin ix}{i(i+\sin ix)} \Bigg\rvert \\
+    &= \Bigg\lvert \sum_{i=n+1}^{n+p} \frac{\sin ix}{i(i+\sin ix)} \Bigg\rvert = \Bigg\lvert \sum_{i=n+1}^{n+p} \frac{\sin ix}{i^2 + i \sin ix} \Bigg\rvert \\
+    &< \sum_{i=n+1}^{n+p} \bigg\lvert \frac{\sin ix}{i^2 + i \sin ix} \bigg\rvert < \sum_{i=n+1}^{n+p}\frac{1}{i^2-i}  = \sum_{i=n+1}^{n+p} \frac{1}{i(i-1)} \\
+    &< \sum_{i=n+1}^{n+p}\frac{1}{(i-1)^2}
+\end{align}
+令
+\begin{equation}
+    b_n = 1+\frac{1}{2^2}+\cdots+\frac{1}{n^2}=\sum_{i=1}^n\frac{1}{i^2}
+\end{equation}
+则
+\begin{equation}
+    |a_{n+p}-a_n|<\sum_{i=n+1}^{n+p} = |b_{n+p-1}-b_{n}|
+\end{equation}
+由于数列$\{b_n\}$收敛，所以$\{b_n\}$是基本列，所以，对任意$\epsilon>0$，存在$N\in\mathbb{N}^\star$，使得当$n>N$时，
+\begin{equation}
+    |a_{n+p}-a_n|<|b_{n+p-1}-b_n|<\epsilon
+\end{equation}
+对任意$p\in\mathbb{N}^\star$都成立，从而按照定义，$\{a_n\}$是基本列，于是$\{a_n\}$收敛．
+\end{proof}
+
+4. 设数列
+\begin{equation}
+    \{|a_2-a_1|+|a_3-a_2|+\cdots+|a_n-a_{n-1}|\}
+\end{equation}
+有界，求证$\{a_n\}$收敛．
+\begin{proof}
+令
+\begin{equation}
+    b_n = |a_2-a_1|+|a_3-a_2|+\cdots+|a_n-a_{n-1}| =\sum_{i=2}^n |a_{i}-a_{i-1}|
+\end{equation}
+于是
+\begin{align}
+    b_{n+1}-b_n &= \sum_{i=2}^{n+1} |a_i - a_{i-1}| -\sum_{i=2}^{n} |a_i-a_{i-1}| \\
+    &= |a_{n+1}-a_{n}| > 0
+\end{align}
+从而，数列$\{b_n\}$，也就是数列$\{|a_2-a_1|+\cdots+|a_{n}-a_{n-1}|\}$是单调递增的，又由题设知数列$\{b_n\}$有界，所以数列$\{b_n\}$收敛．
+
+现在我们来证明数列$\{a_n\}$是一个基本列：
+\begin{align}
+    |a_{n+p}-a_n| &\leq |a_{n+1}-a_n|+|a_{n+2}-a_{n+1}|+\cdots+|a_{n+p}-a_{n+p-1}| \\
+    &= b_{n+p} - b_{n-1} = b_{n+p} - b_n + b_{n} - b_{n-1} = |b_{n+p}-b_n|+|b_n-b_{n-1}|
+\end{align}
+由于数列$\{b_n\}$收敛，所以$\{b_n\}$是基本列，所以，对任意$\epsilon > 0$，存在$N\in\mathbb{N}^\star$，使得当$n > N$时
+\begin{equation}
+    |b_{n+p}-b_n|<\epsilon, \; |b_n-b_{n-1}|<\epsilon
+\end{equation}
+对任意$p \in \mathbb{N}^\star$都成立，而又因为$|a_{n+p}-a_n|<|b_{n+p} - b_n|+|b_{n}-b_{n-1}|$，所以
+\begin{equation}
+    |a_{n+p}-a_n|<|b_{n+p}-b_n|+|b_n-b_{n-1}|<\epsilon+\epsilon=2\epsilon
+\end{equation}
+对任意$p\in\mathbb{N}^\star$都成立，所以，由定义知$\{a_n\}$是基本列，所以$\{a_n\}$收敛．
+\end{proof}
+5. 用精确语言表述``数列$\{a_n\}$不是基本列''．
+
+答：
+
+一个数列$\{ a_n \}$不是基本列，如果存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，存在$n, m > N$，使得$|a_m - a_n| \geq \epsilon_0$．
+
+6. 设$a_n \in [a,b]\,(n\in\mathbb{N}^\star)$．证明：如果$\{a_n\}$发散，则$\{a_n\}$必有两个子列收敛于不同的数．
+\begin{proof}
+任取$\{ a_n \}$的两个收敛子列，分别记为$\{ a_{i_n} \}$和$\{ a_{j_n} \}$，由于$\{ a_n \}$发散，所以$\{ a_n \}$不是基本列，那么就存在$\epsilon_0 > 0$，使得对任意$N \in \nat$，都存在$n, m > N$，使得$|a_n - a_m| \geq \epsilon_0$，于是就存在$i_n, j_m > N$，使得$|a_{i_n} - a_{j_m}| \geq \epsilon_0$，这就说明了$\{ a_{i_n} \}$和$\{ a_{j_m} \}$分别收敛到不同的极限．
+\end{proof}

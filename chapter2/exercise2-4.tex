@@ -1,0 +1,720 @@
+\exercise
+
+1. 用$\epsilon$-$\delta$语言表述$f(x_0 -) = 1$.
+
+1. 答：设函数$f$在$x_0 - r, x_0$有定义，$r$为一常数且$r > 0$，设$l$是一个给定的常实数．若对任意$\epsilon > 0$，都存在$\delta \in (0, r)$，使得对所有$x \in (x_0-\delta, x_0)$，都有
+\begin{equation}
+    |f(x) - l| < \epsilon
+\end{equation}
+就说$f$在$x_0$处的左极限存在，写为$f(x_0 -)$．
+
+2. 求证：$\displaystyle\lim_{x \to x_0} f(x)$存在当且仅当$f(x_0 -) = f(x_0 +)$为有限数．
+
+\begin{proof}
+必要性．设函数$f$在$x_0$处的极限存在．采用反证法，假设结论不成立，也就是说假设$f(x_0 -)$或者$f(x_0 +)$为非正常数$\infty$，不失一般性，假设$f(x_0 -)$为$+\infty$．
+
+那么对任意$M > 0$，都存在$\delta_1 > 0$，使得只要$0 < x_0 - x < \delta_1$，就有
+\begin{equation}
+    f(x) > M + l
+\end{equation}
+取$\epsilon_0 = M$，那么对任意$\delta > 0$，都存在$x$，满足$|x - x_0| < \min \{ \delta_1, \delta \} \leq \delta $并且
+\begin{equation}
+    |f(x) - l| > \epsilon_0 = M
+\end{equation}
+这说明函数$f$在$x_0$处的极限不存在，矛盾．于是必要性得证．
+
+充分性．设$f(x_0 -) = f(x_0 +) = c$，$c \in \real$为一非非正常数．由于$f(x_0 -)$存在，所以，对任意$\epsilon > 0$，存在$\delta_1 > 0$，使得只要$0 < x_0 - x < \delta_1$，就有
+\begin{equation}
+    |f(x) - c| < \epsilon
+\end{equation}
+由于$f(x_0 +)$存在，所以对任意$\epsilon > 0$，存在$\delta_2 > 0$，使得只要$0 < x - x_0 < \delta_2$，就有
+\begin{equation}
+    |f(x) - c| < \epsilon
+\end{equation}
+那么只需取$\delta = \min \{ \delta_1, \delta_2 \}$，当$|x - x_0| < \delta$时，必有$0 < x_0 - x < \delta_1$或者$0 < x - x_0 < \delta_2$其中之一是满足的，所以
+\begin{equation}
+    |f(x) - c| < \epsilon
+\end{equation}
+依定义函数$f$在$x_0$处的极限存在并且等于$c = f(x_0 -) = f(x_0 +)$．充分性得证．
+\end{proof}
+
+3. 设$\displaystyle\lim_{x \to x_0} f(x) = A$．用$\epsilon$-$\delta$语言证明：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$; & (2)~$\displaystyle\lim_{x \to x_0} f^2(x)=A^2$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to x_0} \sqrt{f(x)} = \sqrt{A} \, (A > 0)$; & (4)~$\displaystyle\lim_{x \to x_0} \sqrt[3]{f(x)} = \sqrt[3]{A}$.
+      \end{tabularx}
+\end{table}
+
+(1) 
+\begin{proof}
+如果$A > 0$，那么$|A|=A$，并且在$x_0$的一个足够小的邻域内有$f(x) > 0$，也就是$f(x) = |f(x)|$，从而
+\begin{equation}
+    \lim_{x \to x_0} |f(x)| = \lim_{x \to x_0} f(x) = A = |A|
+\end{equation}
+如果$A = 0$，那么依题意有$\displaystyle\lim_{x \to x_0} f(x) = 0$，那么对任意$\epsilon > 0$，存在$\delta > 0$，当$|x - x_0| < \delta$时有
+\begin{equation}
+    |f(x) - 0 | < \epsilon
+\end{equation}
+也就是
+\begin{equation}
+    |f(x)| < \epsilon
+\end{equation}
+也就是
+\begin{equation}
+    |f(x)| - 0 < \epsilon
+\end{equation}
+也就是
+\begin{equation}
+    ||f(x)| - 0| < \epsilon
+\end{equation}
+那么依定义有$\displaystyle\lim_{x \to x_0} |f(x)| = 0$．又因为$A = 0$，所以$|A| = 0$，所以$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$．
+
+如果$A < 0$，那么在$x_0$的一个足够小去芯邻域$U_0(x_0, \delta_0), \, \delta_0 > 0$内有$f(x) < 0$，于是有$|f(x)|=-f(x)$，并且$|A|=-a$，从而对任意$\epsilon > 0$，我们有
+\begin{equation}
+    |f(x)| - |A| = -f(x) - (-A) = A - f(x) \leq |A - f(x)| = |f(x) - A| 
+\end{equation}
+而因为$\displaystyle\lim_{x \to x_0} f(x) = A$，所以存在$\delta > 0$，使得只要$|x-x_0|<\min\{\delta_0, \delta \} \leq \delta$就有
+\begin{equation}
+    |f(x)|-|A| \leq |f(x) - A| < \epsilon
+\end{equation}
+从而依定义有$\displaystyle\lim_{x \to x_0} |f(x)| = |A|$．
+\end{proof}
+
+(2)
+\begin{proof}
+设$M>0$为一有限数，并且$M>|A|$，那么对于足够小的$\epsilon$将会有
+\begin{equation}
+0 < |A| - \epsilon < |f(x)| < |A| + \epsilon < M
+\end{equation}
+由题（１）结论，对任意$\epsilon > 0$，存在$\delta > 0$，使得当$|x - x_0| < \delta$时，有
+\begin{equation}
+    ||f(x)|-|A||<\frac{\epsilon}{2M}
+\end{equation}
+注意到
+\begin{align}
+    ||f(x)||f(x)|-|A||A|| &= ||f(x)||f(x)| - |A||f(x)| + |A||f(x)| - |A||A|| \\
+    &\leq ||f(x)||f(x)| - |A||f(x)|| + ||f(x)||A|-|A||A|| \label{ieq:times}
+\end{align}
+应用$|A| < M, |f(x)| < M$，不等式(\ref{ieq:times})变为
+\begin{align}
+    ||f(x)||f(x)|-|A||A|| &\leq ||f(x)||f(x)| - |A||f(x)|| + ||f(x)||A|-|A||A|| \\
+    &< M||f(x)|-|A|| + |A|||f(x)|-|A|| \\
+    &<2M||f(x)|-|A|| < \epsilon
+\end{align}
+这就证明了$\displaystyle\lim_{x \to x_0} |f(x)|^2 = |A|^2$也就是$\displaystyle\lim_{x \to x_0} (f(x))^2 = A^2$．
+\end{proof}
+
+(3)
+\begin{proof}
+利用公式
+\begin{equation}
+    (\sqrt{f(x)}-\sqrt{A})(\sqrt{f(x)}+\sqrt{A})=f(x)-A
+\end{equation}
+得
+\begin{equation}
+    \sqrt{f(x)}-\sqrt{A} = \frac{f(x)-A}{\sqrt{f(x)}+\sqrt{A}}
+\end{equation}
+由于$\displaystyle\lim_{x \to x_0} f(x) = A$，所以函数$f$在$x_0$的足够小的邻域内是有界的，因而表达式$\sqrt{f(x)}+\sqrt{A}$也是有界的，不妨设这个下界为$M_1 \, (M_1 > 0)$．因为$\displaystyle\lim_{x \to x_0} f(x) = A$，所以对任意$\epsilon > 0$，存在$\delta > 0$，使得当$|x - x_0| < \delta$时有
+\begin{equation}
+    |f(x)-A|<M_1\epsilon
+\end{equation}
+所以
+\begin{equation}
+    |\sqrt{f(x)}-\sqrt{A}|=\bigg\lvert \frac{f(x)-A}{\sqrt{f(x)}+\sqrt{A}} \bigg\rvert < \frac{|f(x)-A|}{M_1} < \epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to x_0} \sqrt{f(x)} = \sqrt{A}$．
+\end{proof}
+
+(4)
+\begin{proof}
+利用公式
+\begin{equation}
+    f(x) - A = ((f(x))^\frac{1}{3})^3 - (A^\frac{1}{3})^3 = ((f(x))^\frac{1}{3}-A^\frac{1}{3})((f(x))^{\frac{2}{3}} + (f(x))^\frac{1}{3} A^\frac{1}{3} + A^\frac{2}{3})
+\end{equation}
+得
+\begin{equation}
+    (f(x))^\frac{1}{3}-A^\frac{1}{3} = \frac{f(x) - A}{(f(x))^{\frac{2}{3}} + (f(x))^\frac{1}{3} A^\frac{1}{3} + A^\frac{2}{3}}
+\end{equation}
+由于$\displaystyle\lim_{x \to x_0} f(x) = A$，所以函数$f$在$x_0$足够小的邻域内是有界的，因而表达式$(f(x))^{\frac{2}{3}} + (f(x))^\frac{1}{3} A^\frac{1}{3} + A^\frac{2}{3}$也是有界的，不妨设该表达式的下界为$M_1 \, (M_1 > 0)$．又因为$\displaystyle\lim_{x \to x_0} f(x) = A$，所以对任意$\epsilon > 0$，都存在$\delta > 0$，使得$|x - x_0| < \delta$时有
+\begin{equation}
+    |f(x) - A| < M_1 \epsilon
+\end{equation}
+所以
+\begin{equation}
+    |(f(x))^\frac{1}{3}-A^\frac{1}{3}| = \bigg\lvert \frac{f(x) - A}{(f(x))^{\frac{2}{3}} + (f(x))^\frac{1}{3} A^\frac{1}{3} + A^\frac{2}{3}} \bigg\rvert < \frac{|f(x)-A|}{M_1} < \epsilon
+\end{equation}
+这就说明$\displaystyle\lim_{x \to x_0} \sqrt[3]{f(x)} = \sqrt[3]{A}$．
+\end{proof}
+
+4. 用$\epsilon$-$\delta$语言证明：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{0.8\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to 2} x^3 = 8$; & (2)~$\displaystyle\lim_{x \to 3} \frac{x-3}{x^2-9} = \frac{1}{6}$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^4-1}{x-1} = 4$; & (4)~$\displaystyle\lim_{x \to 0} \sqrt{1+2x} = 1$; \\ [1em]
+       (5)~$\displaystyle\lim_{x \to 1^{+}} \displaystyle\frac{x-1}{\sqrt{x^2-1}} = 0$.
+      \end{tabularx}
+\end{table}
+
+(1)
+\begin{proof}
+因为
+\begin{equation}
+    x^3 - 8 = x^3 - 2^3 = (x-2)(x^2 + 2x + 2^2)
+\end{equation}
+并且因为$\displaystyle\lim_{x \to 2} x = 2$，所以在$2$的足够小的邻域内函数$x \longmapsto x$有界，所以函数$x \longmapsto x^2+2x+2^2$也有界，不妨设函数$x \longmapsto x^2+2x+2^2$在$2$的足够小的邻域内的上界是$M \, (M > 0)$．并且注意到$\displaystyle\lim_{x \to 2} x = 2$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，使得当$|x - 2| < \delta$的时候，有
+\begin{equation}
+    |x - 2| < \frac{\epsilon}{M}
+\end{equation}
+所以
+\begin{equation}
+    |x^3-8|=|(x-2)(x^2+2x+2^2)|=|x-2||x^2+2x+2^2|<\frac{\epsilon}{M}M=\epsilon
+\end{equation}
+所以$\displaystyle\lim_{x \to 2} x^3 = 8$．
+\end{proof} 
+
+(2)
+由于$x \to 3$不必使得$x = 3$，所以$x-3 \neq 0$，所以
+\begin{equation}
+    \lim_{x \to 3} \frac{x-3}{x^2 - 9} = \lim_{x \to 3} \frac{1}{x+3}
+\end{equation}
+易证$\displaystyle\lim_{x \to 3} 6(x+3)$存在，于是函数$x \longmapsto 6(x+3)$在$3$的足够小的去芯邻域$B(\check{3}, \delta_0)$内有界$(\delta_0 > 0)$，设$B(\check{3}, \delta_0)$内函数$x \longmapsto 6(x+3)$的下界是$M \, (M > 0)$，于是当$0<|x-3|<\delta_0$，有
+\begin{equation}
+    \bigg\lvert \frac{1}{x+3}-\frac{1}{6} \bigg\rvert= \bigg\lvert \frac{3-x}{6(x+3)} \bigg\rvert<\frac{|3-x|}{M}
+\end{equation}
+故对任意$\epsilon > 0$，我们只需取$\delta = \epsilon M$，那么当$0<|x-3|<\min\{\delta, \delta_0 \}$，有
+\begin{equation}
+    \bigg\lvert \frac{x-3}{x^2-9} - \frac{1}{6} \bigg\rvert = \bigg\lvert \frac{1}{x+3} - \frac{1}{6} \bigg\rvert < \frac{|3-x|}{M} < \frac{\epsilon M}{M} = \epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to 3} \displaystyle\frac{x-3}{x^2-9} = \displaystyle\frac{1}{6}$．
+
+(3)
+\begin{proof}
+当$0 < |x-1|$时，$x-1 \neq 0$，于是
+\begin{equation}
+    \lim_{x \to 1} \frac{x^4 - 1}{x-1} = \lim_{x \to 1} \left( 1 + x + x^2 + x^3 \right)
+\end{equation}
+由于对任意$n \in \nat$，$\displaystyle\lim_{x \to 1} x^n$存在并且等于$1$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，当$0 < |x - 1| < \delta$时
+\begin{align}
+    |x-1|< \frac{1}{3}\epsilon, \quad |x^2-1|<\frac{1}{3}\epsilon, \quad |x^3-1|<\frac{1}{3}\epsilon
+\end{align}
+同时成立．于是
+\begin{align}
+    &|1+x+x^2+x^3-4| = |x - 1 + x^2 - 1 + x^3 - 1| < |x-1| + |x^2-1| + |x^3 - 1| \\
+    &< \frac{1}{3}\epsilon + \frac{1}{3}\epsilon + \frac{1}{3}\epsilon = \epsilon
+\end{align}
+这说明$\displaystyle\lim_{x \to 1} \left(1 + x + x^2 + x^3\right) = 4$也就是$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^4-1}{x-1} = 4$．
+\end{proof}
+
+(4)
+\begin{proof}
+注意到
+\begin{equation}
+    (\sqrt{1+2x} - 1)(\sqrt{1+2x} + 1) = 2x
+\end{equation}
+所以，只需取$\delta = \min \{ \displaystyle\frac{1}{2}, \frac{\epsilon}{4} \}$，那么当$0 < |x-0| < \delta$时，就有
+\begin{equation}
+    |\sqrt{1+2x} - 1| = |\frac{2x}{\sqrt{1+2x} + 1}| \leq |2x| = 2|x| < 2\delta \leq \frac{\epsilon}{2} < \epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to 0} \sqrt{1+2x} = 1$．
+\end{proof}
+
+(5)
+\begin{proof}
+变换得
+\begin{equation}
+    \lim_{x \to 1^+} \frac{x-1}{\sqrt{x^2-1}} = \lim_{x \to 1^+} \frac{x-1}{\sqrt{x-1}\sqrt{x+1}} = \lim_{x \to 1^+} \frac{\sqrt{x-1}}{\sqrt{x+1}}
+\end{equation}
+只需取$\delta = \displaystyle\frac{\epsilon^2}{4}$，那么当$0 < x - 1 < \delta$时有
+\begin{equation}
+    \bigg\lvert \frac{\sqrt{x-1}}{\sqrt{x+1}} \bigg\rvert = \frac{|\sqrt{x-1}|}{|\sqrt{x+1}|} < \frac{|\sqrt{x-1}|}{1} = |\sqrt{x-1}| = \sqrt{x-1} < \sqrt{\delta} = \sqrt{\displaystyle\frac{\epsilon^2}{4}} = \frac{\epsilon}{2} < \epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to 1^+} \displaystyle\frac{x-1}{\sqrt{x^2-1}} = 0$.
+\end{proof}
+
+5. 设
+\begin{equation}
+    f(x) = \begin{cases}
+        x^2, & x \geq 2, \\
+        -ax, & x < 2
+    \end{cases}
+\end{equation}
+\begin{enumerate}
+    \item 求$f(2+)$与$f(2-)$；
+    \item 若$\displaystyle\lim_{x \to 2} f(x)$存在，$a$应取何值？
+\end{enumerate}
+
+(1)
+\begin{proof}
+    对任意$\epsilon > 0$，取$\delta = \min \{ 4, \displaystyle\frac{\epsilon}{16} \}$，那么对所有$x \, (0 < x - 2 < \delta)$就都有
+    \begin{align}
+        |x^2 - 4| &= |x-2||x+2| = |x-2||x-2 + 2 +2| \leq |x-2||x-2| + 4|x-2| \\
+        &< 4|x-2| + 4|x-2| = 8|x-2| \leq 8 \delta = 8 \cdot \frac{\epsilon}{16} = \frac{\epsilon}{2} < \epsilon
+    \end{align}
+这就证明了$\displaystyle\lim_{x \to 2+} x^2 = 4$．
+\end{proof}
+
+\begin{proof}
+设$|a| \neq 0$，则对任意$\epsilon > 0$，取$\delta = \displaystyle\frac{\epsilon}{2|a|}$，那么当$0 < 2 - x < \delta$时就有
+\begin{align}
+|-ax - (-2a)| = |-ax + 2a| = |a||2-x| \leq |a|\delta = |a| \cdot \frac{\epsilon}{2 |a|} = \frac{\epsilon}{2} < \epsilon
+\end{align}
+这就证明了$\displaystyle\lim_{x \to 2^-} -ax = -2a$．($|a| \neq 0$)
+\end{proof}
+
+当$|a|=0$时，$f(x) = -ax = 0 \, (x < 2)$，对任意$\epsilon > 0$，取$\delta = 1$，那么当$0 < 2 - x < \delta$时有
+\begin{align}
+    |-ax - 0| = |0 - 0| = |0| = 0 < \epsilon
+\end{align}
+这说明如果$|a|=0$，那么$\displaystyle\lim_{x \to 2^-} -ax = 0$．
+
+(2) 解：应有$\displaystyle \lim_{x \to 2^+} f(x) = \displaystyle\lim_{x \to 2^-} f(x)$．如果$|a| = 0$，那么根据上述论证，将会有$\displaystyle\lim_{x \to 2^+} f(x) = 4 \neq \displaystyle\lim_{x \to 2^-} f(x) = 0$，故$|a|\neq 0$．
+
+当$|a| \neq 0$时，由$\displaystyle\lim_{x \to 2^+} f(x) = \displaystyle\lim_{x \to 2^-} f(x)$得
+\begin{equation}
+    4 = -2a
+\end{equation}
+解出$a = -2$．
+
+6. 设$\displaystyle\lim_{x \to x_0} f(x) > a$．求证：当$x$足够靠近$x_0$但$x \neq x_0$时，$f(x) > a$．
+
+\begin{proof}
+设$\displaystyle\lim_{x \to x_0} f(x) = A$，取$\epsilon_0 = \displaystyle\frac{A-a}{2}$，此时有$\epsilon_0 > 0$．由于$\displaystyle\lim_{x \to x_0} f(x) = A$，故对于$\epsilon_0 > 0$，存在$\delta > 0$，使得使得对所有$x \, (0 < |x-x_0| \leq \delta)$都有
+\begin{equation}
+    |f(x)-A|<\epsilon_0
+\end{equation}
+将绝对值展开也就是
+\begin{equation}
+    A-\epsilon_0 < f(x) < A+\epsilon
+\end{equation}
+由于$\epsilon_0=\displaystyle\frac{A-a}{2}$，所以$a = A - 2\epsilon_0$，而$A-2\epsilon_0 < A - \epsilon_0 < f(x)$，所以$a < f(x)$．
+
+这就证明了当$x$在$x_0$足够小的邻域内取值时恒有$f(x) > a$．
+\end{proof}
+
+7. 设$f(x_0 -) < f(x_0 +)$．求证：存在$\delta > 0$，使得当
+\begin{equation}
+    x \in (x_0 - \delta, x_0), \quad y \in (x_0, x_0 + \delta)
+\end{equation}
+时，有$f(x) < f(y)$．
+
+\begin{proof}
+设$A = f(x_0 -) = \displaystyle\lim_{x \to x_0^-} f(x)$，设$B = f(x_0 +) = \displaystyle\lim_{x \to x_0^+} f(x)$．令$d = B - A$，由于$f(x_0 +) > f(x_0 -)$，所以$B > A$，所以$d > 0$．取$\epsilon_0 = \displaystyle\frac{d}{3}$，那么由于$\displaystyle\lim_{x \to x_0^-} f(x) = A$，所以，存在$\delta_1 > 0$，使得当$0 < x_0 - x < \delta_1$时，有
+\begin{align}
+    |f(x) - A|<\epsilon_0
+\end{align}
+也就是
+\begin{align}
+    A - \epsilon_0 < f(x) < A + \epsilon_0
+\end{align}
+又由于$\displaystyle\lim_{x \to x_0^+} f(x) = B$，所以，存在$\delta_2 > 0$，使得对任意的$y \, (0 < y - x_0 < \delta_2)$，有
+\begin{equation}
+    B - \epsilon_0 < f(y) < A + \epsilon_0
+\end{equation}
+由于$\epsilon_0 = \displaystyle\frac{B-A}{3}$，所以
+\begin{align}
+    A + \epsilon = A + \frac{B-A}{3} < B - \frac{B-A}{3} = B-\epsilon_0
+\end{align}
+这说明$f(x) < f(y)$．
+\end{proof}
+
+8. 设$f$在$(-\infty, x_0)$上是递增的，并且存在一个数列$\{ x_n \}$满足$x_n < x_0 \, (n = 1,2,\cdots), x_n \to x_0, \, (n \to \infty)$，且使得
+\begin{equation}
+    \lim_{x \to \infty} f(x_n) = A.
+\end{equation}
+求证：$f(x_0 -) = A$．
+
+\begin{proof}
+由于$\displaystyle\lim_{n \to \infty} f(x_n) = A$，所以数列$\{ f(x_n) \}$是一个柯西列，也就是说，对任意给定的$\epsilon > 0$，都存在$N_0(\epsilon) \in \nat$，使得对所有$p \in \nat$，都有
+\begin{equation}
+    |f(x_{N_0+p}) - f(x_{N_0})|<\epsilon
+    \label{eq:ptoinfinity}
+\end{equation}
+让式(\ref{eq:ptoinfinity})中的$p$趋于无穷，我们得到
+\begin{equation}
+    |f(x_{N_0}) - f(x_0)|<\epsilon
+\end{equation}
+因为极限的唯一性，得到$f(x_0)=A$．又因为$x_{N_0}<x_0$以及$f$的单调性，得
+\begin{equation}
+    0 < f(x_0) - f(x_{N_0}) < \epsilon
+\end{equation}
+故只要取$\delta = x_0 - x_{N_0}$，那么当$0 < x_0 - x < \delta$的时候就有$x_{N_0}<x<x_0$，再利用函数$f$的单调性就可推出
+\begin{equation}
+    |f(x)-f(x_0)|<\epsilon
+\end{equation}
+这就证明了$\displaystyle\lim_{x \to x_0^-} f(x) = A$．
+\end{proof}
+
+9. 用肯定的语气表达``当$x \to x_0$时，$f(x)$不收敛于$l$''．
+
+答：存在$\epsilon_0 > 0$，对任意$\delta > 0$，都存在$x$满足$|x-x_0|<\delta$并且$|f(x)-x_0|\geq\epsilon_0$．
+
+10. 对任何$n \in \nat$，$A_n \subset [0,1]$是有限集，且$A_i \bigcap A_j = \emptyset \; (i \neq j, \, i,j \in \nat)$．定义函数
+\begin{equation}
+    f(x) = \begin{cases}
+        \displaystyle\frac{1}{n}, & x \in A_n , \\
+        0, & x \in [0,1], \, x \not\in A_n.
+    \end{cases}
+\end{equation}
+对任意的$x_0 \in [0,1]$，求极限$\displaystyle\lim_{x \to x_0} f(x)$．
+
+\begin{proof}
+对任意$\epsilon > 0$和$n \in \nat$，存在足够大的正整数$q_0$使得$\displaystyle\frac{1}{q_0}$，由于只有当$x \in \displaystyle\bigcap_{n=1}^{q_0} A_n$时才有$f(x) \geq \displaystyle\frac{1}{q_0}$，所以这意味着，只有有限多个$x$的取值能够使得$f(x) \geq \displaystyle\frac{1}{q_0}$，于是又存在足够大的正整数$q_1$，满足$q_1 > q_0$，并且对任意$x \in B(\check{x_0}, \displaystyle\frac{1}{q_1})$且$x \in A_n$都有$f(x) < \displaystyle\frac{1}{q_0}$，而对于$x \in B(\check{x_0}, \displaystyle\frac{1}{q_1})$依定义有$f(x) = 0$，从而，取$\delta = \displaystyle\frac{1}{q_1}$，则对于任何实数$x \in B(\check{x_0}, \delta)$，都有$0 \leq |f(x) - 0| < \epsilon$．于是这就证明了$\displaystyle\lim_{x \to x_0} f(x) = 0 \, (\forall x \in [0,1])$．
+\end{proof}
+
+11. 计算下列极限
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to 2}\displaystyle\frac{1+x-x^3}{1+x^2}$; & (2)~$\displaystyle\lim_{x \to 1}\displaystyle\frac{x^2-2x+1}{x^2-x}$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to 1}\displaystyle\frac{x^m-1}{x-1}$; & (4)~$\displaystyle\lim_{x \to 1}\displaystyle\frac{x^m-1}{x^n-1}$; \\ [1em]
+       (5)~$\displaystyle\lim_{x \to 0}\displaystyle\frac{\sqrt{1+x}-1}{x}$; & (6)~$\displaystyle\lim_{x \to 0}\displaystyle\frac{\sqrt{1+x}-\sqrt{1-x}}{x}$; \\ [1em]
+       (7)~$\displaystyle\lim_{x \to 0}\displaystyle\frac{(1+x)^{1/m}-1}{x}$; & (8)~$\displaystyle\lim_{x \to 1}\displaystyle\frac{x+x^2+\cdots+x^m-m}{x-1}$.
+      \end{tabularx}
+\end{table}
+
+(1) 解：
+\begin{align}
+    \text{原式} &= \displaystyle\frac{\displaystyle\lim_{x \to 2} 1+x-x^3}{\displaystyle\lim_{x \to 2} 1+x^2} = \displaystyle\frac{-5}{5} = -1.
+\end{align}
+
+(2) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 1} \displaystyle\frac{(x-1)^2}{x(x-1)} = \lim_{x \to 1} \displaystyle\frac{x-1}{x} = \displaystyle\frac{\displaystyle\lim_{x \to 1} x-1}{\displaystyle\lim_{x \to 1} x} = \frac{0}{1} = 0.
+\end{align}
+
+(3) 解：当$m=0$时
+\begin{equation}
+    \frac{x^m-1}{x-1} = \frac{1-1}{x-1} = 0 \quad (x \neq 1)
+\end{equation}
+此时$\displaystyle\lim_{x \to 1} \displaystyle\frac{x^m-1}{x-1}=0$．
+
+当$m$取正整数时
+\begin{align}
+    \lim_{x \to 1}\displaystyle\frac{x^m-1}{x-1} = \displaystyle\lim_{x \to 1} 1+x+\cdots+x^{m-1} = \sum_{i=0}^{m-1} \lim_{x \to 1} x^i = \sum_{i=0}^{m-1} 1 = m.
+\end{align}
+
+当$m$取负整数时
+\begin{align}
+    \lim_{x \to 1}\displaystyle\frac{x^m-1}{x-1} &= \lim_{x \to 1} \displaystyle\frac{\displaystyle\frac{1}{x^{-m}}-1}{x-1} = - \lim_{x \to 1} \displaystyle\frac{x^{-m}-1}{x^{-m}(x-1)} \\
+    &=- \lim_{x \to 1} \displaystyle\frac{1}{x^{-m}} \frac{x^{-m}-1}{x-1} = -\left( \lim_{x \to 1} \displaystyle\frac{1}{x^{-m}} \right) \left( \lim_{x \to 1} \displaystyle \frac{x^{-m}-1}{x-1} \right) \\
+    &= - 1 \cdot (-m)  = m .
+\end{align}
+
+(4) 解：当$n=0$时，$x^n-1 = 1 - 1 = 0$，表达式$\displaystyle\frac{x^m-1}{x^n-1}$无意义．假设$n , m \in \integer, n \neq 0$．
+\begin{align}
+    \lim_{x \to 1} \frac{x^m-1}{x^n-1} = \frac{\displaystyle\lim_{x \to 1} x^m-1}{\displaystyle\lim_{x \to 1} x^n-1} = \frac{m}{n}.
+\end{align}
+
+(5) 解：
+
+\begin{align}
+    \lim_{x \to 0} \frac{\sqrt{1+x}-1}{x} &= \lim_{x \to 0} \frac{\sqrt{1+x} - 1}{(\sqrt{1+x} - 1)(\sqrt{1+x}+1)} = \lim_{x \to 0} \frac{1}{\sqrt{1+x}+1} \\
+    &= \frac{\displaystyle\lim_{x \to 0} 1}{\displaystyle\lim_{x \to 0} \sqrt{1+x} + 1} = \frac{1}{2}.
+\end{align}
+
+(6) 解：
+
+\begin{align}
+    \lim_{x \to 0} \frac{\sqrt{1+x}-\sqrt{1-x}}{x} &= \lim_{x \to 0} \frac{\sqrt{1+x}-1}{x} - \lim_{x \to 0} \frac{\sqrt{1-x}-1}{x} \\
+    &= \lim_{x \to 0} \frac{1}{\sqrt{1+x}+1} - \lim_{x \to 0} - \frac{1}{\sqrt{1-x}+1} \\
+    &= \frac{1}{2} - (-\frac{1}{2}) = 1.
+\end{align}
+
+(7) 解：当$m$取正整数时
+
+\begin{align}
+    \lim_{x \to 0} \frac{(1+x)^{1/m}-1}{x} = \lim_{x \to 0} \frac{(1+x)^{1/m}-1}{1+x-1} = \lim_{x \to 0} \frac{(1+x)^{1/m}-1}{(1+x)^{m/m}-1}
+\end{align}
+令$q = 1+x$，得到
+\begin{align}
+    \text{原式} &= \lim_{q \to 1} \frac{q-1}{q^m-1} = \lim_{q \to 1} \frac{q-1}{(q-1)(q^{m-1}+\cdots+1)} = \lim_{q \to 1} \frac{1}{q^{m-1}+\cdots+1} = \frac{1}{m}
+\end{align}
+
+当$m$取负整数时
+
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{(1+x)^{-\displaystyle\frac{1}{-m}}-1}{1+x-1} = \lim_{x \to 0} \frac{1 - (1+x)^{\displaystyle\frac{1}{-m}}}{(1+x)^{\displaystyle\frac{1}{-m}} (1+x-1)} \\
+    &= - \lim_{x \to 0} \frac{(1+x)^{\displaystyle\frac{1}{-m}}-1}{(1+x)-1} \lim_{x \to 0} \frac{1}{(1+x)^{\displaystyle\frac{1}{-m}}} = - \left( - \frac{1}{m} \right) \cdot 1 = \frac{1}{m}.
+\end{align}
+
+(8) 解：设$m$为正整数
+
+\begin{align}
+    \text{原式} &= \lim_{x \to 1} \frac{x-1 + x^2-1 + \cdots + x^m - 1}{x-1} \\
+    &= \lim_{x \to 1} \frac{x-1}{x-1} + \lim_{x \to 1} \frac{x^2-1}{x-1} + \cdots + \lim_{x \to 1} \frac{x^m-1}{x-1} \\
+    &= 1 + 2 + \cdots + m = \frac{m(m+1)}{2}.
+\end{align}
+
+12. 求下列极限：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{\sin \, ax}{\sin \, bx} \; (b \neq 0)$; & (2)~$\displaystyle\lim_{x \to 0}\displaystyle\frac{x^2}{1-\cos \, x}$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to 0} \frac{\sin \, \sin \, x}{x}$; & (4)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{\tan \, x}{x}$; \\ [1em]
+       (5)~$\displaystyle\lim_{h \to 0} \sin \, \left(x+h\right)$; & (6)~$\displaystyle\lim_{h \to 0} \displaystyle\frac{\sin \, \left(x+h\right)-\sin \, x}{h}$; \\ [1em] 
+       (7)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{1-\cos \, x \cdot \cos \, 2x \cdots \cos \, nx}{x^2}$; & (8)~$\displaystyle\lim_{n \to \infty} \cos \, \displaystyle\frac{x}{2} \, \cdot \cos \, \displaystyle\frac{x}{4} \cdots \cos \, \displaystyle\frac{x}{2^n}$.
+      \end{tabularx}
+\end{table}
+
+(1) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{\sin \, ax}{\sin \, bx} = \lim_{x \to 0} \frac{\sin \, ax}{ax} \cdot \frac{\displaystyle\frac{a}{b} \cdot bx}{\sin \, bx} = \lim_{x \to 0}\frac{\sin \, ax}{ax} \cdot \frac{a}{b} \lim_{x \to 0} \frac{bx}{\sin \, bx} \\
+    &= 1 \cdot \frac{a}{b} \cdot 1 = \frac{a}{b}.
+\end{align}
+
+(2) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{x^2}{\displaystyle\frac{1-(\cos \, x)^2}{1+\cos \, x}} = \lim_{x \to 0} \frac{x^2 (1+\cos \, x)}{(\sin \, x)^2} = \lim_{x \to 0} \left(\frac{x}{\sin \, x}\right)^2 \cdot \lim_{x \to 0} 1 + \cos \, x \\
+    &= \lim_{x \to 0} \frac{x}{\sin \, x} \cdot \lim_{x \to 0} \frac{x}{\sin \, x} \cdot \lim_{x \to 0} 1+\cos \, x= 1 \cdot 1 \cdot 2 = 2.
+\end{align}
+
+(3) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{\sin \, \sin \, x}{x} = \lim_{x \to 0} \frac{\sin \, \sin \, x}{\sin \, x} \cdot \frac{\sin \, x}{x} = \lim_{x \to 0} \frac{\sin \, \sin \, x}{\sin \, x} \cdot \lim_{x \to 0} \frac{\sin \, x}{x} \\
+    &= 1 \cdot 1 = 1.
+\end{align}
+
+(4) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{\tan \, x}{x} = \lim_{x \to 0} \frac{\sin \, x}{x \cdot \cos \, x} = \lim_{x \to 0} \frac{\sin \, x}{x} \cdot \lim_{x \to 0} \frac{1}{\cos \, x} = 1 \cdot 1 = 1.
+\end{align}
+
+(5) 解：
+\begin{align}
+    \text{原式} &= \lim_{h \to 0} \sin \, x \cdot \cos \, h + \sin \, h \cdot \cos \, x \\
+    &= \lim_{h \to 0} \sin \, x \cdot \cos \, h + \lim_{h \to 0} \sin \, h \cdot \cos \, x \\
+    &= \sin \, x \lim_{h \to 0} \cos \, h + \cos \, x \lim_{h \to 0} \sin \, h \\
+    &= \sin \, x + \cos \, x \cdot 0 = \sin \, x.
+\end{align}
+
+(6) 解：
+\begin{align}
+    \text{原式} &= \lim_{h \to 0} \frac{\sin \, x \left(\cos \, h - 1\right) + \sin \, h \cdot \cos \, x}{h} \\
+    &= \lim_{h \to 0} \frac{\sin \, x \cdot \left(-2 (\sin \, \displaystyle\frac{h}{2} )^2 \right) + \sin \, h \cdot \cos \, x}{h} \\
+    &= \lim_{h \to 0} \sin \, x \cdot \frac{-2 \left(\sin \, \displaystyle\frac{h}{2}\right)^2}{h} + \lim_{h \to 0} \frac{\sin \, h \cdot \cos \, x}{h} \\
+    &= - \sin \, x \lim_{h \to 0} \frac{\sin \, \displaystyle\frac{h}{2}}{\displaystyle\frac{h}{2}} \cdot \left(\sin \, \displaystyle\frac{h}{2}\right) + \cos \, x \lim_{h \to 0} \frac{\sin \, h}{h} \\
+    &= - \sin \, x \cdot \lim_{h \to 0} \displaystyle\frac{\sin \, \displaystyle\frac{h}{2}}{\displaystyle\frac{h}{2}} \cdot \lim_{h \to 0} \sin \, \displaystyle\frac{h}{2} + \cos \, x \cdot \lim_{h \to 0} \displaystyle\frac{\sin \, h}{h} \\
+    &= - \sin \, x \cdot 1 \cdot 0 + \cos \, x \cdot 1 = \cos \, x.
+\end{align}
+
+(7) 解：当$n=1$时，由已知结论，极限为$\displaystyle\frac{1}{2}$．当$n=2$，极限为
+\begin{align}
+\text{原式} &= \lim_{x \to 0} \displaystyle\frac{1-\cos \, x \cos \, 2x}{x^2} = \lim_{x \to 0} \frac{1 - \cos \, x + (1 - \cos \, x \cos \, 2x) - (1 - \cos \, x)}{x^2} \\
+&= \lim_{x \to 0} \frac{1 - \cos \, x + \cos \, x (1 - \cos \, 2x)}{x^2} = \lim_{x \to 0} \frac{1 - \cos \, x}{x^2} + \lim_{x \to 0} \cos \, x \cdot \lim_{x \to 0} \frac{1-\cos \, 2x}{x^2} \\
+&= \frac{1}{2} + 1 \cdot \lim_{x \to 0} \frac{1-\cos \, 2x}{x^2} = \frac{1}{2} + \lim_{x \to 0} \frac{1-\cos \, 2x}{x^2} = \frac{1}{2} + \lim_{x \to 0} \left( 4 \cdot \frac{1-\cos \, 2x}{4x^2} \right) \\
+&= \frac{1}{2} + 4 \cdot \lim_{x \to 0} \cdot \frac{1-\cos \, 2x}{4x^2} = \frac{1}{2} + 4 \cdot \lim_{x \to 0} \cdot \frac{1-\cos \, 2x}{(2x)^2} = \frac{1}{2} + 4 \cdot \frac{1}{2} = \frac{5}{2}
+\end{align}
+
+当$n=3$，极限为
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x \cos \, 3x}{x^2} \\
+    &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x + (1-\cos \, x \cos \, 2x \cos \, 3x) - (1-\cos \, x \cos \, 2x)}{x^2} \\
+    &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x + \cos \, x \cos \, 2x(1-\cos \, 3x)}{x^2} \\
+    &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x}{x^2} + \lim_{x \to 0} \cos \, x \cos \, 2x \cdot \lim_{x \to 0} \frac{1-\cos \, 3x}{x^2} \\
+    &= \frac{5}{2} + 1 \cdot \lim_{x \to 0} \left( 9 \cdot \frac{1-\cos \, 3x}{9 x^2} \right) = \frac{5}{2} + 9 \cdot \lim_{x \to 0} \frac{1-\cos \, 3x}{(3x)^2} \\
+    &= \frac{5}{2} + 9 \cdot \frac{1}{2} = 7
+\end{align}
+我们注意到这样的规律，记$L(n) = \displaystyle\lim_{x \to 0} \displaystyle\frac{1-\cos \, x \cos \, 2x \cdots \cos \, nx}{x^2}, \; (n \in \nat)$，则有
+\begin{align}
+L(1) &= \frac{1}{2} \\
+L(2) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} = \frac{5}{2} \\
+L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
+\end{align}
+由此受到启发：猜测对于一般的$n \in \nat$都有$L(n) = \displaystyle\frac{1}{2} + 2^2 \cdot \displaystyle\frac{1}{2} + 3^2 \cdot \displaystyle\frac{1}{2} + \cdots + n^2 \cdot \displaystyle\frac{1}{2}$成立．
+
+\begin{proof}
+采用数学归纳法，假设对于某一个$k \in \nat$，当$n=k$时，$L(n) = \displaystyle\frac{1}{2} \sum_{i=1}^n i^2$成立．那么当$n$取$n=k+1$时
+\begin{align}
+    L(k+1) &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x \cdots \cos \, (k+1)x}{x^2} \\
+    &= \lim_{x \to 0} \frac{1-\cos \, x \cos \, 2x \cdots \cos \, kx + \left(\displaystyle\prod_{t=1}^{k} \cos \, tx \right)\left(1-\cos \, (k+1)x\right)}{x^2} \\
+    &= L(k) + \left(\lim_{x \to 0} \displaystyle\prod_{t=1}^{k} \cos \, tx \right) \cdot \lim_{x \to 0} \frac{1-\cos \, (k+1)x}{x^2} \\
+    &= L(k) + 1 \cdot \lim_{x \to 0} \frac{1-\cos \, (k+1)x}{x^2} \\
+    &= L(k) + (k+1)^2 \lim_{x \to 0} \frac{1-\cos \, (k+1)x}{((k+1)x)^2} = L(k) + (k+1)^2 \cdot \frac{1}{2} = \frac{1}{2} \sum_{i=1}^{k+1} i^2.
+\end{align}
+那么根据数学归纳法原理，$L(n) = \displaystyle\frac{1}{2}\displaystyle\sum_{i=1}^n i^2$对一切$n \in \nat$成立．
+\end{proof}
+
+(8) 解：反复对$\sin \, x$应用正弦二倍角公式，我们发现：
+\begin{align}
+    \sin \, x & = 2 \cos \, \frac{x}{2} \sin \, \frac{x}{2} \\
+    &= 4 \cos \, \frac{x}{2} \cos \, \frac{x}{4} \sin \, \frac{x}{4} \\
+    &= 8 \cos \, \frac{x}{2} \cos \, \frac{x}{4} \cos \, \frac{x}{8} \sin \, \frac{x}{8} \\
+    &\cdots
+\end{align}
+由此受到启发，猜测对一般的$n \in \nat$，有$\sin \, x = 2^n \sin \, \displaystyle\frac{x}{2^n} \displaystyle\prod_{i=1}^n \cos \, \displaystyle\frac{x}{2^i}$成立．
+\begin{proof}
+当$n=1$时，依正弦二倍角公式命题成立．现假设对某个$k \in \nat$，命题成立，那么
+\begin{align}
+    \sin \, x &= 2^{k} \sin \, \displaystyle\frac{x}{2^k} \prod_{i=1}^k \cos \, \frac{x}{2^i} \\
+    &= 2^{k} \cdot 2 \sin \, \left( 2 \cdot \frac{x}{2^{k+1}} \right) \prod_{i=1}^k \cos \, \frac{x}{2^i} \\
+    &= 2^{k+1} \sin \, \frac{x}{2^{k+1}} \cos \, \frac{x}{2^{k+1}} \prod_{i=1}^{k} \cos \, \frac{x}{2^i} \\
+    &= 2^{k+1} \sin \, \frac{x}{2^{k+1}} \prod_{i=1}^{k+1} \cos \, \frac{x}{2^{i}}
+\end{align}
+那么依数学归纳法原理，对任意$n \in \nat$命题都成立．
+\end{proof}
+
+利用上述结论，得到
+\begin{align}
+    &\mathrel{\phantom{=}} \lim_{n \to \infty} \cos \, \frac{x}{2} \cos \, \frac{x}{4} \cdots \cos \, \frac{x}{2^n} \\
+    &= \lim_{n \to \infty} \prod_{i=1}^n \cos \, \frac{x}{2^i} = \lim_{n \to \infty} \frac{\sin \, x}{2^{n} \sin \, \displaystyle\frac{x}{2^n}} = \lim_{n \to \infty} \frac{\sin \, x}{x} \cdot \frac{\displaystyle\frac{x}{2^n}}{\sin \, \displaystyle\frac{x}{2^n}} \\
+    &= \frac{\sin \, x}{x} \cdot \lim_{n \to \infty} \displaystyle \frac{1}{\displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \frac{\sin \, x}{x} \cdot \frac{\displaystyle\lim_{n \to \infty} 1}{\displaystyle\lim_{n \to \infty} \displaystyle\frac{\sin \, \displaystyle\frac{x}{2^n}}{\displaystyle\frac{x}{2^n}}} = \displaystyle\frac{\sin \, x}{x} \cdot \displaystyle\frac{1}{1} = \frac{\sin \, x}{x}.
+\end{align}
+
+13. 求下列极限：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to 0} x \bigg\lfloor \displaystyle \frac{1}{x} \bigg\rfloor$; & (2)~$\displaystyle \lim_{x \to 2^+} \displaystyle\frac{\lfloor x \rfloor^2 - 4}{x^2 - 4}$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to 2^-} \displaystyle\frac{\lfloor x \rfloor^2 + 4}{x^2 + 4}$; & (4)~$\displaystyle\lim_{x \to 1^-} \displaystyle\frac{\lfloor 4x \rfloor}{1+x}$.
+    \end{tabularx}
+\end{table}
+
+(1) 解：当$x > 0$时，令$t = \displaystyle\frac{1}{x}$，则$t > 0$，并且
+\begin{equation}
+    x \bigg \lfloor \frac{1}{x} \bigg\rfloor = \frac{\lfloor t \rfloor}{t}
+\end{equation}
+由于$\lfloor t \rfloor \leq t$，所以$\displaystyle\frac{\lfloor t \rfloor}{t} \leq 1$，所以$x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor \leq 1$．又由于$t < \lfloor t \rfloor + 1$，所以$1 < \displaystyle\frac{\lfloor t \rfloor + 1}{t}$，所以$1 < \displaystyle\frac{\lfloor t \rfloor}{t} + \displaystyle\frac{1}{t}$，所以$1 - \displaystyle\frac{1}{t} < \displaystyle\frac{\lfloor t \rfloor}{t}$，所以$1-x < x \bigg \lfloor \displaystyle\frac{1}{x} \bigg\rfloor$．
+
+于是当$x > 0$时
+\begin{equation}
+    1-x < x \bigg\lfloor \frac{1}{x} \bigg\rfloor \leq 1
+\end{equation}
+从而
+\begin{equation}
+    \lim_{x \to 0^+} 1 - x \leq \lim_{x \to 0^+} x \bigg\lfloor \frac{1}{x} \bigg\rfloor \leq \lim_{x \to 0^+} 1
+\end{equation}
+又由于$\displaystyle\lim_{x \to 0^+} 1-x = \displaystyle\lim_{x \to 0^+} 1 = 1$，所以$\displaystyle\lim_{x \to 0^+} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$．
+
+当$x < 0$时，令$t = \displaystyle\frac{1}{x}$，则$t < 0$．由于$\lfloor t \rfloor \leq t$，又由于$t<0$，所以$\displaystyle\frac{\lfloor t \rfloor}{t} \geq 1$．由于$t < \lfloor t \rfloor + 1 \leq 0$，所以$1 > \displaystyle\frac{\lfloor t \rfloor + 1}{t}$，所以$1 > \displaystyle\frac{\lfloor t \rfloor}{t} + \displaystyle\frac{1}{t}$，所以$1 > x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor + x$，所以$1-x > x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor$．于是当$x < 0$时
+\begin{equation}
+    1 \leq x \bigg\lfloor \frac{1}{x} \bigg\rfloor < 1-x
+\end{equation}
+依夹逼定理得$\displaystyle\lim_{x \to 0^-} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$．
+
+由于$\displaystyle\lim_{x \to 0^+} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1 = \displaystyle\lim_{x \to 0^-} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor$，所以$\displaystyle\lim_{x \to 0} x \bigg\lfloor \displaystyle\frac{1}{x} \bigg\rfloor = 1$.
+
+(2). 解：将原式等价改写为
+\begin{align}
+    \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - 4}{x^2-4} &= \lim_{x \to 2^+} \frac{x^2-4 + (\lfloor x \rfloor^2 - 4) - (x^2 - 4)}{x^2 - 4} \\
+    &= 1 + \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - x^2}{x^2 - 4} = 1 + \lim_{x \to 2^+} \frac{(\lfloor x \rfloor - x)(\lfloor x \rfloor + x)}{(x-2)(x+2)}
+\end{align}
+对任意$\epsilon > 0$，取$\delta = 1/2$，那么当$0 < x - 2 < \delta$时，会有$2 < x < 2.5$，从而$\lfloor x \rfloor = 2$，从而
+\begin{equation}
+    \lim_{x \to 2^+} \frac{(\lfloor x \rfloor - x)(\lfloor x \rfloor + x)}{(x-2)(x+2)} = \lim_{x \to 2^+} \frac{(2-x)(2+x)}{(x-2)(x+2)} = \lim_{x \to 2^+} -1 = -1
+\end{equation}
+从而
+\begin{equation}
+    \lim_{x \to 2^+} \frac{\lfloor x \rfloor^2 - 4}{x^2-4} = 1 + \lim_{x \to 2^+} \frac{(\lfloor x \rfloor - x)(\lfloor x \rfloor + x)}{(x-2)(x+2)} = 1 + (-1) = 0.
+\end{equation}
+
+(3). 解：对任意$\epsilon > 0$，取$\delta_1 = 0.5$，那么当$0 < 2-x < \delta_1 = 0.5$时，有$1.5 < x < 2$，从而$\lfloor x \rfloor = 1$，从而
+\begin{equation}
+    |\lfloor x \rfloor^2 + 4 - 5| = |1 + 4 - 5| = 0 < \epsilon
+\end{equation}
+这说明$\displaystyle\lim_{x \to 2^-} \lfloor x \rfloor^2 + 4 = 5$．
+
+对任意$\epsilon > 0$，取$\delta_2 = \min \{ 1, \displaystyle\frac{\epsilon}{8} \}$，那么当$0 < 2 - x < \delta_2 = 1$时，有$1 < x < 2$，从而有$|x+2| < 4$，从而有
+\begin{equation}
+    |x^2 + 4 - 8| = |x^2 - 4| = |x-2||x+2| < 4 |x-2| < 4 \cdot \frac{\epsilon}{8} = \frac{\epsilon}{2} < \epsilon
+\end{equation}
+这说明$\displaystyle\lim_{x \to 2^-} x^2 + 4 = 8$．
+
+综上有
+\begin{align}
+    \lim_{x \to 2^-} \frac{\lfloor x \rfloor^2 + 4}{x^2 + 4} = \frac{\displaystyle\lim_{x \to 2^-} \lfloor x \rfloor^2 + 4}{\displaystyle\lim_{x \to 2^-} x^2 + 4} = \frac{5}{8}.
+\end{align}
+
+(4) 解：做代换$t = 4x$，那么
+\begin{equation}
+    \lim_{x \to 1^-} \frac{\lfloor 4x \rfloor}{1+x} = \lim_{t \to 4^-} \frac{\lfloor t \rfloor}{1+\displaystyle\frac{t}{4}}
+\end{equation}
+对任意$\epsilon > 0$，取$\delta_1 = \displaystyle\frac{1}{2}$，那么当$0 < 4 - t < \delta_1$时，有$4 - \delta_1 = 3.5 < t < 4$，从而$\lfloor t \rfloor = 3$，从而
+\begin{equation}
+    |\lfloor t \rfloor - 3| = |3 - 3| = 0 < \epsilon
+\end{equation}
+从而$\displaystyle\lim_{t \to 4^-} \lfloor t \rfloor = 3$．
+
+让$\delta_2$取适当的值，当$0 < 4-t < \delta_2$时就有
+\begin{align}
+    |1 + \frac{t}{4} - 2| = |\frac{t-4}{4}| = \frac{1}{4}|t-4| < \frac{1}{4}\delta_2 < \epsilon
+\end{align}
+从而$\displaystyle\lim_{t \to 4^-} 1 + \displaystyle\frac{t}{4} = 2$．
+
+从而
+\begin{equation}
+    \lim_{t \to 4^-} \frac{\lfloor t \rfloor}{1+\displaystyle\frac{t}{4}} = \frac{\displaystyle\lim_{t \to 4^-} \lfloor t \rfloor}{\displaystyle\lim_{t \to 4^-} 1 + \displaystyle\frac{t}{4}} = \frac{3}{2}
+\end{equation}
+从而
+\begin{equation}
+    \lim_{x \to 1^-} \frac{\lfloor 4x \rfloor}{1+x} = \frac{3}{2}.
+\end{equation}
+
+14. 求极限$\displaystyle\lim_{n \to \infty} n \sin \, (2 \pi n! \, \expe)$的值．
+
+解：令$S: \nat \to \rational$，定义
+\begin{equation}
+    S(n) = 1 + \frac{1}{1} + \frac{1}{2!} + \frac{1}{3!} + \cdots + \frac{1}{n!}
+\end{equation}
+周知$\displaystyle\lim_{n \to \infty} S(n) = \expe$，并且
+\begin{equation}
+0 < \expe - S(n) < \frac{1}{n! n}, \quad \forall n \in \nat
+\end{equation}
+于是我们有
+\begin{equation}
+2 \pi n! \expe < 2 \pi n! S(n) + 2\pi \cdot \frac{1}{n}
+\end{equation}
+对于足够大的$n$，总有$0 < 2 \pi \cdot\displaystyle\frac{1}{n} < \displaystyle\frac{\pi}{2}$成立，于是
+\begin{equation}
+    \sin \, \left(2 \pi \, n! \, \expe \right) = 0 < \sin \, \left(2 \pi \, n! \, S(n) + 2 \pi \cdot \displaystyle\frac{1}{n} \right) = \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n} \right)
+\end{equation}
+也就是
+\begin{equation}
+    n \sin \left(2 \pi \, n! \, \expe \right) < n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n} \right)
+\end{equation}
+利用性质$S(n) < \expe, \forall n \in \nat$，我们有
+\begin{equation}
+    2 \pi \, n! \, S(n+1) < 2 \pi \, n! \, \expe
+\end{equation}
+也就是
+\begin{equation}
+    2\pi \, n! \, S(n) + 2 \pi \cdot \displaystyle\frac{1}{n+1} < 2 \pi \, n! \, \expe
+\end{equation}
+同样地，对于足够大的$n$，会有$0 < 2\pi \cdot \displaystyle\frac{1}{n+1} < \displaystyle\frac{\pi}{2}$成立，于是
+\begin{equation}
+    \sin \, \left(2 \pi \, n! S(n) + 2 \pi \cdot \displaystyle\frac{1}{n+1} \right) = \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right) < \sin \, \left(2 \pi \, n! \, \expe \right)
+\end{equation}
+也就是
+\begin{equation}
+    n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1} \right) < n \sin \, \left(2 \pi \, n! \, \expe \right) < n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n}\right)
+\end{equation}
+由于
+\begin{align}
+    \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1} \right) &= \lim_{n \to \infty} \displaystyle\frac{n}{n+1} \cdot (n+1) \cdot \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right) \\
+    &= \lim_{n \to \infty} \displaystyle\frac{n}{n+1} \cdot \lim_{n \to \infty} 2 \pi \cdot \displaystyle\frac{\sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right)}{2 \pi \cdot \displaystyle\frac{1}{n+1}} \\
+    &= 1 \cdot 2 \pi = 2 \pi
+\end{align}
+又由于
+\begin{align}
+    \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n}\right) &= \lim_{n \to \infty} 2 \pi \cdot \displaystyle\frac{\sin \, \left(2\pi \cdot \displaystyle\frac{1}{n}\right)}{2 \pi \cdot \displaystyle\frac{1}{n}} = 2 \pi \cdot 1 = 2 \pi
+\end{align}
+所以
+\begin{equation}
+    \lim_{n \to \infty} n \sin \, \left(2 \pi \, n! \, \expe \right) = \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n+1}\right) = \lim_{n \to \infty} n \sin \, \left(2 \pi \cdot \displaystyle\frac{1}{n}\right) = 2 \pi .
+\end{equation}
+
+15. 设
+\begin{equation}
+    f(x) = \begin{cases}
+        1, & x \neq 0 \\
+        0, & x = 0,
+    \end{cases}, \quad g(t) = \begin{cases}
+        \displaystyle\frac{1}{q}, & t = \displaystyle\frac{p}{q}, \\
+        0, & t \, \text{为无理数},
+    \end{cases}
+\end{equation}
+易知$\displaystyle\lim_{x \to 0} f(x) = 1, \; \displaystyle\lim_{t \to 0} g(t) = 0$．根据定理2.4.8，应有$\displaystyle\lim_{t \to 0} f(g(t)) = 1$．但事实上，$f(g(t)) = D(t)$是Dirichlet函数．根据例５，它处处没有极限，问发生这个矛盾的原因是什么？
+
+解：这是因为，在$0$的某个邻域$B(\check{0}, \delta_0), \; (\delta_0 > 0)$内，$g(t) = 0 \; (\text{当} \, t \in B(\check{0}, \delta_0) \, \text{并且} \, t \, \text{为无理数})$，没有完全满足定理2.4.8的条件．

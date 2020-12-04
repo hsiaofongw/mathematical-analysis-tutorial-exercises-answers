@@ -1,0 +1,115 @@
+\exercise
+
+1. 在平面直角坐标系中，两坐标均为有理数的点$(x,y)$称为{\bfseries{有理点}}．试证：平面上全体有理点所成的集合是一可数集．
+
+\begin{proof}
+按箭头顺序，可将$\nat \times \nat$中所有元组
+    \begin{equation}
+        \begin{tikzcd}
+            (1,1) & (1,2) & (1,3) & (1,4) & \cdots \\
+            (2,1) \arrow[ur] & (2,2) \arrow[ur] & (2,3) \arrow[ur] & (2,4) & \cdots \\
+            (3,1) \arrow[ur] & (3,2) \arrow[ur] & (3,3) \arrow[ur] & (3,4) & \cdots \\
+            (4,1) \arrow[ur] & (4,2) \arrow[ur] & (4,3) \arrow[ur] & (4,4) & \cdots \\
+            \vdots & \vdots & \vdots & \vdots & \ddots
+        \end{tikzcd}
+    \end{equation}
+写成一行：
+\begin{equation}
+    (1,1), \; (2,1), \; (1,2), \; (3,1), \; (3,2), \; (2,3), \; (1,4), \; (5,1), \; (4,2), \; (3,3), \; (2,4), \; \cdots
+\end{equation}
+这说明$\nat \times \nat$是可数的，那么就存在一个双射$f: \nat \to \nat \times \nat$，不妨记为$f(n) = (x_n, y_n)$，并且$x_n, y_n \in \nat$．由Thm 2.2.3：全体有理数构成的集合$\rational$是可数的，于是就存在一个双射$g: \nat \to \rational$，令
+\begin{align}
+    p: \nat \times \nat &\longrightarrow \rational \times \rational \\
+    (n_1, n_2) &\longmapsto (g(n_1), g(n_2))
+\end{align}
+再令：
+\begin{align}
+    q: \nat &\longrightarrow \rational \times \rational \\
+    n &\longmapsto p(f(n)) = (p \circ f) (n)
+\end{align}
+就得到$\nat$到全体有理数对的一个双射$q$，这说明$\rational \times \rational$是可数的．
+\end{proof}
+
+2. 如果复数$x$满足多项式方程
+\begin{equation}
+    a_0 x^n + a_1 x^{n-1} + a_2 x^{n-2} + \cdots + a_{n-1} x + a_{n} = 0,
+\end{equation}
+其中$a_0 \neq 0$，$a_1, \cdots, a_n$都是整数，那么$x$称为{\bfseries{代数数}}．试证：代数数全体是可数集．
+
+\begin{proof}
+每一个一个代数数都可由它的$n+1$个系数所唯一确定，我们只要证明这$n+1$个系数元组可数就行了．采用数学归纳法，对多项式的次数$n$做归纳：当$n=1$时代数数方程为：
+\begin{equation}
+    a_0 x + a_1 = 0
+\end{equation}
+令
+\begin{align}
+    E_1 &= \{ (1,0), (1,1), (1,2), \cdots \} \\
+    E_2 &= \{ (2,0), (2,1), (2,2), \cdots \} \\
+    \vdots \\
+    E_m &= \{ (m,0), (m,1), (m,2), \cdots \} \\
+    m &= 1,2,3,4,5,\cdots
+\end{align}
+则$\nat \times \nnat = \displaystyle\bigcup_{m=1}^{\infty} E_m$，依Thm 2.2.2，$\nat \times \nnat$是可数的，于是全体$n=1$多项式所确定的代数数可数．假设对某个$k \in \nat$，当$n=k$时命题成立，也就是说全体$k$次多项式确定的代数数可数，这就是说，$k$个自然数元组集$\underbrace{\nat \times \nnat \times \cdots \times \nnat}_{k+1\text{个}}$可数，那么，我们令$A = \underbrace{\nat \times \nnat \times \cdots \times \nnat}_{k+1\text{个}}$，再令
+\begin{align}
+    D_1 &= \{ (x_1, x_2, \cdots, x_{k+1}, 0) : (x_1,x_2,\cdots,x_{k+1}) \in A \} \\
+    D_2 &= \{ (x_1, x_2, \cdots, x_{k+1}, 1) : (x_1,x_2,\cdots,x_{k+1}) \in A \} \\
+    \vdots \\
+    D_m &= \{ (x_1, x_2, \cdots, x_{k+1}, m-1) : (x_1,x_2,\cdots,x_{k+1}) \in A \} \\
+    m &= 1,2,3,\cdots
+\end{align}
+由归纳假设$D_m, m=1,2,3,\cdots$都可数，那么，依Thm 2.2.2，$\underbrace{\nat \times \nnat \times \cdots \times \nnat}_{k+2\text{个}}$可数，也就是说，$k+1$阶代数数多项式
+\begin{equation}
+    a_0 x^{k+1} + a_1 x^{k} + \cdots + a_{k} x + a_{k+1} = 0
+\end{equation}
+的系数元组可数，从而$k+1$阶代数数多项式确定的代数数可数，从而依归纳原理，全体代数数可数．
+\end{proof}
+
+3. 设$A$是数轴上长度不为零的、互不相交的区间所成的集合（注意：集合$A$的元素是区间）．试证：$A$是至多可数的．
+\begin{proof}
+如果$A$中的唯一元素为整个数轴，或者只用有限多个实数$x_1,x_2,\cdots, x_n \in \real$将整个数轴划分为有限多个区间作为$A$的构成
+\begin{equation}
+    A = \{ (-\infty, x_1), [x_1, x_2), [x_2, x_3), \cdots, [x_{n-1}, x_n), [x_n, +\infty) \}
+\end{equation}
+那么$A$是有限集．如果用可数多个实数$y_1, y_2, y_3, \cdots \in \real$将整个数轴划分为可数多个部分去构成$A$：
+\begin{equation}
+    A = \{ (-\infty, y_1), [y_3, y_4), [y_4, y_5), \cdots, [y_2, +\infty) \}
+\end{equation}
+那么如果我们令
+\begin{equation}
+    f(n) = \begin{cases}
+        (-\infty, y_1), & n = 1, \\
+        (y_2, +\infty), & n = 2, \\
+        [y_{n}, y_{n+1}), & \text{otherwise.}
+    \end{cases}
+\end{equation}
+就得到了$\nat$到$A$的一个双射$f: \nat \longrightarrow A$，从而$A$是至多可数的．
+\end{proof}
+
+4. 设$S = \{ (x_1, x_2, \cdots) : x_i = 0 \, \text{或} \, 1, i = 1,2,3,\cdots \}$．求证：$S$与区间$[0,1]$有相等的势．
+
+\begin{proof}
+任取$x \in S$，记$x$为$x = (x_1,x_2,x_3,\cdots)$，令
+\begin{align}
+    (a_1, b_1) &= \begin{cases}
+        (0, 1/2), & x_1 = 0 \\
+        (1/2, 1), & x_1 = 1
+    \end{cases} \\
+    (a_2, b_2) &= \begin{cases}
+        (a_1, \displaystyle\frac{a_1+b_1}{2}), & x_2 = 0 \\
+        (\displaystyle\frac{a_1+b_1}{2}, b_1), & x_2 = 1
+    \end{cases} \\
+    \vdots \\
+    (a_m, b_m) &= \begin{cases}
+        (a_{m-1}, \displaystyle\frac{a_{m-1}+b_{m-1}}{2}), & x_m = 0 \\
+        (\displaystyle\frac{a_{m-1}+b_{m-1}}{2}, b_{m-1}), & x_m = 1 \\
+    \end{cases} \\
+    I_m &= [a_m, b_m] \\
+    m &= 2,3,4,\cdots 
+\end{align}
+我们得一列闭区间套$\{ I_m: m \in \nat \}$满足$I_{m+1} \subset I_m, \forall m \in \nat$，并且$|I_m| \to 0, (m \to \infty)$，依闭区间套定理，存在唯一实数$x^\star \in [0, 1]$，使得$x^\star \in \displaystyle\bigcap_{m=1}^\infty I_m$，这样我们就得到了$S$到$[0,1]$的一个双射：
+\begin{align}
+    f: S &\longrightarrow [0,1] \\
+    x &\longmapsto x^\star
+\end{align}
+从而$S$与$[0,1]$等势．
+\end{proof}

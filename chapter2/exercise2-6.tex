@@ -1,0 +1,229 @@
+\exercise
+
+1. 求下列无穷小或无穷大的阶：
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$x-5x^3+x^{10} \, (x \to 0)$; & (2)~$x-5x^3+x^{10} \, (x \to \infty)$; \\[1em]
+       (3)~$\displaystyle\frac{x+1}{x^4+1} \, (x \to \infty)$; & (4)~$x^3-3x+2 \, (x \to 1)$; \\[1em]
+       (5)~$\displaystyle\frac{2x^5}{x^3-3x+1} \, (x \to +\infty)$; & (6)~$\displaystyle\frac{1}{\sin \, \pi x} \, (x \to 1)$;
+    \end{tabularx}
+\end{table}
+
+\pagebreak
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (7)~$\sqrt{x\sin \, x} \, (x \to 0)$; & (8)~$\sqrt{x^2+\sqrt[3]{x}} \, (x \to 0)$; \\[1em]
+       (9)~$\sqrt{x^2+\sqrt[3]{x}} \, (x \to \infty)$; & (10)~$\sqrt{1+x}-\sqrt{1-x} \, (x \to 0)$; \\[1em]
+       (11)~$\sin \, \left(\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}\right) \, (x \to 0^+)$; & (12)~$\sqrt{1+\tan \, x} - \sqrt{1 - \sin \, x} \, (x \to 0)$; \\[1em]
+       (13)~$\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} \, (x \to \infty)$; & (14)~$(1+x)(1+x^2)\cdots(1+x^n) \; (x \to +\infty)$.
+    \end{tabularx}
+\end{table}
+
+\medskip
+(1) 解：因为
+\begin{equation}
+    \lim_{x \to 0} \frac{x-5x^3+x^{10}}{x} = \lim_{x \to 0} 1 - 5x^2+x^9 = 1
+\end{equation}
+又因为
+\begin{equation}
+    \lim_{x \to 0} x-5x^3+x^{10} = 10, \quad \lim_{x \to 0} x = 0
+\end{equation}
+所以$x-5x^3+x^{10}$与$x$是同阶无穷小．所以$x-5x^3+x^{10}$是$1$阶无穷小．\qed
+
+\medskip
+(2) 解：因为
+\begin{equation}
+    \lim_{x \to \infty} x^{10} = \infty
+\end{equation}
+且
+\begin{equation}
+    \lim_{x \to \infty} x-5x^3+x^{10} = \infty
+\end{equation}
+且
+\begin{equation}
+    \lim_{x \to \infty} \frac{x-5x^3+x^{10}}{x^{10}} = 1
+\end{equation}
+所以$x-5x^3+x^{10}$与$x^{10}$是同阶无穷大，又因为$x^{10}$是$10$阶无穷大，所以$x-5x^3+x^{10}$是$10$阶无穷大．\qed
+
+\medskip
+(3) 解：因为
+\begin{equation}
+    \lim_{x \to \infty} \frac{x+1}{x^4+1} = 0
+\end{equation}
+并且
+\begin{equation}
+    \lim_{x \to \infty} \frac{1}{\left( x+1 \right)^3} = 0
+\end{equation}
+并且
+\begin{equation}
+    \lim_{x \to \infty} \displaystyle\frac{\displaystyle\frac{x+1}{x^4+1}}{\displaystyle\frac{1}{\left(x+1\right)^3}} = l, \; (0 < l < \infty)
+\end{equation}
+所以当$x \to \infty$时$\displaystyle\frac{x+1}{x^4+1}$与$\displaystyle\frac{1}{\left(x+1\right)^3}$是同阶无穷小，而$\displaystyle\frac{1}{(x+1)^3}$是$3$阶无穷小，所以$\displaystyle\frac{x+1}{x^4+1}$是$3$阶无穷小．\qed
+
+\medskip
+(4) 解：对原式做因式分解得
+\begin{equation}
+    x^3 - 3x + 2 = (x-1)^2 (x+2)
+\end{equation}
+于是有
+\begin{equation}
+    \lim_{x \to 1} \frac{x^3-3x+2}{(x-1)^2} = \lim_{x \to 1} \frac{(x-1)^2(x+2)}{(x-1)^2} = \lim_{x \to 1} x+2 = 3
+\end{equation}
+又由于
+\begin{equation}
+    \lim_{x \to 1} x^3 - 3x + 2 = \lim_{x \to 1} (x-1)^2 (x+2) = 0
+\end{equation}
+以及
+\begin{equation}
+    \lim_{x \to 1} (x-1)^2 = 0
+\end{equation}
+所以当$x \to 1$时，我们说$x^3-3x+2$与$(x-1)^2$是等价无穷小．而$(x-1)^2$是$2$阶无穷小，所以$x^3-3x+2$是$2$阶无穷小．\qed
+
+\medskip
+(5) 解：由于
+\begin{equation}
+    \lim_{x \to +\infty} \frac{2x^5}{x^3-3x+1} = +\infty
+\end{equation}
+所以$\displaystyle\frac{2x^5}{x^3-3x+1}$是无穷大．又由于
+\begin{equation}
+    \lim_{x \to +\infty} \displaystyle\frac{\displaystyle\frac{2x^5}{x^3-3x+1}}{x^2} = l, \; (0 < l < +\infty)
+\end{equation}
+以及
+\begin{equation}
+    \lim_{x \to +\infty} x^2 = +\infty
+\end{equation}
+所以当$x \to +\infty$时，$\displaystyle\frac{2x^5}{x^3-3x+1}$与$x^2$是同阶无穷大，又因为$x^2$是$2$阶无穷大，所以$\displaystyle\frac{2x^5}{x^3-3x+1}$是$2$阶无穷大．\qed
+
+\medskip
+(6) 解：先将式子转化成我们熟悉的$\sin$的自变量趋于$0$的形式
+\begin{align}
+    \sin \, \left(\pi x\right) &= \sin \, \left(\pi(x-1)+\pi\right) \\
+    &= \sin \left(\pi \left(x-1\right) \right) \cos \, \pi + \sin \, \pi \cos \, \left(\pi \left(x-1\right)\right) \\
+    &= - \sin \, \left(\pi\left(x-1\right)\right)
+\end{align}
+于是有
+\begin{equation}
+    \lim_{x \to 1} \frac{1}{\sin \, \pi x} = -\lim_{x \to 1} \frac{1}{\sin \, \pi \left(x-1\right)}
+\end{equation}
+由于
+\begin{equation}
+    \lim_{x \to 1} \displaystyle\frac{\displaystyle\frac{1}{\sin \, \pi \left(x-1\right)}}{\displaystyle\frac{1}{\pi \left(x-1\right)}} = \lim_{x \to 1} \frac{\pi \left(x-1\right)}{\sin \, \pi \left(x-1\right)} = 1
+\end{equation}
+并且
+\begin{equation}
+    \lim_{x \to 1} \frac{1}{\pi \left(x-1\right)} = \infty
+\end{equation}
+以及
+\begin{equation}
+    \lim_{x \to 1} \frac{1}{\sin \, \pi \left(x-1\right)} = \infty
+\end{equation}
+所以当$x \to 1$时，$\displaystyle\frac{1}{\sin \, \pi \left(x-1\right)}$与$\displaystyle\frac{1}{\pi \left(x-1\right)}$是等价无穷大，并且由于$\displaystyle\frac{1}{\pi \left(x-1\right)}$是$1$阶无穷大，所以$\displaystyle\frac{1}{\sin \, \pi \left(x-1\right)}$是$1$阶无穷大．又由于
+\begin{equation}
+    \lim_{x \to 1} \frac{1}{\sin \, \pi x} = - \lim_{x \to 1} \frac{1}{\sin \, \pi \left(x-1\right)} 
+\end{equation}
+所以$\displaystyle\frac{1}{\sin \, \pi x}$是$1$阶无穷大．\qed
+
+\medskip
+(7) 解：因为
+\begin{equation}
+    \lim_{x \to 0} \frac{\sqrt{x \sin \, x}}{x} = \lim_{x \to 0} \displaystyle\sqrt{\displaystyle\frac{\sin \, x}{x}} = 1
+\end{equation}
+又因为
+\begin{equation}
+    \lim_{x \to 0} x = 0
+\end{equation}
+所以，$\displaystyle\sqrt{x \sin \, x}$与$x$是同阶无穷小，又因为$x$是$1$阶无穷小，所以$\displaystyle\sqrt{x \sin \, x}$是$1$阶无穷小．\qed
+
+\medskip
+(8) 解：因为
+\begin{equation}
+    \lim_{x \to 0} \sqrt{x^2+\sqrt[3]{x}} = 0
+\end{equation}
+所以$\sqrt{x^2+\sqrt[3]{x}}$是当$x \to 0$时的无穷小．又因为
+\begin{equation}
+    \lim_{x \to 0} {\displaystyle x^{1/6}} = \lim_{x \to 0} \sqrt{\sqrt[3]{x}} = 0
+\end{equation}
+所以$x^{1/6}$是当$x \to 0$时的无穷小．又因为
+\begin{equation}
+    \lim_{x \to 0} \displaystyle\frac{\sqrt{x^2+\sqrt[3]{x}}}{\sqrt{\sqrt[3]{x}}} = \lim_{x \to 0} \displaystyle\sqrt{\displaystyle\frac{x}{\sqrt[3]{x}}+1} = 1
+\end{equation}
+所以当$x \to 0$时$x^{1/6}$与$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是同阶无穷小．又因为$x^{1/6}$是$1/6$阶无穷小，所以$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是$1/6$阶无穷小．\qed
+
+\medskip
+(9) 解：因为
+\begin{equation}
+    \lim_{x \to \infty} \sqrt{x^2+\sqrt[3]{x}} = \infty
+\end{equation}
+所以当$x \to \infty$时，$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是无穷大．又因为
+\begin{equation}
+    \lim_{x \to \infty} x = \infty
+\end{equation}
+所以当$x \to \infty$时，$x$是无穷大．又因为
+\begin{equation}
+    \lim_{x \to \infty} \frac{\sqrt{x^2+\sqrt[3]{x}}}{x} = \lim_{x \to \infty} \sqrt{1 + \displaystyle\frac{\sqrt[3]{x}}{x}} = 1
+\end{equation}
+所以当$x \to \infty$时，$\sqrt{x^2+\sqrt[3]{x}}$与$x$是同阶无穷大，又因为$x$是$1$阶无穷大，所以$\sqrt{x^2 + \sqrt[3]{x}}$是$1$阶无穷大．\qed
+
+\medskip
+(10) 解：因为
+\begin{equation}
+    \lim_{x \to 0} \left( \sqrt{1+x} - \sqrt{1-x} \right) = \lim_{x \to 0} \frac{2x}{\sqrt{1+x}+\sqrt{1-x}} = 0
+\end{equation}
+所以当$x \to 0$时$\sqrt{1+x}-\sqrt{1-x}$是无穷小．又因为
+\begin{equation}
+    \lim_{x \to 0} 2x = 0
+\end{equation}
+并且
+\begin{equation}
+    \lim_{x \to 0} \displaystyle\frac{\sqrt{1+x}-\sqrt{1-x}}{2x}=\lim_{x \to 0} \displaystyle\frac{\displaystyle\frac{2x}{\sqrt{1+x}+\sqrt{1-x}}}{2x} = \lim_{x \to 0} \frac{1}{\sqrt{1+x}+\sqrt{1-x}} = \frac{1}{2}
+\end{equation}
+所以当$x \to 0$时$\sqrt{1+x}-\sqrt{1-x}$与$2x$是同阶无穷小，又因为$2x$是$1$阶无穷小，所以$\sqrt{1+x}-\sqrt{1-x}$是$1$阶无穷小．\qed
+
+\medskip
+(11) 解：因为
+\begin{equation}
+    \lim_{x \to 0^+} \displaystyle\frac{\sin \, \left(\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}\right)}{\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}} = 1
+\end{equation}
+所以当$x \to 0^+$时$\sin \, \left(\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}\right)$与$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$是同阶无穷小，又因为
+\begin{align}
+    \lim_{x \to 0^+} \displaystyle\frac{\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}}{\displaystyle\sqrt{1+\sqrt{x}}-1} &= \lim_{x \to 0^+} \displaystyle\frac{\displaystyle\frac{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1}{\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}+\displaystyle\sqrt{2}}}{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1} \\
+    &= \lim_{x \to 0^+} \displaystyle\frac{1}{\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}+\displaystyle\sqrt{2}} \\
+    &= \frac{1}{2\displaystyle\sqrt{2}}
+\end{align}
+所以$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$与$\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1$是同阶无穷小．又因为
+\begin{align}
+    \lim_{x \to 0^+} \displaystyle\frac{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1}{\displaystyle\sqrt{x}} &= \lim_{x \to 0^+} \displaystyle\frac{\displaystyle\frac{\displaystyle\sqrt{x}}{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}+1}}{\displaystyle\sqrt{x}} \\
+    &= \lim_{x \to 0^+} \displaystyle\frac{1}{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}+1} = \frac{1}{2}
+\end{align}
+所以$\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1$与$\displaystyle\sqrt{x}$是同阶无穷小．所以$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$与$\sqrt{x}$是同阶无穷小．又因为$\displaystyle\sqrt{x}$是$1/2$阶无穷小，所以$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$是$1/2$阶无穷小．\qed
+
+\medskip
+(12) 解：由于
+\begin{align}
+    \lim_{x \to 0} \frac{\sqrt{1+\tan \, x} - \sqrt{1-\sin \, x}}{\tan \, x - \sin \, x} &= \lim_{x \to 0} \displaystyle\frac{\displaystyle\frac{\tan \, x - \sin \, x}{\sqrt{1+\tan \, x}+\sqrt{1 - \sin \, x}}}{\tan \, x - \sin \, x} \\
+    &= \lim_{x \to 0} \frac{1}{\sqrt{1+\tan \, x} + \sqrt{1- \sin \, x}} = \frac{1}{2}
+\end{align}
+于是当$x \to 0$时，$\sqrt{1+\tan \, x}-\sqrt{1-\sin \, x}$与$\tan \, x - \sin \, x$是同阶无穷小，又因为
+\begin{align}
+    \lim_{x \to 0} \frac{\tan \, x - \sin \, x}{\displaystyle\frac{1}{2}x^3} &= \lim_{x \to 0} \frac{\displaystyle\frac{\sin \, x}{\cos \, x} - \sin \, x}{\displaystyle\frac{1}{2} x^3} \\
+    &= \lim_{x \to 0} \frac{\displaystyle\frac{1}{\cos \, x} \sin \, x \left(1- \cos \, x\right)}{\displaystyle\frac{1}{2}x^3} \\
+    &= \lim_{x \to 0} \frac{1}{\cos \, x} \lim_{x \to 0} \frac{x \cdot \displaystyle\frac{1}{2}x^2}{\displaystyle\frac{1}{2}x^3} = 1 \cdot 1 = 1.
+\end{align}
+由此可见当$x \to 0$时$\tan \, x - \sin \, x$与$x^3$是同阶无穷小，也就是说$\tan \, x - \sin \, x$是$3$阶无穷小，从而$\sqrt{1+\tan \, x} - \sqrt{1 - \sin \, x}$是$3$阶无穷小．\qed
+
+\medskip
+(13) 解：由于
+\begin{align}
+    \displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} &= \displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} - \displaystyle\sqrt{x+\displaystyle\sqrt{x}} + \displaystyle\sqrt{x+\displaystyle\sqrt{x}} \\
+    &= \displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} - \displaystyle\sqrt{x+\displaystyle\sqrt{x}} + \displaystyle\sqrt{x+\displaystyle\sqrt{x}} - \sqrt{x} + \sqrt{x} \\
+    &= \frac{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}-\displaystyle\sqrt{x}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} + \displaystyle\frac{\displaystyle\sqrt{x}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}} + \sqrt{x} \\
+    &= \frac{\displaystyle\frac{\displaystyle\sqrt{x}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} + \displaystyle\frac{\displaystyle\sqrt{x}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}} + \sqrt{x} \\
+\end{align}
+所以
+\begin{equation}
+    \lim_{x \to \infty} \frac{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}}{\displaystyle\sqrt{x}} = \lim_{x \to \infty} \left( \frac{\displaystyle\frac{1}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}+ \displaystyle\sqrt{x+\displaystyle\sqrt{x}}} + \frac{1}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}} + 1 \right) = 1
+\end{equation}
+所以当$x \to \infty$时$\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}$与$\sqrt{x}$是同阶无穷大，而且$\displaystyle\sqrt{x}$是$1/2$阶无穷大，所以$\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}$是$1/2$阶无穷大．\qed

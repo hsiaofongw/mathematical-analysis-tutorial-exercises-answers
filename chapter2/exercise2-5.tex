@@ -1,0 +1,400 @@
+\exercise
+
+1. 用$\epsilon$-$A$语言证明：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to -\infty} \displaystyle\frac{x^2+1}{3x^2-x+1}=\displaystyle\frac{1}{3}$; & (2)~$\displaystyle\lim_{x \to \infty} \displaystyle\frac{3x+2}{2x+3} = \displaystyle\frac{3}{2}$; \\ [1em]
+       (3)~$\displaystyle\lim_{x \to +\infty} (x - \sqrt{x^2-a}) = 0$; & (4)~$\displaystyle\lim_{x \to +\infty} (\sqrt{x+1}-\sqrt{x-1}) = 0$.
+    \end{tabularx}
+\end{table}
+
+(1) 证明：对任意$\epsilon > 0$，取$A = \max \{ 5, \displaystyle\frac{2}{\epsilon} \}$，那么对一切$x < -A$，都有$x^2+2x<3x^2-x+1$，并且有
+\begin{align} 
+    \bigg\lvert \displaystyle\frac{x^2+1}{3x^2-x+1} - \displaystyle\frac{1}{3} \bigg\rvert &= \bigg\lvert \displaystyle\frac{x+2}{3x^2-x+1} \bigg\rvert = \displaystyle\frac{-(x+2)}{3x^2-x+1} < \displaystyle\frac{-(x+2)}{x^2+2x} = -\displaystyle\frac{1}{x} < \frac{1}{A} < \epsilon
+\end{align}
+这就证明了$\displaystyle\lim_{x \to -\infty} \displaystyle\frac{x^2+1}{3x^2-x+1}=\displaystyle\frac{1}{3}$. \qed
+
+(2) 证明：对任意$\epsilon > 0$，取$A = \max \{10, \displaystyle\frac{10}{\epsilon} \}$，那么当$|x| > |A|$时有$|2x+5|>|x|$，并且有
+\begin{align}
+    \bigg\lvert \displaystyle\frac{3x+2}{2x+3} - \displaystyle\frac{3}{2} \bigg\rvert = \bigg\lvert \displaystyle \frac{-5}{2x+3} \bigg\rvert = 5 \cdot \displaystyle\frac{1}{|2x+3|} < 5 \cdot \displaystyle\frac{1}{|x|} < 5 \cdot \displaystyle\frac{1}{|A|} \leq \displaystyle\frac{\epsilon}{2} < \epsilon
+\end{align}
+这就证明了$\displaystyle\lim_{x \to \infty} \displaystyle\frac{3x+2}{2x+3} = \displaystyle\frac{3}{2}$. \qed
+
+(3) 证明：对任意$\epsilon > 0$，取$A = \displaystyle\frac{2|a|}{\epsilon}$，那么当$x > A$时
+\begin{align}
+    |x-\sqrt{x^2-a}|=\bigg\lvert \displaystyle\frac{a}{x+\sqrt{x^2-a}} \bigg\rvert < \displaystyle\frac{|a|}{x} < \displaystyle\frac{\epsilon}{2} < \epsilon
+\end{align}
+这就证明了$\displaystyle\lim_{x \to +\infty}(x-\sqrt{x^2-a})=0$. \qed
+
+(4) 证明：对任意$\epsilon > 0$，取$A=\displaystyle\frac{4}{\epsilon^2}$，那么当$x > A$时
+\begin{align}
+    | \sqrt{x+1}-\sqrt{x-1} | = \bigg\lvert \displaystyle\frac{2}{\sqrt{x+1}+\sqrt{x-1}} \bigg\rvert < 2 \cdot \displaystyle\frac{1}{\sqrt{x}} < 2 \cdot \displaystyle\frac{1}{\sqrt{A}} = \epsilon
+\end{align}
+这就证明了$\displaystyle\lim_{x \to +\infty} (\sqrt{x+1}-\sqrt{x-1})=0$. \qed
+
+2. 定出常数$a$和$b$，使得下列等式成立：
+\begin{enumerate}
+    \item $\displaystyle\lim_{x\to\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$; 
+    \item $\displaystyle\lim_{x\to +\infty}\left(\sqrt{x^2-x+1}-ax-b\right)=0$;
+    \item $\displaystyle\lim_{x\to -\infty}\left(\sqrt{x^2-x+1}-ax-b\right)=0$.
+\end{enumerate}
+
+(1) 证明：因为
+\begin{align}
+    \bigg\lvert\displaystyle\frac{x^2+1}{x+1}-a x - b\bigg\rvert=\bigg\lvert \displaystyle\frac{(1-a)x^2 - (a+b)x +(1-b)}{x+1} \bigg\rvert
+\end{align}
+所以要使得$\displaystyle\lim_{x\to\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$，$a,b$应满足
+\begin{equation}
+    \begin{cases}
+        1-a &= 0\\
+        a+b &= 0
+    \end{cases}
+\end{equation}
+解出$a=1,b=-1$．下面我们证明这样的$a,b$确实使得极限等于$0$．因为
+\begin{equation}
+    \bigg\lvert\displaystyle\frac{x^2+1}{x+1}-ax-b\bigg\rvert = \bigg\lvert\displaystyle\frac{2}{x+1}\bigg\rvert
+\end{equation}
+所以对任意$\epsilon > 0$，取$A=\displaystyle\frac{2}{\epsilon}$，那么当$x>A$时有
+\begin{equation}
+    \bigg\lvert\displaystyle\frac{2}{x+1}\bigg\rvert=\frac{2}{|x+1|}<\frac{2}{x}<\frac{2}{A}=\epsilon
+\end{equation}
+这说明$\displaystyle\lim_{x\to +\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$．
+
+又对任意$\epsilon>0$，取$A=\displaystyle\frac{1}{\epsilon}+1$，那么当$x<-A$时
+\begin{equation}
+    \bigg\lvert\displaystyle\frac{2}{x+1}\bigg\rvert=\frac{2}{-x-1}<\frac{1}{A-1}=\frac{1}{\displaystyle\frac{1}{\epsilon}}=\epsilon
+\end{equation}
+这说明$\displaystyle\lim_{x\to -\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$．
+
+这就证明了$\displaystyle\lim_{x \to \infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$. \qed
+
+从而$\displaystyle\lim_{x\to\infty}\left(\displaystyle\frac{x^2+1}{x+1}-ax-b\right)=0$．\qed
+
+(2) 证明：当$a=1,b=-\displaystyle\frac{1}{2}$时
+\begin{equation}
+    |\sqrt{x^2-x+1}-ax-b|=\bigg\lvert\sqrt{x^2-x+1}-(x-\displaystyle\frac{1}{2})\bigg\rvert=\displaystyle\frac{\displaystyle\frac{3}{4}}{\sqrt{x^2-x+1}+x-\displaystyle\frac{1}{2}}
+\end{equation}
+从而对任意$\epsilon > 0$，取$A=\displaystyle\frac{1}{\epsilon}+\displaystyle\frac{1}{2}$，那么当$x>A$时
+\begin{align}
+    |\sqrt{x^2-x+1}-ax-b|=\displaystyle\frac{\displaystyle\frac{3}{4}}{\sqrt{x^2-x+1}+x-\displaystyle\frac{1}{2}} < \displaystyle\frac{1}{x-\displaystyle\frac{1}{2}}<\displaystyle\frac{1}{A-\displaystyle\frac{1}{2}}=\epsilon
+\end{align}
+从而当$a=1,b=-\displaystyle\frac{1}{2}$时$\displaystyle\lim_{x\to +\infty}\sqrt{x^2-x+1}-ax-b=0$. \qed
+
+(3) 证明：做换元$t=-x$，那么当$x \to -\infty$时$t \to +\infty$，等价于寻找$a,b$使得
+\begin{equation}
+    \displaystyle\lim_{x \to +\infty}\sqrt{t^2+t+1}+at-b=0
+\end{equation}
+成立．取$a=-1,b=\displaystyle\frac{1}{2}$，那么我们有
+\begin{align}
+    |\sqrt{t^2}+t+1+at-b|=\frac{3}{4} \cdot \Bigg\lvert\displaystyle\frac{1}{\displaystyle\sqrt{t^2+t+1}+t+\displaystyle\frac{1}{2}} \Bigg\rvert
+\end{align}
+对任意$\epsilon>0$，取$A=\max\{0, \displaystyle\frac{1}{\epsilon}-\displaystyle\frac{1}{2}\}$，那么当$t>A$的时候就有
+\begin{equation}
+    \displaystyle\frac{3}{4}\Bigg\lvert\displaystyle\frac{1}{\sqrt{t^2+t+1}+t}+t+\displaystyle\frac{1}{2}\Bigg\rvert<\frac{1}{t+\displaystyle\frac{1}{2}}<\frac{1}{A+\displaystyle\frac{1}{2}} \leq \epsilon
+\end{equation}
+这就证明了当$a=-1,b=\displaystyle\frac{1}{2}$时$\displaystyle\lim_{t\to +\infty}\sqrt{t^2+t+1}+at-b=\displaystyle\lim_{x\to -\infty}\sqrt{x^2-x+1}-ax-b=0$．\qed
+
+3. 证明：
+\begin{equation}
+    \lim_{x \to +\infty} \left(\sin \, \sqrt{x+1} - \sin \, \sqrt{x-1}\right) = 0.
+\end{equation}
+
+证明：利用三角和差化积公式，我们有
+\begin{align}
+    \lim_{x \to +\infty} \left( \sin \, \sqrt{x+1} - \sin \, \sqrt{x-1} \right) &= 2 \lim_{x \to +\infty} \cos \, \displaystyle \frac{\sqrt{x+1}+\sqrt{x-1}}{2} \sin \, \displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2}
+\end{align}
+利用函数$\cos $的有界性，得到
+\begin{align}
+    \Bigg\lvert \cos \, \displaystyle\frac{\sqrt{x+1}+\sqrt{x-1}}{2} \sin \, \displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2} \Bigg\rvert &< \Bigg\lvert \sin \, \displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2} \Bigg\rvert \\ 
+    &= \Bigg\lvert \sin \, \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}} \Bigg\rvert
+\end{align}
+由于
+\begin{equation}
+    \lim_{x \to +\infty} \displaystyle\frac{\sin \, \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}}}{\displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}}} = 1
+\end{equation}
+而
+\begin{equation}
+    \lim_{x \to +\infty} \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}} = 0
+\end{equation}
+所以
+\begin{equation}
+    \lim_{x \to +\infty} \sin \, \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}} = 0
+\end{equation}
+所以对任意$\epsilon > 0$，都存在$A > 0$，使得当$x > A$时，有
+\begin{equation}
+    \Bigg\lvert\sin \, \displaystyle\frac{1}{\sqrt{x+1}+\sqrt{x-1}}\Bigg\rvert<\epsilon
+\end{equation}
+再考虑已经推出的不等式关系，得
+\begin{equation}
+    \Bigg\lvert\cos\,\displaystyle\frac{\sqrt{x+1}+\sqrt{x-1}}{2}\sin\,\displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2} \Bigg\rvert<\epsilon
+\end{equation}
+从而
+\begin{equation}
+    \lim_{x \to +\infty} \cos \, \displaystyle\frac{\sqrt{x+1}+\sqrt{x-1}}{2}\sin\,\displaystyle\frac{\sqrt{x+1}-\sqrt{x-1}}{2}=0
+\end{equation}
+从而
+\begin{eqnarray}
+    \lim_{x \to +\infty} \left(\sin \, \sqrt{x+1}-\sin \, \sqrt{x-1}\right) = 2 \cdot 0 = 0.
+\end{eqnarray}
+\qed
+
+4. 设常数$a_1,a_2,\cdots,a_n$满足$a_1+a_2+\cdots+a_n=0$．求证：
+\begin{equation}
+    \lim_{x \to +\infty}\sum_{k=1}^{n}a_k\sin \, \sqrt{x+k}=0.
+\end{equation}
+
+证明：若$n=1$，那么$a_1=0$，那么
+\begin{eqnarray}
+    \lim_{x \to +\infty} \sum_{k=1}^n a_k \sin \, \sqrt{x+k} = \lim_{x \to +\infty} 0 = 0
+\end{eqnarray}
+从而当$n=1$时结论是成立的．现考虑$n \geq 2$的情形．
+
+当$n=2$时
+\begin{align}
+    &\mathrel{\phantom{=}} a_1 \sin \, \sqrt{x+1} + a_2 \sin \, \sqrt{x+2} \\
+    &= a_1 \sin \, \sqrt{x+1} + a_2 \sin \, \sqrt{x+1} + a_2 \sin \, \sqrt{x+2} - a_2 \sin \, \sqrt{x+1} \\
+    &= (a_1 + a_2) \sin \, \sqrt{x+1} + a_2 \left(\sin \, \sqrt{x+2} - \sin \, \sqrt{x+1} \right)
+\end{align}
+
+当$n=3$时
+\begin{align}
+    &\mathrel{\phantom{=}} a_1 \sin \, \sqrt{x+1} + a_2 \sin \, \sqrt{x+2} + a_3 \sin \, \sqrt{x+3} \\
+    &= a_1 \sin \, \sqrt{x+1} + \left( a_2 + a_3 \right) \sin \, \sqrt{x+2} + a_3 \left( \sin \, \sqrt{x+3} - \sin \, \sqrt{x+2} \right) \\
+    &= \left(a_1 + a_2 + a_3\right) \sin \, \sqrt{x+1} \\
+    &+ \left(a_2 + a_3\right) \left(\sin \, \sqrt{x+2} - \sin \, \sqrt{x+1}\right) + a_3 \left(\sin \, \sqrt{x+3} - \sin \, \sqrt{x+2}\right)
+\end{align}
+我们猜测对于每一个$n \in \nat, n \geq 2$，都有
+\begin{equation}
+    \sum_{k = 1}^n a_k \sin \, \sqrt{x+k} = \left( \sum_{k = 1}^{n} a_k \sin \, \sqrt{x+1} \right) + \sum_{i=2}^n \sum_{j=i}^n a_j \left( \sin \, \sqrt{x+j} - \sin \sqrt{x+j-1} \right) 
+\end{equation}
+证明从略．
+
+于是
+\begin{align}
+    &\mathrel{\phantom{=}} \lim_{x \to +\infty} \sum_{k=1}^{n} a_k \sin \, \sqrt{x+k} \\
+    &= \lim_{x \to +\infty} \left( \left( \sum_{k = 1}^{n} a_k \sin \, \sqrt{x+1} \right) + \sum_{i=2}^n \left(\sum_{j=i}^n a_j \left( \sin \, \sqrt{x+j} - \sin \sqrt{x+j-1} \right) \right) \right) \\
+    &= \lim_{x \to +\infty} \sum_{i=2}^n \left(\sum_{j=i}^n a_j \left( \sin \, \sqrt{x+j} - \sin \sqrt{x+j-1} \right) \right) \\
+    &= \sum_{i=2}^n \sum_{j=i}^n a_j \lim_{x \to +\infty} \left( \sin \, \sqrt{x+j} - \sin \sqrt{x+j-1} \right) \\
+    &= \sum_{i=2}^n \sum_{j=i}^n a_j \cdot 0 = 0.
+\end{align}
+待证得证．\qed
+
+5. 求极限$\displaystyle\lim_{n \to \infty} \sin \, \left(\pi \, \sqrt{n^2+1}\right)$.
+
+解：先将$\pi \sqrt{n^2+1}$拆开写，再利用和角正弦公式，得
+\begin{align}
+    \lim_{n \to \infty} \sin \, \left(\pi \, \sqrt{n^2+1}\right) &= \lim_{n \to \infty} \sin \, \left( n \pi + \sqrt{n^2+1} \, \pi  - n \pi \right) \\
+    &= \lim_{n \to \infty} \cos \, n \pi \sin \, \left(\sqrt{n^2+1} \, \pi - n \pi\right)
+\end{align}
+下证$\displaystyle\lim_{n \to \infty} \cos \, n \pi \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) = 0$．
+
+证明：令
+\begin{equation}
+    a_n = \sqrt{n^2+1} \pi - n \pi
+\end{equation}
+先证数列$\{ a_n \}$的极限是$0$：对任意$\epsilon > 0$，取$N = \bigg\lceil \displaystyle\frac{\pi}{\epsilon} \bigg\rceil$，那么对每一个$n \geq N$就都有
+\begin{align}
+    |a_n-0|=\pi|\sqrt{n^2+1}-n|=\pi\bigg\lvert\displaystyle\frac{1}{\sqrt{n^2+1}+n}\bigg\rvert < \frac{\pi}{n} < \frac{\pi}{N} \leq \epsilon
+\end{align}
+这里证明了$\displaystyle\lim_{n \to \infty} a_n = \displaystyle\lim_{n \to \infty} \pi \sqrt{n^2+1} - \pi n = 0$，后面会用到．
+
+又由于函数$x \mapsto \sin \, x$在$x=0$处的极限$\displaystyle\lim_{x \to 0} \sin \, x = 0$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，使得对一切$x \in B(\check{0}, \delta)$，都有
+\begin{equation}
+    |\sin \, x - 0| < \epsilon
+\end{equation}
+
+由于数列$\{ \sqrt{n^2+1} \, \pi - \pi n \}$收敛，故，存在$N_1 \in \nat$，使得对每一个$n > N_1$，都有
+\begin{equation}
+    \big\lvert \pi \sqrt{n^2+1} - \pi n - 0 \big\rvert < \delta
+\end{equation}
+由此可知，数列$\{ \pi \sqrt{n^2+1}\}$第$N_1$项之后的点全部落入$B(\check{0}, \delta)$内，也就是说
+\begin{equation}
+\{ \pi \sqrt{n^2+1} - \pi n : n \geq N_1 \} \subset B(\check{0}, \delta)
+\end{equation}
+由此可知，对每一个$n > N_1$，都有
+\begin{equation}
+    \bigg\lvert \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) - 0 \bigg\rvert < \epsilon
+\end{equation}
+从而数列$\{ \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) \}$的极限是$0$，从而对任意$\epsilon > 0$，存在$N_2 \in \nat$，使得对每一个$n > N_2$，都有
+\begin{align}
+    \bigg\lvert \cos \, n \pi \sin \, \left( \pi \sqrt{n^2+1} - \pi n \right) \bigg\rvert &= |\cos \, n \pi| \bigg\lvert \sin \, \left(\pi \sqrt{n^2+1} - \pi n\right) \bigg\rvert \\
+    &< \bigg\lvert \sin \, \left(\pi \sqrt{n^2+1} - \pi n \right) \bigg\rvert < \epsilon
+\end{align}
+从而$\displaystyle\lim_{n \to \infty} \cos \, n \pi \sin \, \left(\pi \sqrt{n^2+1} - \pi n \right) = 0$．从而$\displaystyle\lim_{n \to \infty} \sin \, \left(\pi \sqrt{n^2+1}\right) = 0$．\qed
+
+6. 求下列极限：
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+       (1)~$\displaystyle\lim_{x \to \infty} \left(\displaystyle\frac{1+x}{3+x}\right)^x$; & (2)~$\displaystyle\lim_{x\to\infty}\left(\displaystyle\frac{x+a}{x-a}\right)^x$; \\[1em]
+       (3)~$\displaystyle\lim_{x\to 0}\left(1-2x\right)^{1/x}$; & (4)~$\displaystyle\lim_{n \to \infty}\left(\displaystyle\frac{n+x}{n-2}\right)^n$.
+    \end{tabularx}
+\end{table}
+
+(1) 解：观察到分式$\displaystyle\frac{1+x}{3+x}$应有极限$1$，这提醒我们将它拆成$1$与一个分式的和：
+\begin{align}
+    \lim_{x \to \infty} \left(\displaystyle\frac{1+x}{3+x}\right)^x &= \lim_{x \to \infty} \left(1 - \displaystyle\frac{2}{3+x} \right)^x
+\end{align}
+再令$t = 3+x$，那么原式变为
+\begin{align}
+    \lim_{x \to \infty} \left(1 - \displaystyle\frac{2}{3+x} \right)^x &= \lim_{t \to \infty} \left(1 - \displaystyle\frac{2}{t}\right)^{t-3} = \displaystyle\lim_{t \to \infty} \left(1-\displaystyle\frac{2}{t}\right)^t \cdot \lim_{t \to \infty} \left(1-\displaystyle\frac{2}{t}\right)^{-3} \\
+    &= \displaystyle\frac{1}{\expe^2} \cdot 1 = \frac{1}{\expe^2}.
+\end{align}
+
+(2) 解：
+\begin{align}
+    \text{原式} &= \lim_{x \to \infty} \left(\displaystyle\frac{x+a}{x-a}\right)^x \\
+    &= \lim_{x \to \infty} \left(1 + \displaystyle\frac{x+a}{x-a} - 1\right)^x \\
+    &= \lim_{x \to \infty} \left(1+\displaystyle\frac{2a}{x-a}\right)^x \\
+    &= \expe^{2a}.
+\end{align}
+
+(3) 解：令$2x=\displaystyle\frac{1}{t}$，那么当$x\to 0$时应有$t \to \infty$，那么
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \left(1-2x\right)^{1/x} \\
+    &= \lim_{t \to \infty}\left(1-\displaystyle\frac{1}{t}\right)^{2t} = \expe^{-2}.
+\end{align}
+
+(4) 解：
+\begin{align}
+    \text{原式} &= \lim_{n \to \infty} \left(1 + \displaystyle\frac{n+x}{n-2} - 1\right)^n \\
+    &= \lim_{n \to \infty} \left(1 + \displaystyle\frac{x+2}{n-2}\right)^n = \expe^{x+2}.
+\end{align}
+
+7. 用极限定义函数
+\begin{equation}
+    f(x) = \lim_{n \to \infty} n^x \left(\left(1+\frac{1}{n}\right)^{n+1}-\left(1+\frac{1}{n}\right)^n\right).
+\end{equation}
+求$f$的定义域，并写出$f$的表达式．
+
+解：
+\begin{align}
+   \text{原式} &= \lim_{n \to \infty} \frac{\left(1+\displaystyle\frac{1}{n}\right)^{n}\left(\displaystyle\frac{1}{n}\right)}{n^{-x}} \\
+   &= \lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \cdot n^{x-1}
+\end{align}
+式中，$\left(1+\displaystyle\frac{1}{n}\right)^n$有界，而当$x-1>0$时$\{ n^{x-1} \}$发散，故
+\begin{equation}
+    x-1 \leq 0
+\end{equation}
+也就是$x \leq 1$．定义域为$\{x : x \leq 1, x \in \real \}$．
+
+当$x=1$，原式变为
+\begin{equation}
+    \lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n n^0 = \lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n=\expe
+\end{equation}
+当$x<1$时，有$x-1<0$，故
+\begin{equation}
+    \lim_{n \to \infty} n^{x-1} = 0
+\end{equation}
+故
+\begin{equation}
+    \lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n n^{x-1}= \expe \cdot 0 = 0
+\end{equation}
+故函数$f$可写为
+\begin{equation}
+    f(x)=\begin{cases}
+        \expe, & x = 1, \\
+        0, & x < 1.
+    \end{cases}
+\end{equation}
+
+8. 如果对$x \in (-1,1)$，有$\bigg\lvert \displaystyle\sum_{k=1}^n a_k \sin \, kx \bigg\rvert \leq \lvert \sin \, x \rvert$，求证：
+\begin{equation}
+    \bigg\lvert \sum_{k=1}^n k a_k \bigg\rvert \leq 1..
+\end{equation}
+
+\begin{proof}
+    由题意得
+    \begin{align}
+        &\mathrel{\phantom{\implies}} \bigg\lvert \sum_{k=1}^n a_k \sin \, kx \bigg\rvert \leq \lvert \sin \, x \rvert \\
+        &\implies \displaystyle\frac{\bigg\lvert\displaystyle\sum_{k=1}^n a_k \sin \, kx \bigg\rvert}{\lvert \sin \, x \rvert} \leq 1 \\
+        &\implies \Bigg\lvert \displaystyle\frac{\displaystyle\sum_{k=1}^n a_k \sin \, kx}{\sin \, x} \Bigg\rvert \leq 1 \\
+        &\implies \Bigg\lvert \sum_{k=1}^n \displaystyle\frac{a_k \sin \, kx}{\sin \, x} \Bigg\rvert \leq 1
+    \end{align}
+
+    只需令$x \to 0$，我们得到
+    \begin{equation}
+        \lim_{x \to 0} \frac{\sin \, kx}{x} = k
+    \end{equation}
+    并且得到
+    \begin{equation}
+        \Bigg\lvert \sum_{k=1}^n k a_k \Bigg\rvert \leq 1.
+    \end{equation}
+    待证得证．
+\end{proof}
+
+9. 证明：$\displaystyle\lim_{x \to +\infty} f(x)$存在的充分必要条件是，对任意的$\epsilon > 0$，存在一个正数$A$，只要$x_1, x_2$满足$x_1 > A, x_2 > A$，便有$\lvert f(x_1) - f(x_2) \rvert < \epsilon$.
+
+\begin{proof}
+    必要性．
+
+    设$\displaystyle\lim_{x \to +\infty} f(x) = A > 0$．且这个$A$为一有限数．
+
+    那么由于$\displaystyle\lim_{x \to +\infty} f(x) = A$，所以，对任意$\epsilon > 0$，存在$A_1 > 0$，使得只要$x_1 > A_1$，就有
+    \begin{equation}
+        \lvert f(x_1) - A \rvert < \frac{1}{2} \epsilon
+    \end{equation}
+    并且存在$A_2 > 0$，使得只要$x_2 > A_2$，就有
+    \begin{equation}
+        \lvert f(x_2) - A \rvert < \frac{1}{2} \epsilon 
+    \end{equation}
+    那么只要$x_1, x_2$都大于$\max \{ A_1, A_2 \}$，就有
+    \begin{equation}
+        \lvert f(x_1) - A \rvert < \frac{1}{2} \epsilon , \quad \lvert f(x_2) - A \rvert < \frac{1}{2} \epsilon 
+    \end{equation}
+    同时成立，根据数轴上的几何事实，立刻有
+    \begin{equation}
+        \lvert f(x_1) - f(x_2) \rvert \leq \lvert f(x_1) - A \rvert + \lvert f(x_2) - A \rvert = \frac{1}{2}\epsilon+\frac{1}{2}\epsilon=\epsilon.
+    \end{equation}
+    这就证得了必要性．
+
+    充分性．
+
+    任取一趋于正无穷的数列$\{ x_n \}$，我们要证$\{ f(x_n) \}$的极限存在且都相等．由题设，对任意$\epsilon$，存在$A>0$，使得对任意$x_1,x_2>A$，都有
+    \begin{equation}
+        \lvert f(x_1) - f(x_2) \rvert < \epsilon
+    \end{equation}
+    又由于$\{ x_n \}$是趋于正无穷的，所以，存在$M\in\nat$，使得对一切$n_1, n_2 \geq M$，都有$x_{n_1}, x_{n_2} > A$，也就是
+    \begin{equation}
+        \lvert f(x_{n_1}) - f(x_{n_2}) \rvert < \epsilon
+    \end{equation}
+    由此可知数列$\{ f(x_n) \}$是一柯西列，由此可知数列$\{ f(x_n) \}$收敛．由此可知，对于任意一个趋于无穷的数列$\{ x_n \}$，数列$\{ f(x_n) \}$都收敛．
+
+    假设有两个趋于正无穷的数列$\{ x_{n} \}$，$\{ y_{n} \}$，使得$\displaystyle\lim_{n \to +\infty} f(x_n) \neq \displaystyle\lim_{n \to +\infty} f(y_n)$，不妨设$\displaystyle\lim_{n\to +\infty}f(x_n)>\displaystyle\lim_{n \to +\infty}f(y_n)$，那么
+    \begin{equation}
+        \lim_{n \to +\infty} f(x_n) - f(y_n) > 0
+    \end{equation}
+    设$\displaystyle\lim_{n\to +\infty} f(x_n) - f(y_n) = c > 0$，那么任取$d \in (0, c)$，都存在$N \in \nat$，使得对一切$n \geq N$，都有
+    \begin{equation}
+        f(x_n) - f(y_n) > d
+    \end{equation}
+    可是，由题设，存在$A_2 > 0$，使得对一切$x_n, y_n > A_2$，都有
+    \begin{equation}
+        f(x_n) - f(y_n) < d
+    \end{equation}
+    随着$n$的增长，$x_n, y_n$迟早都会大过$A_2$，也就是说迟早都会有$f(x_n)-f(y_n) < d$，矛盾．
+
+    由此可知，对任意趋于无穷的数列$\{ x_n \}$，数列$\{ f(x_n) \}$的极限都存在并且相等．由归结原则，函数极限
+    \begin{equation}
+        \lim_{x \to +\infty} f(x)
+    \end{equation}
+    存在．
+
+    这证得了充分性．
+\end{proof}
+
+10. 设$f$是$(-\infty,+\infty)$上的周期函数，且$\displaystyle\lim_{x \to +\infty} f(x) = 0$．求证：$f=0$．
+
+\begin{proof}
+采用反证法．假设存在某一点$x_0 \in \real$使得$f(x_0) \neq 0$，不失一般性，假设$f(x_0) > 0$．
+
+由于$f$为一周期函数，故存在$c \in \real$且$c \neq 0$，使得对一切$x \in \real$，都有$f(x+c)=f(x)$．构造数列
+\begin{equation}
+    \{ x_0, x_0+c, x_0+2c, \cdots, x_0+nc, x_0+(n+1)c, \cdots \}
+\end{equation}
+记做$\{ x_n \}$，由于对每一项$x_n$都有$f(x_n)=c$，所以随着$n \to +\infty$，$f(x_n) \to c$．可是，由归结原则，$\displaystyle\lim_{x \to +\infty} f(x) = 0$等价于说对任意趋于$+\infty$的数列$\{ x_n \}$，数列$\{ f(x_n) \}$都趋于同一个极限也就是都趋于$\displaystyle\lim_{x \to +\infty}f(x)=0$．可如今$\{ f(x_n) \}$的极限是$c$不等于$0$．
+
+你看这矛盾了吧？
+\end{proof}

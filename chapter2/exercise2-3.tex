@@ -1,0 +1,303 @@
+\exercise
+
+1. 求下列函数的定义域：
+
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+        (1)~$f(x)=\displaystyle\sqrt{1-x^2}$; & (2)~$f(x)=\displaystyle\sqrt[3]{\displaystyle\frac{1+x}{1-x}}$; \\ [1em]
+        (3)~$f(x)=\displaystyle\frac{x+1}{x^2 + x -2}$; & (4)~$f(x) = \ln \, \displaystyle\frac{1+\sin \, x}{1-\cos \, x}$.
+      \end{tabularx}
+\end{table}
+(1) 解：设定义域为$D$：
+\begin{align}
+    &\mathrel{\phantom{\implies}} \forall x \in D, \exists y \in \real, y = \displaystyle\sqrt{1-x^2} \\
+    &\implies 1 - x^2 \geq 0 \\
+    &\implies 0 \leq x^2 \leq 1 \implies -1 \leq x \leq 1 \\
+    &\implies D = [-1, 1].
+\end{align}
+(2) 解：设定义域为$D$：
+\begin{align}
+    &\mathrel{\phantom{\implies}} \forall x \in D, \exists y \in \real, y = \displaystyle\sqrt[3]{\displaystyle\frac{1+x}{1-x}} \\
+    &\implies 1 - x \neq 0 \implies x \neq 1 \implies D = \real \setminus \{ 1 \}.
+\end{align}
+(3) 解：设定义域为$D$：
+\begin{align}
+    &\mathrel{\phantom{\implies}} \forall x \in D, \exists y \in \real, y = \displaystyle\frac{x+1}{x^2 +x - 2} \\
+    &\implies x^2 + x - 2 \neq 0 \implies (x+2)(x-1) \neq 0 \implies x \neq 1 \; \land \; x \neq -2 \\
+    &\implies D = \real \setminus \{ 1, 2 \}.
+\end{align}
+(4) 解：设定义域为$D$：
+\begin{align}
+    &\mathrel{\phantom{\implies}} \forall x \in \real, \exists y \in \real, y = \ln \, \frac{1+\sin \, x}{1+ \cos \, x} \\
+    &\implies \frac{1+\sin \, x}{1+\cos \, x} > 0 \implies (1+\sin \, x)(1+\cos \, x) > 0  \\
+    &\implies 1 + \cos \, x \neq 0 \implies \cos \, x \neq -1 \implies x \not\in \{x : \cos \, x = -1, x \in \real \} \\
+    &\implies x \not\in \{ 2\pi n + \frac{3\pi}{2} : n \in \integer \} \implies D = \real \setminus \{ 2 \pi n + \frac{3 \pi}{2} : n \in \integer \}
+\end{align}
+
+2. 给定函数$f: \real \longrightarrow \real$，如果$x \in R$使$f(x)=x$，则称$x$为$f$的一个不动点．若$f \circ  f$有唯一的不动点，求证：$f$也有唯一的不动点．
+
+\begin{proof}
+设$x_0$是$f \circ f$的不动点，依题意，这个$x_0$是唯一的仅此一个．如果$x_0$是$f \circ f$的不动点，那么
+\begin{equation}
+    f(f(f(x_0))) = f(x_0)
+\end{equation}
+这说明$f(x_0)$是$f \circ f$的不动点，而作为$f \circ f$的不动点的$x_0$又是唯一的，所以$f(x_0) = x_0$，所以$f$有唯一的不动点$x_0$．命题得证．
+\end{proof}
+
+3. 设$f: \real \longrightarrow \real$．若$f \circ f$有且仅有两个不动点$a, b\,(a \neq b)$，求证只有一下两种情况：
+\begin{enumerate}
+    \item $a, b$都是$f$的不动点；
+    \item $f(a) = b, \, f(b) = a$.
+\end{enumerate}
+
+\begin{proof}
+设$a, b (a \neq b)$是$f \circ f$仅有的为数不多的两个不动点．依题２的证明结论，如果$x$是$f \circ f$的不动点那么$f(x)$必定也是$f \circ f$的不动点，因为$a$是$f \circ f$的不动点，所以$f(a)$是$f \circ f$的不动点，而$f \circ f$的全部不动点构成一个有限集合
+\begin{equation}
+    \{ a, b \}
+\end{equation}
+所以
+\begin{equation}
+    f(a) \in \{a, b \}
+\end{equation}
+如果说$f(a) = a$，那么同理可推出$f(b)=b$，那么$a, b$都是$f$的不动点，否则如果$f(a) = b$那么可同理推出$f(b)=a$．
+\end{proof}
+
+4. 设函数$f: \real \longrightarrow \real$，且每一个实数都是$f \circ f$的不动点．试问：
+\begin{enumerate}
+    \item 有几个这样的函数？
+    \item 若$f$在$\real$上递增，有几个这样的函数？
+\end{enumerate}
+
+(1) 解：４个，分别是：
+\begin{align}
+    f_1(x) &= x \\
+    f_2(x) &= -x \\
+    f_3(x) &= \begin{cases}
+        \displaystyle\frac{1}{x}, & x \neq 0 \\
+        0, & x = 0
+    \end{cases} \\
+    f_4(x) &= \begin{cases}
+        \displaystyle-\frac{1}{x}, & x \neq 0 \\
+        0, & x = 0
+    \end{cases}
+\end{align}
+
+(2) 解：１个，是
+\begin{equation}
+    f(x) = x.
+\end{equation}
+
+5. 求下列函数$f$的$n$次复合$f^n$:
+
+\begin{enumerate}
+    \item $f(x) = \displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}$;
+    \item $f(x) = \displaystyle\frac{x}{1+bx}$.
+\end{enumerate}
+
+(1) 解：
+当$n = 0$时，$f^0 (x) = I (x) = x = \displaystyle\frac{x}{\displaystyle\sqrt{1+0 x^2}}$；
+
+当$n=1$时，$f^1 (x) = f(x) = \displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}=\displaystyle\frac{x}{\displaystyle\sqrt{1+1 x^2}}$;
+
+当$n=2$时，$f^2 (x) = f(f(x)) = \displaystyle\frac{\displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}}{\displaystyle\sqrt{1+\left(\displaystyle\frac{x}{\displaystyle\sqrt{1+x^2}}\right)^2}} = \displaystyle\frac{x}{\displaystyle\sqrt{1+2x^2}}$;
+
+采用数学归纳法来证明：假设对于某个非负整数$k$有：
+\begin{equation}
+    f^k (x) = \frac{x}{\sqrt{1+kx^2}}
+\end{equation}
+成立，那么
+\begin{equation}
+    f^{k+1}(x) = f(f^k(x)) = \frac{\displaystyle\frac{x}{\sqrt{1+kx^2}}}{\sqrt{1+\left(\displaystyle\frac{x}{\sqrt{1+kx^2}}\right)^2}} = \frac{x}{\sqrt{1+(k+1)x^2}}
+\end{equation}
+依数学归纳法原理，对任意非负整数$n$，都有$f^n (x) = \displaystyle\frac{x}{\displaystyle\sqrt{1+nx^2}}$成立．
+
+(2) 解：当$n=0$时：
+\begin{equation}
+    f^0 (x) = I(x) = x = \frac{x}{1 + 0bx}
+\end{equation}
+当$n=1$时：
+\begin{equation}
+    f^1 (x) = f(x) = \frac{x}{1+bx} = \frac{x}{1+1bx}
+\end{equation}
+当$n=2$时：
+\begin{equation}
+    f^2 (x) = f(f(x)) = \frac{\displaystyle\frac{x}{1+bx}}{1+\displaystyle\frac{bx}{1+bx}} = \displaystyle\frac{x}{1+2bx}
+\end{equation}
+猜测对一般的$n \in \nnat$都有$f^n (x) = \displaystyle\frac{x}{1+nbx}$成立，采用数学归纳法来证明，假设对于某个$k \in \nnat$，当$n=k$时命题是成立的，那么当$n=k+1$时：
+\begin{equation}
+    f^{k+1}(x) = f(f^k (x)) = \displaystyle\frac{\displaystyle\frac{x}{1+kbx}}{1+\displaystyle\frac{bx}{1+kbx}} = \displaystyle\frac{x}{1+(k+1)bx}
+\end{equation}
+依数学归纳法原理，对任意$n \in \nnat$命题都成立．
+
+6. 设$f: \real \longrightarrow \real$满足方程
+\begin{equation}
+    f(x+y)=f(x)+f(y) \quad (x,y \in \real)
+\end{equation}
+试证：对一切有理数$x$，有$f(x) = xf(1)$.
+
+\begin{proof}
+设$x$是一个非零有理数，那么存在$p, q \in \integer, p, q \neq 0$使得$x = \displaystyle\frac{p}{q}$，于是
+\begin{equation}
+    f(x) = f(\displaystyle\frac{p}{q}) = f(\underbrace{\displaystyle\frac{1}{q}+\cdots+\displaystyle\frac{1}{q}}_{p\text{个}}) = \underbrace{f(\displaystyle\frac{1}{q})+\cdots+f(\displaystyle\frac{1}{q})}_{p\text{个}} = p f(\displaystyle\frac{1}{q})
+    \label{eq:rational1}
+\end{equation}
+让$q$个$f(\displaystyle\frac{1}{q})$相加，得到
+\begin{equation}
+    \underbrace{f(\displaystyle\frac{1}{q})+\cdots+f(\displaystyle\frac{1}{q})}_{q\text{个}} = f(\underbrace{\displaystyle\frac{1}{q}+\cdots+\displaystyle\frac{1}{q}}_{q\text{个}})=f(q \cdot \displaystyle\frac{1}{q}) = f(1)
+\end{equation}
+从而得$\displaystyle\frac{1}{q}=\displaystyle\frac{1}{q}f(1)$，于是代入式(\ref{eq:rational1})得
+\begin{equation}
+    f(x) = p f(\displaystyle\frac{1}{q}) = p \cdot \displaystyle\frac{1}{q}f(1) = \displaystyle\frac{p}{q}f(1)=xf(1)
+\end{equation}
+以上是当$x \neq 0$的情形，如果$x=0$，那么依题意
+\begin{equation}
+    f(0 + 0) = f(0) + f(0)
+\end{equation}
+从而
+\begin{equation}
+    f(0) = 0 = 0 f(1)
+\end{equation}
+于是对一切$x \in \rational$命题成立．
+\end{proof}
+
+7. 设函数$f: \real \longrightarrow \real$，$l$为一正数，如果$f(x+l)=f(x)$对一切$x$成立，则称$f$是周期为$l$的{\bfseries{周期函数}}．如果$f$以任何正数为周期，求证：$f$为常值函数．
+\begin{proof}
+采用反证法，假设$f$不是常值函数，那么就存在$x_1, x_2 \in \real, x_1 < x_2$使得$f(x_1) \neq f(x_2)$，令$d = x_2 - x_1$，那么就有$f(x_1)\neq f(x_2)=f(x_1 + d)$，这与周期函数的定义不符，矛盾．
+\end{proof}
+
+8. 试证$\sin \, \left(x^2\right), \sin \, x + \cos \, \sqrt{2}x$均不是周期函数．
+\begin{proof}
+采用反证法，设存在$l > 0$，使得$\sin \, \left(x+l\right)^2=\sin \, \left(x\right)^2$对一切$x \in \real$成立．那么对任意$x \in \real$，有
+\begin{align}
+    \sin \, \left(x+l\right)^2 = \sin \, \left(x\right)^2 &\implies \sin \, \left(x+l\right)^2-\sin \, \left(x\right)^2 = 0 \\
+    &\implies \sin \, \left(x^2 + 2xl + l^2\right) - \sin \, \left(x^2\right) = 0 \\
+    &\implies 2xl+l^2 = 2\pi n, \, n \in \integer \\
+    &\implies x = \frac{\pi n}{l} - \frac{l}{2}
+\end{align}
+可是当$x \not\in \{ \displaystyle\frac{\pi n}{l} - \displaystyle\frac{l}{2} : n \in \integer \}$时，会有$2xl+l^2 \neq 2\pi n$，于是$\sin \, \left(x^2+2xl+l^2\right)^2 \neq \sin \left( x \right)^2$，矛盾．
+\end{proof}
+\begin{proof}
+采用反证法，设存在$l > 0$，使得$\sin \, x + \cos \, \sqrt{2} x$成为一周期为$l$的周期函数．那么，对任意$x \in \real$都有$\sin \, (x + l) + \cos \, (\sqrt{2}(x+l)) = \sin \, x + \cos \, \sqrt{2}x$成立，也就是
+\begin{align}
+    &\mathrel{\phantom{\implies}} \sin \, (x+l) + \cos \, (\sqrt{2}x + \sqrt{2}l) - \sin \, x - \cos \, \sqrt{2} x  = 0 \\
+    &\implies \sin \, x (\cos \, l - 1) + \sin \, l \cos \, x + \cos \, \sqrt{2} x ( \cos \, \sqrt{2} l - 1) - \sin \, \sqrt{2} x \sin \, \sqrt{2} l = 0 \label{eq:irrelavant}
+\end{align}
+考虑函数列$\sin \, x, \cos \, x, \cos \, \sqrt{2}x , \sin \, \sqrt{2} x$的Wronskian行列式：
+\begin{equation}
+    W(x) = \begin{vmatrix}
+        \sin \, x & \cos \, x & \cos \, \sqrt{2} x & \sin \, \sqrt{2} x \\
+        \cos \, x & -\sin \, x & -\sqrt{2} \sin \, \sqrt{2} x & \sqrt{2} \cos \, \sqrt{2} x \\
+        -\sin \, x & -\cos \, x & -2 \cos \sqrt{2} x & -2 \sin \, \sqrt{2} x \\
+        -\cos \, x & \sin \, x & 2\sqrt{2} \sin \, \sqrt{2} x & -2\sqrt{2} \cos \, \sqrt{2} x 
+    \end{vmatrix}
+\end{equation}
+取$x_0 = 0$，去计算$W(x_0)$：
+\begin{align}
+    &W(x_0) = \begin{vmatrix}
+        0 & 1 & 1 & 0  \\
+        1 & 0 & 0 & \sqrt{2} \\
+        0 & -1 & -2 & 0 \\
+        -1 & 0 & 0 & -2\sqrt{2}
+    \end{vmatrix} \xrightarrow{[3] + 2 \times [1]} \begin{vmatrix}
+        0 & 1 & 1 & 0 \\
+        1 & 0 & 0 & \sqrt{2} \\
+        0 & 1 & 0 & 0 \\
+        -1 & 0 & 0 & -2\sqrt{2}
+    \end{vmatrix} \xrightarrow{[4]+[2]} \begin{vmatrix}
+            0 & 1 & 1 & 0 \\
+            1 & 0 & 0 & \sqrt{2} \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} \\
+    &\xrightarrow{[1] + (-1) \times [3]} \begin{vmatrix}
+        0 & 0 & 1 & 0 \\
+        1 & 0 & 0 & \sqrt{2} \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} \xrightarrow{[1] \longleftrightarrow [2]} \begin{vmatrix}
+        1 & 0 & 0 & \sqrt{2} \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} \xrightarrow{[2] \longleftrightarrow [3]} \begin{vmatrix}
+            1 & 0 & 0 & \sqrt{2} \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} \\
+    &\xrightarrow{[1] + [4]} \begin{vmatrix}
+        1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & -\sqrt{2}
+    \end{vmatrix} = -\sqrt{2} \neq 0
+\end{align}
+因此函数列$\sin \, x, \cos \, x, \cos \, \sqrt{2}x , \sin \, \sqrt{2} x$线性无关，因此从式(\ref{eq:irrelavant})右端等于$0$可推出
+\begin{equation}
+    \begin{cases}
+        (\cos \, l) - 1 &= 0 \\
+        \sin \, l &= 0 \\
+        (\cos \, \sqrt{2} l) - 1 &= 0 \\
+        \sin \, \sqrt{2} l &= 0
+    \end{cases}
+\end{equation}
+这说明$l = 0$，从而与$l > 0$矛盾，从而不存在这样的$l > 0$使得题设函数成为一周期函数．
+\end{proof}
+
+9. 设函数$f: (-a, a) \longrightarrow \real$．如果对任何$x \in (-a, a)$，有$f(x) = f(-x)$，则称$f$为偶函数；若$f(x) = -f(-x)$，则称$f$为奇函数．求证：$(-a, a)$上的任何函数均可表示为一个奇函数和一个偶函数之和．
+
+\begin{proof}
+令
+\begin{align}
+    p: (-a, a) \;\; &\longrightarrow \;\; \real \\
+    x \;\; &\longmapsto \;\; \displaystyle\frac{f(x)+f(-x)}{2}
+\end{align}
+再令
+\begin{align}
+    q: (-a, a) \;\; &\longrightarrow \;\; \real \\
+    x \;\; &\longmapsto \;\; \displaystyle\frac{f(x)-f(-x)}{2}
+\end{align}
+则
+\begin{equation}
+    p(-x) = \displaystyle\frac{f(-x)+f(-(-x))}{2} = \displaystyle\frac{f(-x)+f(x)}{2} = \displaystyle\frac{f(x)+f(-x)}{2} = p(x)
+\end{equation}
+这说明$p$在$(-a, a)$上成为一偶函数．又有
+\begin{equation}
+    q(-x) = \displaystyle\frac{f(-x)-f(-(-x))}{2} = \displaystyle\frac{f(-x)-f(x)}{2} = -\displaystyle\frac{f(x)-f(-x)}{2} = -q(x)
+\end{equation}
+这说明$q$在$(-a, a)$上成为一奇函数．并且
+\begin{equation}
+    p(x)+q(x) = \displaystyle\frac{f(x)+f(-x)}{2} + \displaystyle\frac{f(x)-f(-x)}{2} = f(x)
+\end{equation}
+这就将函数$f$表示成了一个偶函数$p$和一个奇函数$q$的和．
+\end{proof}
+
+10. 函数
+\begin{equation}
+    \cosh \, x = \frac{\expe^x + \expe^{-x}}{2}, \quad \sinh \, x = \frac{\expe^{x} - \expe^{-x}}{2}
+\end{equation}
+分别称为{\bfseries{双曲正弦}}和{\bfseries{双曲余弦}}．证明：
+\begin{enumerate}
+    \item $\cosh$是偶函数，$\sinh$是奇函数；
+    \item $(\cosh \, x)^2 - (\sinh \, x)^2 = 1 \; (x \in \real)$.
+\end{enumerate}
+
+\begin{proof}
+计算得
+\begin{equation}
+    \cosh \, (-x) = \frac{\expe^{-x} + \expe^{-(-x)}}{2} = \frac{\expe^{-x}+\expe^{x}}{2} = \frac{\expe^x + \expe^{-x}}{2} = \cosh \, x
+\end{equation}
+这说明$\cosh$是偶函数．又有
+\begin{equation}
+    \sinh \, (-x) = \frac{\expe^{-x} - \expe^{-(-x)}}{2} = \frac{\expe^{-x}-\expe^{x}}{2} = - \frac{\expe^{x} - \expe^{-x}}{2} = - \sinh \, x
+\end{equation}
+这说明$\sinh$是奇函数．
+\end{proof}
+
+\begin{proof}
+    \begin{align}
+        \text{左边} &= (\cosh \, x)^2 - (\sinh \, x)^2 = (\cosh \, x + \sinh \, x)(\cosh \, x - \sinh \, x) \\
+        &= \expe^x \cdot \expe^{-x} = \expe^0 = 1 = \text{右边}
+    \end{align}
+\end{proof}

@@ -1,0 +1,71 @@
+% 练习题1.1
+\exercise
+
+1. 设$a$为有理数，$b$为无理数．求证：$a+b$与$a-b$都是无理数；当$a\neq 0$时，$ab$与$b/a$也是无理数．
+\begin{proof}
+采用反证法．设$a+b$是有理数，那么就存在互质的整数$p,q$，使得
+\begin{equation}
+    a+b = \frac{p}{q}
+\end{equation}
+由于$a$都是有理数，所以存在$p_1,q_1 \in \mathbb{Z}$使得$a = \displaystyle \frac{p_1}{q_1}$，其中$p_1,q_1$互质．于是
+\begin{equation}
+    b = a+b - a = \frac{p}{q} - \frac{p_1}{q_1} = \frac{p q_1 - q p_1}{q q_1}
+\end{equation}
+这说明$b$是有理数，矛盾．于是$a+b$是无理数．
+
+再证$a-b$是无理数，采用反证法，先假设$a-b$是有理数，即，存在互质的整数$p_2,q_2$使得$\displaystyle a-b=\frac{p_2}{q_2}$，那么
+\begin{equation}
+    b = a - (a-b) = \frac{p_1}{q_1} - \frac{p_2}{q_2} = \frac{p_1 q_2 - q_1 p_2}{q_1 q_2}
+\end{equation}
+这说明$b$是有理数，矛盾．于是$a-b$是无理数．
+\end{proof}
+
+2. 证明：两个不同的有理数之间有无限多个有理数，也有无限多个无理数．
+\begin{proof}
+设$\displaystyle a_1 = \frac{p_1}{q_1}, b_1 = \frac{p_2}{q_2}$是有理数，且$a_1 \neq b_1$，令
+\begin{equation}
+    c_1 = \frac{a_1+b_1}{2} = \frac{1}{2} \left( \frac{p_1}{q_1} + \frac{p_2}{q_2} \right) = \frac{p_1 q_2 + p_2 q_1}{2 q_1 q_2}
+\end{equation}
+则显然$c_1$是无理数，且$a_1 < c_1 < b_1$，对任意的$n\geq 2, n \in \mathbb{N}$，我们令
+\begin{equation}
+    c_{n-1} = \frac{a_{n-1}+b_{n-1}}{2}, \; a_n = c_{n-1}, \; b_n = b_{n-1}
+\end{equation}
+由于有理数集关于加法运算封闭，所以按此方法可计算出无穷多个有理数$c_n$满足$a_1 < c_1 < c_2 < \cdots < b$，这就证明了两个不同的有理数之间有无穷多个有理数．
+
+设$t_1$是一个无理数，那么我们可以找到两个整数$n_1, m_1$，满足$n_1 < m_1$，并且使得
+\begin{equation}
+    n_1 < t_1 < m_1
+    \label{ieq:n1t1m1}
+\end{equation}
+在$0$到$b_1 - a_1$之间必定存在$N_1 \in \mathbb{N}^\star$，使得
+\begin{equation}
+    0 < \frac{m_1}{N_1} - \frac{n_1}{N_1} = \frac{m_1-n_1}{N_1} < b_1 - a_1
+\end{equation}
+再结合不等式(\ref{ieq:n1t1m1})也就是
+\begin{equation}
+    a_1 < \frac{t_1}{N_1} - \frac{n_1}{N_1} + a_1 < b_1
+\end{equation}
+令
+\begin{equation}
+    s_1 = \frac{t_1}{N_1} - \frac{n_1}{N_1} + a_1
+\end{equation}
+显然，由于$a_1$是有理数，而$\displaystyle \frac{t_1}{N_1} - \frac{n_1}{N_1}$是无理数，所以$s_1$是无理数并且介于$a_1$到$b_1$之间．对任意$n \in \mathbb{N}^\star$，令
+\begin{equation}
+    s_{n+1} = \frac{s_n+b_1}{2}, 
+\end{equation}
+则可构造出无穷多个无理数$s_{n}$，并且满足$a_1 < s_1 < s_2 < \cdots < b_1$，这就证明了任意两个有理数之间有无限多个无理数．
+\end{proof}
+
+16. 设$n=2,3,\cdots, \, x > -1$且$x\neq 0$．求证：$(1+x)^n > 1+nx$．
+\begin{proof}
+当$n=2$时，
+\begin{equation}
+    (1+x)^2 = 1 + 2x + x^2 > 1 + 2x + 0 = 1 + 2x
+\end{equation}
+于是对于$n=2$命题成立．假设对某个$k \in \mathbb{N}^\star, \, k \geq 2$，当$n=k$时命题成立，则
+\begin{align}
+    (1+x)^{k+1} &= (1+x)^k (1+x) > (1+kx)(1+x) \\
+    &= 1 + (k+1)x + kx^2 > 1+(k+1)x
+\end{align}
+这说明如果对$n=k$命题成立，那么对$n=k+1$命题也成立．根据数学归纳法原理，命题对一切$n\in\mathbb{N}^\star$都成立．
+\end{proof}
