@@ -1,6 +1,5 @@
-\documentclass{ctexart}
+\documentclass[a4paper, titlepage]{ctexbook}
 \usepackage[
-    a4paper,
     top=0.8in,
     left=0.8in,
     right=0.8in,
@@ -60,24 +59,24 @@
 % \hspace*{\fill} $\square$
 
 \ctexset{
-    abstractname = {\zihao{-4} \bfseries 摘~要},
-    section/format ={\pagebreak\Large\bfseries\centering},
-    section/name = {第,章},
+    chapter/format ={\Large\bfseries\centering},
+    chapter/name = {第,章},
+    chapter/number = \arabic{chapter},
     appendix/name = {附录,}
 }
 
 \newcounter{exercise}[section]
 
-\renewcommand{\theexercise}{\arabic{section}.\arabic{exercise}}
-\newcommand{\exercise}{\refstepcounter{exercise}{\par\bigskip\centering{\bfseries\large 练习题~\theexercise}\par\bigskip}\addcontentsline{toc}{subsection}{{\bfseries\zihao{-5}练习题~\theexercise}}}
-\newcommand{\question}{{\par\bigskip\centering{\bfseries\large 问题~\theexercise}\par\bigskip}\addcontentsline{toc}{subsection}{{\bfseries\zihao{-5}问题~\theexercise}}}
+\renewcommand{\theexercise}{\arabic{chapter}.\arabic{exercise}}
+\newcommand{\exercise}{\refstepcounter{exercise}{\par\bigskip\centering{\bfseries\large 练习题~\theexercise}\par\bigskip}\addcontentsline{toc}{section}{{\bfseries\zihao{-5}练习题~\theexercise}}}
+\newcommand{\question}{{\par\bigskip\centering{\bfseries\large 问题~\theexercise}\par\bigskip}\addcontentsline{toc}{section}{{\bfseries\zihao{-5}问题~\theexercise}}}
 
 \setlength{\parindent}{0ex}
 
 \counterwithin*{equation}{exercise}
-\renewcommand{\theequation}{\arabic{section}.\arabic{exercise}.\arabic{equation}}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{exercise}.\arabic{equation}}
 
-\renewenvironment{abstract}{
+\newenvironment{abstract}{
     \centerline{\zihao{4}\textbf{摘要}\medskip}
     \begin{center}\begin{minipage}[c]{38em}
 }{\end{minipage}\end{center}}
