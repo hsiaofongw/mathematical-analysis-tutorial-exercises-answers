@@ -1952,3 +1952,51 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     \lim_{x \to 0} \displaystyle\frac{\sqrt{x^2+\sqrt[3]{x}}}{\sqrt{\sqrt[3]{x}}} = \lim_{x \to 0} \displaystyle\sqrt{\displaystyle\frac{x}{\sqrt[3]{x}}+1} = 1
 \end{equation}
 所以当$x \to 0$时$x^{1/6}$与$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是同阶无穷小．又因为$x^{1/6}$是$1/6$阶无穷小，所以$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是$1/6$阶无穷小．\qed
+
+\medskip
+(9) 解：因为
+\begin{equation}
+    \lim_{x \to \infty} \sqrt{x^2+\sqrt[3]{x}} = \infty
+\end{equation}
+所以当$x \to \infty$时，$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是无穷大．又因为
+\begin{equation}
+    \lim_{x \to \infty} x = \infty
+\end{equation}
+所以当$x \to \infty$时，$x$是无穷大．又因为
+\begin{equation}
+    \lim_{x \to \infty} \frac{\sqrt{x^2+\sqrt[3]{x}}}{x} = \lim_{x \to \infty} \sqrt{1 + \displaystyle\frac{\sqrt[3]{x}}{x}} = 1
+\end{equation}
+所以当$x \to \infty$时，$\sqrt{x^2+\sqrt[3]{x}}$与$x$是同阶无穷大，又因为$x$是$1$阶无穷大，所以$\sqrt{x^2 + \sqrt[3]{x}}$是$1$阶无穷大．\qed
+
+\medskip
+(10) 解：因为
+\begin{equation}
+    \lim_{x \to 0} \left( \sqrt{1+x} - \sqrt{1-x} \right) = \lim_{x \to 0} \frac{2x}{\sqrt{1+x}+\sqrt{1-x}} = 0
+\end{equation}
+所以当$x \to 0$时$\sqrt{1+x}-\sqrt{1-x}$是无穷小．又因为
+\begin{equation}
+    \lim_{x \to 0} 2x = 0
+\end{equation}
+并且
+\begin{equation}
+    \lim_{x \to 0} \displaystyle\frac{\sqrt{1+x}-\sqrt{1-x}}{2x}=\lim_{x \to 0} \displaystyle\frac{\displaystyle\frac{2x}{\sqrt{1+x}+\sqrt{1-x}}}{2x} = \lim_{x \to 0} \frac{1}{\sqrt{1+x}+\sqrt{1-x}} = \frac{1}{2}
+\end{equation}
+所以当$x \to 0$时$\sqrt{1+x}-\sqrt{1-x}$与$2x$是同阶无穷小，又因为$2x$是$1$阶无穷小，所以$\sqrt{1+x}-\sqrt{1-x}$是$1$阶无穷小．\qed
+
+\medskip
+(11) 解：因为
+\begin{equation}
+    \lim_{x \to 0^+} \displaystyle\frac{\sin \, \left(\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}\right)}{\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}} = 1
+\end{equation}
+所以当$x \to 0^+$时$\sin \, \left(\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}\right)$与$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$是同阶无穷小，又因为
+\begin{align}
+    \lim_{x \to 0^+} \displaystyle\frac{\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}}{\displaystyle\sqrt{1+\sqrt{x}}-1} &= \lim_{x \to 0^+} \displaystyle\frac{\displaystyle\frac{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1}{\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}+\displaystyle\sqrt{2}}}{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1} \\
+    &= \lim_{x \to 0^+} \displaystyle\frac{1}{\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}+\displaystyle\sqrt{2}} \\
+    &= \frac{1}{2\displaystyle\sqrt{2}}
+\end{align}
+所以$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$与$\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1$是同阶无穷小．又因为
+\begin{align}
+    \lim_{x \to 0^+} \displaystyle\frac{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1}{\displaystyle\sqrt{x}} &= \lim_{x \to 0^+} \displaystyle\frac{\displaystyle\frac{\displaystyle\sqrt{x}}{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}+1}}{\displaystyle\sqrt{x}} \\
+    &= \lim_{x \to 0^+} \displaystyle\frac{1}{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}+1} = \frac{1}{2}
+\end{align}
+所以$\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1$与$\displaystyle\sqrt{x}$是同阶无穷小．所以$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$与$\sqrt{x}$是同阶无穷小．又因为$\displaystyle\sqrt{x}$是$1/2$阶无穷小，所以$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$是$1/2$阶无穷小．\qed
