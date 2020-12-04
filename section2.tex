@@ -1945,10 +1945,10 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
 \end{equation}
 所以$\sqrt{x^2+\sqrt[3]{x}}$是当$x \to 0$时的无穷小．又因为
 \begin{equation}
-    \lim_{x \to 0} x = 0
+    \lim_{x \to 0} {\displaystyle x^{1/6}} = \lim_{x \to 0} \sqrt{\sqrt[3]{x}} = 0
 \end{equation}
-所以$x$是当$x \to 0$时的无穷小．又因为
+所以$x^{1/6}$是当$x \to 0$时的无穷小．又因为
 \begin{equation}
-    \lim_{x \to 0} \displaystyle\frac{\sqrt{x^2+\sqrt[3]{x}}}{x} = \lim_{x \to 0} \displaystyle\sqrt{1 + \displaystyle\frac{\sqrt[3]{x}}{(\sqrt[3]{x})^3}} = 1
+    \lim_{x \to 0} \displaystyle\frac{\sqrt{x^2+\sqrt[3]{x}}}{\sqrt{\sqrt[3]{x}}} = \lim_{x \to 0} \displaystyle\sqrt{\displaystyle\frac{x}{\sqrt[3]{x}}+1} = 1
 \end{equation}
-所以当$x \to 0$时$x$与$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是同阶无穷小．又因为$x$是$1$阶无穷小，所以$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是$1$阶无穷小．\qed
+所以当$x \to 0$时$x^{1/6}$与$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是同阶无穷小．又因为$x^{1/6}$是$1/6$阶无穷小，所以$\displaystyle\sqrt{x^2+\sqrt[3]{x}}$是$1/6$阶无穷小．\qed
