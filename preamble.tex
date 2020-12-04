@@ -18,6 +18,16 @@
 \usepackage{lipsum}
 \usepackage{tikz-cd}
 \usepackage{lipsum}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks = false,
+    bookmarks = true,
+    bookmarksopen = false,
+    bookmarksnumbered = false,
+    pdfborder = {0 0 0}
+}
+
 \pagestyle{plain}
 
 \newmdtheoremenv{theo}{定理}
@@ -68,8 +78,8 @@
 \newcounter{exercise}[section]
 
 \renewcommand{\theexercise}{\arabic{chapter}.\arabic{exercise}}
-\newcommand{\exercise}{\refstepcounter{exercise}{\par\bigskip\centering{\bfseries\large 练习题~\theexercise}\par\bigskip}\addcontentsline{toc}{section}{{\bfseries\zihao{-5}练习题~\theexercise}}}
-\newcommand{\question}{{\par\bigskip\centering{\bfseries\large 问题~\theexercise}\par\bigskip}\addcontentsline{toc}{section}{{\bfseries\zihao{-5}问题~\theexercise}}}
+\newcommand{\exercise}{\refstepcounter{exercise}{\par\bigskip\centering{\bfseries\large 练习题~\theexercise}\par\bigskip}\addcontentsline{toc}{section}{\textbf{练习题~\theexercise}}}
+\newcommand{\question}{{\par\bigskip\centering{\bfseries\large 问题~\theexercise}\par\bigskip}\addcontentsline{toc}{section}{\textbf{问题~\theexercise}}}
 
 \setlength{\parindent}{0ex}
 
