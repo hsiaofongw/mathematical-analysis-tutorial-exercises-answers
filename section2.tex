@@ -2000,3 +2000,31 @@ L(3) &= \frac{1}{2} + 2^2 \cdot \frac{1}{2} + 3^2 \cdot \frac{1}{2} = 7
     &= \lim_{x \to 0^+} \displaystyle\frac{1}{\displaystyle\sqrt{1+\displaystyle\sqrt{x}}+1} = \frac{1}{2}
 \end{align}
 所以$\displaystyle\sqrt{1+\displaystyle\sqrt{x}}-1$与$\displaystyle\sqrt{x}$是同阶无穷小．所以$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$与$\sqrt{x}$是同阶无穷小．又因为$\displaystyle\sqrt{x}$是$1/2$阶无穷小，所以$\displaystyle\sqrt{1+\displaystyle\sqrt{1+\displaystyle\sqrt{x}}}-\displaystyle\sqrt{2}$是$1/2$阶无穷小．\qed
+
+\medskip
+(12) 解：由于
+\begin{align}
+    \lim_{x \to 0} \frac{\sqrt{1+\tan \, x} - \sqrt{1-\sin \, x}}{\tan \, x - \sin \, x} &= \lim_{x \to 0} \displaystyle\frac{\displaystyle\frac{\tan \, x - \sin \, x}{\sqrt{1+\tan \, x}+\sqrt{1 - \sin \, x}}}{\tan \, x - \sin \, x} \\
+    &= \lim_{x \to 0} \frac{1}{\sqrt{1+\tan \, x} + \sqrt{1- \sin \, x}} = \frac{1}{2}
+\end{align}
+于是当$x \to 0$时，$\sqrt{1+\tan \, x}-\sqrt{1-\sin \, x}$与$\tan \, x - \sin \, x$是同阶无穷小，又因为
+\begin{align}
+    \lim_{x \to 0} \frac{\tan \, x - \sin \, x}{\displaystyle\frac{1}{2}x^3} &= \lim_{x \to 0} \frac{\displaystyle\frac{\sin \, x}{\cos \, x} - \sin \, x}{\displaystyle\frac{1}{2} x^3} \\
+    &= \lim_{x \to 0} \frac{\displaystyle\frac{1}{\cos \, x} \sin \, x \left(1- \cos \, x\right)}{\displaystyle\frac{1}{2}x^3} \\
+    &= \lim_{x \to 0} \frac{1}{\cos \, x} \lim_{x \to 0} \frac{x \cdot \displaystyle\frac{1}{2}x^2}{\displaystyle\frac{1}{2}x^3} = 1 \cdot 1 = 1.
+\end{align}
+由此可见当$x \to 0$时$\tan \, x - \sin \, x$与$x^3$是同阶无穷小，也就是说$\tan \, x - \sin \, x$是$3$阶无穷小，从而$\sqrt{1+\tan \, x} - \sqrt{1 - \sin \, x}$是$3$阶无穷小．\qed
+
+\medskip
+(13) 解：由于
+\begin{align}
+    \displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} &= \displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} - \displaystyle\sqrt{x+\displaystyle\sqrt{x}} + \displaystyle\sqrt{x+\displaystyle\sqrt{x}} \\
+    &= \displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} - \displaystyle\sqrt{x+\displaystyle\sqrt{x}} + \displaystyle\sqrt{x+\displaystyle\sqrt{x}} - \sqrt{x} + \sqrt{x} \\
+    &= \frac{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}-\displaystyle\sqrt{x}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} + \displaystyle\frac{\displaystyle\sqrt{x}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}} + \sqrt{x} \\
+    &= \frac{\displaystyle\frac{\displaystyle\sqrt{x}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}} + \displaystyle\frac{\displaystyle\sqrt{x}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}} + \sqrt{x} \\
+\end{align}
+所以
+\begin{equation}
+    \lim_{x \to \infty} \frac{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}}{\displaystyle\sqrt{x}} = \lim_{x \to \infty} \left( \frac{\displaystyle\frac{1}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}+ \displaystyle\sqrt{x+\displaystyle\sqrt{x}}} + \frac{1}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}} + 1 \right) = 1
+\end{equation}
+所以当$x \to \infty$时$\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}$与$\sqrt{x}$是同阶无穷大，而且$\displaystyle\sqrt{x}$是$1/2$阶无穷大，所以$\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}$是$1/2$阶无穷大．\qed
