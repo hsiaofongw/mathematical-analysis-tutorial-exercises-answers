@@ -4,3 +4,5 @@
 *.toc
 dist/
 dist/*
+*.out
+.DS_Store
