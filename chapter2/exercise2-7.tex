@@ -84,3 +84,57 @@
     \lim_{x \to 0^-} \lfloor x \rfloor = \lim_{x \to 0^-} -1 = -1
 \end{equation}
 从而函数$f: x \mapsto \lfloor x \rfloor$在$x=0$处的极限不存在，从而在$x=0$处不连续．\qed\bigskip
+
+(3) \prove 对任意$\epsilon > 0$，取$\delta = - \displaystyle\frac{1}{\sqrt{\lvert \ln \, \epsilon \rvert}}$，那么只要$\lvert x - 0 \rvert < \epsilon$，就有
+\begin{equation}
+    \lvert \expe^{-1/x^2} \rvert = \expe^{-1/x^2} < \expe^{-1/\delta^2} = \epsilon
+\end{equation}
+这就说明$\displaystyle\lim_{x \to 0} \expe^{-1/x^2} = 0$．又因为$f(0) = 0$，所以函数$f$在$x=0$处连续．\qed\bigskip
+
+(4) \prove 由于
+\begin{equation}
+    \lim_{x \to 0^-} \frac{\sin \, x}{\lvert x \rvert} = -1 \neq \lim_{x \to 0^+} \frac{\sin \, x}{\lvert x \rvert} = 1
+\end{equation}
+故函数$f$在$x=0$处极限不存在，故函数$f$在$x=0$处不连续．\qed\bigskip
+
+(5) \prove 做代换，令$t=1/x$，得
+\begin{equation}
+    \lim_{x \to 0} \left(1+x^2\right)^{1/x^2} = \lim_{t \to +\infty} \left(1+\displaystyle\frac{1}{t^2}\right)^{t^2}
+\end{equation}
+再做代换，令$u=t^2$，得
+\begin{equation}
+    \lim_{t \to +\infty} \left(1+\displaystyle\frac{1}{t^2}\right)^{t^2}=\lim_{u \to \infty} \left(1+\displaystyle\frac{1}{u}\right)^u = \expe
+\end{equation}
+近似计算$\expe$精确到小数点前2位得
+\begin{equation}
+    \expe \approx 2.71
+\end{equation}
+这说明$\displaystyle\lim_{x \to 0} f(x) = \expe \neq f(0) = 2.7$，从而这说明$f$在$x=0$处不连续．\qed\bigskip
+
+3. 定出$a,b$和$c$，使得函数
+\begin{equation}
+    f(x)=\begin{cases}
+        -1, & x \leq -1, \\
+        ax^2+bx+c, & \lvert x \rvert < 1 \, \text{且} \, x \neq 0, \\
+        0, & x = 0, \\
+        1, &x \geq 1
+    \end{cases}
+\end{equation}
+在$(-\infty,+\infty)$上连续．
+
+\bigskip
+\solve 只需使$y = ax^2+bx+c$的图像同时经过$(-1,-1), (0,0), (1,1)$这三点，于是我们有方程组：
+\begin{equation}
+    \begin{cases}
+        a-b+c=-1 \\
+        c = 0 \\
+        a+b+c=1
+    \end{cases}
+\end{equation}
+解出$a=0,b=-1,c=0$．\qed\bigskip
+
+4. 讨论函数$f+g$和$fg$在$x_0$处的连续性，如果：
+\begin{enumerate}
+    \item $f$在$x_0$处连续，但$g$在$x_0$处不连续；
+    \item $f$和$g$在$x_0$处都不连续．
+\end{enumerate}
