@@ -37,9 +37,9 @@
 \bigskip
 
 (3) \answer 可做换元令$x = x_0 + h$，则
-\begin{equation*}
+\begin{equation}
     \lim_{h \to 0} f(x_0 + h) = \lim_{x \to x_0} f(x) = f(x_0)
-\end{equation*}
+\end{equation}
 从而$f$在$x_0$处是连续的．
 
 (4) \answer 这样的$f$在$x_0$处不一定连续．考虑所有图像关于$x = x_0$对称却又在$x_0$处没有定义的函数作为反例．
@@ -62,3 +62,25 @@
         2.7, & x = 0.
     \end{cases}$
 \end{enumerate}
+
+(1) \prove 对任意$\epsilon > 0$，取$\delta = \epsilon$，则只要$0 < \lvert x - 0 \rvert < \delta$，就有
+\begin{equation}
+    \lvert x - 0 \rvert = \lvert x \rvert  < \delta = \epsilon
+\end{equation}
+从而
+\begin{equation}
+    \lvert \lvert x \rvert - 0 \rvert < \epsilon
+\end{equation}
+从而$\displaystyle\lim_{x \to 0} \lvert x \rvert = 0$，从而函数$f: x \mapsto \lvert x \rvert$在$x=0$处是连续的．\qed\bigskip
+
+(2) 函数$f: x \mapsto \lfloor x \rfloor$在$x=0$处不连续．证明如下：\smallskip
+
+\prove 先计算右极限
+\begin{equation}
+    \lim_{x \to 0^+} \lfloor x \rfloor = \lim_{x \to 0^+} 0 = 0
+\end{equation}
+再计算左极限
+\begin{equation}
+    \lim_{x \to 0^-} \lfloor x \rfloor = \lim_{x \to 0^-} -1 = -1
+\end{equation}
+从而函数$f: x \mapsto \lfloor x \rfloor$在$x=0$处的极限不存在，从而在$x=0$处不连续．\qed\bigskip
