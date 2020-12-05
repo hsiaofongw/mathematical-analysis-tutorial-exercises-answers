@@ -1,0 +1,64 @@
+\exercise
+
+1. 回答下列问题：
+
+\begin{minipage}[l]{0.8\textwidth}
+    \setlength{\leftskip}{0.5em}
+
+    \medskip
+    (1) 设$f(x)=\sin \, \displaystyle\frac{1}{x}$，能否定义$f(0)$，使得$f$在$x=0$处是连续的？
+    \medskip
+
+    (2) 设$f(x)=x \sin \, \displaystyle\frac{1}{x}$，如何理解函数$f$的定义域？
+    \medskip
+
+    (3) 设函数$f$在点$x_0$的近旁有定义，并且
+    \begin{equation*}
+        \lim_{h \to 0} f(x_0 + h) = f(x_0),
+    \end{equation*}
+    ~~~~$f$是否在$x_0$处连续？
+    \medskip
+
+    (4) 设函数$f$在点$x_0$的近旁有定义，并且
+    \begin{equation*}
+        \lim_{h \to 0} \left(f(x_0+h)-f(x_0-h)\right)=0,
+    \end{equation*}
+    ~~~~$f$是否在$x_0$处连续？
+    \medskip
+
+    (5) 设连续函数$f$在区间$(a,b)$中的全体有理点上取零值，$f$是怎样的函数？
+\end{minipage}
+\bigskip
+
+(1) \answer 假设可以通过将$f(0)$定义为$y_0 \;(y_0 \in \real)$，使得$f$在$x=0$处连续，那么由于函数$\sin$的值域是$[0,1]$，所以$y_0 \in [0,1]$，可是，由于当$x \to 0$时，$\displaystyle\frac{1}{x} \to \infty$，这使得在$[0,1]$中的任意一点$y$都不是$\sin \, \displaystyle\frac{1}{x}$的极限，故不可能能够在$[0,1]$中找到这样的$y_0$使得$f$在$x=0$处连续．
+\bigskip
+
+(2) \answer 所有使得表达式$\displaystyle\frac{1}{x}$有意义的$x$取值的全体．
+\bigskip
+
+(3) \answer 可做换元令$x = x_0 + h$，则
+\begin{equation*}
+    \lim_{h \to 0} f(x_0 + h) = \lim_{x \to x_0} f(x) = f(x_0)
+\end{equation*}
+从而$f$在$x_0$处是连续的．
+
+(4) \answer 这样的$f$在$x_0$处不一定连续．考虑所有图像关于$x = x_0$对称却又在$x_0$处没有定义的函数作为反例．
+\bigskip
+
+2. 研究下列函数在$x=0$处的连续性：
+\begin{enumerate}
+    \item $f(x)=\lvert x \rvert$; 
+    \item $f(x)=\lfloor x \rfloor$;
+    \item $f(x)=\begin{cases}
+       \expe^{-1/x^2}, & x \neq 0, \\
+       0, & x = 0;
+    \end{cases}$ \\
+    \item $f(x) = \begin{cases}
+        \displaystyle\frac{\sin \, x}{\lvert x \rvert}, & x \neq 0, \\
+        1, & x = 0;
+    \end{cases}$
+    \item $f(x)=\begin{cases}
+        (1+x^2)^{1/x^2}, & x \neq 0, \\
+        2.7, & x = 0.
+    \end{cases}$
+\end{enumerate}
