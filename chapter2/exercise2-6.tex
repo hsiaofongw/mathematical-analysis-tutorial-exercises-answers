@@ -227,3 +227,153 @@
     \lim_{x \to \infty} \frac{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}}{\displaystyle\sqrt{x}} = \lim_{x \to \infty} \left( \frac{\displaystyle\frac{1}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}}}{\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}+ \displaystyle\sqrt{x+\displaystyle\sqrt{x}}} + \frac{1}{\displaystyle\sqrt{x+\displaystyle\sqrt{x}}+\displaystyle\sqrt{x}} + 1 \right) = 1
 \end{equation}
 所以当$x \to \infty$时$\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}$与$\sqrt{x}$是同阶无穷大，而且$\displaystyle\sqrt{x}$是$1/2$阶无穷大，所以$\displaystyle\sqrt{x+\displaystyle\sqrt{x+\displaystyle\sqrt{x}}}$是$1/2$阶无穷大．\qed
+
+(14) 解：令
+\begin{equation}
+    P(x) = \sum_{i=1}^n (1+x^i)
+\end{equation}
+那么$P(x)$是一个多项式，它的阶数为$\deg \, P(x)$，并且因为
+\begin{equation}
+    \deg \, P(x) = \deg \, \sum_{i=1}^n (1+x^i) = \sum_{i=1}^n \deg \, (1+x^i) = \sum_{i=1}^n i = \frac{n(n+1)}{2}
+\end{equation}
+所以，$P(x)$是一个$\displaystyle\frac{n(n+1)}{2}$次多项式，记为
+\begin{equation}
+    P(x) = A x^{n(n+1)/2} + B R(x)
+\end{equation}
+式中，$A$为一非零常数，$R(x)$由多项式$P(x)$中所有次数小于$\displaystyle\frac{n(n+1)}{2}$的项构成，因此$\deg \, \displaystyle\frac{BR(x)}{x^{n(n+1)/2}} < 0$，因此有
+\begin{equation}
+    \lim_{x \to \infty} \frac{BR(x)}{x^{n(n+1)/2}} = 0
+\end{equation}
+因此有
+\begin{equation}
+    \lim_{x \to \infty} \frac{P(x)}{x^{n(n+1)/2}} = \lim_{x \to \infty} \frac{A X^{n(n+1)/2}}{x^{n(n+1)/2}} + \lim_{x \to \infty} \frac{BR(x)}{x^{n(n+1)/2}} = A + 0 = A < \infty
+\end{equation}
+因此$P(x)$与$x^{n(n+1)/2}$是同阶无穷大，因此$P(x)$的阶数是$n(n+1)/2$．\qed
+
+\bigskip
+2. 当$x \to x_0$时，$\alpha = o(1)$．求证：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+        (1)~$o(\alpha) + o(\alpha) = o(\alpha)$; & (2)~$o(c\alpha) = o(\alpha)$~($c$ 为常数); \\ [1em]
+        (3)~$(o(\alpha))^k = o(\alpha^k)$; & (4)~$\displaystyle\frac{1}{1+\alpha} = 1 - \alpha + o(\alpha)$.
+    \end{tabularx}
+\end{table}
+
+(1) \textbf{证明：}任取$f \in o(\alpha)$．由题意知
+\begin{equation}
+    \lim_{x \to x_0} \frac{f(x)}{\alpha} = 0
+\end{equation}
+对该式两边乘以$2$得
+\begin{equation}
+    2\lim_{x \to x_0} \frac{f(x)}{\alpha} = 0
+\end{equation}
+也就是
+\begin{equation}
+    \lim_{x \to x_0} \frac{2f(x)}{\alpha} = 0
+\end{equation}
+也就是
+\begin{equation}
+    \lim_{x \to x_0} \frac{f(x) + f(x)}{\alpha} = 0
+\end{equation}
+这说明
+\begin{equation}
+    f(x) + f(x) \in o(\alpha)
+\end{equation}
+所以说
+\begin{equation}
+    o(\alpha) + o(\alpha) \subset o(\alpha)
+\end{equation}
+由于
+\begin{equation}
+    o(\alpha) + o(\alpha) = \{ f+f: \lim_{x \to x_0} \displaystyle\frac{f(x)}{\alpha} \}
+\end{equation}
+任取$g \in o(\alpha)$，显然$0 \in o(\alpha)$，于是$g + 0 \in o(\alpha) + o(\alpha)$，于是$g \in o(\alpha) + o(\alpha)$，所以有
+\begin{equation}
+    o(\alpha) \subset o(\alpha) + o(\alpha)
+\end{equation}
+因为$o(\alpha) \subset o(\alpha) + o(\alpha)$并且$o(\alpha) + o(\alpha) \subset o(\alpha)$，所以
+\begin{equation}
+    o(\alpha) + o(\alpha) = o(\alpha)
+\end{equation}
+\qed
+
+(2) \textbf{证明：}任取$f \in o(c\alpha)$，由定义
+\begin{equation}
+    \lim_{x \to x_0} \frac{f(x)}{c \alpha} = 0
+\end{equation}
+显然$c \neq 0$，两边同乘$c$得
+\begin{equation}
+    \lim_{x \to x_0} \frac{f(x)}{\alpha} = 0
+\end{equation}
+于是$f(x) \in o(\alpha)$，于是$o(c\alpha) \subset o(\alpha)$．任取$g \in o(\alpha)$，由定义
+\begin{equation}
+    \lim_{x \to x_0} \frac{g(x)}{\alpha} = 0
+\end{equation}
+两边同除$c$得
+\begin{equation}
+    \lim_{x \to x_0} \frac{g(x)}{c \alpha} = 0
+\end{equation}
+于是有$o(\alpha) \subset o(c\alpha)$，于是有
+\begin{equation}
+    o(\alpha) = o(c\alpha)
+\end{equation}
+\qed
+
+(3) \textbf{证明：}任取$f \in o(\alpha^k)$，由定义
+\begin{equation}
+    \lim_{x \to x_0} \frac{f(x)}{\alpha^k} = 0
+\end{equation}
+于是
+\begin{equation}
+    \left( \lim_{x \to x_0} \frac{f(x)}{\alpha^k} \right)^k = 0^k = 0
+\end{equation}
+并且由极限的乘法运算法则
+\begin{equation}
+    \left( \lim_{x \to x_0} \frac{f(x)}{\alpha^k} \right)^k = \lim_{x \to x_0} \left( \displaystyle\frac{f(x)}{a^k}  \right)^k = \lim_{x \to x_0} \frac{\left(f(x)\right)^k}{\alpha^{2k}}
+\end{equation}
+也就是说
+\begin{equation}
+    \lim_{x \to x_0} \frac{\left(f(x)\right)^{k}}{\alpha^{2k}} = 0
+\end{equation}
+对上式两边同乘$\alpha^k$得
+\begin{equation}
+    \lim_{x \to x_0} \frac{\left(f(x)\right)^k}{\alpha^k} = 0
+\end{equation}
+这说明$f \in \left(o(\alpha)\right)^k$，从而$o(\alpha^k) \subset \left(o(\alpha)\right)^k$．任取$g \in \left(o(\alpha)\right)^k$，则
+\begin{equation}
+    \lim_{x \to x_0} \frac{g(x)^k}{\alpha^k} = 0
+\end{equation}
+推出
+\begin{equation}
+    \lim_{x \to x_0} \frac{g(x)}{\alpha} = 0
+\end{equation}
+推出
+\begin{equation}
+    \lim_{x \to x_0} \frac{g(x)}{\alpha^k} = 0
+\end{equation}
+推出$g \in o(\alpha^k)$，从而$\left(o(\alpha)\right)^k \subset o(\alpha^k)$，从而
+\begin{equation}
+    o(\alpha^k) = \left(o(\alpha)\right)^k
+\end{equation}
+\qed
+
+(4) \textbf{证明：}
+\begin{align}
+    &\mathrel{\phantom{\iff}} \frac{1}{1+\alpha} = 1 - \alpha + o(\alpha) \\
+    &\iff \frac{1}{1+\alpha} - 1 + \alpha = o(\alpha) \\
+    &\iff \frac{\alpha^2}{1+\alpha} = o(\alpha) \\
+    &\iff \text{任取} \, f \in o(\alpha), \lim_{x \to x_0} \frac{\displaystyle\frac{\alpha^2}{1+\alpha}}{\alpha} = \lim_{x \to x_0} \frac{\alpha}{1+\alpha} = \lim_{x \to x_0} \frac{f(x)}{\alpha} = 0.
+\end{align}
+\qed
+
+\bigskip
+3. 利用等价无穷小替换，求下列极限：
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth} {  >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X  }
+        (1)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{x (\tan \, x)^4}{(\sin \, x)^3 \left(1-\cos \, x\right)}$; & (2)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{\sqrt{1+x^2}-1}{1-\cos \, x}$; \\[1em]
+        (3)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{\sqrt{1+x^4}-1}{1-(\cos \, x)^2}$; & (4)~$\displaystyle\lim_{x \to 0}\displaystyle\frac{\tan \, \tan \, x}{\sin \, x}$; \\[1em]
+        (5)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{(1+x+x^2)^{1/n}-1}{\sin \, 2x} \; (n \in \nat)$.
+    \end{tabularx}
+\end{table}
