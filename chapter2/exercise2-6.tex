@@ -377,3 +377,82 @@
         (5)~$\displaystyle\lim_{x \to 0} \displaystyle\frac{(1+x+x^2)^{1/n}-1}{\sin \, 2x} \; (n \in \nat)$.
     \end{tabularx}
 \end{table}
+
+(1) \solve 利用
+\begin{align}
+    \tan \, x &\sim x, \quad (x \to 0) \\
+    \sin \, x &\sim x, \quad (x \to 0) \\
+    1 - \cos \, x & \sim \frac{1}{2} x^2, \quad (x \to 0)
+\end{align}
+代换得
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{x x^4}{x^3(\displaystyle\frac{1}{2}x^2)} = 2.
+\end{align}
+\qed
+
+\medskip
+(2) \solve 利用
+\begin{align}
+    \sqrt{1+x} -1 \sim \frac{1}{2} x, \quad (x \to 0)
+\end{align}
+代换得
+\begin{equation}
+    \text{原式} = \lim_{x \to 0} \frac{x^2}{\displaystyle\frac{1}{2}x^2} = 2.
+\end{equation}
+\qed
+
+\medskip
+(3) \solve 利用
+\begin{align}
+    \sqrt{1+x}-1 \sim x, \quad (x \to 0)
+\end{align}
+代换得
+\begin{equation}
+    \text{原式} = \lim_{x \to 0} \frac{x^4}{(1+\cos \, x) (1-\cos \, x)}
+\end{equation}
+再利用
+\begin{equation}
+    1-\cos \, x \sim \frac{1}{2}x^2, \quad (x \to 0)
+\end{equation}
+代换得
+\begin{equation}
+    \text{原式} = \lim_{x \to 0} \frac{x^4}{(1+\cos \, x) \displaystyle\frac{1}{2} x^2} = 0.
+\end{equation}
+\qed
+
+(4) \solve 利用
+\begin{equation}
+    \tan \, x \sim x , \quad (x \to 0)
+\end{equation}
+代换得
+\begin{equation}
+    \text{原式} = \lim_{x \to 0} \frac{\tan \, x}{\sin \, x}
+\end{equation}
+再利用
+\begin{align}
+    \tan \, x &\sim x \, \quad (x \to 0) \\
+    \sin \, x &\sim x \, \quad (x \to 0)
+\end{align}
+代换得
+\begin{equation}
+    \text{原式} = \lim_{x \to 0} \frac{x}{x} = \lim_{x \to 0} 1 = 1.
+\end{equation}
+\qed
+
+(5) \solve 利用等比级数求和公式
+\begin{equation}
+    1+q+\cdots+q^{n-1}=\frac{q^n-1}{q-1}
+\end{equation}
+代入$q=(1+x+x^2)^{1/n}$得
+\begin{equation}
+    q-1=(1+x+x^2)^{1/n}-1=\frac{q^n-1}{1+\displaystyle\sum_{i=1}^{n-1}q} = \frac{x+x^2}{1+\displaystyle\sum_{i=1}^{n-1}\left(1+x+x^2\right)^i}
+\end{equation}
+那么利用$\sin \, x \sim x, \; (x \to 0)$，代换得
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \frac{\left(1+x+x^2\right)^{1/n}-1}{\sin \, 2x} \\
+    &= \lim_{x \to 0} \frac{x + x^2}{\left(1+\displaystyle\sum_{i=1}^{n-1}(1+x+x^2)^i\right)2x} \\
+    &= \lim_{x \to 0} \frac{\displaystyle\frac{1}{2}+\displaystyle\frac{1}{2}x}{1+\displaystyle\sum_{i=1}^{n-1}(1+x+x^2)^i} \\
+    &= \frac{\displaystyle\lim_{x \to 0}\left(\displaystyle\frac{1}{2}+\displaystyle\frac{1}{2}x\right)}{\displaystyle\lim_{x \to 0} \left( 1+\displaystyle\sum_{i=1}^{n-1}(1+x+x^2)^i \right)} \\ 
+    &= \frac{\displaystyle\frac{1}{2}}{n} = \frac{1}{2n}.
+\end{align}
+\qed
