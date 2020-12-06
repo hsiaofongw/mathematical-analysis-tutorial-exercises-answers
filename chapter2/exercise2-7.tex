@@ -262,3 +262,46 @@
     0 < \lim_{t \to x^+} f(t) - \lim_{t \to x_0^+} f(t) < \epsilon
 \end{equation}
 故$\displaystyle\lim_{x \to x_0^+} \displaystyle\lim_{t \to x^+} f(t) = \lim_{t \to x_0^+} f(t)$．从而$\displaystyle\lim_{t \to x_0} F(t) = F(x_0)$．\qed\bigskip
+
+10. 设$f$在$\real$上连续，且对一切$x,y \in \real$，有$f(x+y)=f(x)+f(y)$．证明：$f(x)=f(1)x$对一切$x \in \real$成立．\bigskip
+
+\prove 由\textbf{练习题2.3}题6结论，$f(x) = f(1)x$对一切$x \in \rational$成立．下面只需再证对无理数该等式也成立．
+
+\medskip
+设$x_0$为一无理数，任取一趋于$x_0$的数列$\{x_n\}$，令$a_n = \displaystyle\frac{p_n}{10^n}$，其中$p_n$是使得$\displaystyle\frac{p_n}{10^n}$小于$x_n$的最大的整数，于是
+\begin{align}
+    f(x_n) &= f(a_n + x_n - a_n) \\
+    &= f(a_n) + f(x_n-a_n) \\
+    &= f(1)a_n + f(x_n-a_n) \\
+    &= \frac{p_n}{10^n} f(1) + f(x_n - \displaystyle\frac{p_n}{10^n})
+\end{align}
+由于
+\begin{equation}
+    \displaystyle\frac{p_n}{10^n} < x_n < \displaystyle\frac{p_n+1}{10^n}, \quad \forall n \in \nat
+\end{equation}
+故
+\begin{equation}
+    0 < x_n - \displaystyle\frac{p_n}{10^n} < \frac{1}{10^n}, \quad \forall n \in \nat
+\end{equation}
+于是依夹逼定理$\displaystyle\lim_{n \to \infty} x_n - \displaystyle\frac{p_n}{10^n} = 0$．于是$\displaystyle\lim_{n \to \infty} \displaystyle\frac{p_n}{10^n} = \displaystyle\lim_{n \to \infty} x_n = x_0$．于是
+\begin{align}
+    \lim_{n \to \infty} f(x_n) &= \lim_{n \to \infty} \frac{p_n}{10^n} f(1) + \lim_{n \to \infty} f(x_n - \displaystyle\frac{p_n}{10^n}) \\
+    &= f(1) x_0 + \displaystyle\lim_{n \to \infty} f(x_n - \displaystyle\frac{p_n}{10^n})
+\end{align}
+由于函数$f$在$\real$上的每一点都连续，故对任意$\epsilon > 0$，存在$\delta > 0$，使得只要$\lvert x - 0 \rvert < \delta$，就有
+\begin{equation}
+    \lvert f(x) - f(0) \rvert  = \lvert f(x) - 0 \rvert = \lvert f(x) \rvert < \epsilon
+\end{equation}
+由于$x_n - \displaystyle\frac{p_n}{10^n} \to 0$（当$n \to \infty$），故存在$N \in \nat$，使得对一切$n > N$，都有
+\begin{equation}
+    \lvert x_n - \frac{p_n}{10^n} \rvert < \delta
+\end{equation}
+从而
+\begin{equation}
+    \lvert f(x_n - \displaystyle\frac{p_n}{10^n}) \rvert < \epsilon
+\end{equation}
+从而$\displaystyle\lim_{n \to \infty} f(x_n - \displaystyle\frac{p_n}{10^n}) = 0$．从而
+\begin{equation}
+    \lim_{n \to \infty} f(x_n) = f(1) x_0 + \lim_{n \to \infty} f(x_n - \displaystyle\frac{p_n}{10^n}) = f(1)x_0
+\end{equation}
+于是依归结原则，有$\displaystyle\lim_{x \to x_0} f(x) = f(1)x_0$，又根据函数$f$的连续性得$f(x_0) = f(1)x_0$，于是$f(x) =f(1)x$对任意$x \in \real \setminus \rational$成立，又因为已经知道$f(x) = f(1)x$对任意$x \in \rational$成立，故$f(x) = f(1)x$对任意$x \in \real$成立．\qed\bigskip
