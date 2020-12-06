@@ -138,3 +138,127 @@
     \item $f$在$x_0$处连续，但$g$在$x_0$处不连续；
     \item $f$和$g$在$x_0$处都不连续．
 \end{enumerate}
+\bigskip
+
+\answer 不确定．\qed\bigskip
+
+5. 设函数$f$在$x_0$处连续，$f(x_0) > 0$．证明：当$x$充分靠近$x_0$时，有
+\begin{equation}
+    f(x) > \frac{f(x_0)}{2}.
+\end{equation}
+\bigskip
+
+\prove 由题意知
+\begin{equation}
+    \lim_{x \to x_0} f(x) = f(x_0) > 0
+\end{equation}
+故对任意$\epsilon > 0$，都存在$\delta > 0$，使得对一切满足$\lvert x - x_0 \rvert < \delta$的$x$，都有
+\begin{equation}
+    \lvert f(x) - f(x_0) \rvert < \epsilon
+\end{equation}
+取$\epsilon_0 = \displaystyle\frac{f(x_0)}{2}$，则存在$\delta_1 > 0$，使得对一切满足$\lvert x - x_0 \rvert < \delta$的$x$，都有
+\begin{equation}
+    \lvert f(x) - f(x_0) \rvert < \epsilon_0 = \frac{f(x_0)}{2}
+\end{equation}
+也就是
+\begin{equation}
+    f(x_0) - \frac{f(x_0)}{2} < f(x) < f(x_0) + \frac{f(x_0)}{2}
+\end{equation}
+从而命题得证．\qed\bigskip
+
+6. 设函数$f$在$x_0$处连续．证明$\lvert f \rvert$和$f^2$都在$x_0$处连续．反之是否成立？
+\bigskip
+
+\prove 由于$f$在$x_0$处连续，所以$f$在$x_0$处有定义，所以$f(x_0)$有定义，所以$\lvert f(x_0) \rvert$有定义，所以$\lvert f \rvert$在$x_0$处有定义．同理，函数$f^2$在$x_0$处有定义．又因为
+\begin{align}
+    \lim_{x \to x_0} f(x) = f(x_0) \implies \lim_{x \to x_0} \lvert f(x) \rvert = \lvert f(x_0) \rvert
+\end{align}
+所以函数$\lvert f \rvert$在$x_0$处连续．又因为
+\begin{align}
+    \lim_{x \to x_0} f(x) = f(x_0) &\implies \lim_{x \to x_0} f(x) \lim_{x \to x_0} f(x) = (f(x_0))^2 \\
+    &\implies \lim_{x \to x_0} \left(f(x)\right)^2 = \left(f(x_0)\right)^2
+\end{align}
+所以函数$f^2$在$x_0$处连续．
+
+反之未必成立，令
+\begin{equation}
+    f(x) = \begin{cases}
+        1, & x \geq 0 \\
+        -1, & x < 0
+    \end{cases}
+\end{equation}
+则$\lvert f(x) \rvert = 1, \left(f(x)\right)^2 = 1, \; \forall x \in \real$，并且$\lvert f \rvert, f^2$在$\real$上每一点都是连续的，可是$f$在$x=0$处并不连续．\qed\bigskip
+
+7. 设函数$f, g$在$(a,b)$连续，又令
+\begin{align}
+    F(x) &= \max(f(x),g(x)) \quad (a < x < b), \\
+    G(x) &= \min(f(x),g(x)) \quad (a < x < b).
+\end{align}
+证明：$F$和$G$是$(a,b)$上的连续函数．\bigskip
+
+\prove 任取$x_0 \in (a,b)$，不失一般性，假设$f(x_0)\geq g(x_0)$，从而$\max(f(x_0),g(x_0))=f(x_0)$，由于
+\begin{equation}
+\displaystyle\lim_{x \to x_0} f(x) = f(x_0) > \lim_{x \to x_0} g(x) = g(x_0)
+\end{equation}
+所以存在一个足够小的$\delta_1 > 0$，使得对于$x_0$的某足够小邻域$B(\check{x_0},\delta_1)$内的每一点$x$都有
+\begin{equation}
+    f(x) \geq g(x)
+\end{equation}
+也就是说在该邻域内恒有$f(x)=\max(f(x),g(x))$，又因为$\displaystyle\lim_{x \to x_0} f(x) = f(x_0)$，所以，对任意$\epsilon > 0$，存在$\delta > 0$，只有$0 < \lvert x - x_0 \rvert < \min \{ \delta_1, \delta \}$，就有
+\begin{equation}
+    \lvert f(x) - f(x_0) \rvert = \lvert \max(f(x),g(x)) - \max(f(x_0), g(x_0)) \rvert < \epsilon
+\end{equation}
+从而这就证明了函数$F$在$(a,b)$是连续的．同理可证$G$在$(a,b)$是连续的．\qed\bigskip
+
+\annotate 关键的一点在于，任取$(a,b)$内一点$x_0$，如果$f(x_0) \geq g(x_0)$，那么由$f, g$的连续性，在$x_0$的\textbf{一个足够小的邻域}内，一点会有$f(x) \geq g(x)$，这时$\max \{ f(x), g(x) \} = f(x)$，从而在该足够小的邻域内讨论$\max \{ f(x), g(x) \}$的连续性等价于讨论$f$的连续性，而$f$是连续的，故$\max \{ f(x), g(x) \}$连续．\bigskip
+
+8. 设函数$f$只有可去间断点，又令
+\begin{equation}
+    g(x) = \lim_{t \to x} f(t).
+\end{equation}
+证明：$g$是连续函数．\bigskip
+
+\prove 设$f$是定义在$(a,b)$上的函数，且$f$在$(a,b)$上只含有可去间断点．于是，任取$x_0 \in (a,b)$，$\displaystyle\lim_{t \to x_0} f(t)$都存在，也就是说$g(x_0)$有定义．
+
+再证$\displaystyle\lim_{x \to x_0}\lim_{t \to x} f(t) = \lim_{t \to x_0} f(t)$．
+
+由于$\displaystyle\lim_{x \to x_0} f(x_0)$存在，故对任意$\epsilon > 0$，存在$\delta_1 > 0$，使得只要$\lvert x - x_0 \rvert < \delta_1$，就有
+\begin{equation}
+    \lvert f(x) - \lim_{x \to x_0} f(x) \rvert < \epsilon
+\end{equation}
+也就是
+\begin{equation}
+    \lim_{x \to x_0} f(x) - \epsilon < f(x) < \lim_{x \to x_0} f(x) + \epsilon
+\end{equation}
+由于$\lvert x - x_0 \rvert < \delta$，故可以找到足够小的正数$\delta_2$使得$B(\check{x}, \delta_2) \subset B(\check{x_0}, \delta_1)$，并且使得对一切$t \in B(\check{x},\delta_2)$，都有$t \in B(\check{x_0},\delta_1)$，从而有
+\begin{equation}
+    \lim_{x \to x_0} f(x) - \epsilon < f(t) < \lim_{x \to x_0} f(x) + \epsilon
+\end{equation}
+由于该不等式对一切$t \in B(\check{x}, \delta_2)$都成立，故
+\begin{equation}
+    \lim_{t \to x}\lim_{x \to x_0} f(x) - \epsilon < \lim_{t \to x} f(t) < \lim_{t \to x}\lim_{x \to x_0} f(x) + \epsilon
+\end{equation}
+上式中$\displaystyle\lim_{x \to x_0} f(x)$为常数，故上式又可写为
+\begin{equation}
+    \lim_{x \to x_0} f(x) - \epsilon < \lim_{t \to x} f(t) < \lim_{x \to x_0} f(x) + \epsilon
+\end{equation}
+也就是
+\begin{equation}
+    \lvert \lim_{t \to x} f(t) - \lim_{x \to x_0} f(x) \rvert < \epsilon
+\end{equation}
+也就是$\displaystyle\lim_{x \to x_0} \lim_{t \to x} f(t) = \displaystyle\lim_{x \to x_0} f(x)$，即$\displaystyle\lim_{x \to x_0} g(x) = g(x_0)$，从而这就证得了$g$在$(a,b)$上的每一点都连续．\qed\bigskip
+
+9. 设函数$f$在$\real$上递增（或递减）．若定义$F(x)=f(x+)$．试证明：$F$在$\real$上右连续．\bigskip
+
+\prove 任取$x_0 \in \real$，由于$f$是递增函数，依\textbf{定理2.7.5}，$f$的间断点一定是跳跃间断点，并且$f$只有至多可数多个跳跃间断点，故$F(x_0) = f(x_0 +) = \displaystyle\lim_{x \to x_0^+} f(x)$总是存在．下证$\displaystyle\lim_{t \to x_0} F(t) = F(x_0)$．
+
+由于$\displaystyle\lim_{t \to x_0^+} f(t)$存在，故对任意$\epsilon > 0$，存在$\delta_1 > 0$，使得对一切$0 < t - x_0 < \delta_1$都有
+\begin{equation}
+    0 < f(t) - \lim_{t \to x_0^+} f(t) < \epsilon
+    \label{ieq:2734}
+\end{equation}
+当$0 < x - x_0 < \delta_1$时，存在$r$，使得$x+r < x_0+\delta_1$，从而一切$0< t-x  < r$不等式(\ref{ieq:2734})都成立，于是由\textbf{定理2.4.6}，有
+\begin{equation}
+    0 < \lim_{t \to x^+} f(t) - \lim_{t \to x_0^+} f(t) < \epsilon
+\end{equation}
+故$\displaystyle\lim_{x \to x_0^+} \displaystyle\lim_{t \to x^+} f(t) = \lim_{t \to x_0^+} f(t)$．从而$\displaystyle\lim_{t \to x_0} F(t) = F(x_0)$．\qed\bigskip
