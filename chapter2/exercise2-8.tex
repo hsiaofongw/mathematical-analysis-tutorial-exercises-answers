@@ -47,3 +47,69 @@
     &= \lim_{t \to 0} \frac{\binom{n+1}{2}t^2+o(t^2)}{t^2} = \binom{n+1}{2}.
 \end{align}
 \qed\bigskip
+
+\pagebreak
+2. 计算下列极限：
+\begin{enumerate}
+    \item $\displaystyle\lim_{x \to 1}\displaystyle\frac{\sqrt[m]{x}-1}{\sqrt[n]{x}-1} \; (m,n \in \nat)$;
+    \item $\displaystyle\lim_{x \to 0}\displaystyle\frac{\sqrt[m]{1+\alpha x}-1}{x} \; (m \in \nat)$; 
+    \item $\displaystyle\lim_{x \to 0}\displaystyle\frac{\sqrt[m]{1+\alpha x}-\sqrt[n]{1+\beta x}}{x} \; (m,n \in \nat)$;
+    \item $\displaystyle\lim_{x \to 1}\displaystyle\frac{(1-\sqrt{x})(1-\sqrt[3]{x})\cdots(1-\sqrt[n]{x})}{(1-x)^{n-1}} \; (n \in \nat)$.
+\end{enumerate}
+\bigskip
+
+(1) \solve 利用等比级数求和公式
+\begin{equation}
+    1+q^2+q^3+\cdots+q^{n-1}=\frac{q^n-1}{q-1}
+\end{equation}
+我们有
+\begin{equation}
+    \sqrt[m]{x}-1=\frac{x-1}{\displaystyle\sum_{i=0}^{m-1}x^{i/m}}
+\end{equation}
+同理有
+\begin{equation}
+    \sqrt[n]{x}-1=\frac{x-1}{\displaystyle\sum_{i=0}^{n-1}x^{i/n}}
+\end{equation}
+所以有
+\begin{equation}
+    \lim_{x \to 1}\frac{\sqrt[m]{x}-1}{\sqrt[n]{x}-1}=\lim_{x\to 1}\frac{\displaystyle\frac{x-1}{\displaystyle\sum_{i=0}^{m-1}x^{i/m}}}{\displaystyle\frac{x-1}{\displaystyle\sum_{i=0}^{n-1}x^{i/n}}} = \lim_{x \to 1}\frac{\displaystyle\sum_{i=0}^{n-1}x^{i/n}}{\displaystyle\sum_{i=0}^{m-1}x^{i/m}} = \frac{n}{m}.
+\end{equation}
+\qed\bigskip
+
+(2) \solve 利用公式
+\begin{equation}
+    \sum_{i=0}^{m-1}(1+\alpha x)^{i/m} = \frac{(1+\alpha x)^{m/m}-1}{(1+\alpha x)^{1/m}-1}=\frac{\alpha x}{\sqrt[m]{1+\alpha x}-1}
+\end{equation}
+我们有
+\begin{equation}
+    \sqrt[m]{1+\alpha x} - 1 = \frac{\alpha x}{\displaystyle\sum_{i=0}^{m-1}(1+\alpha x)^{i/m}}
+\end{equation}
+从而得
+\begin{equation}
+    \text{原式} = \lim_{x \to 0} \frac{\displaystyle\frac{\alpha x}{\displaystyle\sum_{i=0}^{m-1}(1+\alpha x)^{i/m}}}{x} = \lim_{x \to 0} \frac{\alpha}{\displaystyle\sum_{i=0}^{m-1}(1+\alpha x)^{i/m}} = \frac{\alpha}{m} .
+\end{equation}
+\qed\bigskip
+
+(3) \solve 利用第(2)题结论
+\begin{equation}
+    \text{原式} = \lim_{x \to 0} \frac{\sqrt[m]{1+\alpha x}-1}{x} - \lim_{x \to 0} \frac{\sqrt[n]{1+\beta x}-1}{x} = \frac{\alpha}{m} - \frac{\beta}{n}. 
+\end{equation}
+\qed\bigskip
+
+(4) \solve 利用第(2)题结论，我们知
+\begin{equation}
+    \sqrt[m]{1+\alpha x} - 1 \sim \frac{\alpha}{m} x, \quad (x \to 0)
+\end{equation}
+因此
+\begin{equation}
+    1 - \sqrt[m]{1-\alpha x} \sim \frac{\alpha}{m} x, \quad (x \to 0)
+\end{equation}
+因此
+\begin{equation}
+    1 - \sqrt[m]{1-x} \sim \frac{1}{m}x, \quad (x \to 0)
+\end{equation}
+因此，令$t = 1-x$，那么
+\begin{equation}
+    \text{原式} = \lim_{t \to 0} \prod_{i=2}^{n} \frac{1-\sqrt[i]{1-t}}{t} = \prod_{i=2}^{n}\lim_{t \to 0} \frac{1-\sqrt[i]{1-t}}{t} = \prod_{i=2}^n \frac{1}{i} = \frac{1}{n!}.
+\end{equation}
+\qed\bigskip
