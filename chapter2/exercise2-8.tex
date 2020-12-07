@@ -1,0 +1,49 @@
+\exercise
+
+1. 计算下列极限：
+\begin{enumerate}
+    \item $\displaystyle\lim_{x \to 1} \displaystyle\frac{x^2-1}{2x^2-x-1}$; 
+    \item $\displaystyle\lim_{x \to 0} \displaystyle\frac{(1+x)^5-(1+5x)}{x^2+x^5}$;
+\end{enumerate}
+\pagebreak
+\begin{enumerate}
+\setcounter{enumi}{2}
+    \item $\displaystyle\lim_{x \to 0} \displaystyle\frac{(1+x)(1+2x)(1+3x)-1}{x}$;
+    \item $\displaystyle\lim_{x \to a} \displaystyle\frac{(x^n-a^n)-na^{n-1}(x-a)}{(x-a)^2} \; (n \in \nat)$;
+    \item $\displaystyle\lim_{x \to 1} \displaystyle\frac{x^{n+1}-(n+1)x+n}{(x-1)^2} \; (n\in\nat)$.
+\end{enumerate}
+\bigskip
+
+(1) \solve 因式分解得
+\begin{equation}
+    \lim_{x \to 1} \frac{x^2-1}{2x^2-x-1} = \lim_{x \to 1} \frac{(x-1)(x+1)}{(x-1)(2x+1)} = \lim_{x \to 1} \frac{x+1}{2x+1} = \frac{2}{3}.
+\end{equation}
+\qed\bigskip
+
+(2) \solve 使用二项式定理，将$(1+x)^5$的高次项之和表为高阶无穷小：
+\begin{equation}
+    \lim_{x \to 0} \frac{1+5x+\binom{5}{2}x^2+o(x^2)-(1+5x)}{x^2+x^5} = \lim_{x \to 0} \frac{10x^2+o(x^2)}{x^2+x^5} = \lim_{x \to 0} \frac{10+\displaystyle\frac{o(x^2)}{x^2}}{1+x^3} = 10.
+\end{equation}
+\qed\bigskip
+
+(3) \solve 只考虑分子的常数项和$1$次项，并将分子的其他项表为高阶无穷小：
+\begin{equation}
+    \text{原式} = \lim_{x \to 0} \frac{1 + 6x + o(x) - 1}{x} = \lim_{x \to 0} \frac{6x + o(x)}{x} = \lim_{x \to 0} \frac{6 + \displaystyle\frac{o(x)}{x}}{1} = 6.
+\end{equation}
+\qed\bigskip
+
+(4) \solve 令$t = x-a$，那么$x^n = (t+a)^n$，从而我们可以使用二项式定理：
+\begin{align}
+    \text{原式} &= \lim_{t \to 0} \frac{(t+a)^n-a^n-na^{n-1}t}{t^2} \\
+    &= \lim_{t \to 0} \frac{a^n + nt a^{n-1} + \binom{n}{2}t^2 a^{n-2} + o(t^2) - a^n - na^{n-1}t}{t^2}  \\
+    &= \lim_{t \to 0} \frac{\binom{n}{2}t^2 a^{n-2}+o(t^2)}{t^2}  = \binom{n}{2}a^{n-2} , \quad (n \geq 2)
+\end{align}
+\qed\bigskip
+
+(5) \solve 令$t = x-1$，那么
+\begin{align}
+    \text{原式} &= \lim_{t \to 0} \frac{(t+1)^{n+1}-(n+1)(t+1)+n}{t^2} \\
+    &= \lim_{t \to 0} \frac{1 + (n+1)t + \binom{n+1}{2}t^2 + o(t^2) - (n+1)(t+1)+n}{t^2} \\
+    &= \lim_{t \to 0} \frac{\binom{n+1}{2}t^2+o(t^2)}{t^2} = \binom{n+1}{2}.
+\end{align}
+\qed\bigskip
