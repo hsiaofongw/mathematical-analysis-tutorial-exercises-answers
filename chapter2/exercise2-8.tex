@@ -126,3 +126,46 @@
     \task $\displaystyle\lim_{x \to 0} \left(2 \expe^{x/(1+x)}-1\right)^{(x^2+1)/x}$;
     \task $\displaystyle\lim_{x \to a}\left(\displaystyle\frac{\sin \, x}{\sin \, a}\right)^{1/(x-a)} \; (a \neq \pm k \pi, k \in \nat)$.
 \end{tasks}
+\bigskip
+
+(1) \solve 我们令
+\begin{equation}
+    u(x) = \frac{1+\tan \, x}{1+\sin \, x} , \quad v(x) = \frac{1}{\sin \, x}
+\end{equation}
+于是
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} \left(\left(1+(u(x)-1)\right)^{1/(u(x)-1)}\right)^{v(x)(u(x)-1)}
+\end{align}
+由于
+\begin{align}
+    \lim_{x \to 0} v(x)(u(x)-1) &= \lim_{x \to 0} \frac{\tan \, x - \sin \, x}{1 + \sin \, x} \cdot \frac{1}{\sin \, x} \\
+    &= \lim_{x \to 0} \frac{\tan \, x - \sin \, x}{\sin \, x} \cdot \frac{1}{1+\sin \, x} \\
+    &= \lim_{x \to 0} \frac{\tan \, x - \sin \, x}{\sin \, x} \cdot \lim_{x \to 0} \frac{1}{1 + \sin \, x} \\
+    &= 0 \cdot 1 = 0
+\end{align}
+从而
+\begin{equation}
+    \text{原式} = \expe^{0} = 1.
+\end{equation}
+\qed\bigskip
+
+(2) \solve 令
+\begin{equation}
+    u(x) = \frac{\cos \, x}{\cos \, 2x}, \quad v(x) = \frac{1}{x^2}
+\end{equation}
+于是
+\begin{align}
+    \text{原式} &= \lim_{x \to 0} u(x)^{v(x)} = \lim_{x \to 0} \left(\left(1 + (u(x)-1)\right)^{1/(u(x)-1)}\right)^{v(x)(u(x)-1)}
+\end{align}
+由于
+\begin{align}
+    \lim_{x \to 0}v(x)(u(x)-1) &= \lim_{x \to 0} \left(\frac{\cos \, x - \cos \, 2x}{\cos \, 2x}\right) \cdot \frac{1}{x^2} \\
+    &= \lim_{x \to 0} \left(\frac{-2 \sin \, \displaystyle\frac{3x}{2} \sin \, \displaystyle \frac{-x}{2}}{\cos \, 2x}\right) \cdot \frac{1}{x^2} \\
+    &= \lim_{x \to 0} \frac{2 \cdot \displaystyle\frac{3x}{2} \cdot \displaystyle\frac{x}{2}}{x^2(1-2x^2)} \\
+    &= \lim_{x \to 0} \frac{3}{2} \cdot \frac{1}{1-2x^2} = \frac{3}{2}.
+\end{align}
+于是
+\begin{equation}
+    \text{原式} = \expe^{3/2}.
+\end{equation}
+\qed\bigskip
