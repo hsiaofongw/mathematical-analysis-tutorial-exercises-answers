@@ -311,3 +311,35 @@
     \text{原式} = \expe^{\cot \, a}.
 \end{equation}
 \qed\bigskip
+
+4. 设$\lvert x \rvert < 1$．求极限
+\begin{equation}
+\lim_{n \to \infty} \left(1+\frac{x+x^2+\cdots+x^n}{n}\right)^n
+\end{equation}
+
+\solve 易知
+\begin{equation}
+    \lim_{n \to \infty} \left( 1 + \frac{x+x^2+\cdots+x^n}{n} \right)^n = \lim_{n \to \infty} \left( 1 + \frac{x^{n+1}-x}{n(x-1)} \right)^n
+\end{equation}
+考虑函数
+\begin{align}
+    f: \real^+ &\longrightarrow \real \\
+    y &\longmapsto \left(1 + \frac{x^{y+1}-x}{y(x-1)}\right)^y
+\end{align}
+易知它的极限是$1^\infty$型的，所以我们令
+\begin{equation}
+    u(y) = 1+\frac{x^{y+1}-x}{y(x-1)}, \quad v(y) = y
+\end{equation}
+则
+\begin{align}
+    \lim_{y \to +\infty} \left(u(x)-1\right)v(x) &= \lim_{y \to +\infty} \frac{x^{y+1}-x}{x-1} = x \lim_{y \to \infty} \frac{x^{y}-1}{x-1} = \frac{x}{1-x}
+\end{align}
+则
+\begin{equation}
+    \lim_{y \to \infty} \left(1 + \frac{x^{y+1}-x}{y(x-1)}\right)^y = \expe^{x/(1-x)}
+\end{equation}
+则依归结原则
+\begin{equation}
+    \text{原式} = \lim_{n \to \infty} \left(1 + \frac{x^{n+1}-x}{n(x-1)}\right)^n = \expe^{x/(1-x)}.
+\end{equation}
+\qed\bigskip
