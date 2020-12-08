@@ -122,7 +122,7 @@
     \task $\displaystyle\lim_{x \to \pi /2} \left(\sin \, x\right)^{\tan \, x}$;
     \task $\displaystyle\lim_{x \to +\infty} \left(\sin \, \displaystyle\frac{1}{x} + \cos \, \displaystyle\frac{1}{x}\right)^x$;
     \task $\displaystyle\lim_{x \to 0^+} \left(\cos \, \sqrt{x}\right)^{1/x}$;
-    \task $\displaystyle\lim_{x \to \infty} \left(\cos \, \displaystyle\frac{x}{\sqrt{n}}\right)^n$;
+    \task $\displaystyle\lim_{n \to \infty} \left(\cos \, \displaystyle\frac{x}{\sqrt{n}}\right)^n$;
     \task $\displaystyle\lim_{x \to 0} \left(2 \expe^{x/(1+x)}-1\right)^{(x^2+1)/x}$;
     \task $\displaystyle\lim_{x \to a}\left(\displaystyle\frac{\sin \, x}{\sin \, a}\right)^{1/(x-a)} \; (a \neq \pm k \pi, k \in \nat)$.
 \end{tasks}
@@ -167,5 +167,121 @@
 于是
 \begin{equation}
     \text{原式} = \expe^{3/2}.
+\end{equation}
+\qed\bigskip
+
+(3) \solve 令
+\begin{align}
+    u(x) = \tan \, x, \quad v(x) = \tan \, 2x
+\end{align}
+那么
+\begin{equation}
+    \lim_{x \to \pi /4} \left(\tan \, x - 1\right) \tan \, 2x = \lim_{x \to \pi /4} - \frac{2 \tan \, x}{1+\tan \, x} = -1
+\end{equation}
+那么
+\begin{equation}
+    \lim_{x \to \pi /4} \left(\tan \, x\right)^{\tan \, 2x} = \lim_{x \to \pi /4} \left(u(x)\right)^{v(x)} = \expe^{-1}.
+\end{equation}
+\qed\bigskip
+
+(4) \solve 令
+\begin{align}
+    u(x) = \sin \, x , \quad v(x) = \tan \, x
+\end{align}
+则
+\begin{align}
+    \lim_{x \to \pi / 2} \left(u(x)-1\right)v(x) &= \lim_{x\to \pi /2} \left(\sin \, x - 1\right) \tan \, x \\
+    &= \lim_{x \to \pi /2} \frac{\left(\sin \, x\right)^2 - \sin \, x}{\cos \, x} \\
+    &= \lim_{x \to \pi /2} \frac{1 - \left(\cos \, x\right)^2 - \sqrt{1-\left(\cos \, x\right)^2}}{\cos \, x} \\
+    &= \lim_{x \to \pi /2} \frac{1-\sqrt{1-\left(\cos \, x\right)^2}}{\cos \, x} - \lim_{x \to \pi /2} \cos \, x
+\end{align}
+\textbf{看好了}，我令$t = \cos \, x$，那么当$x \to \pi /2$的时候，$t = \cos \, x$不是$\to 0$么？
+\begin{align}
+    \text{原式} &= \lim_{t \to 0} \frac{1-\sqrt{1-t^2}}{t} - \cos \, \lim_{x \to \pi/2} x \\
+    &= \lim_{t \to 0}\frac{1/2 \, t^2}{t} - \cos \, \pi /2 \\
+    &= \lim_{t \to 0} 1/2 \, t - 0 \\
+    &= 1/2 \lim_{t \to 0} t  = 1/2 \cdot 0 = 0.
+\end{align}
+因此
+\begin{equation}
+    \text{原式} = \expe^0 = 1
+\end{equation}
+\qed\bigskip
+
+(5) \solve 令
+\begin{align}
+    u(x) = \sin \, \frac{1}{x} + \cos \, \frac{1}{x} , \quad v(x) = x
+\end{align}
+则
+\begin{align}
+    \lim_{x \to +\infty} \left(u(x)-1\right)v(x) &= \lim_{x \to +\infty} x \sin \, \frac{1}{x} + x \cos \, \frac{1}{x} - x \\
+    &= \lim_{x \to +\infty} \frac{\sin \, \displaystyle\frac{1}{x}}{\displaystyle\frac{1}{x}} + x \left(\cos \, \displaystyle\frac{1}{x} - 1\right) \\
+    &= \lim_{x \to +\infty} \frac{\sin \, \displaystyle\frac{1}{x}}{\displaystyle\frac{1}{x}} + \frac{\cos \, \displaystyle\frac{1}{x} - 1}{\displaystyle\frac{1}{x}} \\
+    &= \lim_{1/x \to 0} \frac{\sin \, \displaystyle\frac{1}{x}}{\displaystyle\frac{1}{x}} + \lim_{1/x \to 0} \frac{\cos \, \displaystyle\frac{1}{x}-1}{\displaystyle\frac{1}{x}} \\
+    &= 1 + \lim_{1/x \to 0} \frac{- 1/2 \, \left(\displaystyle\frac{1}{x}\right)^2}{\displaystyle\frac{1}{x}} \\
+    &= 1 + \lim_{1/x \to 0} - \frac{1}{2}\cdot\frac{1}{x} \\
+    &= 1 - \frac{1}{2} \lim_{1/x \to 0} \frac{1}{x} = 1- \frac{1}{2} \cdot 0 = 1 - 0 = 1.
+\end{align}
+于是
+\begin{equation}
+    \text{原式} = \expe^1 = \expe.
+\end{equation}
+\qed\bigskip
+
+(6) \solve 令
+\begin{align}
+    u(x) = \cos \, \sqrt{x}, \quad v(x) = \frac{1}{x}
+\end{align}
+则
+\begin{align}
+    \lim_{x \to 0^+} \left(u(x)-1\right)v(x) &= \lim_{x \to 0^+} \frac{\cos \, \sqrt{x} - 1}{x} \\
+    &= \lim_{x \to 0^+} \frac{-1/2 \left(\sqrt{x}\right)^2}{x} = \lim_{x \to 0^+} - \frac{1}{2} \cdot \frac{x}{x} = \lim_{x \to 0^+} -\frac{1}{2} = - \frac{1}{2}.
+\end{align}
+则
+\begin{equation}
+    \text{原式} = \expe^{-1/2}.
+\end{equation}
+\qed\bigskip
+
+(7) \solve 考虑函数
+\begin{align}
+    f: \real^+ &\longrightarrow  \real \\
+    y &\longmapsto \left(\cos \frac{x}{\sqrt{y}} \right)^y
+\end{align}
+的极限
+\begin{equation}
+    \lim_{y \to +\infty} \left(\cos \, \frac{x}{\sqrt{y}}\right)^y
+\end{equation}
+这里$x$是任一给定的实数，令
+\begin{equation}
+    u(y) = \cos \, \frac{x}{\sqrt{y}}, \quad v(y) = y
+\end{equation}
+我们计算出
+\begin{align}
+    \lim_{y \to +\infty} \left(u(y) - 1\right) v(y) &= \lim_{y \to +\infty} \frac{\cos \, \displaystyle\frac{x}{\sqrt{y}} - 1}{\displaystyle\frac{1}{y}} \\
+    &= \lim_{y \to +\infty} \frac{-1/2 \left(x/\sqrt{y}\right)^2}{1/y} = \lim_{y \to +\infty} -x^2/2 x^2 = -x^2/2
+\end{align}
+从而有
+\begin{equation}
+    \lim_{y \to +\infty} \left(\cos \, \frac{x}{\sqrt{y}}\right)^y = \expe^{-x^2/2}
+\end{equation}
+从而依归结原则
+\begin{equation}
+    \lim_{n \to \infty} \left(\cos \, \frac{x}{\sqrt{n}}\right)^n = \expe^{-x^2/2}.
+\end{equation}
+\qed\bigskip
+
+(8) \solve 令
+\begin{equation}
+    u(x) = 2\expe^{x/(1+x)} - 1, \quad v(x) \frac{x^2+1}{x}
+\end{equation}
+那么
+\begin{align}
+    \lim_{x \to 0} \left(u(x) - 1\right) v(x) &= \lim_{x \to 0} 2\left(\expe^{x/(1+x)}-1\right) \frac{x^2+1}{x} \\
+    &= 2\lim_{x \to 0} \frac{x}{1+x} \cdot \frac{x^2+1}{x} = 2 \lim_{x \to 0} \frac{x^2+1}{1+x} = 2 \cdot 1 = 2
+\end{align}
+于是
+\begin{equation}
+    \text{原式} = \expe^2.
 \end{equation}
 \qed\bigskip
