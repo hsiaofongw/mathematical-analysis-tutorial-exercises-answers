@@ -285,3 +285,29 @@
     \text{原式} = \expe^2.
 \end{equation}
 \qed\bigskip
+
+(9) \solve 令
+\begin{equation}
+    u(x) = \frac{\sin \, x}{\sin \, a} , \quad v(x) \frac{1}{x-a}
+\end{equation}
+则
+\begin{align}
+    &\mathrel{\phantom{=}} \lim_{x \to a} \frac{\sin \, x - \sin \, a}{x - a} \\
+    &= \lim_{x \to a} \frac{2 \cos \, \displaystyle\frac{x+\alpha}{2} \sin \, \displaystyle\frac{x - a}{2}}{x-a} \\
+    &= \lim_{x \to a} \cos \, \displaystyle\frac{x+a}{2} \lim_{x \to a} \displaystyle\frac{\sin \, \displaystyle\frac{x-a}{2}}{\displaystyle\frac{x-a}{2}} \\
+    &= \cos \, \lim_{x \to a} \frac{x + a}{2} \cdot 1 \\
+    &= \cos \, \displaystyle\frac{\displaystyle\lim_{x \to a} \left(x + a\right)}{2} \\
+    &= \cos \, \displaystyle\frac{\left(\displaystyle\lim_{x \to a} x\right) + a}{2} \\
+    &= \cos \, \displaystyle\frac{a + a}{2} \\
+    &= \cos \, \displaystyle\frac{2a}{2} \\
+    &= \cos \, a
+\end{align}
+则
+\begin{equation}
+    \lim_{x \to a} \left(u(x)-1\right)v(x) = \lim_{x \to a} \frac{\sin \, x - \sin \, a}{\sin \, a \left(x-a\right)} = \frac{\cos \, a}{\sin \, a} = \cot \, a
+\end{equation}
+则
+\begin{equation}
+    \text{原式} = \expe^{\cot \, a}.
+\end{equation}
+\qed\bigskip
