@@ -1,0 +1,110 @@
+\exercise
+
+1. 研究下列函数的一致连续性：
+\begin{tasks}(2)
+    \task $f(x) = \cos \, \displaystyle\frac{1}{x} \; (x > 0)$;
+    \task $f(x) = \left(\sin \, x\right)^2 \left(x \in \real\right)$;
+    \task $\sqrt[3]{x} \; (x \geq 0)$; 
+    \task $f(x) = \sin \, \left(x^2\right) \; (x \in \real)$;
+    \task $f(x) = \displaystyle\frac{x}{1+x^2 \left(\sin \, x\right)^2} \; (x \geq 0)$.
+\end{tasks}
+
+(1) \prove 令
+\begin{equation}
+    s_n = \frac{1}{2\pi n + \pi /2}, \quad t_n = \frac{1}{2\pi n}
+\end{equation}
+则
+\begin{equation}
+    0 < t_n - s_n < \frac{1}{n}, \quad \forall n \in \nat
+\end{equation}
+但是
+\begin{equation}
+    \bigg\lvert \cos \, \frac{1}{t_n} - \cos \, \frac{1}{s_n} \bigg\rvert = \lvert \cos \, 2 \pi n -  \cos \, \left(2 \pi n + \pi /2\right) \rvert = 1.
+\end{equation}
+这就证明了函数$x \mapsto \cos \, \displaystyle\frac{1}{x}$在$\real^+$上不是一致连续的．\qed\bigskip
+
+(2) \prove 设$x_1, x_2 \in \real$，则
+\begin{align}
+    \lvert f(x_1) - f(x_2) \rvert &= \lvert \left(\sin \, x_1\right)^2 - \left(\sin \, x_2\right)^2 \rvert \rvert \\
+    &= \lvert \sin \, x_1 + \sin \, x_2 \rvert \lvert \sin \, x_1 - \sin \, x_2 \rvert \\
+    &\leq 2\lvert \sin \, x_1 - \sin \, x_2 \rvert \leq 2 \lvert x_1 - x_2 \rvert < 2\delta = \epsilon.
+\end{align}
+从而函数$x \mapsto \left(\sin \, x^2\right)$在$\real$上是一致连续的．\qed\bigskip
+
+(3) \prove 不失一般性，设$x_1 > x_2 \geq 0$，从而
+\begin{align}
+    &\mathrel{\phantom{\implies}} 0 < x_1 - x_2 \\
+    &\implies 0 < x_1^{1/3} - x_2^{1/3} \\
+    &\implies 0 < \left(x_1^{1/3}-x_2^{1/3}\right)^3 \\
+    &\implies 0 < x_1 - 3 x_1^{2/3}x_2^{1/3} + 3x_1^{1/3}x_2^{2/3} - x_2 \\
+    &\implies 0 < x_1 + 3x_1^{1/3}x_2^{1/3} \left(x_2^{1/3} - x_1^{1/3} \right) - x_2 \\
+    &\implies 0 < x_1 + 3x_1^{1/3}x_2^{1/3} \left(x_2^{1/3} - x_1^{1/3} \right) - x_2 < x_1 - x_2 \\
+    &\implies 0 < (x_1^{1/3} - x_2^{1/3})^3 < \lvert x_1 - x_2 \rvert \\
+    &\implies 0 < x_1^{1/3} - x_2^{1/3} < \lvert x_1 - x_2 \rvert^{1/3} < \delta^{1/3} = \epsilon.
+\end{align}
+这就证明了函数$x \mapsto \sqrt[3]{x}$在$\real^+$上是一致连续的．\qed\bigskip
+
+(4) \prove 我们打算证明这个函数不是一致连续的，为此，令
+\begin{equation}
+    s_n = 2 \sqrt{2 \pi} n , \quad t_n = 2 \sqrt{2 \pi} n + A \cdot \frac{1}{2n}, \quad \left(n \in \nat \right)
+\end{equation}
+从而$\lvert s_n - t_n \rvert < \displaystyle\frac{1}{n}$，并且
+\begin{equation}
+    \sin \, \left( s_n \right)^2 = \sin \, 4 \cdot 2 \pi \cdot n^2 =  0.
+\end{equation}
+并且
+\begin{equation}
+    \sin \, \left( t_n \right)^2 = \sin \, \left(4 \cdot 2 \pi \cdot n^2 + 2A\sqrt{2\pi} + \frac{A^2}{4n^2} \right)
+\end{equation}
+于是我们注意到
+\begin{equation}
+    \lvert \sin \, \left(s_n\right)^2 - \sin \, \left(t_n\right)^2 \rvert = \sin \, \left(t_n\right)^2 = \sin \, \left(2 A \sqrt{2 \pi} + \frac{A^2}{4n^2}\right)
+\end{equation}
+取一个合适的$A$就可以让极限
+\begin{equation}
+    \lim_{n \to \infty} \left( \sin \, \left(s_n\right)^2 - \sin \, \left(t_n\right)^2\right) = \lim_{n \to \infty} \sin \, \left(2A\sqrt{2\pi} + \frac{A^2}{4n^2}\right) = \sin \, \left( 2A\sqrt{2\pi} \right) \neq 0
+\end{equation}
+不等于$0$，也就是说，取一个合适的$A$，就可以实现：对于任意$\epsilon_0 > 0$，存在一个$N \in \nat$，使得对一切$n \geq N$，都有
+\begin{equation}
+    \lvert \sin \, \left(s_n\right)^2 - \sin \, \left( t_n \right)^2 \rvert \geq \epsilon_0
+\end{equation}
+从而这就证明了函数$x \mapsto \sin \, \left(x\right)^2$在$\real$上不系一直连续的．\qed\bigskip
+
+(5) \prove 令
+\begin{equation}
+    s_n = \pi n, \quad t _n = \pi n + \frac{1}{2n}, \quad \left(n \in \nat\right)
+\end{equation}
+于是
+\begin{align}
+    \lvert f(s_n) - f(t_n) \rvert &= \Bigg\lvert \pi n - \frac{\pi n + 1/2n}{1 + \left(\pi n + 1/2n\right)^2 \left(\sin \, 1/ 2n\right)^2} \Bigg\rvert \\
+    &= n \Bigg\lvert \pi - \frac{\pi + 1/2n^2}{1+\left(\pi^2 n^2 + O(1)\right) \left(\sin \, 1/2n\right)^2} \Bigg\rvert \\
+    &\geq \Bigg\lvert \pi - \frac{\pi + o(1)}{1+ \displaystyle\frac{\pi^2}{4} \cdot \displaystyle\frac{\sin \, 1/2n^2}{1/2n^2} + o(1)} \Bigg\rvert, \quad \forall n \in \nat
+\end{align}
+于是
+\begin{align}
+    \lim_{n \to \infty} \lvert f(s_n) - f(t_n) \rvert &\geq \lim_{n \to \infty} \Bigg\lvert \pi - \frac{\pi + o(1)}{1 + \displaystyle\frac{\pi^2}{4} \cdot \displaystyle\frac{\sin \, 1/2n^2}{1/2n^2} + o(1) } \Bigg\rvert \\
+    &= \Bigg\lvert \pi - \frac{\pi}{1+\displaystyle\frac{\pi^2}{4}} \Bigg\rvert > 0
+\end{align}
+记$c = \lvert \pi - \pi/(1+\pi^2/4) \rvert > 0$，取$\epsilon_0 = c/2 > 0$，则存在足够大的正整数$M$使得对一切$n > M$，都有
+\begin{equation}
+    \lvert f(s_n) - f(t_n) \rvert \geq \epsilon_0 = c/2 > 0
+\end{equation}
+这就证明了函数$x \mapsto x/(1+x^2 \left(\sin \, x\right)^2)$在$\real^+ \bigcup \{ 0 \}$上不是一致连续的．\qed\bigskip
+
+2. 设函数$f$和$g$在区间$I$上一致连续．证明：$f+g$也在$I$上一致连续．
+
+\prove 任取$x_1, x_2 \in I$，有
+\begin{align}
+    \lvert f(x_1) + g(x_1) - (f(x_2) + g(x_2)) \rvert &= \lvert f(x_1) - f(x_2) + g(x_1) - g(x_2) \rvert \\
+    &\leq \lvert f(x_1) - f(x_2) \rvert + \lvert g(x_1) - g(x_2) \rvert \\
+    &\leq \epsilon + \epsilon = 2\epsilon
+\end{align}
+由此即证．\qed\bigskip
+
+3. 如果$f$在$(a,b)$上一致连续，证明：$f(a+)$和$f(b-)$存在且有限．
+
+\prove 由于$f$在$(a,b)$上一致连续，故对任意$\epsilon > 0$，都存在$\delta(\epsilon) > 0$，对任意$x_1, x_2 \in (a, a+\delta)$，都有
+\begin{equation}
+    \lvert f(x_1) - f(x_2) \rvert < \epsilon
+\end{equation}
+根据柯西收敛准则，极限$\displaystyle\lim_{x \to a^+} f(x)$存在且有限．同理可证$\displaystyle\lim_{x \to b^-} f(x)$存在且有限．\qed\bigskip
