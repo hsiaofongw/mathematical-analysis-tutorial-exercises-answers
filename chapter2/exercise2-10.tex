@@ -146,3 +146,7 @@
     \lvert f(s_{k_n}) - f(t_{k_n}) \rvert \geq \epsilon_0, \forall n \in \nat
 \end{equation}
 矛盾．\qed\bigskip
+
+5. 设$f$在区间$[a, +\infty)$上连续．若存在常数$b$和$c$，使得$\displaystyle\lim_{x \to +\infty} \left(f(x) - bx - c\right) = 0$，证明：$f$在$[a, +\infty)$上一致连续．
+
+\prove 由$\displaystyle\lim_{x \to +\infty} (f(x) - bx - c) = 0$可推出$\displaystyle\lim_{x \to +\infty} (f(x) - bx) = c$，令$g(x) = f(x) - bx$，则依题4的结论，函数$g$在$[a, +\infty)$上一致连续．又由于函数$x \mapsto bx$在$[a, +\infty)$上一致连续，故函数$x \mapsto bx$与$g$的和函数$f(x)$在$[a, +\infty)$上一致连续．\qed\bigskip
