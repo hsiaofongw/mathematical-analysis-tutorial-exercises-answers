@@ -1,0 +1,65 @@
+\exercise
+
+1. 如果$f$在$(a,b)$上一致连续，证明：$f$在$(a,b)$上有界．
+
+\prove 采用反证法．假设结论不成立．不失一般性，假设$f$在$(a,b)$上没有上界．由此我们可以找到一个数列$\{ x_n \} \in (a,b)$并且$f(x_n) \to +\infty, \; (n \to \infty)$，由于$\{ x_n \}$是有界的，所以我们可以找到一个$\{ x_n \}$的收敛子列，不妨记为$\{ x_{k_n}\}$，由于$f(x_n) \to +\infty$，又因为$\{ x_{k_n} \}$是$\{ x_n \}$的子列所以
+\begin{equation}
+\lim_{n \to \infty} f(x_{k_n} ) = +\infty
+\label{eq:fxkndiverge}
+\end{equation}
+由于$f$在$(a,b)$上是一致收敛的，所以，对任意$\epsilon > 0$，存在$\delta > 0$，使得对任意$x_1, x_2 \in (a,b)$，只有$\lvert x_1 - x_2 \rvert < \delta$，就有
+\begin{equation}
+    \lvert f(x_1) - f(x_2) \rvert < \epsilon
+\end{equation}
+由于$\{ x_{k_n} \}$收敛，故它是一个柯西列，故存在足够大的正整数$M$，使得对一切$n_1, n_2 > M, n_1, n_2 \in \nat$，都有
+\begin{equation}
+    \lvert x_{k_{n_1}} - x_{k_{n_2}} \rvert < \delta
+\end{equation}
+故
+\begin{equation}
+    \lvert f(x_{k_{n_1}}) - f(x_{k_{n_2}}) \rvert < \epsilon
+\end{equation}
+故数列$\{ f(x_{k_n}) \}$为一柯西列因而是收敛的，可是这与式(\ref{eq:fxkndiverge})矛盾．\qed\bigskip
+
+2. 若函数$f$和$g$都在区间$I$上一致连续，问$fg$是否在$I$上一致连续？试就$I$为有限区间或无限区间分别讨论之．
+
+\textbf{情形1：}$I$为有限区间．我们将证明$fg$在有限区间内是一致连续的．
+
+\prove 对任意$x_1 , x_2 \in (a,b)$，有
+\begin{align}
+    \lvert f(x_1)g(x_1)-f(x_2)g(x_2)\rvert &= \lvert f(x_1)g(x_1) - f(x_2)g(x_1) + f(x_2)g(x_1) - f(x_2)g(x_2)\rvert \\
+    &\leq \lvert f(x_1)g(x_1) - f(x_2)g(x_1) \rvert + \lvert f(x_2)g(x_1) - f(x_2)g(x_2) \rvert \\
+    &= \lvert g(x_1) \rvert \lvert f(x_1) - f(x_2) \rvert + \lvert f(x_2) \rvert \lvert g(x_1) - g(x_2) \rvert
+\end{align}
+由于$f, g$在$(a,b)$上是有界的，不妨设$\lvert f(x) \rvert, \lvert g(x) \rvert \leq M, 0< M < +\infty, \forall x \in (a,b)$，由此我们得
+\begin{equation}
+    \lvert f(x_1)g(x_1) - f(x_2)g(x_2) \rvert \leq M \left(\lvert f(x_1) - f(x_2) \rvert + \lvert g(x_1)-g(x_2) \rvert\right)
+\end{equation}
+又因为$f, g$在$(a,b)$上一致连续，故对任意$\epsilon > 0$，存在$\delta_1 > 0$，使得对任意$x_1 , x_2 \in (a,b)$，只要$0 < \lvert x_1 - x_2 \rvert < \delta$，就有
+\begin{equation}
+    \lvert f(x_1) - f(x_2) \rvert < \frac{\epsilon}{M}
+\end{equation}
+同理，存在$\delta_2 > 0$，使得对任意$x_1, x_2 \in (a,b)$，只要$0 < \lvert x_1 - x_2 \rvert < \delta$，就有
+\begin{equation}
+    \lvert g(x_1) - g(x_2) \rvert < \frac{\epsilon}{M}
+\end{equation}
+因此，对任意$\epsilon > 0$，只需取$\delta = \min \{ \delta_1, \delta_2 \}$，以上两不等式就同时成立，并且此时有
+\begin{equation}
+    \lvert f(x_1)g(x_1) - f(x_2)g(x_2) \rvert \leq M \left(\lvert f(x_1)-f(x_2) \rvert + \lvert g(x_1)-g(x_2)\rvert \right) < \epsilon
+\end{equation}
+从而这就证明了$fg$在$(a,b)$上是一致连续的．\qed\bigskip
+
+\textbf{情形2：}$I$为无限区间．我们可以举出反例，令
+\begin{align}
+    f: \real &\longrightarrow \real \\
+    x &\longmapsto x
+\end{align}
+再令$g = f$．显然$f, g$在$\real$上是一致连续的，可是$fg: x \mapsto x^2$在$\real$上却不是一致连续的，这是因为，取
+\begin{equation}
+    s_n = n, t_n = n + \frac{1}{2n}
+\end{equation}
+则$\lvert s_n - t_n \rvert < 1/n, \forall n \in \nat$，与此同时
+\begin{equation}
+    \lvert f(s_n)g(s_n) - f(t_n)g(t_n) \rvert = \lvert n^2  - (n + \frac{1}{2n})^2 \rvert = 1 + \frac{1}{4n^2} > 1
+\end{equation}
+从而函数$fg$在$\real$上未必是一致连续的．\qed\bigskip
