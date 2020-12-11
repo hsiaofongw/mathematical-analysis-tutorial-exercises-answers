@@ -150,3 +150,24 @@
 5. 设$f$在区间$[a, +\infty)$上连续．若存在常数$b$和$c$，使得$\displaystyle\lim_{x \to +\infty} \left(f(x) - bx - c\right) = 0$，证明：$f$在$[a, +\infty)$上一致连续．
 
 \prove 由$\displaystyle\lim_{x \to +\infty} (f(x) - bx - c) = 0$可推出$\displaystyle\lim_{x \to +\infty} (f(x) - bx) = c$，令$g(x) = f(x) - bx$，则依题4的结论，函数$g$在$[a, +\infty)$上一致连续．又由于函数$x \mapsto bx$在$[a, +\infty)$上一致连续，故函数$x \mapsto bx$与$g$的和函数$f(x)$在$[a, +\infty)$上一致连续．\qed\bigskip
+
+6. 求证：三次方程$x^3 + 2x - 1 = 0$只有唯一的实根，且次根在$(0,1)$内．
+
+\prove 
+
+存在性．
+
+令$f(x) = x^3 + 2x - 1$，分别将$0, 1$代入算得
+\begin{align}
+    f(0) &= 0^3 + 2\times 0 - 1 = -1 \\
+    f(1) &= 1^3 + 2\times 1 - 1 = 2
+\end{align}
+由此可见$f(0)f(1) < 0$，又由于函数$f$在$[0,1]$连续，所以依零点定理，存在$c \in (0,1)$，使得$f(c) = 0$，由此存在性即证．
+
+唯一性．
+
+任取$d \in \real \; (d > 0)$，则对任意$x \in \real$，有
+\begin{equation}
+    f(x+d) - f(x) = (x+d)^3 - x^3 + 2d
+\end{equation}
+由于函数$x \mapsto x^3$在$\real$上是严格单调递增的，故$(x+d)^3-x^3>0$，故$f(x+d)-f(x)>0$．从而函数$f$在$\real$上是严格单调递增的．于是对任意$x > c$，都有$f(x) > 0$，对任意$x < c$，都有$f(x) < 0$，由此可见，只存在唯一的$c \in \real$，使得$f(c) = 0$．从而唯一性得证．\qed\bigskip
