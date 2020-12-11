@@ -85,7 +85,7 @@
 \end{equation}
 令$n \to \infty$，由于$s_{k_n}, t_{k_n} \to \xi$，依$f$在$(a,b)$的连续性，我们有
 \begin{equation}
-    \lim_{n \to \infty} \lvert f(s_{k_n}) - t_{k_n} \rvert = \lvert f(\xi) - f(\xi) \rvert = 0
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - f(t_{k_n}) \rvert = \lvert f(\xi) - f(\xi) \rvert = 0
 \end{equation}
 可是依式(\ref{eq:2-10-3-2})，我们有
 \begin{equation}
@@ -99,10 +99,50 @@
 \end{equation}
 从而
 \begin{equation}
-    \lim_{n \to \infty} \lvert f(s_{k_n}) - f(k_{k_n}) \rvert = 0
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - f(t_{k_n}) \rvert = 0
 \end{equation}
 可是依式(\ref{eq:2-10-3-2})，我们有
 \begin{equation}
-    \lim_{n \to \infty} \lvert f(s_{k_n}) - t_{k_n} \rvert \geq \lim_{n \to \infty} \epsilon_0 = \epsilon_0 > 0
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - f(t_{k_n}) \rvert \geq \lim_{n \to \infty} \epsilon_0 = \epsilon_0 > 0
 \end{equation}
-这就出现了矛盾．
+这就出现了矛盾．\qed\bigskip
+
+4. 设函数$f$在区间$[a, +\infty)$上连续，$f(+\infty)$存在且有限．证明：$f$在$[a, +\infty)$上一致连续．
+
+\prove 采用反证法，设存在数列$\{ s_n \}, \{ t_n \}$，满足$\lvert s_n - t_n \rvert < 1/n, \forall n \in \nat$，并且存在$\epsilon_0 > 0$，满足
+\begin{equation}
+    \lvert f(s_n) - f(t_n) \rvert \geq \epsilon_0, \forall n \in \nat
+\end{equation}
+分两种情形考虑：
+
+\textbf{情形1：} 数列$\{ s_n \}$是收敛的．那么我们可以找到$\{ s_n \}$的一个收敛子列$\{ s_{k_n} \}$，设$\displaystyle\lim_{n \to \infty} s_{k_n} = \xi$，易证$\displaystyle\lim_{n \to \infty} t_{k_n} = \xi$，则依函数$f$在$[a,+\infty)$上的连续性
+\begin{equation}
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - f(t_{k_n}) \rvert = \lvert f(\xi) - f(\xi) \rvert = 0
+\end{equation}
+可是由于$\{s_{k_n}\}, \{t_{k_n}\}$是子列，故
+\begin{equation}
+    \lvert f(s_{k_n}) - f(t_{k_n}) \rvert \geq \epsilon_0 > 0
+\end{equation}
+从而
+\begin{equation}
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - f(t_{k_n}) \rvert > 0
+\end{equation}
+矛盾．
+
+\textbf{情形2：} 数列$\{ s_n \}$是发散的，从而数列$\{ t_n \}$也是发散的．由于$\displaystyle\lim_{x \to +\infty} f(x)$存在，故依柯西收敛准则，对任意$\epsilon > 0$，存在$M > 0$，使得对任意$x_1, x_2 \in [a, +\infty)$，只要$x_1, x_2 > M$，就有
+\begin{equation}
+    \lvert f(x_1) - f(x_2) \rvert < \epsilon
+\end{equation}
+从数列$\{ s_n \}$中可找到一个子列$\{ s_{k_n}\}$满足$s_{k_n} \to +\infty$，又由于$\lvert s_{k_n} - t_{k_n} \rvert < 1/k_n$，故同样有$t_{k_n} \to +\infty$，故给定$M > 0$，存在足够大的正整数$N \in \nat$，使得对一切$n > N, n \in \nat$，都有
+\begin{equation}
+    s_{k_n}, t_{k_n} > M
+\end{equation}
+从而
+\begin{equation}
+    \lvert f(s_{k_n}) - f(t_{k_n}) \rvert < \epsilon
+\end{equation}
+可是这与
+\begin{equation}
+    \lvert f(s_{k_n}) - f(t_{k_n}) \rvert \geq \epsilon_0, \forall n \in \nat
+\end{equation}
+矛盾．\qed\bigskip
