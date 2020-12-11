@@ -63,3 +63,46 @@
     \lvert f(s_n)g(s_n) - f(t_n)g(t_n) \rvert = \lvert n^2  - (n + \frac{1}{2n})^2 \rvert = 1 + \frac{1}{4n^2} > 1
 \end{equation}
 从而函数$fg$在$\real$上未必是一致连续的．\qed\bigskip
+
+3. 设函数$f$在开区间$(a,b)$上连续，$f(a+)$和$f(b+)$存在且有限．证明：$f$在$(a,b)$上一致连续．
+
+\prove 采用反证法．假设结论不成立．那么存在$\epsilon_0 > 0$，存在两个数列$\{ s_n \}$和$\{ t_n \}$，使得虽有$ \lvert s_n - t_n \rvert < 1/n, \forall n \in \nat$，但是
+\begin{equation}
+    \lvert f(s_n) - f(t_n) \rvert \geq \epsilon_0, \forall n \in \nat
+\end{equation}
+由于数列$\{ s_n \}$是有界的，所以可以从中找出一个收敛子列记做$\{ s_{k_n} \}$，不妨设$ s_{k_n} \to \xi$，下面我们来证明$t_{k_n} \to \xi$，注意到：
+\begin{align}
+    \lvert t_{k_n} - \xi \rvert &= \lvert t_{k_n} - s_{k_n} + s_{k_n} - \xi \rvert \\
+    &\leq \lvert t_{k_n} - s_{k_n} \rvert + \lvert s_{k_n} - \xi \rvert \\
+    &< \frac{1}{k_n} + \lvert s_{k_n} - \xi \rvert \label{eq:2-10-3-1}
+\end{align}
+由此即证$t_{k_n} \to \xi \; (n \to \infty)$．分两种情况进行讨论．
+
+\textbf{情形1：} $\xi \in (a, b)$，也就是说$\xi \neq a, \xi \neq b$．由于$\{ s_{k_n} \}, \{t_{k_n} \}$是子列，故同样有
+\begin{equation}
+    \lvert f(s_{k_n}) - f(t_{k_n}) \rvert \geq \epsilon_0 > 0, \forall n \in \nat
+    \label{eq:2-10-3-2}
+\end{equation}
+令$n \to \infty$，由于$s_{k_n}, t_{k_n} \to \xi$，依$f$在$(a,b)$的连续性，我们有
+\begin{equation}
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - t_{k_n} \rvert = \lvert f(\xi) - f(\xi) \rvert = 0
+\end{equation}
+可是依式(\ref{eq:2-10-3-2})，我们有
+\begin{equation}
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - t_{k_n} \rvert \geq \lim_{n \to \infty} \epsilon_0 = \epsilon_0 > 0
+\end{equation}
+这就出现了矛盾．
+
+\textbf{情形2：} $\xi = a$或者$\xi = b$．不失一般性假设$\xi = a$，由于$f(a+)$是存在的，故
+\begin{equation}
+    \lim_{n \to \infty} \left( f(s_{k_n}) - f(t_{k_n}) \right) = \lim_{n \to \infty} f(s_{k_n}) - \lim_{n \to \infty} f(t_{k_n}) = f(a+) - f(a+) = 0
+\end{equation}
+从而
+\begin{equation}
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - f(k_{k_n}) \rvert = 0
+\end{equation}
+可是依式(\ref{eq:2-10-3-2})，我们有
+\begin{equation}
+    \lim_{n \to \infty} \lvert f(s_{k_n}) - t_{k_n} \rvert \geq \lim_{n \to \infty} \epsilon_0 = \epsilon_0 > 0
+\end{equation}
+这就出现了矛盾．
