@@ -171,3 +171,44 @@
     f(x+d) - f(x) = (x+d)^3 - x^3 + 2d
 \end{equation}
 由于函数$x \mapsto x^3$在$\real$上是严格单调递增的，故$(x+d)^3-x^3>0$，故$f(x+d)-f(x)>0$．从而函数$f$在$\real$上是严格单调递增的．于是对任意$x > c$，都有$f(x) > 0$，对任意$x < c$，都有$f(x) < 0$，由此可见，只存在唯一的$c \in \real$，使得$f(c) = 0$．从而唯一性得证．\qed\bigskip
+
+7. 设$\phi \in C(\real)$，且
+\begin{equation}
+    \lim_{x \to +\infty} \frac{\phi(x)}{x^n} = \lim_{x \to -\infty} \frac{\phi(x)}{x^n} = 0.
+\end{equation}
+
+\begin{tasks}(1)
+    \task 证明：当$n$为奇数时，方程$x^n + \phi(x) = 0$有一个实根．
+    \task 证明：当$n$为偶数时，存在$y$，使得对所有的$x \in \real$，有
+    \begin{equation*}
+        y^n + \phi(y) \leq x^n + \phi(x)
+    \end{equation*}
+\end{tasks}
+
+(1) \prove 令$p(x)=x^n + \phi (x)$，将方程左端写成
+\begin{equation}
+    p(x) = x^n + \phi(x) = x^n (1 + \frac{\phi(x)}{x^n})
+\end{equation}
+由于$n$是奇数，故
+\begin{equation}
+    \lim_{x \to -\infty} p(x) = \lim_{x \to -\infty} x^n(1+\frac{\phi(x)}{x^n}) = -\infty
+\end{equation}
+同理得
+\begin{equation}
+    \lim_{x \to +\infty} p(x) = +\infty
+\end{equation}
+依连续性，可知$\phi$在$\real$上每点都有定义，又因为$\displaystyle\lim_{x \to -\infty} p(x) = -\infty$并且$\displaystyle\lim_{x \to +\infty} p(x) = +\infty$，我们可以找到足够大的正数$M$，使得对一切$x$只只要满足$x < -M$就有$f(x) < 0$，只要满足$x > M$就有$f(x) > 0$，设$x_1 < -M, x_2 > M$，则$f(x_1)f(x_2) < 0$，由于函数$\phi$在$\real$上是连续的，故函数$p$在$\real$上是连续的，故$p$在$[x_1, x_2] \subset \real$上也是连续的，故存在$c \in (x_1, x_2)$使得$p(c) = 0$，也就是$p(c) = c^n + \phi(c) = 0$，由此可知这个$c$的确是方程$x^n+\phi(x)=0$的一个实根．由此可知方程$x^n+\phi(x)=0$在$\real$上的确起码有一个根．\qed\bigskip
+
+(2) \prove 令$p(x) = x^n + \phi(x)$，当$n$为偶数时
+\begin{equation}
+    \lim_{x \to -\infty} p(x) = \lim_{x \to +\infty} p(x) = \lim_{x \to +\infty} x^n(1+\frac{\phi(x)}{x^n}) = +\infty
+\end{equation}
+任取$r_1 \in \real \; (r_1 > 0)$，令$m_1 = \displaystyle\inf_{x \in [-r_1, r_1]} p(x)$，那么由于$\displaystyle\lim_{x \to \infty} p(x) = +\infty$，存在足够大的正数$M > 0$，使得对一切$\lvert x \rvert > M$有$p(x) > m_1$，再令$m_2 = \displaystyle\inf_{x \in [-M, M]} p(x)$，那么$m_2 \leq m_1$，那么对任意$x \in (-\infty, M) \bigcup (M, +\infty)$，都有$f(x) > m_1 \geq m_2$．
+
+而由于$m_2 = \displaystyle\inf_{x \in [-M,M]} p(x)$，故对一切$x \in [-M, M]$，都有$p(x) \geq m_2$，并且依\textbf{定理2.10.3}，存在$c \in [-M, M]$，使得$p(c) = m_2$．故对任意$x \in \real$都有$p(x) \geq m_2$，当$x = c$时，等号成立．也就是说
+\begin{equation}
+    \exists c \in \real, \forall x \in \real, \quad p(x) = x^n + \phi(x) \geq m_2 = p(c) = c^n + \phi(c) 
+\end{equation}
+取$y=c$命题即证．\qed\bigskip
+
+\annotate 题(1)仿造的是例题的证法．题(2)的证明思路是将整个实数轴划分为三个部分：左边的无限区间，中间的闭区间，右边的无限区间，并且注意到$p(x) \to +\infty$这个事实，找到那个$M$使得对一切$\lvert x \rvert > M$都有$p(x) > m_2= \displaystyle\inf_{\text{中间那个闭区间}} p(x)$．最后再引用\textbf{定理2.10.3}来说明这个$m_2$必可在中间那个闭区间中被取到就可以了．
