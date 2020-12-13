@@ -221,4 +221,46 @@
 
 \textbf{情形2：}存在$x_1 \in [0, \displaystyle\frac{n-1}{n}]$，使得$g(x_1) = f(x_1+1/n)-f(x_1)>0$，那么就必定存在$x_2 \in [0, \displaystyle\frac{n-1}{n}], x_2 \neq x_1$，使得$g(x_2) = f(x_2+1/n)-f(x_2)<0$，否则就会推出与$f(1)-f(0)=0$矛盾的事实．依零值定理，存在$c \in (x_1,x_2)$，使得$g(c)=f(c+1/n)-f(c)=0$．也就是$f(c+1/n)=f(c)$，由于$n$是任取的，因此对每一个$n \in \nat$都存在这样的$c \in [0,\displaystyle\frac{n-1}{n}]\subset[0,1]$使得$f(c)=f(c+1/n)$，因而命题得证．\qed\bigskip
 
-\annotate 题8仔细阅读后不难发现只是\textbf{例3}的另一种等价表述．这个题目充分表达了仔细阅读并理解例题的重要性，也告诉我们要学会举一反三、灵活应变，切不可总想着用套路来解题．\qed\bigskip
+\annotate 题8仔细阅读后不难发现只是\textbf{例3}的另一种等价表述．这个题目充分表达了仔细阅读并理解例题的重要性，也告诉我们要学会举一反三、灵活应变，切不可总想着用套路来解题．\bigskip
+
+9. 设$f \in C(\real)$且$\displaystyle\lim_{x \to +\infty}f(x) = \displaystyle\lim_{x \to -\infty}f(x) = +\infty$，又设$f$的最小值$f(a)<a$．求证：$f \circ f$至少在两个点上取到最小值．
+
+\prove 由于$\displaystyle\lim_{x \to +\infty} f(x) = +\infty$，我们可以找到足够正的正数$b$，满足$b > a$，并且对一切$x \geq b$都有$f(x) > a$．从而$a \in f([a,b])$．又由于$\displaystyle\lim_{x \to -\infty}f(x) = +\infty$，所以我们还可以找到足够负的负数$c$，满足$c < a$，并且对一切$x \leq c$都有$f(x) > a$．从而$a \in f([c,a])$．
+
+因为$a \in f([a,b])$，所以存在$x_1 \in [a,b]$，使得$f(x_1) = a$，从而$f(f(x_1))=f(a)$．同理存在$x_2 \in [c,a]$，使得$f(x_2) = a$，从而$f(f(x_2))=f(a)$．\qed\bigskip
+
+10. 设函数$f: [a,b] \to \real$在有理点上取无理数值，在无理点上取有理数值．证明：$f$不是$[a,b]$上的连续函数．
+
+\prove 由于$[a,b]$中的有理点是可数的，因此$f([a,b])$中的无理点也是可数的，因此$f([a,b])$是可数的，然而，如果$f$为连续函数，则$f([a,b])$为一闭区间，从而$f([a,b])$为不可数集，矛盾．\qed\bigskip
+
+11. 设对任意$x,y \in (-\infty, +\infty)$，函数$f$满足$\lvert f(x) - f(y) \rvert \leq k \lvert x - y \rvert \; (0 < k < 1)$．求证：
+
+\begin{tasks}(1)
+    \task 函数$kx - f(x)$递增；
+    \task 存在唯一的$\xi \in (-\infty, +\infty)$，使得$f(\xi) = \xi$.
+\end{tasks}
+
+(1) \prove 设$y > x > 0$．由题意：
+\begin{align}
+    &\mathrel{\phantom{\implies}} \lvert f(x) - f(y) \rvert \leq k \lvert x - y \rvert \\
+    &\implies 0 \leq \lvert f(x) - f(y) \rvert \leq ky - kx \\ 
+    &\implies 0 \leq ky - kx + f(x) - f(y) \\
+    &\implies 0 \leq ky - f(y) - (kx - f(x))
+\end{align}
+从而函数$x \mapsto kx - f(x)$递增．\qed\bigskip
+
+(2) \prove 令
+\begin{equation}
+    g(x) = x - f(x)
+\end{equation}
+则$g(x) = x - kx + kx - f(x) = x(1-k) + kx - f(x)$．由于$0 < k < 1$，所以$1-k > 0$，所以函数$x \mapsto x(1-k)$是严格递增的，又因为函数$x \mapsto kx - f(x)$是递增的，所以函数$g$是严格递增的．所以有
+\begin{equation}
+    \lim_{x \to +\infty} g(x) = +\infty, \quad \lim_{x \to -\infty} g(x) = -\infty
+\end{equation}
+所以存在$c \in (-\infty, +\infty)$，使得$g(c) = 0$．又因为$g$的严格单调性，所以这个$c$唯一．\qed\bigskip
+
+12. 证明：在$(-\infty, +\infty)$上连续的周期函数必在$(-\infty, +\infty)$上一致连续．由此证明：$\left(\sin \, x\right)^2 + \sin \, \left(x\right)^2$不是周期函数．
+
+\prove 设$f$为一个在$(-\infty,+\infty)$上连续的周期函数．由于$f$在$(-\infty,+\infty)$上连续，所以$f$在任何有界闭区间上连续，从而$f$在任何有界闭区间上一致连续．又根据周期性，可知$f$在$(-\infty,+\infty)$上一致连续．
+
+由于函数$x \mapsto \left( \sin \, x\right)^2 + \sin \, \left(x\right)^2$是初等函数的有限次复合，并且定义域为$(-\infty, +\infty)$，从而函数$x \mapsto \left(\sin \, x\right)^2 + \sin \, \left(x\right)^2$是$(-\infty, +\infty)$上的连续函数．我们要证$x \mapsto \left(\sin \, x\right)^2 + \sin \, \left(x\right)^2$不是周期函数．为此，采用反证法，假设$x \mapsto \left(\sin \, x\right)^2 + \sin \, \left(x\right)^2$是周期函数，从而它在$(-\infty,+\infty)$上是一致连续的，然而这是不可能的，因为函数$x \mapsto \sin \, \left(x\right)^2$不一致连续，因而函数$x \mapsto \left(\sin \, x\right)^2 + \sin \, \left(x\right)^2$也不一致连续，矛盾．\qed\bigskip
