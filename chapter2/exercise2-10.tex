@@ -211,4 +211,14 @@
 \end{equation}
 取$y=c$命题即证．\qed\bigskip
 
-\annotate 题(1)仿造的是例题的证法．题(2)的证明思路是将整个实数轴划分为三个部分：左边的无限区间，中间的闭区间，右边的无限区间，并且注意到$p(x) \to +\infty$这个事实，找到那个$M$使得对一切$\lvert x \rvert > M$都有$p(x) > m_2= \displaystyle\inf_{\text{中间那个闭区间}} p(x)$．最后再引用\textbf{定理2.10.3}来说明这个$m_2$必可在中间那个闭区间中被取到就可以了．
+\annotate 题(1)仿造的是例题的证法．题(2)的证明思路是将整个实数轴划分为三个部分：左边的无限区间，中间的闭区间，右边的无限区间，并且注意到$p(x) \to +\infty$这个事实，找到那个$M$使得对一切$\lvert x \rvert > M$都有$p(x) > m_2= \displaystyle\inf_{\text{中间那个闭区间}} p(x)$．最后再引用\textbf{定理2.10.3}来说明这个$m_2$必可在中间那个闭区间中被取到就可以了．\bigskip
+
+8. 设$f \in C[0,1]$且$f(0)=f(1)$．求证：对任何$n \in \nat$，存在$x_n \in [0,1]$，使得$f(x_n) = f(x_n + 1/n)$.
+
+\prove 给定$n \in \nat$，令$g_n(x) = f(x + 1/n) - f(x)$，于是$g \in C[0,\displaystyle\frac{n-1}{n}]$，我们要证明对每一个$n \in \nat$，方程$g_n(x) = 0$在$[0,\displaystyle\frac{n-1}{n}]$都有根．来考虑两种情形：
+
+\textbf{情形1：}对任意$x \in [0, \displaystyle\frac{n-1}{n}]$，$g(x) = f(x+1/n)-f(x)=0$，那么命题已经得证．
+
+\textbf{情形2：}存在$x_1 \in [0, \displaystyle\frac{n-1}{n}]$，使得$g(x_1) = f(x_1+1/n)-f(x_1)>0$，那么就必定存在$x_2 \in [0, \displaystyle\frac{n-1}{n}], x_2 \neq x_1$，使得$g(x_2) = f(x_2+1/n)-f(x_2)<0$，否则就会推出与$f(1)-f(0)=0$矛盾的事实．依零值定理，存在$c \in (x_1,x_2)$，使得$g(c)=f(c+1/n)-f(c)=0$．也就是$f(c+1/n)=f(c)$，由于$n$是任取的，因此对每一个$n \in \nat$都存在这样的$c \in [0,\displaystyle\frac{n-1}{n}]\subset[0,1]$使得$f(c)=f(c+1/n)$，因而命题得证．\qed\bigskip
+
+\annotate 题8仔细阅读后不难发现只是\textbf{例3}的另一种等价表述．这个题目充分表达了仔细阅读并理解例题的重要性，也告诉我们要学会举一反三、灵活应变，切不可总想着用套路来解题．\qed\bigskip
