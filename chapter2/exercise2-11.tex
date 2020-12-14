@@ -112,3 +112,57 @@
     \varphi (\delta_2) \leq \varphi (\delta_1)
 \end{equation*}
 这说明$\varphi$在$(0, +\infty)$是单调递减的．同理可证，$\psi$在$(0,+\infty)$是单调递增的．\qed\bigskip
+
+(2) \prove 任取$l \in E$，依定义，存在数列$\{ x_n \} \subset B(\check{x_0}, \delta)$，并且满足$x_n \to x_0$，使得$f(x_n) \to l$．任取趋于$0$的数列$\{ \delta_n \} \subset B(\check{0}+, \delta)$，由于$x_n \to x_0$，故存在$i_1 \in \nat$，使得对一切$n \geq i_1$，都有
+\begin{equation}
+    \lvert x_n - x_0 \rvert < \delta_1
+\end{equation}
+从而
+\begin{equation}
+    \lvert x_{i_1} - x_0 \lvert < \delta_1
+\end{equation}
+从而
+\begin{equation}
+    f(x_{i_1}) < \sup \, \{ f(x) : 0 < \lvert x - x_0 \rvert < \delta_1 \} = \psi (\delta_1)
+\end{equation}
+类似地存在$i_2, i_3, i_4, \cdots \in \nat$，使得对一般的$n \in \nat$，都有
+\begin{equation}
+    f(x_{i_n}) < \psi (\delta_n)
+\end{equation}
+令$n \to \infty$，得
+\begin{equation}
+    \lim_{n \to \infty} f(x_{i_n}) \leq \lim_{n \to \infty} \phi (\delta_n)
+\end{equation}
+也就是
+\begin{equation}
+    l \leq \beta
+\end{equation}
+由于$l$是任取的，故对任意$x \in E$，都有$x \leq \beta$，而依\textbf{定理2.11.1}，有$a^\star \in E$，因此
+\begin{equation}
+    a^\star \leq \beta
+\end{equation}
+下面我们再来证明$\beta \leq a^\star$，依\textbf{定理2.11.1}，存在$h_1 > 0$，使得当$0 < \lvert x - x_0 \rvert < h_1$时，有
+\begin{equation}
+    f(x) < a^\star + 1
+\end{equation}
+从而
+\begin{equation}
+    \psi (h_1) = \sup \, \{ f(x) : 0 < \lvert x - x_0 \rvert < h_1 \} < a^\star + 1
+\end{equation}
+类似地我们可以找到一系列的$h_2, h_3, h_4, \cdots > 0$并且满足$h_n \to 0$，使得对一般的$n \in \nat$都有
+\begin{equation}
+    \psi (h_n) < a^\star + \frac{1}{n}
+\end{equation}
+令$n \to \infty$，有
+\begin{equation}
+    \lim_{n \to \infty} \psi (h_n) \leq \lim_{n \to \infty} \left( a^\star + \frac{1}{n} \right)
+\end{equation}
+也就是
+\begin{equation}
+   \lim_{\delta \to 0^+} \psi (\delta)  \leq \lim_{n \to \infty} \left(a^\star + \frac{1}{n}\right)
+\end{equation}
+也就是
+\begin{equation}
+    \beta \leq a^\star
+\end{equation}
+因为$a^\star \leq \beta$与$\beta \leq a^\star$同时成立，所以只能是$\beta = a^\star$．可以类似地证明$\alpha = a_\star$．\qed\bigskip
