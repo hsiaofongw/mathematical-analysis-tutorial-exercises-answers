@@ -88,3 +88,27 @@
     a_n < x_n < b_n, \quad n = 1,2,3,\cdots
 \end{equation}
 并且$a_n, b_n \to x_0$，所以依夹逼定理我们有$x_n \to x_0$．\qed\bigskip
+
+3. 设函数$f$在$x_0$的空心邻域内有定义，令
+\begin{align*}
+    \varphi\left(\delta\right) &= \inf \, \{ f(x) : 0 < \lvert x - x_0 \rvert < \delta \}, \\
+    \psi\left(\delta\right) &= \sup \, \{ f(x) : 0 < \lvert x - x_0 \rvert < \delta \} .
+\end{align*}
+求证：
+\begin{tasks}(1)
+    \task $\varphi$和$\psi$分别是递减和递增函数；
+    \task 令$\alpha = \displaystyle\lim_{\delta \to 0^+} \varphi (\delta), \beta = \displaystyle\lim_{\delta \to 0^+} \psi(\delta)$，则
+    \begin{equation*}
+        \alpha = \liminf_{x \to x_0} f(x), \quad \beta = \limsup_{x \to x_0} f(x).
+    \end{equation*}
+\end{tasks}
+
+(1) \prove 设$\delta_2 > \delta_1 > 0$．于是
+\begin{equation}
+    \inf \, \{ f(x) : 0 < \lvert x - x_0 \rvert < \delta_1 \} \leq \inf \, \{ f(x) : 0 < \lvert x - x_0 \rvert < \delta_2 \}
+\end{equation}
+于是
+\begin{equation*}
+    \varphi (\delta_2) \leq \varphi (\delta_1)
+\end{equation*}
+这说明$\varphi$在$(0, +\infty)$是单调递减的．同理可证，$\psi$在$(0,+\infty)$是单调递减的．\qed\bigskip
