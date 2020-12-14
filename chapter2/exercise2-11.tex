@@ -1,0 +1,90 @@
+\exercise
+
+1. 对下列函数$f$，求$\displaystyle\limsup_{x \to \infty} f(x)$，$\displaystyle\liminf_{x \to \infty} f(x)$:
+
+\begin{tasks}(1)
+    \task $f(x) = \sin \, x$; 
+    \task $f(x) = x^2 \cos \, x$;
+    \task $f(x) = \displaystyle\frac{x}{1+x^2 \left(\sin \, x\right)^2}$.
+\end{tasks}
+
+(1) \solve 令
+\begin{equation}
+    x(n) = 2\pi n + \frac{\pi}{2}, \quad y(n) = 2 \pi n - \frac{\pi}{2}
+\end{equation}
+则
+\begin{align}
+    &\lim_{n \to +\infty} \sin \, x(n) = \lim_{n \to -\infty} \sin \, x(n) = 1 \\
+    &\lim_{n \to +\infty} \sin \, y(n) = \lim_{n \to -\infty} \sin \, y(n) = -1
+\end{align}
+从而
+\begin{equation}
+    \limsup_{x \to \infty} \sin \, x = 1, \quad \liminf_{y \to \infty} \sin \, y = -1
+\end{equation}
+\qed\bigskip
+
+(2) \solve 令
+\begin{equation}
+    x(n) = 2\pi n - \pi, \quad y(n) = 2\pi n
+\end{equation}
+于是有
+\begin{align}
+    \lim_{n \to +\infty} x(n)^2 \cos \, x(n) = \lim_{n \to \infty} -(x(n)^2) = -\infty
+\end{align}
+以及
+\begin{align}
+    \lim_{n \to +\infty} y(n)^2 \cos \, y(n) = \lim_{n \to -\infty} y(n)^2 \cos \, y(n) = \lim_{n \to \infty} y(n)^2 = +\infty
+\end{align}
+从而
+\begin{align}
+    \limsup_{x \to \infty} x^2 \cos \, x = +\infty, \quad \liminf_{x \to \infty} x^2 \cos \, x = - \infty
+\end{align}
+\qed\bigskip
+
+(3) \solve 令
+\begin{equation}
+    x(n) = 2\pi n
+\end{equation}
+则
+\begin{align}
+    \lim_{n \to +\infty} \frac{x(n)}{1+x(n)^2 \left(\sin \, x(n)\right)^2} &= +\infty \\
+    \lim_{n \to -\infty} \frac{x(n)}{1+x(n)^2 \left(\sin \, x(n)\right)^2} &= -\infty 
+\end{align}
+所以
+\begin{align}
+    \limsup_{x \to \infty} \frac{x}{1+x^2 \left(\sin \, x\right)^2} &= +\infty \\
+    \liminf_{x \to \infty} \frac{x}{1+x^2 \left(\sin \, x\right)^2} &= -\infty 
+\end{align}
+\qed\bigskip
+
+2. 设函数$f$在一定$x_0$的左边$(x_0-\delta,x_0)$上连续，且
+\begin{equation*}
+    \liminf_{x \to x_0^-} f(x) < \alpha < \limsup_{x \to x_0^-} f(x).
+\end{equation*}
+求证：一定有数列$x_n \to x_0^-$，使得$f(x_n)=\alpha \; (n=1,2,3,\cdots)$.
+
+\prove 记
+\begin{equation}
+    \alpha_\star = \liminf_{x \to x_0^-} f(x), \quad \alpha^\star = \limsup_{x \to x_0^-} f(x)
+\end{equation}
+那么依\textbf{定理2.11.1}，存在趋于$x_0$的数列$\{ a_n \}, \{ b_n \} \subset (x_0 - \delta, x_0)$，并且满足$f(a_n) \to \alpha_\star, f(b_n) \to \alpha^\star$.由于
+\begin{equation}
+    \alpha_\star < \alpha < \alpha^\star
+\end{equation}
+故存在足够大的正整数$M$，使得对一切$n \geq M$，都有
+\begin{equation}
+    f(a_n) < \alpha < f(b_n)
+\end{equation}
+依介值定理，存在
+\begin{equation}
+    x_n \in (a_n, b_n), \quad n = 1,2,3,\cdots
+\end{equation}
+使得
+\begin{equation}
+    f(x_n) = \alpha, \quad n = 1,2,3,\cdots
+\end{equation}
+并且由于
+\begin{equation}
+    a_n < x_n < b_n, \quad n = 1,2,3,\cdots
+\end{equation}
+并且$a_n, b_n \to x_0$，所以依夹逼定理我们有$x_n \to x_0$．\qed\bigskip
