@@ -71,3 +71,24 @@
     &= f^{\prime}_{+}(0) + 0 = f^{\prime}_{+}(0) = f^{\prime}(0).
 \end{align}
 \qed\bigskip
+
+3. 设$f$是偶函数且在$x=0$可导．证明：$f^{\prime}(0)=0$.
+
+\prove 不失一般性设$f^{\prime}(0)>0$，因为$f$在$x=0$可导，故$f^{\prime}_{-}(0)=f^{\prime}_{+}(0)=f^{\prime}(0) > 0$，也就是说
+\begin{align}
+    \lim_{s \to 0^-} \frac{f(s)-f(0)}{s} &= f^{\prime}_{-}(0) > 0 \\
+    \lim_{h \to 0^+} \frac{f(h)-f(0)}{h} &= f^{\prime}_{+}(0) > 0 
+\end{align}
+从而存在足够小的正数$\delta > 0$，使得对任意$x \in (0,0+\delta)$，都有
+\begin{equation}
+    \frac{f(x)-f(0)}{x} > 0 \implies f(x) - f(0) > 0 \implies f(x) > 0
+\end{equation}
+并且对任意$-x \in (0-\delta, 0)$都有
+\begin{equation}
+    \frac{f(-x)-f(0)}{-x} > 0 \implies f(-x)-f(0) < 0 \implies f(-x) < f(0)
+\end{equation}
+从而有
+\begin{equation}
+    f(-x) < f(0) < f(x)
+\end{equation}
+可是这与$f$作为偶函数是矛盾的．\qed\bigskip
