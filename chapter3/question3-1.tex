@@ -1,0 +1,31 @@
+\question
+
+1. 证明：Riemann函数$R(x)$处处不可导．
+
+\prove 由已知结论，对任意$x_0 \in \rational \bigcup \{ 0 \}$，有
+\begin{equation}
+    \lim_{x \to x_0} R(x) = 0 \neq R(x_0)
+\end{equation}
+因此$R$在有理点不连续，故在有理点不可导．下面来证$R$在$\irrational$不可导．
+
+任取无理数$x_1$，设$h > 0$，$R$在$x=x_1$可导当且仅当极限
+\begin{equation}
+    \lim_{h \to 0} \frac{R(x_1+h)-R(x_1)}{h} = \lim_{h \to 0} \frac{R(x_1+h)}{h}
+\end{equation}
+存在．依归结原则，也就是对任意趋于$0$的数列$\{ h_n \}$，都应有
+\begin{equation}
+    \frac{R(x_1+h_n)}{h_n} \to 0 \; (n \to \infty)
+\end{equation}
+然而这是不成立的．设数列$\{ a_n \}$趋于$0$并且每一项都为有理数，那么由于$x_1 + a_n$是无理数，所以
+\begin{equation}
+    \lim_{n \to \infty} \frac{R(x_1 + a_n)}{a_n} = \lim_{n \to \infty} \frac{0}{a_n} = \lim_{n \to \infty} 0 = 0
+\end{equation}
+设数列$\{ p_n \}, \{ q_n \}$满足$p_n, q_n$互质（对每一个$n \in \nat$），并且$p_n/q_n \to x_1 \; (n \to \infty)$，令$b_n = p_n/q_n - x_1$，则$x_1 + b_n$每一项全为有理数，并且$b_n \to 0 \; (n \to \infty)$，并且
+\begin{equation}
+    \lim_{n \to \infty} \frac{R(b_n + x_1)}{b_n} = \lim_{n \to \infty} \frac{R(p_n/q_n)}{p_n/q_n-x_1} = \lim_{n \to \infty} \frac{1/q_n}{p_n/q_n-x_1} = \lim_{n \to \infty} \frac{1}{p_n - q_n x_1} = \infty
+\end{equation}
+这就证明了极限
+\begin{equation}
+    \lim_{h \to 0} \frac{R(x_1+h)-R(x_1)}{h}
+\end{equation}
+不存在，从而$R$在无理点也不可导．\qed\bigskip
