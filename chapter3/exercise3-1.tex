@@ -248,3 +248,47 @@
     &\implies f^{\prime}(2) = \lim_{h \to 0} \frac{f(2+h)-f(2)}{h} = \lim_{h \to 0} \frac{f(2+h)}{h} = \lim_{h \to 0} \frac{o(h)}{h} = 0.
 \end{align}
 \qed\bigskip
+
+10. 设
+\begin{equation*}
+    f(x) = \begin{cases}
+        0, & x = 0, \\
+        x^\lambda \sin \, \displaystyle\frac{1}{x}, & x \neq 0.
+    \end{cases}
+\end{equation*}
+求证：当$\lambda > 1$时$f^{\prime}(0)$存在；而当$\lambda \leq 1$时，$f$在$x=0$处不可导．
+
+\prove 当$\lambda > 1$时，设$h > 0$，有
+\begin{align}
+    \frac{f(h)-f(0)}{h} = \frac{f(h)}{h} = h^{\lambda-1} \sin \, \frac{1}{h}
+\end{align}
+式中$\sin \, \frac{1}{h}$为有界量，而因为$\lambda-1>0$所以$h^{\lambda-1}=o(\lambda)$是无穷小量，故极限
+\begin{equation}
+    \lim_{h \to 0} \frac{f(h)-f(0)}{h} = \lim_{h \to 0} h^{\lambda - 1} \sin \, \frac{1}{h}
+\end{equation}
+存在．故$f^{\prime}(0)$存在．
+
+当$\lambda = 1$时
+\begin{equation}
+    \frac{f(h)-f(0)}{h} = \sin \, \frac{1}{h}
+\end{equation}
+极限
+\begin{equation}
+    \lim_{h \to 0} \frac{f(h)-f(0)}{h} = \sin \, \frac{1}{h}
+\end{equation}
+不存在．故$f^{\prime}(0)$不存在．
+
+
+当$\lambda < 1$时，令
+\begin{equation}
+    a_n = \left(2\pi n + \frac{\pi}{2}\right)^{-1}, \quad b_n = \left(2 \pi n\right)^{-1}
+\end{equation}
+则数列
+\begin{equation}
+    a_n^{\lambda-1} \sin \, \frac{1}{a_n} \to +\infty, \quad b_n^{\lambda - 1} \sin \, \frac{1}{b_n} \to 0
+\end{equation}
+从而依归结原则，极限
+\begin{equation}
+    \lim_{h \to 0} \frac{f(h)-f(0)}{h} = \lim_{h \to 0} h^{\lambda - 1} \sin \, \frac{1}{h}
+\end{equation}
+不存在，故$f^{\prime}(0)$不存在．
