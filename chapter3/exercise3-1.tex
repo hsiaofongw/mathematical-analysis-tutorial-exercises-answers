@@ -205,3 +205,46 @@
     \lim_{n \to \infty} \left( \frac{f(a+1/n)}{f(a)} \right)^n = \lim_{h \to 0} \left( \frac{f(a+h)}{f(a)}\right)^{1/h} = \exp \, \{ \frac{f^{\prime}(a)}{f(a)} \}.
 \end{equation}
 \qed\bigskip
+
+8. 设函数$\varphi$在点$a$处连续，又在$a$的近旁有$f(x)=(x-a)\varphi (x)$和$g(x)=\lvert x - a \rvert \varphi (x)$．证明：$f$在点$a$处可导，并求出$f^{\prime}(a)$．又问：在什么条件下$g$在$a$处可导？
+
+\prove 设$h > 0$，计算得
+\begin{align}
+    &\mathrel{\phantom{\implies}} f(a) = 0, \quad f(a+h) = h \varphi (a + h) \\
+    &\implies \frac{f(a+h) - f(a)}{h} =  \varphi (a+h) \\
+    &\implies \lim_{h \to 0} \frac{f(a+h)-f(a)}{h} = \lim_{h \to 0} \varphi (a+h) = \varphi(a).
+\end{align}
+由此即证．\qed\bigskip
+
+设$h>0$，计算得
+\begin{align}
+    &\mathrel{\phantom{\implies}} g(a) = 0, \quad g(a+h) = \lvert h \rvert \varphi (a+h) \\
+    &\implies \lim_{h \to 0^-} \frac{g(a+h)-g(a)}{h} = \lim_{h \to 0^-} \left( \frac{\lvert h \rvert}{h} \cdot \varphi (a+h) \right) = -\varphi (a) \\
+    &\mathrel{\phantom{\implies}} \lim_{h \to 0^+} \frac{g(a+h)-g(a)}{h} = \lim_{h \to 0^+} \left(\frac{\lvert h \rvert}{h} \cdot \varphi (a+h)\right) = \varphi (a) \\
+    &\iff \text{若} \, g  \, \text{在} \, x=a \, \text{可导，则} \, - \varphi (a) = \varphi (a) \implies \varphi (a) = 0.
+\end{align}
+当$ \varphi (a)=0$时，$g$在$x=a$可导．\qed\bigskip
+
+9. 设$f(x) = x(x-1)^2(x-2)^3$．求$f^{\prime}(0), f^{\prime}(1)$和$f^{\prime}(2)$.
+
+\solve 利用无穷小运算法则
+\begin{align}
+    f(h) &= h(h-1)^2(h-2)^3 \\
+    &= h (1 - 2h + O(h^2))(\binom{3}{0}(-2)^3 + \binom{3}{1} (-2)^2 h + O(h^3)) \\
+    &= (h + O(h^3))(-8 + O(h^3)) = -8h + O(h^6) = -8h + o(h) \; (h \to 0)
+\end{align}
+于是有
+\begin{align}
+    f^{\prime}(0) = \lim_{h \to 0} \frac{f(h)-f(0)}{h} = \lim_{h \to 0} \frac{-8h + o(h)}{h} = -8
+\end{align}
+计算得
+\begin{align}
+    &\mathrel{\phantom{\implies}} f(1+h) = (1+h)h^2 (h-1)^3 = o(h) \; (h \to 0) \\
+    &\implies f^{\prime}(1) = \lim_{h \to 0} \frac{f(1+h)-f(1)}{h} = \lim_{h \to 0} \frac{f(1+h)}{h} = \lim_{h \to 0} \frac{o(h)}{h} = 0
+\end{align}
+计算得
+\begin{align}
+    &\mathrel{\phantom{\implies}} f(2+h) = (2+h)(1+h)^2 h^3 = o(h) \; (h \to 0) \\
+    &\implies f^{\prime}(2) = \lim_{h \to 0} \frac{f(2+h)-f(2)}{h} = \lim_{h \to 0} \frac{f(2+h)}{h} = \lim_{h \to 0} \frac{o(h)}{h} = 0.
+\end{align}
+\qed\bigskip
