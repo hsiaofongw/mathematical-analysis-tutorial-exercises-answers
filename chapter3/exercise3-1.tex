@@ -182,3 +182,26 @@
 \end{align}
 
 得证．\qed\bigskip
+
+7. 设函数$f$在$x=a$可导，且$f(a)\neq 0$．求数列极限
+\begin{equation}
+    \lim_{n \to \infty} \left( \frac{f(a+1/n)}{f(a)} \right)^n .
+\end{equation}
+
+\solve 依归结原则，它等于
+\begin{equation}
+    \lim_{n \to \infty} \left( \frac{f(a+1/n)}{f(a)} \right)^n = \lim_{h \to 0} \left( \frac{f(a+h)}{f(a)}\right)^{1/h}
+\end{equation}
+它是$1^\infty$型的，令
+\begin{equation}
+    u(h) = \frac{f(a+h)}{f(a)}, \quad v(h) = \frac{1}{h}
+\end{equation}
+于是
+\begin{equation}
+    \lim_{h \to 0} \left(u(h)-1\right)v(h) = \lim_{h \to 0} \left(\frac{f(a+h)-f(a)}{f(a)}\right) \cdot \frac{1}{h} = \lim_{h \to 0} \frac{1}{f(a)} \cdot \frac{f(a+h)-f(a)}{h} = \frac{f^{\prime}(a)}{f(a)}
+\end{equation}
+于是原式等于
+\begin{equation}
+    \lim_{n \to \infty} \left( \frac{f(a+1/n)}{f(a)} \right)^n = \lim_{h \to 0} \left( \frac{f(a+h)}{f(a)}\right)^{1/h} = \exp \, \{ \frac{f^{\prime}(a)}{f(a)} \}.
+\end{equation}
+\qed\bigskip
