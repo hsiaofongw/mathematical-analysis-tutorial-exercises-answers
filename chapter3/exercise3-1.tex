@@ -1,0 +1,73 @@
+\exercise
+
+1. 设函数$f$在$x=0$可导并且$f(0) = 0$．求极限
+\begin{equation*}
+    \lim_{x \to 0} \frac{f(x)}{x}.
+\end{equation*}
+
+\solve 易知
+\begin{align}
+    \lim_{x \to 0}\frac{f(x)}{x} &= \lim_{x \to 0} \frac{f(x)-0}{x} \\
+    &= \lim_{x \to 0} \frac{f(x)-f(0)}{x} 
+\end{align}
+这是是导数的定义，又因为$f$在$x=0$可导，因此
+\begin{equation}
+    \lim_{x \to 0} \frac{f(x)}{x} = f^\prime (0).
+\end{equation}
+\qed\bigskip
+
+2. 设$f$在$x = 0$可导，$a_n \to 0^-$，$b_n \to 0^+  \; (n \to \infty)$．证明：
+\begin{equation*}
+    \lim_{n \to \infty} \frac{f(b_n) - f(a_n)}{b_n - a_n} = f^\prime (0).
+\end{equation*}
+
+\prove 变换得
+\begin{align}
+    \frac{f(b_n)-f(a_n)}{b_n-a_n} &= \frac{f(b_n)-f(0)}{b_n-a_n}+\frac{f(0)-f(a_n)}{b_n-a_n} \\
+    &= \frac{f(b_n)-f(0)}{b_n} \cdot \frac{b_n}{b_n - a_n} + \frac{f(0)-f(a_n)}{0 - a_n} \cdot \frac{0 - a_n}{b_n - a_n}
+\end{align}
+令
+\begin{align}
+    g_1 : \nat &\longrightarrow \real \\
+    n &\longmapsto \frac{f(b_n)-f(0)}{b_n}
+\end{align}
+再令
+\begin{align}
+    g_2 : \nat &\longrightarrow \real \\
+    n &\longmapsto \frac{f(0)-f(a_n)}{0-a_n}
+\end{align}
+则依归结原则
+\begin{align}
+    \lim_{n \to \infty} g_1(n) &= \lim_{h \to 0^+} \frac{f(h)-f(0)}{h} = f^{\prime}_+(0) \\
+    \lim_{n \to \infty} g_2(n) &= \lim_{h \to 0^-} \frac{f(h)-f(0)}{h} = f^{\prime}_-(0)
+\end{align}
+令$o(n) = g_2(n)-g_1(n)$，则$o(n) \to 0 \; (n \to \infty)$．于是原式可以写成
+\begin{align}
+    \frac{f(b_n)-f(a_n)}{b_n - a_n} &= g_1(n) \cdot \frac{b_n}{b_n-a_n} + g_2(n) \cdot \frac{0-a_n}{b_n-a_n} \\
+    &= g_1(n) \frac{b_n}{b_n-a_n} + g_1(n) \cdot \frac{0-a_n}{b_n-a_n} + o(n) \cdot \frac{0-a_n}{b_n-a_n} \\
+    &=g_1(n) \cdot \frac{b_n + 0 - a_n}{b_n - a_n} + o(n) \cdot \frac{0 - a_n}{b_n - a_n} \\
+    &= g_1(n) + o(n) \cdot \frac{0-a_n}{b_n - a_n}
+\end{align}
+由于$a_n \to 0^-, \, b_n \to 0^+, \; (n \to \infty)$，故存在足够大的$M > 0$，使得对于一切$n \in M, n \geq M$都有
+\begin{equation}
+    -a_n > 0, \quad b_n > 0
+\end{equation}
+并且
+\begin{equation}
+    0 < \frac{0 - a_n}{b_n - a_n} < \frac{b_n - a_n}{b_n - a_n} = 1
+\end{equation}
+由此可见
+\begin{equation}
+    \frac{0-a_n}{b_n - a_n}
+\end{equation}
+是一个有界量，从而当$n \to \infty$时，
+\begin{equation}
+    o(n) \cdot \frac{0 - a_n}{b_n - a_n} \to 0
+\end{equation}
+从而
+\begin{align}
+    \lim_{n \to \infty} \frac{f(b_n)-f(a_n)}{b_n-a_n} &= \lim_{n \to \infty} \left( g_1(n) + o(n) \cdot \frac{0 - a_n}{b_n-a_n}\right) \\
+    &= \lim_{n \to \infty} g_1(n) + \lim_{n \to \infty} \left( o(n) \cdot \frac{0 - a_n}{b_n - a_n} \right) \\
+    &= f^{\prime}_{+}(0) + 0 = f^{\prime}_{+}(0) = f^{\prime}(0).
+\end{align}
+\qed\bigskip
