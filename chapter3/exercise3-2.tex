@@ -1,0 +1,107 @@
+\exercise
+
+2. 利用$1+x+\cdots +x^n$的求和公式，求出下列各式的和：
+\begin{tasks}(1)
+    \task $1+2x+3x^2+\cdots+nx^{n-1}$;
+    \task $\displaystyle\sum_{k=1}^n \displaystyle\frac{k}{2^{k-1}}$;
+    \task $1^2+2^2 x + 3^2 x^2 + \cdots + n^2 x^{n-1}$.
+\end{tasks}
+
+(1) \solve 令原式等于$S(n)$，利用裂项相消法：
+\begin{align}
+    S(n) - x S(n) &= (1-x)S(n) \\
+    &= \sum_{k=1}^n k x^{k-1} - x \sum_{k=1}^{n} k x^{k-1} \\
+    &= \sum_{k=1}^n k x^{k-1} - \sum_{k=1}^{n} k x^k \\
+    &= 1 + \sum_{k=2}^{n} k x^{k-1} - \sum_{k=1}^{n} kx^{k} \\
+    &= 1 + \sum_{k=1}^{n-1} (k+1) x^k - \sum_{k=1}^{n} k x^{k} \\
+    &= 1 - n x^n + \sum_{k=1}^{n-1} (k+1) x^k - \sum_{k=1}^{n-1} k x^{k} \\
+    &= 1 - nx^n + \sum_{k=1}^{n-1} x^k \\
+    &= 1 - nx^n + x \sum_{k=1}^{n-1} x^{k-1} \\
+    &= 1 - nx^n + x \cdot \frac{1-x^{n-1}}{1-x}
+\end{align}
+于是有
+\begin{align}
+    S(n) &= \frac{(1-x)S(n)}{1-x} \\
+    &= \frac{1-nx^n}{1-x} + x \cdot \frac{1-x^{n-1}}{(1-x)^2}.
+\end{align}
+\qed\bigskip
+
+(2) \solve 代入题(1)的结论即可：
+\begin{align}
+    \sum_{k=1}^{n} \frac{k}{2^{k-1}} &= \sum_{k=1}^n k \cdot \left( \frac{1}{2} \right)^{k-1} \\
+    &= \frac{1}{2} + 2 \cdot \left(\displaystyle\frac{1}{2}\right) + 3 \cdot \left(\displaystyle\frac{1}{2}\right)^2 + \cdots + n \cdot \left(\displaystyle\frac{1}{2}\right)^{n-1} \\
+    &= \frac{1 - n \left(\displaystyle\frac{1}{2}\right)^n}{1 - \displaystyle\frac{1}{2}} + \left(\displaystyle\frac{1}{2}\right) \cdot \frac{1 - \left(\displaystyle\frac{1}{2}\right)^{n-1}}{\left(1-\displaystyle\frac{1}{2}\right)^2}.
+\end{align}
+\qed\bigskip
+
+(3) \solve 令原式为$S(n)$，采用裂项相消法：
+\begin{align}
+    S(n) - xS(n) &= (1-x)S(n) \\
+    &= \sum_{k=1}^n k^2 x^{k-1} - x \sum_{k=1}^{n} k^2 x^{k-1} \\
+    &= 1 + \sum_{k=2}^{n} k^2 x^{k-1} - \sum_{k=1}^{n} k^2 x^k \\
+    &= 1 - n^2 x^n + \sum_{k=1}^{n-1} (k+1)^2 x^k - \sum_{k=1}^{n-1} k^2 x^k \\
+    &= 1 - n^2 x^n + \sum_{k=1}^{n-1} \left((k+1)^2 - k^2 \right) x^k \\
+    &= 1 - n^2 x^n + \sum_{k=1}^{n-1} \left(2k + 1 \right) x^k \\
+    &= 1 - n^2 x^n + \sum_{k=2}^{n} \left(2k - 1 \right) x^{k-1} \\
+    &= \left(\sum_{k=1}^{n} \left(2k - 1 \right) x^{k-1} \right) - n^2 x^n 
+\end{align}
+令
+\begin{equation}
+    P(n) = \sum_{k=1}^n k x^{k-1}, \quad Q(n) = \sum_{k=1}^n x^{k-1}
+\end{equation}
+那么
+\begin{align}
+    2P(n)-Q(n) &= 2 \sum_{k=1}^n k x^{k-1} - \sum_{k=1}^n x^{k-1} \\
+    &= \sum_{k=1}^n 2k x^{k-1} - \sum_{k=1}^n x^{k-1} \\
+    &= \sum_{k=1}^n (2k-1) x^{k-1}
+\end{align}
+那么
+\begin{align}
+    (1-x)S(n) &= \left(\sum_{k=1}^{n} \left(2k - 1 \right) x^{k-1} \right) - n^2 x^n \\
+    &= 2P(n) - Q(n) - n^2 x^n
+\end{align}
+从而
+\begin{equation}
+    S(n) = \frac{2P(n)-Q(n)-n^2 x^n}{1-x}.
+\end{equation}
+\qed\bigskip
+
+3. 证明组合恒等式：
+\begin{tasks}(1)
+    \task $\displaystyle\sum_{k=1}^n k \binom{n}{k} = n 2^{n-1} \; (n \in \nat)$;
+    \task $\displaystyle\sum_{k=1}^n k^2 \binom{n}{k} = n(n+1)2^{n-2} \; (n \in \nat)$.
+\end{tasks}
+
+(1) \prove 令$S(n) = \displaystyle\sum_{k=1}^{n} k \binom{n}{k}$，则
+\begin{align}
+    \text{左边} &= \sum_{k=1}^{n} k \binom{n}{k} \\
+    &= S(n) \\
+    &= S(n) - S(n-1) + S(n-1) \\
+    &= (S(n) - S(n-1)) + S(n-1)
+\end{align}
+我们先来算$S(n)-S(n-1)$，看它等于多少：
+\begin{align}
+    \text{它} &= S(n) - S(n-1) \\
+    &= \sum_{k = 1}^{n} k \binom{n}{k} - \sum_{k = 1}^{n-1} k \binom{n-1}{k} \\
+    &= n \binom{n}{n} + \sum_{k=1}^{n-1} k \left(\binom{n}{k} - \binom{n-1}{k}\right) \\
+    &= n \binom{n}{n} + \sum_{k=1}^{n-1} k \binom{n-1}{k-1} \\
+    &= n + \binom{n-1}{0} + 2 \binom{n-1}{1} + \cdots + (n-2)\binom{n-1}{n-3} + (n-1)\binom{n-1}{n-2}
+\end{align}
+我们再来看$S(n-1)$等于多少：
+\begin{align}
+    S(n-1) &= \sum_{k=1}^{n-1} k \binom{n-1}{k} \\
+    &= \binom{n-1}{1} + 2\binom{n-1}{2} + \cdots + (n-2)\binom{n-1}{n-2} + (n-1)\binom{n-1}{n-1} \\
+    &= (n-1) \binom{n-1}{n-1} + (n-2)\binom{n-1}{n-2} + \cdots + 2 \binom{n-1}{2} + \binom{n-1}{1} \\
+    &= (n-1) \binom{n-1}{0} + (n-2)\binom{n-1}{1} + \cdots + 2 \binom{n-1}{n-3} + \binom{n-1}{n-2}
+\end{align}
+所以$S(n)-S(n-1)$加上$S(n-1)$就等于：
+\begin{align}
+    &\mathrel{\phantom{=}} S(n) - S(n-1) + S(n-1) \\
+    &= n + \binom{n-1}{0} + 2 \binom{n-1}{1} + \cdots + (n-2)\binom{n-1}{n-3} + (n-1)\binom{n-1}{n-2} \\
+    &+ (n-1) \binom{n-1}{0} + (n-2)\binom{n-1}{1} + \cdots + 2 \binom{n-1}{n-3} + \binom{n-1}{n-2} \\
+    &= n + n \binom{n-1}{0} + n \binom{n-1}{1} + \cdots + n\binom{n-1}{n-2} \\
+    &= n + n (\binom{n-1}{0} +  \binom{n-1}{1} + \cdots + \binom{n-1}{n-2} + \binom{n-1}{n-1}) - n\binom{n-1}{n-1} \\
+    &= n (\binom{n-1}{0} +  \binom{n-1}{1} + \cdots + \binom{n-1}{n-2} + \binom{n-1}{n-1}) \\
+    &= n 2^{n-1}.
+\end{align}
+这就证明了$S(n) = n 2^{n-1}$．\qed\bigskip
