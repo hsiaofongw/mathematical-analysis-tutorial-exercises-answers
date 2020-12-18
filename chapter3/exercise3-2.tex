@@ -213,3 +213,34 @@
 依连续性知$f^{\prime}(a)=f^{\prime}_{+}(a), f^{\prime}(b)=f^{\prime}_{-}(b)$，从而$f^{\prime}(a)f^{\prime}(b) < 0$．
 
 充分性．
+
+采用反证法．假设存在$x_1, x_2 \in (a,b)$且$x_1 < x_2$使得$f(x_1)f(x_2)<0$，那么由连续性，存在$c \in (x_1,x_2)$使得$f(c)=0$，由于$f$是$3$次多项式，最多只能有$3$个实根，故在$a,b,c$这三点之外$f(x)$都不等于$0$．由于$f(x_1)$与$f(x_2)$异号，不失一般性可以假设$f(x_1) > 0$且$f(x_2)<0$．因为若能在$(a,c)$找到两点使$f(x)$异号那么根据连续性就能得出有第四个根显然这是不可能的，同理也不可能在$(c,b)$中找到两点使$f(x)$异号，从而对任意$x \in (a,c)$，有$f(x) > 0$，对任意$ x \in (c, b)$，有$f(x) < 0$．从而$f^{\prime}(a) > 0$并且$f^{\prime}(b)>0$，从而$f^{\prime}(a)f^{\prime}(b)>0$，矛盾．\qed\bigskip
+
+7. 设函数$f$在$[a,b]$上连续，$f(a)=f(b)=0$，且
+\begin{equation*}
+    f^{\prime}_{+}(a)f^{\prime}_{-}(b)>0
+\end{equation*}
+证明：$f$在$(a,b)$内至少有一个零点．
+
+\prove 采用反证法．假设$f$在$(a,b)$内没有零点．任取$x_1 \in (a,b)$，不妨设$f(x_1)>0$，则对所有$x \in (a,b)$都有$f(x)>0$，否则根据零值定理可在$(a,b)$中找到零点（与假设不符）．由于对任意$x \in (a,b)$都有$f(x)>0$，由此推出$f^{\prime}_{+}(a)>0$且$f^{\prime}_{-}(b)<0$，从而$f^{\prime}_{+}(a)f^{\prime}_{-}(b)<0$，矛盾．\qed\bigskip
+
+8. 证明：双曲线$xy=a>0$在各点处的切线与两坐标轴所围成的三角形的面积为常数．
+
+\prove 任取$x_0 > 0$，设$(x_0,y_0)$是该双曲线上一点，设过$(x_0,y_0)$的切线与$y$轴交于$A$，与$x$轴交于$B$，设点$(x_0,y_0)$在$y$轴上的投影为$C=(0,y_0)$，在$x$轴上的投影为$D=(x_0,0)$．设坐标系原点为$O$，于是该点的切线与坐标轴围成的三角形为$\triangle AOB$．面积为$\displaystyle\frac{1}{2}\lvert AO \rvert \lvert OB \rvert$．先来计算$\lvert AO \rvert$．设该切线的斜率为$k$．
+\begin{align}
+    \lvert AO \rvert &= \lvert OC \rvert + \lvert CA \rvert = y_0 + x_0 \lvert k \rvert \\
+    &= y_0 + x_0 \cdot \frac{a}{x_0^2} = y_0 + \frac{a}{x_0}
+\end{align}
+再来计算$\lvert OB \rvert$：
+\begin{align}
+    \lvert OB \rvert &= \lvert OD \rvert + \lvert DB \rvert \\
+    &= x_0 + y_0 \div \lvert k \rvert \\
+    &= x_0 + \frac{x_0^2 y_0}{a}
+\end{align}
+再来计算面积：
+\begin{align}
+    \mathrm{S}(\triangle AOB) &= \frac{1}{2} \lvert AO \rvert \lvert OB \rvert \\
+    &= \frac{1}{2} \left(y_0 + \frac{a}{x_0}\right)\left(x_0+\frac{x_0^2y_0}{a}\right) \\
+    &= \frac{1}{2} \left(y_0 x_0 + \frac{x_0^2y_0^2}{a} + a + x_0y_0\right) = 2a.
+\end{align}
+该面积的确为常数．\qed\bigskip
