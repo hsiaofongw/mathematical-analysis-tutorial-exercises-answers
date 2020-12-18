@@ -244,3 +244,42 @@
     &= \frac{1}{2} \left(y_0 x_0 + \frac{x_0^2y_0^2}{a} + a + x_0y_0\right) = 2a.
 \end{align}
 该面积的确为常数．\qed\bigskip
+
+9. 证明抛物线的光学性质：若光源置于抛物线的焦点上，则其经过抛物线镜面的反射之后，成为一束平行于抛物线的对称轴的光线．
+
+\prove 考虑抛物线$y = x^2$，它的焦点位于$(0, \displaystyle\frac{1}{4})$．设竖直光线$x = x_0 \; (x_0 > 0)$与抛物线交于点$A(x_0, x_0^2)$，设点$A$在$x$轴上的投影为$B(x_0, 0)$，设点$A$处的切线与$x$轴交于点$C$，设切线的斜率是$k$，那么依几何关系，我们有
+\begin{equation}
+    \frac{\lvert AB \rvert}{\lvert BC \rvert} = \lvert k \rvert = 2x_0
+\end{equation}
+代入$\lvert AB \rvert = x_0^2$，解从$\lvert BC \rvert = \displaystyle\frac{x_0}{2}$，从而得点$C$坐标$(\displaystyle\frac{x_0}{2},0)$．设点$S$是光线上足够高的一点$(x_0, M_1) \; M_1 > 0$，点$R$是切线上足够高的一点，则角$\angle SAR$为入射角，记为$\alpha$，依几何关系，我们知$\angle CAB = \angle SAR = \alpha$．设光线经过点$A$的反射于$y$轴交于$D$，那么$\angle DAC$为反射角，根据光的反射规律我们知$\angle DAC = \alpha$，从而$\angle DAB = \angle DAC + \angle CAB = 2\alpha$．我们要证这个点$D$就是焦点．
+
+过点$D$做直线$AB$上的垂线，设垂足为$G$，由于$D$是$y$轴上的，$G$是光线上的，光线是垂直射入的，所以很容易知道$\lvert DG \rvert = x_0$，由几何关系，我们知
+\begin{equation}
+    \frac{\lvert DG \rvert}{\lvert AG \rvert} = \tan \, \angle DAG = \tan \, 2\alpha
+\end{equation}
+又根据几何关系，我们知
+\begin{equation}
+    \begin{cases}
+        \displaystyle\frac{\lvert AB \rvert}{\lvert BC \rvert} &= k = 2x_0 \\
+        \displaystyle\frac{\lvert BC \rvert}{\lvert AB \rvert} &= \tan \, \alpha
+    \end{cases}
+\end{equation}
+这也就是说$\tan \, \alpha = \displaystyle\frac{1}{2x_0}$，利用正切的二倍角公式我们有
+\begin{equation}
+    \lvert AG \rvert = \frac{\lvert DG \rvert}{\tan \, 2 \alpha} = \frac{x_0}{\tan \, 2 \alpha} = \frac{x_0(1-\tan^2 \, \alpha)}{2 \tan \, \alpha}
+\end{equation}
+那么
+\begin{equation}
+    \lvert BG \rvert = \lvert BA \rvert - \lvert AG \rvert = x_0^2 - \frac{x_0(1-\tan^2 \, \alpha)}{2 \tan \, \alpha}
+\end{equation}
+代入$\tan \, \alpha = \displaystyle\frac{1}{2x_0}$就算得
+\begin{equation}
+    \lvert BG \rvert = \frac{1}{4}
+\end{equation}
+这说明$D$位于焦点．\qed\bigskip
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{chapter3/light.png}
+    \caption{抛物线证明题图示}
+\end{figure}
