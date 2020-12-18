@@ -105,3 +105,111 @@
     &= n 2^{n-1}.
 \end{align}
 这就证明了$S(n) = n 2^{n-1}$．\qed\bigskip
+
+(2) \prove 采用数学归纳法．当$n=1$时
+\begin{align}
+    \text{左边} &= \sum_{k=1}^1 k^2 \binom{n}{k} = 1 \binom{1}{1} = 1 = 1(1+1) 2^{1-2} = \text{右边}.
+\end{align}
+也就是说当$n=1$时待证等式成立．
+
+对一般的$n \in \nat$，令
+\begin{equation}
+    S(n) = \sum_{k=1}^n k^2 \binom{n}{k}
+\end{equation}
+于是我们有
+\begin{align}
+    S(n) &= \sum_{k=1}^{n} k^2 \binom{n}{k} = n^2 + \sum_{k=1}^{n-1} k^2 \binom{n}{k} \\
+    &= n^2 + \sum_{k=1}^{n-1} k^2 \binom{n-1}{k-1} + \sum_{k=1}^{n-1} k^2 \binom{n-1}{k} \\
+    &= n^2 + \sum_{k=1}^{n-1} k^2 \binom{n-1}{k-1} + S(n-1) \\
+    &= \sum_{k=0}^{n-1} (k+1)^2 \binom{n-1}{k} + S(n-1)
+\end{align}
+于是
+\begin{equation}
+    S(n) - S(n-1) = \sum_{k=0}^{n-1} (k+1)^2 \binom{n-1}{k}
+\end{equation}
+于是
+\begin{align}
+    S(n) - S(n-1) - S(n-1) &= \sum_{k=0}^{n-1} (k+1)^2 \binom{n-1}{k} - \sum_{k=1}^{n-1} k^2 \binom{n-1}{k} \\
+    &= \binom{n-1}{0} + \sum_{k=1}^{n-1} \left((k+1)^2 - k^2\right) \binom{n-1}{k} \\
+    &= \binom{n-1}{0} + \sum_{k=1}^{n-1} \left(2k + 1\right) \binom{n-1}{k} \\
+    &= \sum_{k=0}^{0} \left(2k+1\right) \binom{n-1}{k} + \sum_{k=1}^{n-1} \left(2k+1\right) \binom{n-1}{k} \\
+    &= \sum_{k=0}^{n-1} \left(2k+1\right) \binom{n-1}{k} = \sum_{k=1}^{n} \left(2k-1\right) \binom{n-1}{k-1} \\
+    &= \sum_{k=0}^{n-1} (2k+1) \binom{n-1}{k} = \sum_{k=0}^{n-1} \binom{n-1}{k} + 2\sum_{k=0}^{n-1}k \binom{n-1}{k} \\
+    &= \sum_{k=0}^{n-1} \binom{n-1}{k} + 2 \sum_{k=1}^{n-1} k \binom{n-1}{k} \\
+    &= 2^{n-1} + 2 (n-1) 2^{n-2} = n 2^{n-1}
+\end{align}
+从而我们得
+\begin{equation}
+    S(n) - S(n-1) = n 2^{n-1} + S(n-1)
+\end{equation}
+对一般的$n \in \nat$都成立（注意：这个式子和归纳假设无关！）．下面，假设对于某个整数$k \in \nat$，有
+\begin{equation}
+    S(k) = k(k+1)2^{k-2}
+\end{equation}
+成立，那么
+\begin{align}
+    S(k+1) &= S(k) + S(k+1) - S(k) = k(k+1) 2^{k-2} + (k+1)2^{k} + k(k+1)2^{k-2} \\
+    &= (k+2)(k+1)2^{k-1}.
+\end{align}
+从而式子$S(n) = n(n+1)2^{n-2}$对一般的$n \in \nat$都成立．\qed\bigskip
+
+4. 若$f$是一个可导的周期函数，试证：$f^\prime$也是周期函数．
+
+\prove 设$l > 0$是$f$的一个周期长度，任取$x_1 \in \real$，我们知道$f^{\prime}(x_0)$是存在的，下面来计算$f^{\prime}(x_0 + l)$，依定义：
+\begin{align}
+    f^{\prime}(x_0 + l) &= \lim_{h \to 0} \frac{f(x_0+l+h)-f(x_0+l)}{h} \\
+    &= \lim_{h \to 0} \frac{f(x_0+h + l)-f(x_0)}{h} \\
+    &= \lim_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h} \\
+    &= f^{\prime}(x_0).
+\end{align}
+这足以说明$f^{\prime}$是周期的．\qed\bigskip
+
+5. 证明：
+\begin{tasks}(1)
+    \task 若$f$是可导的奇函数，则$f^\prime$是偶函数；
+    \task 若$f$是可导的偶函数，则$f^\prime$是奇函数．
+\end{tasks}
+对以上命题做几何解释．
+
+(1) \prove 任取$x_0 \in \real$，依定义
+\begin{align}
+    f^{\prime}(-x_0) &= \lim_{h \to 0} \frac{f(-x_0 + h) - f(-x_0)}{h} \\
+    &= \lim_{h \to 0} \frac{f(-(x_0-h))-(-f(x_0))}{h} \\
+    &= \lim_{h \to 0} \frac{-f(x_0-h)+f(x_0)}{h} \\
+    &= \lim_{-h \to 0} \frac{f(x_0 - h)-f(x_0)}{-h} \\
+    &= \lim_{-h \to 0} \frac{f(x_0 + (- h))-f(x_0)}{-h} \\
+    &= f^{\prime}(x_0).
+\end{align}
+从而若$f$是奇的，则$f^{\prime}$是偶的．\qed\bigskip
+
+(2) \prove 任取$x_0 \in \real$，依定义
+\begin{align}
+    f^{\prime}(-x_0) &= \lim_{h \to 0} \frac{f(-x_0+h)-f(-x_0)}{h} \\
+    &= \lim_{h \to 0} \frac{f(h-x_0)-f(x_0)}{h} \\
+    &= \lim_{h \to 0} \frac{f(x_0-h)-f(x_0)}{h} \\
+    &= \lim_{-h \to 0} \frac{f(x_0+(-h))-f(x_0)}{-(-h)} \\
+    &= \lim_{-h \to 0} -\frac{f(x_0+(-h))-f(x_0)}{-h} \\
+    &= -\lim_{-h \to 0} \frac{f(x_0+(-h))-f(x_0)}{-h} \\
+    &= -f^{\prime}(x_0).
+\end{align}
+从而若$f$是偶的，则$f^{\prime}$是奇的．\qed\bigskip
+
+\textbf{解释．} 偶函数的图像是关于$y$轴对称的，因此在$x > 0$处的函数图像和$x<0$处的函数图像的爬升趋势（斜率）总是相反的，这就解释了为什么偶的$f$总有奇的$f^{\prime}$．奇函数的图像是始终上升的，因此如果在$x < 0$的切线的斜率是正的，那么它在$-x > 0$的切线的斜率也还得是正的，故$f^{\prime}$是偶的．\qed\bigskip
+
+6. 设$f$是一个三次多项式，且$f(a)=f(b)=0$．证明：函数$f$在$[a,b]$上不变号的充分必要条件是$f^{\prime}(a)f^{\prime}(b)\leq 0$．
+
+\prove 
+
+必要性．
+
+若$f$在$[a,b]$恒为$0$结论显然成立，现在不失一般性假设$\forall x \in (a,b), f(x) > 0$．现计算$f^{\prime}_{+}(a)$，它等于
+\begin{equation}
+    \lim_{h \to 0^+} \frac{f(a+h)-f(a)}{h} > 0
+\end{equation}
+再计算$f^{\prime}_{-}(b)$，它等于
+\begin{equation}
+    \lim_{h \to 0^-} \frac{f(b+h)-f(b)}{h} < 0
+\end{equation}
+依连续性知$f^{\prime}(a)=f^{\prime}_{+}(a), f^{\prime}(b)=f^{\prime}_{-}(b)$，从而$f^{\prime}(a)f^{\prime}(b) < 0$．
+
+充分性．
