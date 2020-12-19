@@ -283,3 +283,27 @@
     \includegraphics[width=0.45\textwidth]{chapter3/light.png}
     \caption{抛物线证明题图示}
 \end{figure}
+
+10. 水来自高为\SI{18}{\centi\metre}、底半径为\SI{6}{\centi\metre}的圆锥型漏斗流入直径为\SI{10}{\centi\metre}的圆柱形桶内．已知漏斗水深\SI{12}{\centi\metre}时，水面下降的速度为\SI{1}{\centi\metre/\second}，求此时桶中水面上升的速度．
+
+\solve 在每时每刻流入桶中的水的体积和流出漏斗的水的体积是相等的，设漏斗水面下降的速度为$v_1$，设水桶水面上升的速度为$v_2$，设漏斗水面的面积为$A_1$，设水桶水面的面积为$A_2$，那么应有
+\begin{equation}
+    A_1 v_1 = A_2 v_2
+    \label{eq:3-2-102}
+\end{equation}
+设漏斗此刻的水面的半径是$x \; \si{\centi\metre}$，那么根据几何关系
+\begin{equation}
+    \frac{x}{12} = \frac{6}{18}
+\end{equation}
+解出$x=4$，桶面直径是$10 \; \si{\centi\metre}$，所以桶面半径是$5 \; \si{\centi\metre}$，从而
+\begin{equation}
+    \begin{cases}
+        A_1 = \pi 4^2 \; (\si{\centi\metre^2}) \\
+        A_2 = \pi 5^2 \; (\si{\centi\metre^2})
+    \end{cases}
+\end{equation}
+我们已经知道$v_1 = 1 \; (\si{\centi\metre/\second})$，把上式代入式(\ref{eq:3-2-102})立即解出
+\begin{equation}
+    v_2 = \frac{A_1 v_1}{A_2} = \frac{\pi 4^2 \cdot 1}{\pi 5^2} \; (\si{\centi\metre/\second}) = 0.64 \; (\si{\centi\metre/\second}).
+\end{equation}
+\qed\bigskip
