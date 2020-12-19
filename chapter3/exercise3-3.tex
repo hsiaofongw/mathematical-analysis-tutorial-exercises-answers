@@ -1,0 +1,225 @@
+\exercise
+
+1. 求一下$y$关于$x$的二阶导数$y^{\prime\prime}$：
+\begin{tasks}(2)
+    \task $y=\expe^{-x^2}$;
+    \task $y=x^2 a^x \; (a > 0)$;
+    \task $y=\sqrt{a^2-x^2}$;
+    \task $y=\displaystyle\frac{1}{a+\sqrt{x}}$;
+    \task $y=\tan \, x$;
+    \task $y = (1+x^2)\arctan \, x$;
+    \task $y = \ln \, \sin \, x$;
+    \task $y=\displaystyle\frac{\arcsin \, x}{\sqrt{1-x^2}}$;
+    \task $y=x^3\cos\, x$;
+    \task $y=x\ln \, x$.
+\end{tasks}
+
+(1) \solve
+\begin{align}
+    y^\prime &= \expe^{-x^2} \cdot (-2x) = -2x\expe^{-x^2} \\
+    y^{\prime\prime} &= (-2x)^\prime \cdot \expe^{-x^2} + (-2x) \cdot \left(\expe^{-x^2}\right)^{\prime} \\
+    &= -2\expe^{-x^2} + (-2x) \cdot \left(-2x\expe^{-x^2}\right) \\
+    &= -2\expe^{-x^2} +4x^2\expe^{-x^2}.
+\end{align}
+\qed\bigskip
+
+(2) \solve
+\begin{align}
+    y^\prime &= \left(x^2\right)^\prime \cdot a^x + x^2 \cdot \left(a^x\right)^\prime \\
+    &= 2x a^x + x^2 a^x \ln \, a \\
+    y^{\prime\prime} &= \left(2xa^x\right)^\prime + \left(x^2 a^x \ln \, a\right)^{\prime} \\
+    &= \left(2x\right)^\prime \cdot a^x + \left(2x\right) \cdot \left(a^x\right)^\prime + \left(x^2\right)^\prime \cdot \left(a^x \ln \, a\right) + x^2 \left(a^x \ln \, a\right)^\prime \\
+    &= 2a^x + 2x a^x \ln \, a + 2x a^x \ln \, a + x^2 a^x (\ln \, a)^2 \\
+    &= a^x (2+2x \ln \, a + 2x \ln \, a + x^2 \left(\ln \, a\right)^2) \\
+    &= a^x \left(2 + 4x \ln \, a + x^2 \left(\ln \, a\right)^2\right) \\
+    &= a^x \left(2 + \ln \, a\left(4x + x^2 \ln \, a\right)\right)
+\end{align}
+\qed\bigskip
+
+(3) \solve
+\begin{align}
+    y^{\prime} &= \frac{1}{2\sqrt{a^2-x^2}} \cdot \left(a^2-x^2\right)^{\prime} \\
+    &= - \frac{x}{\sqrt{a^2-x^2}} \\
+    y^{\prime\prime} &= (-x)^\prime \cdot \frac{1}{\sqrt{a^2-x^2}} + (-x) \left(\frac{1}{\sqrt{a^2-x^2}}\right)^{\prime} \\
+    &= -\frac{1}{\sqrt{a^2-x^2}} + (-x)\left(-\frac{1}{2}\left(a^2-x^2\right)^{-3/2}\left(a^2-x^2\right)^\prime\right) \\
+    &= -\frac{1}{\sqrt{a^2-x^2}} + (-x)\left(-\frac{1}{2}\left(a^2-x^2\right)^{-3/2}\left(-2x\right)\right) \\
+    &= -\frac{1}{\sqrt{a^2-x^2}} - x \frac{1}{2} \left(a^2-x^2\right)\left(2x\right) \\
+    &= -\frac{1}{\sqrt{a^2-x^2}} - x^2\left(a^2-x^2\right)
+\end{align}
+\qed\bigskip
+
+(4) \solve
+\begin{align}
+    y^{\prime} &= \left(\left(a+\sqrt{x}\right)^{-1}\right)^{\prime} \\
+    &= \left(-1\right)\left(a+\sqrt{x}\right)^{-2}\left(a+\sqrt{x}\right)^{\prime} \\
+    &= \left(-1\right)\left(a+\sqrt{x}\right)^{-2}\left(\frac{1}{2\sqrt{x}}\right) \\
+    &= -\frac{1}{2}\frac{1}{\sqrt{x}\left(a+\sqrt{x}\right)^2} \\
+    -2y^{\prime\prime} &= \left(\left(x\right)^{-1/2}\right)^{\prime}\left(a+\sqrt{x}\right)^{-2}+\left(x\right)^{-1/2}\left(\left(a+\sqrt{x}\right)^{-2}\right)^{\prime} \\
+    -2y^{\prime\prime} &= -\frac{1}{2}x^{-3/2}\left(a+\sqrt{x}\right)^{-2} + x^{-1/2}\left(\left(-2\right)\left(a+\sqrt{x}\right)^{-3}\left(a+\sqrt{x}\right)^{\prime}\right) \\
+    -2y^{\prime\prime} &= -\frac{1}{2}x^{-3/2}\left(a+\sqrt{x}\right)^{-2} + x^{-1/2}\left(\left(-2\right)\left(a+\sqrt{x}\right)^{-3}\left(1/2\right)\left(x^{-1/2}\right)\right)
+\end{align}
+\qed\bigskip
+
+(5) \solve
+\begin{align}
+    y^{\prime} &= \left(\tan \, x\right)^{\prime} \\
+    &= \left(\frac{\sin \, x}{\cos \, x}\right)^{\prime} \\
+    &= \left(\sin \, x\right)^{\prime}\left(\frac{1}{\cos \, x}\right) + \sin \, x \left(\frac{1}{\cos \, x}\right)^{\prime} \\
+    &= \cos \, x \frac{1}{\cos \, x} + \sin \, x \left(-\left(\cos \, x\right)^{-2}\right)\left(\cos \, x\right)^{\prime} \\
+    &=1+\sin \, x \left(-\left(\cos \, x\right)^{-2}\right)\left(-\sin \, x\right) \\
+    &=1+\frac{\sin^2 x}{\cos^2 x} \\
+    &=\frac{1}{\cos^2 x} \\
+    y^{\prime\prime} &= \left(\left(\cos \, x\right)^{-2}\right)^{\prime} \\
+    &= \left(-2\right)\left(\cos \, x\right)^{-3}\left(\cos \, x\right)^{\prime} \\
+    &= -2 \left(\cos \, x\right)^{-3}\left(-\sin \, x\right) \\
+    &= \frac{2\sin \, x}{\cos^3 \, x}
+\end{align}
+\qed\bigskip
+
+(6) \solve
+\begin{align}
+    y^{\prime} &= \left(\left(1+x^2\right)\arctan \, x\right)^{\prime}\\
+    &= \left(1+x^2\right)^\prime \arctan \, x + \left(1+x^2\right) \left(\arctan \, x\right)^\prime \\
+    &= 2x \arctan \, x + \frac{1+x^2}{1+x^2} \\
+    &= 2x \arctan \, x + 1 \\
+    y^{\prime\prime} &= \left(2x\arctan \, x + 1\right)^\prime \\
+    &= \left(2x\arctan \, x\right)^\prime \\
+    &= 2 \arctan \, x + 2x \left(\arctan \, x\right)^{\prime} \\
+    &= 2\arctan \, x + \frac{2x}{1+x^2}
+\end{align}
+\qed\bigskip
+
+(7) \solve
+\begin{align}
+    y^{\prime} &= \left(\ln \, \sin \, x\right)^\prime \\
+    &= \frac{1}{\sin \, x} \left(\sin \, x\right)^\prime \\
+    &= \frac{\cos \, x}{\sin \, x} \\
+    &= \cot \, x \\
+    y^{\prime\prime} &= \left(\cot \, x\right)^\prime \\
+    &= \left(\frac{1}{\tan \, x}\right)^\prime \\
+    &= \left(-1\right)\left(\tan \, x\right)^{-2} \left(\tan \, x\right)^\prime \\
+    &= \left(-1\right)\left(\tan \, x\right)^{-2}\sec^2 \, x \\
+    &= - \cot^2 \, x \, \sec^2 \, x
+\end{align}
+\qed\bigskip
+
+(8) \solve
+\begin{align}
+    y^\prime &= \left(\arcsin \, x\right)^\prime \frac{1}{\sqrt{1-x^2}} + \arcsin \, x \left(\frac{1}{\sqrt{1-x^2}}\right)^\prime \\
+    &= 1 + \arcsin \, x \left(-\frac{1}{2}\left(1-x^2\right)^{-3/2}\right)\left(1-x^2\right)^\prime \\
+    &= 1 -\frac{1}{2}\arcsin \, x \, \left(-2x\right) \left(1-x^2\right)^{-3/2} \\
+    &= 1+x\arcsin \, x \left(1-x^2\right)^{-3/2} \\
+    y^{\prime\prime} &= \left(x\arcsin \, x \left(1-x^2\right)^{-3/2}\right) \\
+    &= \arcsin \, x \left(1-x^2\right)^{-3/2} + x \left(\arcsin \, x \left(1-x^2\right)^{-3/2}\right)^\prime \\
+    &= \arcsin \, x \left(1-x^2\right)^{-3/2} + x \left(\frac{1}{\sqrt{1-x^2}}\left(1-x^2\right)^{-3/2}+\arcsin \, x \left(-3/2\right)\left(1-x^2\right)^{-5/2}\left(-2x\right)\right) 
+\end{align}
+\qed\bigskip
+
+(9) \solve
+\begin{align}
+    y^\prime &= \left(x^3\cos \, x\right)^\prime \\
+    &=3x^2\cos \, x + \left(x^3\right)\left(-\sin \, x\right) \\
+    &= x^2 \left(3\cos \, x - x \sin \, x\right) \\
+    y^{\prime\prime} &= 2x \left(3\cos \, x-x\sin \, x\right) + x^2 \left(-3\sin \, x -\left(\sin \, x + x\cos \, x\right)\right) \\
+    &= 6x\cos \, x -2x^2\sin \, x-3x^2 \sin \, x - x^2 \left(\sin \, x + x \cos \, x\right) \\
+    &= 6x\cos \, x - 2x^2 \sin \, x - 3x^2 \sin \, x - x^2 \sin \, x - x^3 \cos \, x \\
+    &= \sin \, x \left(-2x^2-3x^2-x^2\right) + \cos \, x \left(6x-x^3\right) \\
+    &= \sin \, x \left(-6x^2\right) + \cos \, x \left(6x-x^3\right) 
+\end{align}
+\qed\bigskip
+
+(10) \solve
+\begin{align}
+    y^\prime &= \ln \, x + x \cdot \frac{1}{x} \\
+    &= \ln \, x + 1 \\
+    y^{\prime\prime} &= \frac{1}{x}
+\end{align}
+\qed\bigskip
+
+2. \raisebox{\baselineskip}{\begin{minipage}[t]{0.8\textwidth}
+    \begin{tasks}(1) 
+        \task 设$f(x)=\expe^{2x-1}$，求$f^{\prime\prime}(0)$； 
+        \task 设$f(x)=\arctan \, x$，求$f^{\prime\prime}(1)$； 
+        \task 设$f(x)=\sin^2 \, x$，求$f^{\prime\prime}(\pi / 2)$. 
+    \end{tasks}
+\end{minipage}}
+\bigskip
+
+(1) \solve
+\begin{align}
+    \left(\expe^{2x-1}\right)^\prime &= 2\expe^{2x-1} \\
+    \left(\expe^{2x-1}\right)^{\prime\prime} &= 4\expe^{2x-1}
+\end{align}
+由此可知
+\begin{equation}
+    f^{\prime\prime}(0)=4\expe^{2\cdot 0-1} = 4\expe^{-1}.
+\end{equation}
+\qed\bigskip
+
+(2) \solve
+\begin{align}
+    \left(\arctan \, x\right)^{\prime} &= \frac{1}{1+x^2} \\
+    \left(\arctan \, x\right)^{\prime\prime} &= \left(-1\right)\left(1+x^2\right)^{-2}\left(1+x^2\right)^\prime \\
+    &= \frac{-2x}{(1+x^2)^2}
+\end{align}
+由此可知
+\begin{equation}
+    f^{\prime\prime}(1) = \frac{-2}{(1+1)^2} = -\frac{1}{2}.
+\end{equation}
+\qed\bigskip
+
+(3) \solve
+\begin{align}
+    f^{\prime}(x) &= 2\sin \, x \left(\sin \, x\right)^\prime = 2 \sin \, x \cos \, x = \sin \, 2x \\
+    f^{\prime\prime}(x) &= \left(\sin \, 2x\right)^\prime = \cos \, 2x \left(2x\right)^\prime = 2\cos \, 2x \\
+    f^{\prime\prime}(0) &= 2 \cos \, 0 = 2.
+\end{align}
+\qed\bigskip
+
+3. 求下列高阶导数：
+\begin{tasks}(2)
+    \task $y=\displaystyle\frac{1+x}{\sqrt{1-x}}, \; y^{(10)}$;
+    \task $y=\displaystyle\frac{x^2}{1-x}, \; y^{(8)}$.
+\end{tasks}
+\bigskip
+
+(1) \solve 由莱布尼茨定理
+\begin{align}
+    y^{(10)} &= \left(\left(1+x\right)\left(\frac{1}{\sqrt{1-x}}\right)\right)^{(10)} \\
+    &= \binom{10}{0} \left(1+x\right)\left(\left(1-x\right)^{-1/2}\right)^{(10)} + \binom{10}{1}\left(\left(1-x\right)^{-1/2}\right)^{(9)}
+\end{align}
+算得
+\begin{align}
+    \left(\left(1-x\right)^{-1/2}\right)^\prime &=  (-1/2)\left(1-x\right)^{-3/2}(-1) \\
+    \left(\left(1-x\right)^{-1/2}\right)^{\prime\prime} &=  (-1/2)(-3/2)\left(1-x\right)^{-5/2}(-1)(-1) \\
+    \left(\left(1-x\right)^{-1/2}\right)^{\prime\prime\prime} &=  (-1/2)(-3/2)(-5/2)\left(1-x\right)^{-7/2}(-1)(-1)(-1) 
+\end{align}
+归纳得
+\begin{align}
+    \left(\left(1-x\right)^{-1/2}\right)^{(n)} = \frac{(2n-1)!!}{2^n}(1-x)^{-(2n+1)/2}, \quad n \in \nat
+\end{align}
+式中$!!$表示双阶乘．代入原式有
+\begin{equation}
+    y^{(10)} = \frac{19!!}{2^{10}}\cdot \left(1+x\right) \cdot (1-x)^{-21/2} + \frac{10 \cdot 17!!}{2^{9}} \cdot \left(1-x\right)^{-19/2}.
+\end{equation}
+\qed\bigskip
+
+(2) \solve 由莱布尼茨定理
+\begin{equation}
+    y^{(8)} = \binom{8}{0} x^2 \left(\frac{1}{1-x}\right)^{(8)} + \binom{8}{1} \cdot 2x \cdot \left(\frac{1}{1-x}\right)^{(7)} + \binom{8}{2} \cdot 2 \cdot \left(\frac{1}{1-x}\right)^{(6)} 
+\end{equation}
+算得
+\begin{align}
+    \left(\frac{1}{1-x}\right)^\prime &= \left(-1\right)\left(1-x\right)^{-2}(-1) \\
+    \left(\frac{1}{1-x}\right)^{\prime\prime} &= (-1)(-2)\left(1-x\right)^{-3}(-1)(-1) \\
+    \left(\frac{1}{1-x}\right)^{\prime\prime\prime} &= (-1)(-2)(-3)\left(1-x\right)^{-4}(-1)(-1)(-1)
+\end{align}
+归纳得
+\begin{equation}
+    \left(\frac{1}{1-x}\right)^{(n)} = n! \left(1-x\right)^{-n-1}, \quad n \in \nat
+\end{equation}
+代入原式得
+\begin{equation}
+    y^{(8)} = 8! x^2 (1-x)^{-9} + 16 \cdot 7! x \left(1-x\right)^{-8} + 2 \binom{8}{2} \cdot 6! \left(1-x\right)^{-7}.
+\end{equation}
+\qed\bigskip
