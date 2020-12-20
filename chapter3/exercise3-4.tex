@@ -77,3 +77,67 @@
     \frac{\sin \, \left(x-y\right)}{x-y} < 1
 \end{equation}
 依几何关系知：该式对于任何$x>y$都是成立的．\qed\bigskip
+
+4. 设函数$f$在$\real$上有$n$阶导数，且$p$是一个$n$次多项式，其最高次项系数为$a_0$．如果有互不相同的$x_i$，使得$f(x_i)=p(x_i) \; (i=0,1,\cdots)$．求证：存在$\xi$，满足$a_0 = f^{(n)}(\xi)/n!$．
+
+\prove 令$g(x)=f(x)-p(x)$，不失一般性假设$x_0<x_1<\cdots<x_n$，由题意知
+\begin{equation}
+    g(x_i)=0,\quad i = 0,1,\cdots,n
+\end{equation}
+于是在区间
+\begin{equation}
+(x_i,x_{i+1}),i=0,1,\cdots,n-1
+\end{equation}
+上分别应用Rolle定理，可知存在
+\begin{equation}
+x^{(1)}_i \in (x_{i},x_{i+1}), \quad i = 0,1,\cdots,n-1
+\end{equation}
+使得
+\begin{equation}
+g^{(1)}(x^{(1)}_i)=0, \quad i=0,1,2,\cdots,n-1
+\end{equation}
+于是在区间
+\begin{equation}
+(x^{(1)}_{i},x^{(1)}_{i+1}),\quad i=0,1,2,\cdots,n-2
+\end{equation}
+上分别应用Rolle定理，可知存在
+\begin{equation}
+x^{(2)}_{i}\in (x^{(1)}_{i},x^{(1)}_{i+1}), \quad i = 0,1,\cdots,n-2
+\end{equation}
+使得
+\begin{equation}
+g^{(2)}(x^{(2)}_i)=0, \quad i=0,1,2,\cdots,n-2
+\end{equation}
+于是在区间
+\begin{equation}
+    (x^{(2)}_{i},x^{(2)}_{i+1}),\quad i=0,1,2,\cdots,n-3
+\end{equation}
+上分别应用Rolle定理，可知存在
+\begin{equation}
+    x^{(3)}_{i}\in (x^{(2)}_{i},x^{(2)}_{i+1}), \quad i = 0,1,\cdots,n-3
+\end{equation}
+使得
+\begin{equation}
+g^{(3)}(x^{(3)}_i)=0, \quad i=0,1,2,\cdots,n-3
+\end{equation}
+照此规律最终得到：存在
+\begin{equation}
+    x^{(n)}_i \in (x^{(n-1)}_i, x^{(n-1)}_{i+1}), \quad i = 0
+\end{equation}
+使得
+\begin{equation}
+    g^{(n)}(x^{(n)}_i) = 0, \quad i = 0
+\end{equation}
+另一方面
+\begin{equation}
+    g^{(n)}(x) = f^{(n)}(x)-n!a_0
+\end{equation}
+把$x^{(n)}_{0}$代入得
+\begin{equation}
+    g^{(n)}(x^{(n)}_0) = f^{(n)}(x^{(n)}_0)-n!a_0 = 0
+\end{equation}
+由此可知
+\begin{equation}
+    a_0 = f^{(n)}(x^{(n)}_0)/n!.
+\end{equation}
+取$\xi = x^{(n)}_0$即证．\qed\bigskip
