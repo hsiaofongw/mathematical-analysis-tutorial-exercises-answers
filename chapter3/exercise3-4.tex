@@ -1,0 +1,79 @@
+\exercise
+
+1. 证明：对任意的实数$c$，方程$x^3-3x+c=0$在$[0,1]$上无相异的根．
+
+\prove 采用反证法．令$f(x)=x^3-3x+c$，设存在$c_1, c_2 \in \real$满足$0<c_1<c_2<1$并且$f(c_1)=f(c_2)=0$．那么在开区间$(c_1,c_2)$应用Rolle中值定理，可得存在$\xi \in (c_1,c_2)$使得$f^\prime (\xi)=0$．
+
+与此同时我们求得$f^\prime (x) = 3x^2-3$，得知$f^\prime$只有$0,1$这两个零点，这与$\xi \in (c_1,c_2) \subset (0,1)$是矛盾的．\qed\bigskip
+
+2. 设函数$f$在$(a,b)$上可导，且$f(a+)=f(b-)$是有限的或为$\infty$．求证：存在一点$\xi \in (a,b)$，使得$f^\prime (\xi) = 0$．
+
+\prove 
+
+\textbf{情形1：}$f(a+)=f(b-)=c$为有限数．构造函数
+\begin{equation}
+    g(h) = \frac{f(b-h)-f(a+h)}{b-h-(a+h)}
+\end{equation}
+对每一个$h \in (0, \displaystyle\frac{b-a}{2})$，都可以在区间$(a+h,b-h)$应用Lagrange定理：可知存在$\xi \in (a+h,b-h)$使得
+\begin{equation}
+    g(h) = \frac{f(b-h)-f(a+h)}{b-h-(a+h)} = f^\prime (\xi)
+\end{equation}
+令$h \to 0^+$，则$g(h)$的分子趋于$0$，而分母趋于$b-a$，得
+\begin{equation}
+    \lim_{h \to 0^+} \frac{f(b-h)-f(a+h)}{b-h-(a+h)} = 0
+\end{equation}
+因此$\displaystyle\lim_{h \to 0^+} f^{\prime}(\xi) = f^{\prime}(\xi)= 0$．
+
+\textbf{情形2：}$f(a+)=f(b-)=\infty$，不失一般性假设$f(a+)=f(b-)=+\infty$．任取$x_1, x_2 \in (a,b)$，并且要求$x_1<x_2$．若$f(x_1)=f(x_2)$，那么就在区间$(x_1,x_2)$应用Rolle中值定理，定理已经得证．如果$f(x_1) \neq f(x_2)$，不失一般性假设$f(x_1) < f(x_2)$，由于$f(a+)=+\infty$，可知存在$x_3 \in (a,x_1)$使得$f(x_3)>f(x_2)$，这时我们有$f(x_1) < f(x_2) < f(x_3)$，而$x_3 < x_1 < x_2$，依介值性，可在$(x_3,x_1)$找到一个$x_4$使得$f(x_4)=f(x_2)$，现在让我们在区间$(x_4,x_2)$应用Rolle中值定理，可知存在$x_5 \in (x_4,x_2)$使得$f^\prime (x_5) = 0$．容易验证这个$x_5$仍然是在$(a,b)$内的．\qed\bigskip
+
+3. 证明下列不等式：
+\begin{tasks}(1)
+    \task $\lvert \sin \, x - \sin \, y \rvert \leq \lvert x - y \rvert \; \left(x, y \in \real \right)$;
+    \task $py^{p-1}\left(x-y\right)\leq x^p - y^p \leq px^{p-1}\left(x-y\right) \; (0 < y < x, p > 1)$;
+    \task $\displaystyle\frac{a-b}{a}<\ln \, \displaystyle\frac{a}{b} < \displaystyle\frac{a-b}{b} \; (0<b<a)$;
+    \task $\displaystyle\frac{a-b}{\sqrt{1+a^2}\sqrt{1+b^2}} < \arctan \, a - \arctan \, b < a-b \; (0 < b < a)$.
+\end{tasks}
+
+(1) \prove 不失一般性设$x<y$，在区间$(x,y)$中应用Lagrange定理：存在$\xi \in (x,y)$使得
+\begin{equation}
+    \frac{\sin \, x - \sin \, y}{x-y} = \left(\sin \, x\right)^\prime \bigg\vert_{x = \xi} = \cos \, \xi
+\end{equation}
+再对上式两端都取绝对值，根据函数$\cos $的有界性即证．\qed\bigskip
+
+(2) \prove 依Lagrange定理：存在$\xi \in (y, x)$使得
+\begin{equation}
+    \frac{x^p-y^p}{x-y} = p \xi^{p-1}
+\end{equation}
+对上式中的$\xi$在$(x,y)$内进行放缩即证．\qed\bigskip
+
+(3) \prove 依$\ln$函数的性质等价于证
+\begin{equation}
+    \frac{a-b}{a} < \ln \, a - \ln \, b < \frac{a-b}{b}
+\end{equation}
+即证
+\begin{equation}
+    \frac{1}{a} < \frac{\ln \, a - \ln \, b}{a-b} < \frac{1}{b}
+\end{equation}
+而根据Lagrange定理存在$\xi \in (b,a)$使得
+\begin{equation}
+    \frac{\ln \, a - \ln \, b}{a-b} = \frac{1}{\xi}
+\end{equation}
+对$\xi$放缩即证．\qed\bigskip
+
+(4) \prove 令$a = \tan \, x$，再令$b = \tan \, y$，不等式右边是显然的，我们来证左边，我们要证的是：
+\begin{equation}
+    \frac{\tan \, x - \tan \, y}{\displaystyle\frac{1}{\cos \, x}\cdot \displaystyle\frac{1}{\cos \, y}} < x - y
+\end{equation}
+也就是
+\begin{equation}
+    \frac{\tan \, x - \tan \, y}{x-y} < \frac{1}{\cos \, x \cos \, y}
+\end{equation}
+将和差化积公式代入$\tan \, x - \tan \, y$得
+\begin{equation}
+    \frac{\sin \, \left(x-y\right)}{\left(x-y\right)(\cos \, x \cos \, y)} < \frac{1}{\cos \, x \cos \, y}
+\end{equation}
+即证
+\begin{equation}
+    \frac{\sin \, \left(x-y\right)}{x-y} < 1
+\end{equation}
+依几何关系知：该式对于任何$x>y$都是成立的．\qed\bigskip
