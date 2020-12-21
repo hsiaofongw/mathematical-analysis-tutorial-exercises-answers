@@ -1,0 +1,89 @@
+\exercise
+
+1. 研究下列函数在指定区间上的增减性：
+\begin{tasks}(1)
+    \task $f(x) = \tan \, x , \; (-\pi/2,\pi/2)$;
+    \task $f(x) = \left(\arctan \, x\right) - x, \; \real$
+\end{tasks}
+
+(1) \solve 求导得
+\begin{equation}
+    \left(\tan \, x\right)^\prime = 1 + \left(\tan \, x\right)^2 > 0
+\end{equation}
+因此$\tan$在$(-\pi/2, \pi/2)$是增的．\qed\bigskip
+
+(2) \solve 求导得
+\begin{equation}
+    \left(\left(\arctan \, x\right) - x\right)^\prime = \frac{1}{1+x^2} - 1 < 0
+\end{equation}
+因此函数$x \mapsto \left(\arctan \, x\right) - x$在$\real$是减的．\qed\bigskip
+
+2. 证明不等式：
+\begin{tasks}(2)
+    \task $x(x-\arctan \, x) > 0 \; (x \neq 0)$;
+    \task $x - \displaystyle\frac{x^2}{2}<\ln \, \left(1+x\right)<x \; (x>0)$;
+    \task $x-\displaystyle\frac{x^3}{6}<\sin \, x < x \; (x > 0)$;
+    \task $\ln \, \left(1+x\right)>\displaystyle\frac{\arctan \, x}{1+x} \left(x>0\right)$.
+\end{tasks}
+
+(1) \prove 由于该函数是奇的，故我们只讨论$x > 0$的情形，由于
+\begin{equation}
+    \left(0 - \arctan \, 0\right) = 0
+\end{equation}
+并且
+\begin{equation}
+    \left(x - \arctan \, x\right)^\prime = 1 - \frac{1}{1+x^2} > 0
+\end{equation}
+故对一切$x>0$都有
+\begin{equation}
+    \left(x - \arctan \, x\right) > 0
+\end{equation}
+又因为当$x > 0$时$x > 0$，故当$x > 0$时
+\begin{equation}
+    x \left(x - \arctan \, x\right) > 0
+\end{equation}
+有根据函数的奇偶性，得证当$x < 0$时也有
+\begin{equation}
+    x \left(x - \arctan \, x\right) > 0
+\end{equation}
+这就证明了对一切$x \neq 0$都有
+\begin{equation}
+    x \left(x - \arctan \, x\right) > 0.
+\end{equation}
+\qed\bigskip
+
+(2) \prove 先证不等式右边，求导可知
+\begin{equation}
+    \left(\ln \, \left(1+x\right) - x\right)^\prime = \frac{1}{1+x} - 1 < 0 , \quad ( x > 0)
+\end{equation}
+并且
+\begin{equation}
+    \left(\ln \, \left(1+x\right) - x\right) \bigg\vert_{x = 0} = 0
+\end{equation}
+所以当$x > 0$时，恒有$\ln \, \left(1+x\right) - x < 0$，也就是$\ln \, \left(1+x\right) < x$．现在来证不等式左边，求导可知
+\begin{equation}
+    \left(x-\frac{x^2}{2}-\ln \, \left(1+x\right)\right)^\prime = 1 - x - \frac{1}{1+x}
+\end{equation}
+我们知道
+\begin{align}
+    &\mathrel{\phantom{\implies}} 1 - x^2 < 1 \\
+    &\implies (1-x)(1+x) < 1 \\
+    &\implies 1-x < \frac{1}{1+x} \, \quad (x > 0) 
+\end{align}
+所以有
+\begin{equation}
+    \left(x - \frac{x^2}{2}-\ln \, \left(1+x\right)\right)^\prime = 1 - x - \frac{1}{1+x} < 0
+\end{equation}
+又因为
+\begin{equation}
+    \left(x - \frac{x^2}{2}-\ln \, \left(1+x\right)\right) \bigg\vert_{x = 0} = 0
+\end{equation}
+所以对一切$x > 0$恒有
+\begin{equation}
+    x - \frac{x^2}{2} - \ln \, \left(1+x\right) < 0
+\end{equation}
+也就是
+\begin{equation}
+    x - \frac{x^2}{2} < \ln \, \left(1+x\right).
+\end{equation}
+\qed\bigskip
