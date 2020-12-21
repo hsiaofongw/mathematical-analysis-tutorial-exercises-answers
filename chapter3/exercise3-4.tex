@@ -86,7 +86,7 @@
 \end{equation}
 于是在区间
 \begin{equation}
-(x_i,x_{i+1}),i=0,1,\cdots,n-1
+(x_i,x_{i+1}), \quad i=0,1,\cdots,n-1
 \end{equation}
 上分别应用Rolle定理，可知存在
 \begin{equation}
@@ -141,3 +141,39 @@ g^{(3)}(x^{(3)}_i)=0, \quad i=0,1,2,\cdots,n-3
     a_0 = f^{(n)}(x^{(n)}_0)/n!.
 \end{equation}
 取$\xi = x^{(n)}_0$即证．\qed\bigskip
+
+5. \begin{minipage}[t]{0.8\textwidth}
+设常数$a_0,a_1,a_2,\cdots, a_n$满足
+\begin{equation*}
+    \frac{a_0}{n+1}+\frac{a_1}{n}+\cdots +\frac{a_{n-1}}{2}+a_n = 0.
+\end{equation*}
+求证：多项式$a_0 x^n + a_1 x^{n-1} + \cdots + a_{n-1} + a_n$在$(0,1)$内有一个零点．
+\end{minipage}
+\bigskip
+
+\prove 令
+\begin{equation}
+    g(x) = \frac{a_0}{n+1} x^{n+1} + \frac{a_1}{n} x^n + \cdots + \frac{a_{n-1}}{2} x^2 + a_n x
+\end{equation}
+则
+\begin{align}
+    g(1) &= \frac{a_0}{n+1}+\frac{a_1}{n}+\cdots +\frac{a_{n-1}}{2}+a_n = 0 \\
+    g(0) &= 0
+\end{align}
+故可在区间$(0,1)$对函数$g$应用Rolle定理，可知存在$\xi \in (0,1)$使得$g^{\prime}(\xi)=0$，而正好有
+\begin{equation}
+    g^{\prime}(x) = a_0 x^n + a_1 x^{n-1} + \cdots + a_{n-1} + a_n
+\end{equation}
+由此即证．\qed\bigskip
+
+6. 设函数$f$在开区间$(0,a)$上可导，且$f(0+)=+\infty$．证明：$f^\prime$在$x=0$的右旁无下界．
+
+\prove 任取$x_1 \in (0,a)$，设$x \in (0, x_1)$，在区间$(x,x_1)$应用Lagrange定理，可得
+\begin{equation}
+    \frac{f(x_1)-f(x)}{x_1-x} = f^{\prime}(\xi), \quad \xi \in (x, x_1)
+\end{equation}
+由于$0 < x_1-x < a$，又因为$f(x) \to +\infty \; (x \to 0^+)$，所以存在$0<\delta<x_1$使得对每一个$x \in (0,\delta)$都有$f(x_1)-f(x)<0$，所以有
+\begin{equation}
+    f^{\prime}(\xi) = \frac{f(x_1)-f(x)}{x_1-x} < \frac{f(x_1)-f(x)}{a}, \quad \xi \in (x, x_1)
+\end{equation}
+令$x \to 0^+$，则$\displaystyle\frac{f(x_1)-f(x)}{a} \to -\infty$，从而$f^{\prime}(\xi) \to -\infty$，命题得证．\qed\bigskip
