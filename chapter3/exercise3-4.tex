@@ -212,3 +212,26 @@ g^{(3)}(x^{(3)}_i)=0, \quad i=0,1,2,\cdots,n-3
     \frac{af(b)-bf(a)}{a-b} = f(\xi) - \xi f^{\prime}(\xi), \quad \xi \in (a,b).
 \end{equation}
 由此即证．\qed\bigskip
+
+9. 设$f$既不是常值函数又不是线性函数，且在$[a,b]$上连续，在$(a,b)$上可导．证明：存在一点$\xi \in (a,b)$，使得
+\begin{equation*}
+    \left| f^{\prime}\left(\xi\right) \right| > \left| \frac{f(b)-f(a)}{b-a} \right|.
+\end{equation*}
+
+\prove 构造定义在$[a,b]$上的函数
+\begin{equation}
+    l(x) = f(a) + \left(x-a\right) \frac{f(b)-f(a)}{b-a}
+\end{equation}
+再令
+\begin{equation}
+    g(x) = f(x) - l(x)
+\end{equation}
+这里$l$的函数图像$\{ (x, l(x)) : x \in (a,b) \}$实际上就是连接两个端点$(a,f(a)), (b,f(b))$的那条直线，由于$f$不是线性的，所以它不能够等于任何一个线性函数，所以$f \neq l$，所以必定存在$x_0 \in (a,b)$使得$g(x_0)=f(x_0)-l(x_0) \neq 0$也就是$f(x_0) \neq l(x_0)$，不失一般性假设$f(x_0) > l(x_0)$，由于$f$不是常的所以还可以假设$f(b)>f(a)$从而$\displaystyle\frac{f(b)-f(a)}{b-a}>0$，那么有
+\begin{equation}
+    \frac{f(x_0)-f(a)}{x_0-a} > \frac{l(x_0)-l(a)}{x_0-a} = \frac{f(b)-f(a)}{b-a} > 0
+\end{equation}
+在区间$(a,x_0)$应用Lagrange定理就得
+\begin{equation}
+    \left| f^{\prime}(\xi) \right| = \left| \frac{f(x_0)-f(a)}{x_0-a} \right| > \left| \frac{f(b)-f(a)}{b-a} \right|, \quad \xi \in (a, x_0).
+\end{equation}
+\qed\bigskip
