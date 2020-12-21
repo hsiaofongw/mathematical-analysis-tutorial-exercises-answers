@@ -177,3 +177,38 @@ g^{(3)}(x^{(3)}_i)=0, \quad i=0,1,2,\cdots,n-3
     f^{\prime}(\xi) = \frac{f(x_1)-f(x)}{x_1-x} < \frac{f(x_1)-f(x)}{a}, \quad \xi \in (x, x_1)
 \end{equation}
 令$x \to 0^+$，则$\displaystyle\frac{f(x_1)-f(x)}{a} \to -\infty$，从而$f^{\prime}(\xi) \to -\infty$，命题得证．\qed\bigskip
+
+7. 设函数$x f^{\prime} (x) - f(x) = 0$对一切$x > 0$成立，且$f(1)=1$．求$f(2)$．
+
+\solve 令
+\begin{equation}
+    g(x) = xf(x)
+\end{equation}
+求导得
+\begin{equation}
+    g^{\prime}(x) = x f^\prime (x) - f(x) = 0 \quad (x > 0)
+\end{equation}
+从而得知当$x > 0$时$g$为常函数，所以有
+\begin{equation}
+    \begin{cases}
+        g(1) = 1 f(1) = 1 \\
+        g(2) = 2 f(2) \\
+        g(1) = g(2)
+    \end{cases} \implies 2 f(2) = 1 \implies f(2) = \frac{1}{2}.
+\end{equation}
+\qed\bigskip
+
+8. 设函数$f$在区间$[a,b]$上可导，且$ab>0$．求证：存在$\xi \in (a,b)$，使得
+\begin{equation*}
+    \frac{af(b)-bf(a)}{a-b} = f(\xi) - \xi f^{\prime}(\xi).
+\end{equation*}
+
+\prove 令$p(x) = \displaystyle\frac{f(x)}{x}, q(x) = \frac{1}{x}$，在区间$[a,b]$上对函数$p,q$应用Cauchy定理，得
+\begin{equation}
+    \frac{p(b)-p(a)}{q(b)-q(a)} = \frac{p^{\prime}(\xi)}{q^{\prime}(\xi)}, \quad \xi \in (a,b)
+\end{equation}
+代入$p(x),q(x),p^\prime (x), q^\prime (x)$的表达式对上式进行展开并化简得
+\begin{equation}
+    \frac{af(b)-bf(a)}{a-b} = f(\xi) - \xi f^{\prime}(\xi), \quad \xi \in (a,b).
+\end{equation}
+由此即证．\qed\bigskip
