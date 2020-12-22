@@ -217,4 +217,38 @@
 
 \annotate 这充分体现了导数工具的强大．\bigskip
 
+(3) \prove 当$(0<\alpha\leq 1)$时
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} \left(1+x\right)^\alpha \leq 1 + \alpha x \\
+    &\impliedby \exp \, \{ \alpha \ln \, \left(1+x\right) \} \leq \exp \, \{ \ln \, \left( 1+\alpha x \right) \} \\
+    &\impliedby \alpha \ln \, \left(1+x\right) \leq \ln \, \left(1+\alpha x\right) \\
+    &\impliedby \frac{\ln \, \left(1+1\cdot x\right)}{1} \leq \frac{\ln \, \left(1+\alpha\right)}{\alpha}
+\end{align}
+好戏来了！令
+\begin{equation}
+    g(t) = \frac{\expe^t - 1}{x} , \quad (x \; \text{是常数})
+\end{equation}
+再令
+\begin{equation}
+    t_1 = \ln \, \left(1+\alpha x\right), \quad t_2 = \ln \, \left(1+ 1 \cdot x\right)
+\end{equation}
+那么利用函数$g$的凸性立刻有
+\begin{equation}
+    \frac{g(t_2)-g(0)}{t_2-0} \geq \frac{g(t_1) - g(0)}{t_1 - 0}
+\end{equation}
+整理得
+\begin{equation}
+    \frac{1}{\ln \, \left(1+x\right)} \geq \frac{\alpha}{\ln \, \left(1+\alpha x\right)}
+\end{equation}
+注意到这里的$\ln \, \left(1+x\right), \ln \, \left(1+\alpha x\right)$都是负的所以乘的时候要变号，所以
+\begin{align}
+    &\mathrel{\phantom{\implies}} \frac{1}{\ln \, \left(1+x\right)} \geq \frac{\alpha}{\ln \, \left(1+\alpha x\right)} \\
+    &\implies 1 \leq \frac{\alpha \ln \, \left(1+x\right)}{\ln \, \left(1+\alpha x\right)} \\
+    &\implies \ln \, \left(1+\alpha x\right) \geq \alpha \ln \, \left(1+x\right) \\
+    &\implies \left(1+x\right)^\alpha \leq 1 + \alpha x.
+\end{align}
+等号当$\alpha = 1$时成立．\qed\bigskip
+
+\annotate 至于我是怎么样想到要构造那个函数$g(t) = \displaystyle\frac{\expe^t-1}{x}$的呢？其实在出现$\displaystyle\frac{\ln \, \left(1+1 \cdot x\right)}{1} \leq \displaystyle\frac{\ln \, \left(1+\alpha\right)}{\alpha}$的时候可能会令人联想到要把$\{ (t, \displaystyle\frac{\ln \, \left(1+xt\right)}{t}) : 0 \leq t \leq 1\}$画出来，然后那个$g$就是这个函数的反函数，所以利用$g$的凸性就顺理成章了．\bigskip
+
 4. 设函数$f$在$[0,1]$上有三阶导函数，且$f(0)=f(1)=0$．令$F(x)=x^2 f(x)$，求证：存在$\xi \in (0,1)$，使得$F^{\prime\prime\prime}(\xi)=0$.
