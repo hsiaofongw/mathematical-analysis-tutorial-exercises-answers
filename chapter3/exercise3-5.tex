@@ -96,3 +96,28 @@
     &\impliedby x > \sin \, x.
 \end{align}
 \qed\bigskip
+
+(4) \prove 易知
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} \ln \, \left(1+x\right) > \frac{\arctan \, x}{1+x} \\
+    &\impliedby \ln \, \left(1+x\right) > \left(\arctan \, x\right) \left(\ln \, \left(1+x\right)\right)^\prime \\
+    &\impliedby \frac{1}{\left(\ln \, \left(1+x\right)\right)^\prime} > \frac{\arctan \, x}{\ln \, \left(1+x\right)} \\
+    &\impliedby \frac{\displaystyle\frac{1}{1+0}}{\displaystyle\frac{1}{1+x}} > \frac{\arctan \, x - \arctan \, 0}{\ln \, \left(1+x\right) - \ln \, \left(1+0\right)}
+\end{align}
+在区间$(0,x)$运用Cauchy定理可知
+\begin{equation}
+    \frac{\arctan \, x - \arctan \, 0}{\ln \, \left(1+x\right) - \ln \, \left(1+0\right)} = \frac{\displaystyle\frac{1}{1+\xi^2}}{\displaystyle\frac{1}{1+\xi}}, \quad \xi \in (0, x)
+\end{equation}
+毫无疑问$\displaystyle\frac{1}{1+\xi^2} < \displaystyle\frac{1}{1+0}$并且$\displaystyle\frac{1}{1+x}<\displaystyle\frac{1}{1+\xi}$，所以
+\begin{equation}
+    \displaystyle\frac{\displaystyle\frac{1}{1+\xi^2}}{\displaystyle\frac{1}{1+\xi}} < \displaystyle\frac{\displaystyle\frac{1}{1+0}}{\displaystyle\frac{1}{1+x}}
+\end{equation}
+所以
+\begin{equation}
+    \displaystyle\frac{\arctan \, x - \arctan \, 0}{\ln \, \left(1+x\right) - \ln \, \left(1+0\right)} < \displaystyle\frac{\displaystyle\frac{1}{1+0}}{\displaystyle\frac{1}{1+x}}
+\end{equation}
+所以
+\begin{equation}
+    \ln \, \left(1+x\right)>\frac{\arctan \, x}{1+x}.
+\end{equation}
+\qed\bigskip
