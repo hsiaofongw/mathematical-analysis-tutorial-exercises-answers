@@ -121,3 +121,84 @@
     \ln \, \left(1+x\right)>\frac{\arctan \, x}{1+x}.
 \end{equation}
 \qed\bigskip
+
+3. 证明不等式
+\begin{tasks}(1)
+    \task 当$0<x_1<x_2<\pi/2$时，
+    \begin{equation*}
+        \frac{\tan x_2}{\tan x_1} > \frac{x_2}{x_1};
+    \end{equation*}
+    \task 当$x,y>0$且$\beta>\alpha>0$时，
+    \begin{equation*}
+        \left(x^\alpha + y^\alpha \right)^{1/\alpha} > \left(x^\beta + y^\beta\right)^{1/\beta};
+    \end{equation*}
+    \task 若$x>-1$，则
+    \begin{align*}
+        \left(1+x\right)^\alpha &\leq 1 + \alpha x \quad \left(0 < \alpha \leq 1\right), \\
+        \left(1+x\right)^\alpha &\geq 1 + \alpha x \quad \left(\alpha < 0, \text{或} \; \alpha \geq 1\right)
+    \end{align*}
+    \task 设$p \geq 2$，当$x \in [0,1]$时，
+    \begin{equation*}
+        \left(\frac{1+x}{2}\right)^p + \left(\frac{1-x}{2}\right)^p \leq \frac{1}{2} \left(1+x^p\right).
+    \end{equation*}
+\end{tasks}
+
+(1) \prove 易知
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} \frac{\tan \, x_2}{\tan \, x_1} > \frac{x_2}{x_1} \\
+    &\impliedby \frac{\tan \, x_1 + \tan \, x_2 - \tan \, x_1}{\tan \, x_1} > \frac{x_1 + x_2 - x_1}{x_1} \\
+    &\impliedby 1 + \frac{\tan \, x_2 - \tan \, x_1}{\tan \, x_1} > 1 + \frac{x_2 - x_1}{x_1} \\
+    &\impliedby \frac{\tan \, x_2 - \tan \, x_1}{\tan \, x_1} > \frac{x_2-x_1}{x_1} \\
+    &\impliedby \frac{\tan \, x_2 - \tan \, x_1}{x_2 - x_1} > \frac{\tan \, x_1}{x_1}
+\end{align}
+现在让我们在区间$(x_1,x_2)$应用Lagrange定理，可知存在$\xi \in (x_1,x_2)$，使得
+\begin{equation}
+    \frac{\tan \, x_2 - \tan \, x_1}{x_2 - x_1} = 1 + \left(\tan \, \xi\right)^2 = \frac{1}{\left(\cos \, \xi\right)^2}
+\end{equation}
+注意到
+\begin{equation}
+    \frac{\tan \, x_1}{x_1} = \frac{\sin \, x_1}{x_1 \cos \, x_1} = \frac{1}{\displaystyle\frac{x_1}{\sin \, x_1} \cos \, x_1}
+\end{equation}
+由于
+\begin{equation}
+    \frac{x_1}{\sin \, x_1} > 1 \geq \cos \, \xi, \quad \cos \, x_1 > \cos \, \xi
+\end{equation}
+所以
+\begin{equation}
+    \frac{1}{\displaystyle\frac{x_1}{\sin \, x_1}\cos \, x_1} < \frac{1}{\left(\cos \, \xi\right)^2} 
+\end{equation}
+所以
+\begin{equation}
+    \frac{\tan \, x_2 - \tan \, x_1}{x_2 - x_1} > \frac{\tan \, x_1}{x_1}
+\end{equation}
+所以
+\begin{equation}
+    \frac{\tan \, x_2}{\tan \, x_1} > \frac{x_2}{x_1}.
+\end{equation}
+\qed\bigskip
+
+(1) \prove （证法2：利用凸性）令
+\begin{equation}
+    f(x) = \tan \, x
+\end{equation}
+则
+\begin{equation}
+    f^\prime (x) = \frac{1}{\left(\cos x\right)^2}, \quad f^{\prime\prime}(x) = \frac{2\sin \, x}{\left(\cos \, x\right)^3} > 0, \quad (0 < x < \pi/2)
+\end{equation}
+由此可知$f$在$(0,\pi/2)$是严格凸的，所以对任意$0 < x_1 < x_2 < \pi/2$有
+\begin{equation}
+    \frac{f(x_1)-f(0)}{x_1-0} < \frac{f(x_2)-f(0)}{x_2-0}
+\end{equation}
+也就是
+\begin{equation}
+    \frac{\tan \, x_1}{x_1} < \frac{\tan \, x_2}{x_2}
+\end{equation}
+从而得
+\begin{equation}
+    \frac{\tan \, x_2}{\tan \, x_1} > \frac{x_2}{x_1}.
+\end{equation}
+\qed\bigskip
+
+\annotate 凸性使证明一下子变得简洁了好多．\bigskip
+
+4. 设函数$f$在$[0,1]$上有三阶导函数，且$f(0)=f(1)=0$．令$F(x)=x^2 f(x)$，求证：存在$\xi \in (0,1)$，使得$F^{\prime\prime\prime}(\xi)=0$.
