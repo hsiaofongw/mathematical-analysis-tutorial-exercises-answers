@@ -201,4 +201,20 @@
 
 \annotate 凸性使证明一下子变得简洁了好多．\bigskip
 
+(2) \prove 假设$x,y>1$，那么有
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} \left(x^\alpha + y^\alpha\right) > \left(x^\beta + y^\beta \right)^\beta \\
+    &\impliedby \text{函数} \; t \mapsto \exp \, \{ \frac{\ln \, \left(x^t + y^t \right)}{t}\} \; \text{是递减的}, \; (0 < t) \\
+    &\impliedby \text{它的导数} \; \exp \, \{ \frac{\ln \, \left(x^t+y^t\right)}{t} \}\left(\frac{x^t\ln \, x + y^t \ln \, y}{t\left(x^t+y^t\right)} - \frac{\ln \, \left(x^t + y^t\right)}{t^2}\right) < 0 \\
+    &\impliedby \frac{x^t\ln \, x + y^t \ln \, y}{t\left(x^t+y^t\right)} - \frac{\ln \, \left(x^t + y^t\right)}{t^2} < 0 \\
+    &\impliedby \frac{x^t}{x^t+y^t} \ln \, \left(x^t\right) + \frac{y^t}{x^t+y^t} \ln \, \left(y^t\right) < \ln \, \left(x^t+y^t\right) \\
+    &\impliedby \text{令} \; a = x^t, b = y^t, \lambda_1 = \frac{a}{a+b}, \lambda_2 = \frac{b}{a+b} \; \text{则} \; \lambda_1 \ln \, a + \lambda_2 \ln \, b < \ln \, \left(a+b\right) \\
+    &\impliedby \exp \, \{\lambda_1 \ln \, a + \lambda_2 \ln \, b\} < \exp \, \{\ln \, \left(a+b\right)\} \\
+    &\impliedby \text{利用凸性得} \; \exp \, \{\lambda_1 \ln \, a + \lambda_2 \ln \, b\} < \lambda_1  \exp \, \{ \ln \, a \} + \lambda_2 \exp \, \{ \ln \, b \} \\
+    &\mathrel{\phantom{\impliedby}} = \lambda_1 a + \lambda_2 b < a+b = \exp \, \{\ln \, \left(a+b\right)\}.
+\end{align}
+\qed\bigskip
+
+\annotate 这充分体现了导数工具的强大．\bigskip
+
 4. 设函数$f$在$[0,1]$上有三阶导函数，且$f(0)=f(1)=0$．令$F(x)=x^2 f(x)$，求证：存在$\xi \in (0,1)$，使得$F^{\prime\prime\prime}(\xi)=0$.
