@@ -251,4 +251,27 @@
 
 \annotate 至于我是怎么样想到要构造那个函数$g(t) = \displaystyle\frac{\expe^t-1}{x}$的呢？其实在出现$\displaystyle\frac{\ln \, \left(1+1 \cdot x\right)}{1} \leq \displaystyle\frac{\ln \, \left(1+\alpha\right)}{\alpha}$的时候可能会令人联想到要把$\{ (t, \displaystyle\frac{\ln \, \left(1+xt\right)}{t}) : 0 \leq t \leq 1\}$画出来，然后那个$g$就是这个函数的反函数，所以利用$g$的凸性就顺理成章了．\bigskip
 
+(4) \prove 令
+\begin{align}
+    f(x) &= \left(\frac{1+x}{2}\right)^p + \left(\frac{1-x}{2}\right)^p \\
+    g(x) &= \frac{1}{2} \left(1+x^p\right)
+\end{align}
+求导得
+\begin{align}
+    f^\prime (x) &= \frac{1}{2}p\left(\left(\frac{1+x}{2}\right)^{p-1}-\left(\frac{1-x}{2}\right)^{p-1}\right) > 0 \\
+    g^\prime (x) &= \frac{1}{2}px^{p-1} > 0
+\end{align}
+我们发现由于$p \geq 2$所以
+\begin{equation}
+    f(0) = 2 \left(\frac{1}{2}\right)^p \leq g(0) = \frac{1}{2}
+\end{equation}
+现在要使得$f(x) \leq g(x)$对一切$x \in [0,1]$成立，只要再确保$f$在此区间内增长得比$g$「更加慢」就可以了，也就是要保证
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} f^\prime (x) \leq g^{\prime} (x) \\
+    &\impliedby \left(\frac{1+x}{2}\right)^{p-1} - \left(\frac{1-x}{2}\right)^{p-1} \leq x^{p-1} = \left(\frac{2x}{2}\right)^{p-1} \\
+    &\impliedby \left(\frac{1+x}{2}\right)^{p-1} = \left(\frac{1-x}{2} + \frac{2x}{2}\right)^{p-1} \leq \left(\frac{1-x}{2}\right)^{p-1} + \left(\frac{2x}{2}\right)^{p-1} \label{eq:3-5-76}
+\end{align}
+而不等式\ref{eq:3-5-76}由函数$x \mapsto \left(x\right)^{p-1}$的凸性得到保证，而函数$x \mapsto \left(x\right)^{p-1}$的凸性相应地由$p \geq 2$得到保证．\qed\bigskip
+
+
 4. 设函数$f$在$[0,1]$上有三阶导函数，且$f(0)=f(1)=0$．令$F(x)=x^2 f(x)$，求证：存在$\xi \in (0,1)$，使得$F^{\prime\prime\prime}(\xi)=0$.
