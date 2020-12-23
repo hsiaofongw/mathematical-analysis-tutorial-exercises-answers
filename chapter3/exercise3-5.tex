@@ -273,5 +273,30 @@
 \end{align}
 而不等式\ref{eq:3-5-76}由函数$x \mapsto \left(x\right)^{p-1}$的凸性得到保证，而函数$x \mapsto \left(x\right)^{p-1}$的凸性相应地由$p \geq 2$得到保证．\qed\bigskip
 
-
 4. 设函数$f$在$[0,1]$上有三阶导函数，且$f(0)=f(1)=0$．令$F(x)=x^2 f(x)$，求证：存在$\xi \in (0,1)$，使得$F^{\prime\prime\prime}(\xi)=0$.
+
+\prove 由于
+\begin{equation}
+    F(0) = 0^2 f(0) = 0, \quad F(1) = 1^2 f(1) = f(1) = 0
+\end{equation}
+所以可在区间$(0,1)$对$F$应用Rolle定理，可知存在$\xi_1 \in (0,1)$使得
+\begin{equation}
+    F^{\prime}(\xi_1) = 0
+\end{equation}
+我们还知道
+\begin{equation}
+    F^\prime (x) = 2x f(x) + x^2 f^{\prime} (x) \implies F^\prime (0) = 0
+\end{equation}
+所以可在区间$(0, \xi_1)$对$F^\prime$应用Rolle定理，可知存在$\xi_2 \in (0, \xi_1)$使得
+\begin{equation}
+    F^{\prime\prime}(\xi_2) = 0
+\end{equation}
+我们还知道
+\begin{equation}
+    F^{\prime\prime}(x) = 2f(x) + 2xf^{\prime}(x) + 2x f^{\prime}(x) + x^2 f^{\prime\prime}(x) \implies F^{\prime\prime}(0) = 0
+\end{equation}
+所以可在区间$(0, \xi_2)$对$F^{\prime\prime}$应用Rolle定理，可知存在$\xi_3 \in (0, \xi_2)$使得
+\begin{equation}
+    F^{\prime\prime\prime}(\xi_3) = 0.
+\end{equation}
+\qed\bigskip
