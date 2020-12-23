@@ -222,7 +222,7 @@
     &\mathrel{\phantom{\impliedby}} \left(1+x\right)^\alpha \leq 1 + \alpha x \\
     &\impliedby \exp \, \{ \alpha \ln \, \left(1+x\right) \} \leq \exp \, \{ \ln \, \left( 1+\alpha x \right) \} \\
     &\impliedby \alpha \ln \, \left(1+x\right) \leq \ln \, \left(1+\alpha x\right) \\
-    &\impliedby \frac{\ln \, \left(1+1\cdot x\right)}{1} \leq \frac{\ln \, \left(1+\alpha\right)}{\alpha}
+    &\impliedby \frac{\ln \, \left(1+1\cdot x\right)}{1} \leq \frac{\ln \, \left(1+\alpha x\right)}{\alpha}
 \end{align}
 好戏来了！令
 \begin{equation}
@@ -300,3 +300,15 @@
     F^{\prime\prime\prime}(\xi_3) = 0.
 \end{equation}
 \qed\bigskip
+
+5. 设函数$f$在区间$[0,+\infty)$上可导，$f(0)=0$，且$f^\prime$严格递增．求证：$f(x)/x$在$(0,+\infty)$上也严格递增．
+
+\prove 任取$x_1, x_2 \in (0, +\infty), x_1 < x_2$，那么由$f$的凸性我们有
+\begin{equation}
+    \frac{f(x_1)-f(0)}{x_1 - 0} < \frac{f(x_2)-f(0)}{x_2-0}
+\end{equation}
+也就是
+\begin{equation}
+    \frac{f(x_1)}{x_1} < \frac{f(x_2)}{x_2}
+\end{equation}
+这就说明$f(x)/x$在$[0,+\infty)$是递增的．\qed\bigskip
