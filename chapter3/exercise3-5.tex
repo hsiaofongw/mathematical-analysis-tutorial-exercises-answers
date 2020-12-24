@@ -442,3 +442,46 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     \lim_{x \to 0^+} x \ln \, x = 0, \quad \lim_{x \to +\infty} x \ln \, x = +\infty
 \end{equation}
 并且$f(\expe^{-1}) = \expe^{-1} \ln \, \left(\expe^{-1}\right) = -\expe^{-1} < 0$，可知$f$的最下值是$f(\expe^{-1}) = -\expe^{-1}$，而最大值为$+\infty$（或不存在）．\qed\bigskip
+
+(4) \solve 配方得
+\begin{align}
+    f(x) &= (x - \frac{3}{2})^2 - \frac{1}{4}
+\end{align}
+因此最大值为$+\infty$，最小值为$-\displaystyle\frac{1}{4}$．\qed\bigskip
+
+(5) \solve 配方得
+\begin{align}
+    f(x) &= \left| \left(x - \frac{3}{2}\right)^2 - \frac{1}{4} \right|
+\end{align}
+因此最小值为$0$．现在比较两个端点处的函数值：
+\begin{equation}
+    f(-10) = 132, \quad f(10) = 72
+\end{equation}
+因此最大值为$132$．\qed\bigskip
+
+(6) \solve 求导得
+\begin{align}
+    f^{\prime}(x) &= \left(\arctan \, \displaystyle\frac{1-x}{1+x}\right)^{\prime} \\
+    &= \displaystyle\frac{1}{1+\left(\displaystyle\frac{1-x}{1+x}\right)^2} \left(\displaystyle\frac{1-x}{1+x}\right)^{\prime} \\
+    &= \displaystyle\frac{1}{1+\left(\displaystyle\frac{1-x}{1+x}\right)^2} \left(\left(-1\right)\left(\frac{1}{1+x}\right)+\left(1-x\right)\left(\displaystyle\frac{1}{1+x}\right)^{\prime}\right) \\
+    &= \displaystyle\frac{1}{1+\left(\displaystyle\frac{1-x}{1+x}\right)^2} \left(-\displaystyle\frac{1}{1+x}+\left(1-x\right)\left(-\displaystyle\frac{1}{\left(1+x\right)^2}\right)\right) \\
+    &= -\frac{\left(1+x\right)^2}{\left(1-x\right)^2+\left(1+x\right)^2} \left(\frac{1}{1+x} + \frac{1-x}{\left(1+x\right)^2}\right) = - \frac{1+x+1-x}{\left(1-x\right)^2+\left(1+x\right)^2} \\
+    &= -\frac{1}{1+x^2}
+\end{align}
+由此可知
+\begin{equation}
+    \left(f(x) + \arctan \, x\right)^{\prime} = 0
+\end{equation}
+由此可知存在常数$C \in \real$，使得对一切$x \in [0,1]$都有
+\begin{equation}
+    f(x) + \arctan \, x = C
+\end{equation}
+取$x = 0$，则
+\begin{equation}
+    C = f(0) + \arctan \, 0 = f(0) = \arctan \, 1 = \frac{\pi}{4}
+\end{equation}
+这样就把$C$解了出来，现在我们知道了
+\begin{equation}
+    f(x) = C - \arctan \, x = \frac{\pi}{4} - \arctan \, x
+\end{equation}
+这样我们就知道了最小值为$f(1) = \displaystyle\frac{\pi}{4} - \arctan \, 1 = 0$，最大值为$f(0) = \displaystyle\frac{\pi}{4} - \arctan \, 0 = \displaystyle\frac{\pi}{4}$．\qed\bigskip
