@@ -518,3 +518,20 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     \includegraphics[width=0.45\textwidth]{chapter3/force.png}
     \caption{题10受力分析图}
 \end{figure}
+
+11. 内接于椭圆$\displaystyle\frac{x^2}{a^2}+\displaystyle\frac{y^2}{b^2} = 1$，边平行于坐标轴的矩形，何时面积最大？
+
+\solve 作图可知，任取$y \in (0, b)$，则椭圆的面积为
+\begin{equation}
+    S(y) = 4ay \sqrt{1-\frac{y^2}{b^2}}
+\end{equation}
+最大化$S(y)$等价于最大化$\left(S(y)\right)^2$等价于最大化$\displaystyle\frac{1}{b^2}\left(S(y)\right)^2$等价于最大化
+\begin{equation}
+    \frac{1}{b^2} \left(S(y)\right)^2 = \frac{1}{b^2} 16 a^2 y^2 \left(1-\frac{y^2}{b^2}\right)
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{chapter3/ellipseSquare.png}
+    \caption{题11椭圆内接矩形的面积}
+\end{figure}
