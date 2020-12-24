@@ -312,3 +312,62 @@
     \frac{f(x_1)}{x_1} < \frac{f(x_2)}{x_2}
 \end{equation}
 这就说明$f(x)/x$在$[0,+\infty)$是递增的．\qed\bigskip
+
+6. 设函数$f$在$\real$上有界且$f^{\prime\prime} \geq 0$．证明：$f$为常值函数．
+
+\prove 不妨设$f$在$x_0$处取得最大值$M$也就是说$f(x_0) = M$，那么对任意$x_1 \in (-\infty, x_0)$，有
+\begin{align}
+    &\mathrel{\phantom{\implies}} f(x_0) \geq f(x_1) \\
+    &\implies f(x_0)-f(x_1) \geq 0 \\
+    &\implies \frac{f(x_0)-f(x_1)}{x_0-x_1} \geq 0 
+\end{align}
+在区间$(x_1,x_0)$应用Lagrange定理可知存在$x_2 \in (x_1,x_0)$使得
+\begin{equation}
+f^{\prime}(x_2) = \displaystyle\frac{f(x_0)-f(x_1)}{x_0-x_1} \geq 0
+\end{equation}
+而依Fermat定理，在$x_0$处有$f^{\prime}(x_0) = 0$．因此只能是$f^{\prime}(x_2) = 0$，否则若$f^{\prime}(x_2) > 0$，在区间$(x_2,x_0)$对$f^\prime$应用Lagrange定理可知存在$x_3 \in (x_2,x_0)$满足
+\begin{equation}
+    f^{\prime\prime}(x_3) = \frac{f^{\prime}(x_0)-f^{\prime}(x_2)}{x_0-x_2} < 0
+\end{equation}
+这与$f^{\prime\prime} \geq 0$矛盾．同理可证，对任意$x > x_0$都有$f^{\prime}(x) = 0$．由于$f^\prime = 0$所以$f$是常的．\qed\bigskip
+
+7. 设函数$f$和$g$在区间$[a,+\infty)$上连续，且当$x>a$时$\left| f^{\prime}(x) \right| \leq g^{\prime}(x)$．证明：当$x \geq a$时，
+\begin{equation*}
+    \left| f(x) - f(a) \right| \leq g(x) - g(a).
+\end{equation*}
+
+\prove 当$x=a$时关系式显然成立，当$x>a$时，令$d = x-a$，对任意$n \in \nat$，有
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} \left| f(x) - f(a) \right| \leq g(x) - g(a) \\
+    &\impliedby \left| \sum_{i=1}^n \left(f(a+\frac{i}{n} d) - f(a + \frac{i-1}{n}d) \right) \right| \leq \sum_{i=1}^n \left( g(a+\frac{i}{n}d) - g(a+\frac{i-1}{n}d) \right) \\
+    &\impliedby \sum_{i=1}^n \left| f(a + \frac{i}{n} d) - f(a+ \frac{i-1}{n} d)\right| \leq \sum_{i=1}^n \left(g(a + \frac{i}{n} d) - g(a + \frac{i-1}{n} d)\right) \\
+    &\impliedby \sum_{i=1}^n \left| \frac{d}{n} \cdot \frac{f(a+ \displaystyle\frac{i}{n} d) - f(a+ \displaystyle\frac{i-1}{n} d)}{\displaystyle\frac{d}{n}}\right| \leq \sum_{i=1}^n \left(\frac{d}{n} \cdot \frac{g(a + \displaystyle\frac{i}{n} d) - g(a + \displaystyle\frac{i-1}{n} d)}{\displaystyle\frac{d}{n}}\right)
+\end{align}
+由于$\left| f^{\prime} (x)\right| \leq g^{\prime} (x)$，故存在足够大的$N \in \nat$，使得当$n \geq N$时，对任意$1 \leq i \leq n$，都有
+\begin{equation}
+    \left| \frac{f(a + \displaystyle\frac{i}{n} d) - f(a + \displaystyle\frac{i-1}{n} d)}{\displaystyle\frac{d}{n}} \right| \leq \frac{g(a + \displaystyle\frac{i}{n} d) - g(a + \displaystyle\frac{i-1}{n} d)}{\displaystyle\frac{d}{n}}.
+\end{equation}
+\qed\bigskip
+
+8. 证明：当$x>0$且$x\neq 1$时，有
+\begin{equation*}
+    \left(1-x\right)\left(x^2 \expe^{1/x}-\expe^{x}\right) > 0.
+\end{equation*}
+
+\prove 设$\beta_1, \beta_2 > 0$且满足$\beta_1 + \beta_2 = \displaystyle\frac{1}{x^2}$．那么当$0 < x < 1$时
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} \left(1-x\right)\left(x^2 \expe^{1/x} - \expe^x\right) > 0  \\
+    &\impliedby x^2 \expe^{1/x} - \expe^{x} > 0 \\
+    &\impliedby x^2 \expe^{1/x} > \expe^{x} \\
+    &\impliedby \frac{\exp \, \{ 1/x \}}{1/x^2} > \exp \, \{ \frac{1/x}{1/x^2} \} \\
+    &\impliedby \frac{\exp \, \{ \beta_1 x + \beta_2 x\}}{\beta_1 + \beta_2} > \expe \, \{ \frac{\beta_1 x + \beta_2 x}{\beta_1 + \beta_2} \} \label{eq:3-5-98}
+\end{align}
+不等式\ref{eq:3-5-98}由函数$\exp$的凸性得到保证．当$x > 1$时，令$t = \displaystyle\frac{1}{x}$，则有
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} \left(1-x\right)\left(x^2 \expe^{1/x} - \expe^x\right) > 0  \\
+    &\impliedby x^2 \expe^{1/x} - \expe^{x} < 0 \\
+    &\impliedby \frac{1}{t^2} \expe^t - \expe^{1/t} < 0 \\
+    &\impliedby \expe^t - t^2 \expe^ - t^2 \expe^{1/t} < 0 \\
+    &\impliedby t^2 \expe^{1/t} - \expe^t > 0. \label{eq:3-5-103}
+\end{align}
+而不等式\ref{eq:3-5-103}正好是已经证明过的情形．\qed\bigskip
