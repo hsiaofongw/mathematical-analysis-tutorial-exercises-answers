@@ -485,3 +485,36 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     f(x) = C - \arctan \, x = \frac{\pi}{4} - \arctan \, x
 \end{equation}
 这样我们就知道了最小值为$f(1) = \displaystyle\frac{\pi}{4} - \arctan \, 1 = 0$，最大值为$f(0) = \displaystyle\frac{\pi}{4} - \arctan \, 0 = \displaystyle\frac{\pi}{4}$．\qed\bigskip
+
+10. 质量为$W$的物体放在一粗糙的平面上，对它施加一个力以克服摩擦，使它在平面上滑动．设摩擦系数为$\mu$，问该力与水平面成何角度，方可使力最小？
+
+\solve 设施加的力的大小是$F$，与平面的夹角为$\theta$，设摩擦力为$F_{R}$，设重力为$F_{G}$，设$g$是重力加速度，于是我们有
+\begin{equation}
+    \begin{cases}
+        F_{G} = Wg \\
+        F_{R} = \mu \left(Wg - F \sin \, \theta\right) 
+    \end{cases}
+\end{equation}
+要让拉力刚好抵消摩擦力，应有
+\begin{equation}
+    F_{R} = F \cos \, \theta \implies F \cos \, \theta = \mu Wg - \mu F \sin \, \theta \implies F = \frac{\mu W g}{\cos \theta + \mu \sin \, \theta}
+\end{equation}
+最小化$F$等价于最大化$\cos \, \theta + \mu \sin \, \theta$，令$g(\theta) = \cos \, \theta + \mu \sin \, \theta$，对$g$求导得
+\begin{equation}
+    g^{\prime}(\theta) = - \sin \, \theta + \mu \cos \, \theta
+\end{equation}
+对$g^{\prime}$置零得
+\begin{equation}
+    - \sin \, \theta + \mu \cos \, \theta = 0 \implies \mu = \frac{\sin \, \theta}{\cos \, \theta} = \tan \, \theta
+\end{equation}
+由此得$\theta = \arctan \, \mu$，又因为
+\begin{equation}
+    g^{\prime\prime}(\theta) = - \cos \, \theta - \mu \sin \, \theta < 0
+\end{equation}
+所以$\theta = \arctan \, \mu$是极大值点．所以当$\theta = \arctan \, \mu$时力$F$最小．\qed\bigskip
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{chapter3/force.png}
+    \caption{题10受力分析图}
+\end{figure}
