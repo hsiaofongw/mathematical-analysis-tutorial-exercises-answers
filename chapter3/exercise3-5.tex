@@ -371,3 +371,74 @@ f^{\prime}(x_2) = \displaystyle\frac{f(x_0)-f(x_1)}{x_0-x_1} \geq 0
     &\impliedby t^2 \expe^{1/t} - \expe^t > 0. \label{eq:3-5-103}
 \end{align}
 而不等式\ref{eq:3-5-103}正好是已经证明过的情形．\qed\bigskip
+
+9. 求下列函数的最大值和最小值：
+\begin{tasks}(2)
+    \task $f(x) = x^4 - 2x^2 + 5 \; (\left| x \right| \leq 2)$; 
+    \task $f(x) = \left(\sin \, 2x\right) - x \; \left( \left| x \right| \leq \pi / 2\right)$;
+    \task $f(x) = x \ln \, x \; \left(x > 0\right)$;
+    \task $f(x) = x^2 - 3x + 2 \; \left(x \in \real\right)$;
+    \task $f(x) = \left| x^2 - 3x + 2 \right| \left(\left| x \right| \leq 10\right)$;
+    \task $f(x) = \arctan \, \displaystyle\frac{1-x}{1+x} \; \left(0 \leq x \leq 1\right)$.
+\end{tasks}
+
+(1) \solve 令$x(t)=\sqrt{t}$，问题等价于求
+\begin{equation}
+    f(x(t)) = t^2 - 2t + 5, \quad \left(0 \leq t \leq 4\right)
+\end{equation}
+的最值．先考虑边界点$t = 0$与$t=4$：
+\begin{equation}
+    f(x(0)) = 5, \quad f(x(4)) = 13
+\end{equation}
+求$f \circ x$关于$t$的导数得
+\begin{equation}
+    \left(f \circ x\right)^{\prime} (t) = 2t - 2 \implies \left(f \circ x\right)^{\prime} (1) = 0
+\end{equation}
+再求$f \circ x$关于$t$的二阶导数得
+\begin{equation}
+    \left(f \circ x\right)^{\prime\prime} = 2 > 0
+\end{equation}
+可知$t = 1$是$f \circ x$的极小值点．故极小值为
+\begin{equation}
+    f(x(1)) = 1 - 2 + 5 = 4
+\end{equation}
+比较可知极大值为$f(x(4))=13$．\qed\bigskip
+
+(2) \solve 令$t = 2x$，问题等价于求
+\begin{equation}
+    g(t) = \left(\sin \, t\right) - \frac{t}{2}, \quad \left(-\pi \leq t \leq \pi\right)
+\end{equation}
+的最值．为判断$g$的增减性们求导：
+\begin{equation}
+    g^{\prime}(t) = \left(\cos \, t\right) - \frac{1}{2} 
+\end{equation}
+由此可知
+\begin{equation}
+g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 1/2, \quad g^{\prime\prime}(\pi/2) = -1/2, \quad g^{\prime}(\pi) = -3/2
+\end{equation}
+由此可知，存在$x_0 \in (-\pi / 2, 0), x_1 \in (0, \pi / 2)$使得$g^{\prime}(x_0) = 0, g^{\prime}(x_1) = 0$，并且由$\cos$的严格单调性可知这样的$x_0, x_1$是唯一的．由三角函数的性质
+\begin{equation}
+-1 < \sin \, x_0 < 0, \quad 0 < \sin \, x_1 < 1
+\end{equation}
+故
+\begin{equation}
+-1/2 < g(x_0) < 1/2, \quad 1/2 < g(x_1) < 3/2
+\end{equation}
+而
+\begin{equation}
+    g(-\pi) = -\pi / 2, \quad g(\pi) = \pi / 2
+\end{equation}
+显然$\pi/2 > 3/2$故$g(\pi) = \pi/2$为最大值，而又由于$-\pi/2 < -1/2$，故$g(-\pi) = -\pi/2$为最小值．\qed\bigskip
+
+(3) \solve 求导得
+\begin{align}
+    f^{\prime}(x) &= \left(\ln \, x\right) + 1 \\
+    f^{\prime\prime}(x) &= \frac{1}{x} > 0, \quad (x > 0)
+\end{align}
+由对数函数的性质可知$\ln \, \left(\expe^{-1}\right) = - \ln \, \expe = -1$可知$f^{\prime}(\expe^{-1}) = -1 + 1 = 0$，可知$x = \expe^{-1}$是$f^{\prime}(x) = 0$的一个解．又因为$f^{\prime\prime}$严格大于$0$，可知$f^{\prime}$有严格单调性，从而$x=\expe^{-1}$是$f^{\prime}$的唯一实根．又因为$f^{\prime\prime}(\expe^{-1}) > 0$可知$x = \expe^{-1}$是$f$的一个极小值点．
+
+又因为
+\begin{equation}
+    \lim_{x \to 0^+} x \ln \, x = 0, \quad \lim_{x \to +\infty} x \ln \, x = +\infty
+\end{equation}
+并且$f(\expe^{-1}) = \expe^{-1} \ln \, \left(\expe^{-1}\right) = -\expe^{-1} < 0$，可知$f$的最下值是$f(\expe^{-1}) = -\expe^{-1}$，而最大值为$+\infty$（或不存在）．\qed\bigskip
