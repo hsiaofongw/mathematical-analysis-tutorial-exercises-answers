@@ -698,3 +698,47 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     \sum_{i=1}^n \left(x^\star - x_i\right)^2 = n f \left(x^\star - \frac{1}{n} \displaystyle\sum_{i=1}^n x_i\right)
 \end{equation}
 我们发现当$x^\star = \displaystyle\frac{1}{n} \sum_{i=1}^n x_i$时$\displaystyle\sum_{i=1}^n \left(x^\star - x_i\right)^2 = 0$，所以$x^\star = \displaystyle\frac{1}{n} \displaystyle\sum_{i=1}^n x_i$，并且当$x = x^\star$时函数$\displaystyle\sum_{i=1}^n \left(x - x_i\right)^2$取得最小值$0$．\qed\bigskip
+
+16. 求出使得不等式$a^x \geq x^a \; (x > 0)$成立的一切正数$a$．
+
+\solve 周知：
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} a^x \geq x^a \\
+    &\impliedby \exp \, \{ x \ln \, a \} \geq \exp \, \{ a \ln \, x \} \\
+    &\impliedby x \ln \, a \geq a \ln \, x \\
+    &\impliedby x \ln \, a - a \ln \, x \geq 0 \\
+    &\impliedby \min \, \{ x \ln \, a - a \ln \, x \} \geq 0
+\end{align}
+令$f(x) = x \ln \, a - a \ln \, x$，我们去讨论$f$的最值．先对它求导：
+\begin{equation}
+    f^{\prime} (x) = \ln \, a - \frac{a}{x}
+\end{equation}
+对该导数置零得
+\begin{equation}
+    f^{\prime} (x^\star) = 0 \iff x^\star = \frac{a}{\ln \, a}
+\end{equation}
+再求导，得
+\begin{equation}
+    f^{\prime\prime} (x) = \frac{a}{x^2} > 0 \, \quad (x > 0)
+\end{equation}
+由此可知这个$x^\star$是一个极小值点，并且由二阶导数的知识，我们知道对一切$x < x^\star$，都有$f^{\prime}(x) < 0$，对一切$x > x^\star$，都有$f^{\prime}(x)>0$，所以这个$x^\star$还是个最小值点．
+代入$f$的表达式得
+\begin{equation}
+    f(x^\star) = a \left(1 - \ln \, \left(\displaystyle\frac{a}{\ln \, a}\right)\right)
+\end{equation}
+由于我们希望$\min \, f \geq 0$，所以要
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} f(x^\star) = a \left(1 - \ln \, \left(\displaystyle\frac{a}{\ln \, a}\right)\right) \geq 0 \\
+    &\impliedby 1 \geq \ln \, \left(\displaystyle\frac{a}{\ln \, a}\right) \\
+    &\impliedby \expe \geq \displaystyle\frac{a}{\ln \, a}, \; \frac{a}{\ln \, a} > 0 \\
+    &\impliedby \expe \geq \displaystyle\frac{a}{\ln \, a}, \; a > 1
+\end{align}
+令$g(a) = \displaystyle\frac{a}{\ln \, a}$，我们透过观察得知$g(\expe) = \expe$，现在要看如果$a$不等于$\expe$那么$g(a)$会如何，对$g$求导：
+\begin{equation}
+    g^{\prime}(a) = \frac{1}{\ln \, a}\left(1- \frac{1}{\ln \, a}\right)
+\end{equation}
+从而得知$g^{\prime}(\expe) = 0$，这样的话这个$\expe$还是$g$的一个极值点，对$g^{\prime}$求导：
+\begin{equation}
+    g^{\prime\prime}(a) = -\frac{1}{a} \cdot \frac{1}{\left( \ln \, a\right)^2} \left(1 - \frac{2}{\ln \, a}\right)
+\end{equation}
+由此可知$g^{\prime\prime}(\expe) > 0$，从而$\expe$是$g$的一个极小值点，并且还可以看出$g^{\prime\prime}$的唯一一个零点在$\expe^2$，也就是说在$1 < a < \expe^2$这个范围内都是$g^{\prime\prime}(a)> 0$，所以可以说$\expe$是$(1,\expe^2)$这个范围内唯一使得$g^{\prime}$取$0$的点，所以在$(1,\expe^2)$范围内如果$a \neq \expe$那么$g$一定会大于$\expe$，这就与$\expe \geq g(a) = \displaystyle\frac{a}{\ln \, a}$违背了．那么在$(\expe^2, +\infty)$有否一点$a$使得$\expe \geq g(a)$呢？我们知道当$a > \expe^2$时会有$g^{\prime}(a) > 0$，而$g(\expe^2) = \frac{\expe^2}{2} > \expe$，所以对一切$a \in (\expe^2, +\infty)$都有$g(a) > \expe$，所以更不可能在$(\expe^2, +\infty)$找到能使得$\expe \geq g(a) = \displaystyle\frac{a}{\ln \, a}$的点了，所以只有唯一一个数也就是只有当$a = \expe$时$\expe \geq \displaystyle\frac{a}{\ln \, a}$成立．\qed\bigskip
