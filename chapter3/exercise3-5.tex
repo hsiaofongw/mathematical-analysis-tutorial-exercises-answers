@@ -742,3 +742,21 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     g^{\prime\prime}(a) = -\frac{1}{a} \cdot \frac{1}{\left( \ln \, a\right)^2} \left(1 - \frac{2}{\ln \, a}\right)
 \end{equation}
 由此可知$g^{\prime\prime}(\expe) > 0$，从而$\expe$是$g$的一个极小值点，并且还可以看出$g^{\prime\prime}$的唯一一个零点在$\expe^2$，也就是说在$1 < a < \expe^2$这个范围内都是$g^{\prime\prime}(a)> 0$，所以可以说$\expe$是$(1,\expe^2)$这个范围内唯一使得$g^{\prime}$取$0$的点，所以在$(1,\expe^2)$范围内如果$a \neq \expe$那么$g$一定会大于$\expe$，这就与$\expe \geq g(a) = \displaystyle\frac{a}{\ln \, a}$违背了．那么在$(\expe^2, +\infty)$有否一点$a$使得$\expe \geq g(a)$呢？我们知道当$a > \expe^2$时会有$g^{\prime}(a) > 0$，而$g(\expe^2) = \frac{\expe^2}{2} > \expe$，所以对一切$a \in (\expe^2, +\infty)$都有$g(a) > \expe$，所以更不可能在$(\expe^2, +\infty)$找到能使得$\expe \geq g(a) = \displaystyle\frac{a}{\ln \, a}$的点了，所以只有唯一一个数也就是只有当$a = \expe$时$\expe \geq \displaystyle\frac{a}{\ln \, a}$成立．\qed\bigskip
+
+17. 设函数$f$在$[a,b]$上连续，导函数$f^\prime$在$(a,b)$上递增．求证：对任何$x \in [a,b]$，有
+\begin{equation*}
+    (b-x)f(a)+(x-a)f(b) \geq (b-a)f(x)
+\end{equation*}
+
+\prove 对每一个$x \in [a,b]$，都存在唯一的$t \in [0,1]$与之对应，使得
+\begin{equation}
+    x = a + (b-a)t
+\end{equation}
+去寻求使待证成立的条件：
+\begin{align}
+    &\mathrel{\phantom{\impliedby}} (b-x)f(a)+(x-a)f(b) \geq (b-a)f(x) \\
+    &\impliedby (1-t)(b-a)f(a)+t(b-a)f(b) \geq (b-a)f(a+t(b-a)) \\
+    &\impliedby (1-t)f(a) + t f(b) \geq f((1-t)a+t b) \\
+    &\impliedby \frac{\left(1-t\right)f(a) + t f(b)}{1-t+t} \geq f \left(\frac{\left(1-t\right) a + t b}{1-t + t}\right)
+\end{align}
+最后一行是Jensen不等式．\qed\bigskip
