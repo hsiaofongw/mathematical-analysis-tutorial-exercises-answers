@@ -626,3 +626,55 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     \phi = \frac{2 \pi}{3} \left(3-\sqrt{6}\right) 
 \end{equation}
 大约是$66.0612$度．\qed\bigskip
+
+14. 设$0 < a < b \leq 2a$．在区间$[a,b]$上讨论双曲线$xy=1$．在该曲线上每一点作切线，它与横轴及两条平行直线$x=a,x=b$围成一个梯形．问这条切线位于何处，才能使梯形的面积最大？
+
+\solve 首先作图，步骤如下：
+\begin{tasks}(1)
+    \task 任取$a \in \real^{+}$，描点$A(a,0)$，$C(2a,0)$；
+    \task 任取$b \in (a, 2a]$，描点$B(b,0)$；
+    \task 任取$x \in [a,b]$，描点$F(x,0)$；
+    \task 过点$F$做$x$轴的垂线$k$；
+    \task 做函数图像$\{ (x,y) : xy=1, x > 0\}$记做$f$；
+    \task 设$k,f$交于点$G(x, \displaystyle\frac{1}{x})$，过点$G$做$f$的切线$l$；
+    \task 过点$A$做$x$轴的垂线$h$，过点$B$做$x$轴的垂线$i$，设$l$与$h$交于点$H$，$l$与$i$交于点$I$；
+    \task 过点$I$做$h$的垂线，垂足记为$K$；
+    \task 设$l$与$x$轴交于点$J$．
+\end{tasks}
+
+如图所示：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{chapter3/hyperbola.png}
+    \caption{题14作图结果}
+\end{figure}
+
+切线$l$的斜率为$s = -\displaystyle\frac{1}{x^2}$，于是依几何事实有
+\begin{equation}
+    \frac{\left| HK \right|}{\left| KI \right|} = \left| s \right| \implies \left| HK \right| = \left| s \cdot KI \right| = \frac{b-a}{x^2}
+\end{equation}
+再来求点$J$坐标：
+\begin{equation}
+    \frac{\left| GF \right|}{\left| FJ \right|} = \left| s \right| \implies \left| FJ \right| = \frac{\left| GF \right|}{\left| s \right|} = \frac{\displaystyle\frac{1}{x}}{\displaystyle\frac{1}{x^2}} = x
+\end{equation}
+由此可知$J(2x,0)$，进而得$\left| BJ \right| = 2x - b$，进而得
+\begin{equation}
+    \frac{\left| IB \right|}{\left| BJ \right|} = \left| s \right| \implies \left| IB \right| = \left| s \cdot BJ \right| = \frac{2x-b}{x^2}
+\end{equation}
+于是
+\begin{equation}
+    S(\triangle \mathrm{KIBA}) = \left| IB \right| \cdot \left| AB \right| = \frac{(2x-b)(b-a)}{x^2}
+\end{equation}
+又有
+\begin{equation}
+    S(\triangle \mathrm{HKI}) = \frac{1}{2} \left| HK \right| \cdot \left| KI \right| = \frac{(b-a)^2}{2x^2}
+\end{equation}
+从而有
+\begin{equation}
+    S(\triangle \mathrm{HABI}) = S(\triangle \mathrm{KIBA}) + S(\triangle \mathrm{HKI}) = \frac{b-a}{2} \left(\frac{4}{x} - \frac{a+b}{x^2}\right)
+\end{equation}
+令$t = \displaystyle\frac{1}{x}$，得
+\begin{equation}
+    S(\triangle \mathrm{HABI}) = \frac{b-a}{2} \left(t \left(4  - \left(a+b\right)t\right)\right)
+\end{equation}
+这是一个关于$t$的二次方程，它有最大值点$t = \displaystyle\frac{2}{a+b}$，从而当$x=\displaystyle\frac{a+b}{2}$时矩形$\mathrm{HABI}$的面积得到最大化．\qed\bigskip
