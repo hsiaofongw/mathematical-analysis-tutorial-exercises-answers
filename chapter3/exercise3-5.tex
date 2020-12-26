@@ -678,3 +678,23 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     S(\triangle \mathrm{HABI}) = \frac{b-a}{2} \left(t \left(4  - \left(a+b\right)t\right)\right)
 \end{equation}
 这是一个关于$t$的二次方程，它有最大值点$t = \displaystyle\frac{2}{a+b}$，从而当$x=\displaystyle\frac{a+b}{2}$时矩形$\mathrm{HABI}$的面积得到最大化．\qed\bigskip
+
+15. 对某量作$n$次测量，得到$n$个数据$x_1,x_2,\cdots, x_n$．试求出一数$x^\star$，使得函数$\displaystyle\sum_{i=1}^n \left(x- x_i\right)^2$在$x^\star$处取得最小值．
+
+\solve 令
+\begin{equation}
+    f(x) = x^2
+\end{equation}
+求导得$f^{\prime\prime}(x)=2>0$，所以$f$是凸的，所以
+\begin{equation}
+    \frac{\displaystyle\sum_{i=1}^n 1 \left(x-x_i\right)^2}{\displaystyle\sum_{i=1}^n 1} \geq f \left(\displaystyle\frac{\displaystyle\sum_{i=1}^n 1 \left(x-x_i\right)}{\displaystyle\sum_{i=1}^n 1}\right)
+\end{equation}
+也就是说
+\begin{equation}
+    \sum_{i=1}^n \left( x - x_i\right)^2 \geq n f(x - \frac{1}{n}\displaystyle\sum_{i=1}^n x_i)
+\end{equation}
+现在我们把$x$替换为$x^\star$使等号成立
+\begin{equation}
+    \sum_{i=1}^n \left(x^\star - x_i\right)^2 = n f \left(x^\star - \frac{1}{n} \displaystyle\sum_{i=1}^n x_i\right)
+\end{equation}
+我们发现当$x^\star = \displaystyle\frac{1}{n} \sum_{i=1}^n x_i$时$\displaystyle\sum_{i=1}^n \left(x^\star - x_i\right)^2 = 0$，所以$x^\star = \displaystyle\frac{1}{n} \displaystyle\sum_{i=1}^n x_i$，并且当$x = x^\star$时函数$\displaystyle\sum_{i=1}^n \left(x - x_i\right)^2$取得最小值$0$．\qed\bigskip
