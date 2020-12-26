@@ -803,3 +803,27 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     f^{\prime}(x) &= - \left(- \sin \, x\right) = \sin \, x \geq 0 \, \quad (0 \leq x < \pi)
 \end{align}
 是凸．\qed\bigskip
+
+19. 证明下列不等式，并指明式中等号成立的条件：
+
+\begin{tasks}(1)
+    \task $a^{(x_1+x_2+\cdots+x_n)/n} \leq \left(a^{x_1}+a^{x_2}+\cdots+a^{x_n}\right)/n$但是$a \neq 1$;
+    \task 当$x_1,x_2,\cdots , x_n > 0$时，
+    \begin{equation*}
+        \frac{x_1+x_2+\cdots +x_n}{n} \leq \left(x_1^{x_1}x_2^{x_2}\cdots x_n^{x_n}\right)^{1/\left(x_1+x_2+\cdots+x_n\right)};
+    \end{equation*}
+    \task 设$\lambda_1, \lambda_2, \cdots, \lambda_n > 0$且$\lambda_1 + \lambda_2 + \cdots + \lambda_n = 1$，则对一切$x_i \geq 0 \; (i = 1,2,\cdots,n)$，有
+    \begin{equation*}
+        x_1^{\lambda_1}x_2^{\lambda_2}\cdots x_n^{\lambda_n} \leq \sum_{i=1}^n \lambda_i x_i.
+    \end{equation*}
+\end{tasks}
+
+(1) \prove 依均值不等式，我们有
+\begin{equation}
+    \frac{1}{n}\sum_{i=1}^n a^{x_i} \geq \left(\prod_{i=1}^n a^{x_i}\right)^{1/n} = a^{(x_1+x_2+\cdots +x_n)/n}
+\end{equation}
+等号成立当且仅当对任意$1 \leq i < j \leq n$，都有
+\begin{equation}
+    a^{x_i} = a^{x_j}.
+\end{equation}
+\qed\bigskip
