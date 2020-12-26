@@ -760,3 +760,46 @@ g^{\prime}(-\pi) = -3/2, \quad g^{\prime}(-\pi/2) = -1/2, \quad g^{\prime}(0) = 
     &\impliedby \frac{\left(1-t\right)f(a) + t f(b)}{1-t+t} \geq f \left(\frac{\left(1-t\right) a + t b}{1-t + t}\right)
 \end{align}
 最后一行是Jensen不等式．\qed\bigskip
+
+18. 判断一下函数$f$的凸性：
+
+\begin{tasks}(1)
+    \task $f(x) = x^\mu \; (\mu \geq 1, x \geq 0)$;
+    \task $f(x) = a^x \; (a > 0, x \in \real)$;
+    \task $f(x) = \displaystyle\ln \, \frac{1}{x} \; (x > 0)$;
+    \task $f(x) = x \ln \, x \; \left(x > 0\right)$;
+    \task $f(x) = - \sin \, x \left( 0 \leq x < \pi \right)$.
+\end{tasks}
+
+(1) \prove 求导得
+\begin{equation}
+    f^{\prime}(x) = \mu x^{\mu - 1}, \quad f^{\prime\prime} = \mu \left(\mu - 1\right) x^{\mu - 2}
+\end{equation}
+由于$\mu \geq 1$，所以$\left(\mu - 1\right) \geq 0$，所以$f^{\prime\prime} \geq 0$，所以这个$f$是凸的．\qed\bigskip
+
+(2) \prove 求导得
+\begin{equation}
+    f^{\prime}(x) = a^x \ln \, a, \quad f^{\prime\prime}(x) = a^x \left( \ln \, a\right)^2 > 0
+\end{equation}
+所以说$f$凸．\qed\bigskip
+
+(3) \prove 求导得
+\begin{align}
+    f^{\prime}(x) &= \left( \ln \, \frac{1}{x}\right)^\prime = \displaystyle\frac{1}{\displaystyle\frac{1}{x}} \left(\displaystyle\frac{1}{x}\right)^{\prime} = x \left(- \frac{1}{x^2}\right) = -\frac{1}{x} \\
+    f^{\prime\prime}(x) &= \left(- \displaystyle\frac{1}{x}\right)^{\prime} = - \left(\displaystyle\frac{1}{x}\right)^{\prime} = - \left(- \frac{1}{x^2}\right) = \frac{1}{x^2} > 0
+\end{align}
+是凸的．\qed\bigskip
+
+(4) \prove 求导得
+\begin{align}
+    f^{\prime}(x) &= \left(x \ln \, x\right)^{\prime} = \ln \, x + 1  \\
+    f^{\prime\prime}(x) &= \frac{1}{x} > 0
+\end{align}
+是凸．\qed\bigskip
+
+(5) \prove 求导得
+\begin{align}
+    f^{\prime}(x) &= - \cos \, x \\
+    f^{\prime}(x) &= - \left(- \sin \, x\right) = \sin \, x \geq 0 \, \quad (0 \leq x < \pi)
+\end{align}
+是凸．\qed\bigskip
